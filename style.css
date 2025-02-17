@@ -1035,3 +1035,19 @@ cite {
         font-size: 0.65rem;  /* Texte encore plus petit sur les très petits écrans */
     }
 }
+@media (min-width: 768px) {
+    /* Sur les écrans plus grands (tablettes et plus) */
+    .profile-box {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .photo-left {
+        margin-bottom: 0;
+    }
+
+    .about-right {
+        margin-left: 20px;
+        text-align: left;
+    }
+}
