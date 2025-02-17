@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    
+    <!-- Lien vers AOS (Animate On Scroll) pour les animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <link rel="icon" type="image/PNG" href="ico.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+ 
+</head>
+<body>
+
+
+
+    
+
+    <!-- Barre de navigation -->
+     
+        <!-- Bouton burger -->
+        <div class="menu-toggle">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    
+        <!-- Navigation -->
+        <nav class="nav-links">
+            <a href="#profil">À propos</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#comp">Compétences</a>
+            <a href="#testimonials">Témoignages</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    
+        <script src="script.js"></script>
+
+    <!-- Fond animé -->
+    <header>
+        <br>
+        <br>
+        <h1>Heurtebise Johan</h1>
+        <p>Étudiant en BUT R&T à Blois</p>
+    </header>
+    
+    <!-- Section Photo et À propos -->
+    <div id="profil" class="profil section" data-aos="fade-up">
+
+        <div class="profile-box">
+            <div class="photo-left">
+                <img src="photo1.jpeg" alt="Ma Photo" class="photo">
+                <div class="social-links">
+                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
+                    </a>
+                    <a href="https://twitter.com" target="_blank">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" height="24">
+                    </a>
+                    <a href="mailto:johanheurtebise@frstud.fr">
+                        <img src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/mail.svg" alt="Email" width="29" height="29">
+                      </a>
+                </div>
+            </div>
+    
+            <div class="about-right">
+                <h2>À propos de moi</h2>
+                <p>Je suis un étudiant passionné par les technologies et les réseaux, avec une envie constante d'apprendre et de développer des solutions innovantes. Mon travail consiste à explorer les avancées du domaine tout en relevant des défis techniques.</p>
+            </div>
+            <a href="fichier.pdf" class="download-btn" download target="_blank">
+                📥 Mon CV
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Portfolio -->
+    <div id="portfolio" class="portfolio section" data-aos="fade-up">
+        <h2>Portfolio</h2>
+
+        <div class="projects-container">
+            <div class="project-box" data-aos="fade-right">
+                <img src="sae1.jpg" alt="Projet 1">
+                <div class="project-text">
+                    <h3>Projet - Sensibilisation à l'hygiène informatique</h3>
+                    <br>
+                    <p>Dans le cadre de notre projet en S1 de BUT R&T, nous avons abordé les fondamentaux de l’hygiène 
+                        informatique, la sécurité des données et les bonnes pratiques à adopter sur Internet. Nous avons ensuite 
+                        présenté ces éléments essentiels à un jury, en mettant l’accent sur les gestes à adopter dans le contexte
+                        d’une entreprise. Pour préparer cette présentation, nous avons suivi la certification MOOC de l’ANSSI, qui 
+                        nous a permis d’être sensibilisés aux bonnes pratiques à adopter. 
+                    </p>
+                    <br>
+                    <a href="SAE101-Présentation.pdf" class="download-btn" download target="_blank">
+                        📥 PowerPoint
+                    </a>
+                </div>
+            </div>
+            <div class="project-box" data-aos="fade-left">
+                <img src="cisco2.PNG" alt="Projet 2">
+                <div class="project-text">
+                    <h3>Projet - S’initier aux réseaux informatiques</h3>
+                    <br>
+                    <p>Dans le cadre de notre projet d’initiation aux réseaux informatiques, nous avons exploré le réseau de 
+                       l’IUT ainsi qu’un réseau domestique. Nous avons analysé les différents aspects de ces réseaux et les 
+                       avons modélisés à l’aide de Cisco Packet Tracer. Nous avons ensuite présenté l’un des réseaux lors d’une 
+                       soutenance. Ce projet m’a permis de mieux comprendre le fonctionnement des réseaux, d’approfondir mes 
+                       connaissances sur les outils de simulation et de renforcer mes compétences en modélisation et en 
+                       présentation technique.</p>
+                    <br>
+                    <a href="Réseau12_Heurtebise_Johan.zip" class="download-btn" download target="_blank">
+                        📥 Fichier Cisco
+                    </a>
+                </div>
+            </div>
+            <div class="project-box" data-aos="fade-right">
+                <img src="sae3.png" alt="Projet 3">
+                <div class="project-text">
+                    <h3>Projet - Etude d'un dispositif de transmission</h3>
+                    <br>
+                    <p> Dans le cadre de notre projet en S1 de BUT R&T, nous avons étudié la transmission des signaux sur un 
+                        câble Ethernet. Nous avons analysé les signaux sur des câbles de 10, 20 et 30 mètres, puis simulé ces 
+                        longueurs sur une plaquette, en observant avec un oscilloscope des phénomènes tels que l’atténuation, 
+                        l’amplitude et le temps de retard.
+                        Ce projet m’a permis de mieux comprendre l’impact de la distance sur un signal, de me familiariser avec 
+                        l’oscilloscope et d’acquérir une rigueur expérimentale essentielle en télécommunications.</p>
+                    <br>
+                    <a href="SAE103P1P2.zip" class="download-btn" download target="_blank">
+                        📥 Compte rendu
+                    </a>
+                </div>
+            </div>
+            <div class="project-box" data-aos="fade-left">
+                <img src="htmlillustration.jpg" alt="Projet 4">
+                <div class="project-text">
+                    <h3>Projet - Création d'un site web</h3>
+                    <br>
+                    <p>Dans le cadre de notre projet en S1 de BUT R&T, nous avons conçu notre site web personnel en HTML et CSS. 
+                       Ce site, composé de quatre pages en français et en anglais, intégrait des images, une mise en page 
+                       structurée, un formulaire de contact et des liens vers nos réseaux.
+                       Ce projet m’a permis de renforcer mes compétences en développement web, d’apprendre à structurer et 
+                       styliser une page, et de mieux comprendre l’importance de l’ergonomie et de l’accessibilité sur Internet.
+                    </p>
+                    <br>
+                    <a href="SAE104.zip" class="download-btn" download target="_blank">
+                        📥 Site Web
+                    </a>
+                </div>
+            </div>
+            <div class="project-box" data-aos="fade-right">
+                <img src="python.jpg" alt="Projet 5">
+                <div class="project-text">
+                    <h3>Projet - Traiter des données</h3>
+                    <br>
+                    <p>Dans le cadre de notre projet en S1 de BUT R&T, nous avons développé un programme en Python pour analyser 
+                        un fichier de logs d’une messagerie. Nous avons extrait les informations pertinentes et les avons 
+                        affichées dans un fichier texte ainsi que sur un site web avec des graphiques interactifs (Chart.js) 
+                        et des tableaux.
+                        Ce projet m’a permis d’approfondir mes compétences en programmation, en traitement de données et en 
+                        visualisation, tout en découvrant l’intégration entre Python et le web pour présenter des résultats de 
+                        manière claire et dynamique.
+                    </p>
+                    <br>
+                    <a href="SAE105.zip" class="download-btn" download target="_blank">
+                        📥 Fichier Python
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    
+
+    
+
+    <!-- Compétences -->
+
+
+    <div id="comp" class="comp section" data-aos="fade-up"></div>
+        <h2>Compétences</h2>
+
+        <div class="skills-container">
+            <div class="skills-inner">
+                <div class="skill-box">HTML</div>
+                <div class="skill-box">CSS</div>
+                <div class="skill-box">JavaScript</div>
+                <div class="skill-box">PHP</div>
+                <div class="skill-box">Python</div>
+                <div class="skill-box">Node.js</div>
+                <div class="skill-box">React</div>
+                <div class="skill-box">Git</div>
+            </div>
+            
+        </div>
+    
+    <script>
+        // Fonction pour dupliquer les boîtes et créer un carrousel infini
+        const skillContainer = document.querySelector('.skills-inner');
+        const skills = document.querySelectorAll('.skill-box');
+    
+        // Dupliquer les boîtes pour donner l'effet d'infini
+        skills.forEach(skill => {
+            const clone = skill.cloneNode(true);
+            skillContainer.appendChild(clone);
+        });
+    </script>
+
+    <script src="script.js"></script>
+    
+    
+
+    <!-- Témoignages -->
+    <div id="testimonials" class="testimonials section" data-aos="fade-up">
+        <h2>Expériences Professionnels</h2>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <blockquote>
+                        "Stage d'infographiste dans l'entreprise POINTCOM"
+                    </blockquote>
+                    <cite>2021</cite>
+                </div>
+                <div class="swiper-slide">
+                    <blockquote>
+                        "Saisonnier dans une exploitation agricole"
+                    </blockquote>
+                    <cite>2024</cite>
+                </div>
+                <div class="swiper-slide">
+                    <blockquote>
+                        "En recherche de stage / alternance"
+                    </blockquote>
+                    <cite>2025</cite>
+                </div>
+            </div>
+            <!-- Pagination et navigation -->
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var swiper = new Swiper(".swiper-container", {
+                loop: true,
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                    clickable: true
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev"
+                },
+                effect: "fade",
+                fadeEffect: {
+                    crossFade: true
+                }
+            });
+        });
+    </script>
+    
+
+
+
+    <!-- Contact -->
+    <div id="contact" class="contact section" data-aos="fade-up">
+        <h2>Contact</h2>
+        <p>Pour me contacter, envoyez-moi un e-mail à : <a href="mailto:johanheurtebise@frstud.fr">johanheurtebise@frstud.fr</a></p>
+        <p>Ou remplissez ce formulaire :</p>
+        <form action="mailto:johanheurtebise@frstud.fr" method="post" enctype="text/plain" id="contact-form">
+            <input type="text" name="name" id="name" placeholder="Ton Nom" required>
+            <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
+            <input type="text" name="subject" id="subject" placeholder="Objet" required>
+            <textarea name="message" id="message" placeholder="Ton message..." rows="5" required></textarea>
+            <input type="submit" value="Envoyer">
+        </form>
+    </div>
+
+    <!-- Ajout de AOS (Animate On Scroll) -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    
+    <script src="script.js"></script>
+    <script src="particles.js"></script>
+
+
+    
+
+    
+
+
+        
+        
+        
+            
+</body>
+<footer>
+    <p>&copy; 2025 Heurtebise Johan. Tous droits réservés.</p>
+</footer>
+</html>
+ 

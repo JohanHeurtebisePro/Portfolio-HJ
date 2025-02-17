@@ -1,0 +1,1037 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+        .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    text-align: center;
+    position: relative;
+}
+
+.project-box {
+    width: 300px; /* Taille de la boîte */
+    margin: 15px;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Ajout de transition */
+}
+
+.project-box img {
+    width: 100%;
+    height: auto;
+}
+
+.project-box .project-text {
+    padding: 15px;
+}
+
+.project-box:hover {
+    transform: scale(1.1); /* Agrandissement de la boîte */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Effet d'ombre lors du survol */
+}
+
+
+
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+h1 {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid #333; /* curseur */
+    animation: typing 3s steps(50) 1s 1 normal both;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    height: 100vh;
+    overflow-x: hidden;
+    transition: opacity 1s ease-in-out;
+}
+body.loaded {
+    opacity: 1;
+}
+
+/* Barre de navigation fixe */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 1.2em;
+    margin: 0 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #acacac;
+    color: #ffffff; /* couleur du survol */
+    transform: scale(1.1); /* effet de zoom */
+}
+
+
+/* Section photo */
+.photo-section {
+    text-align: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.photo-section img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 4px solid #00bcd4;
+    transition: transform 0.3s ease-in-out;
+}
+
+.photo-section img:hover {
+    transform: scale(1.1);
+}
+
+/* Section à propos */
+.about, .portfolio, .skills, .contact, .testimonials {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+}
+
+/* Titre de chaque section */
+h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color : black;
+
+}
+
+/* Fond des sections */
+.about {
+    background-color: #0cafe6;
+    color: #fff;
+}
+
+.portfolio {
+    background-color: #ffffff;
+}
+
+.skills {
+    background-color: #f4f4f4;
+}
+
+.testimonials {
+    background-color: #eeeeee;
+    padding: 40px;
+    border-radius: 10px;
+}
+
+/* Portfolio */
+.portfolio img {
+    width: 90%;
+    max-width: 500px;
+    margin: 20px;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.portfolio img:hover {
+    transform: scale(1.1);
+}
+
+/* Liste des compétences */
+.skills ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skills li {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.skills .progress-bar {
+    width: 0%;
+    height: 10px;
+    background-color: #0cafe6;
+    margin: 10px 0;
+    transition: width 2s ease-in-out;
+}
+
+.skills .bar-container {
+    background-color: #444;
+    border-radius: 5px;
+}
+
+/* Témoignages */
+.testimonials blockquote {
+    font-size: 1.3em;
+    margin: 20px;
+    font-style: italic;
+}
+
+.testimonials cite {
+    font-size: 1.1em;
+    display: block;
+    margin-top: 10px;
+    color: #00bcd4;
+}
+
+/* Contact */
+/* Style général de la section contact */
+.contact {
+    padding: 40px 20px;
+    background-color: #ececece9;
+    color: #f1f1f1;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 50px auto;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Animation de la section lors du chargement */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Style des liens */
+.contact a {
+    color: #555555;
+    text-decoration: none;
+    font-size: 1.5em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact a:hover {
+    color: #0cafe6;
+    transform: scale(1.1);
+}
+
+/* Formulaire */
+form {
+    display: grid;
+    gap: 15px;
+    text-align: left;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #dfdfdf;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    animation: formSlideIn 1s ease-out;
+}
+
+/* Animation de l'apparition du formulaire */
+@keyframes formSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Style des champs du formulaire */
+input, textarea {
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background-color: #fff;
+    color: #333;
+    font-size: 1.1em;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    border-color: #0cafe6;
+    transform: scale(1.02);
+    outline: none;
+}
+
+/* Bouton d'envoi */
+input[type="submit"] {
+    background-color: #0cafe6;
+    color: #fff;
+    cursor: pointer;
+    padding: 12px 20px;
+    font-size: 1.1em;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0288d1;
+    transform: translateY(-3px);
+}
+
+/* Animation du formulaire et des champs au focus */
+input[type="submit"]:focus {
+    transform: translateY(-3px);
+}
+
+/* Animation de défilement */
+.section {
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeIn 1.5s forwards;
+}
+
+.section:nth-child(odd) {
+    animation-delay: 0.5s;
+}
+
+.section:nth-child(even) {
+    animation-delay: 1s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Portfolio - Projets */
+/* Conteneur principal des projets */
+.projects-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding: 20px;
+}
+
+/* Boîte individuelle pour chaque projet */
+.project-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1000px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+}
+
+/* Effet de grossissement et ombre au survol */
+.project-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background: rgba(240, 240, 240, 0.9);
+}
+
+/* Ajout d'une animation subtile au chargement */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Application de l'animation */
+.project-box {
+    animation: fadeInUp 0.6s ease-in-out;
+}
+
+/* Effet d'animation de l'image */
+.project-box img {
+    width: 50%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px 0 0 12px;
+    transition: transform 0.5s ease;
+}
+
+/* Zoom sur l'image au survol */
+.project-box:hover img {
+    transform: scale(1.1);
+}
+
+/* Texte du projet */
+.project-text {
+    width: 50%;
+    padding: 30px;
+    text-align: left;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Déplacement du texte au survol */
+.project-box:hover .project-text {
+    transform: translateX(10px);
+    opacity: 0.95;
+}
+
+/* Alternance de disposition pour chaque projet */
+.project-box:nth-child(odd) {
+    flex-direction: row;
+}
+
+.project-box:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+/* Animation légère d'apparition sur le texte */
+@keyframes fadeInText {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-text h3, .project-text p {
+    animation: fadeInText 0.8s ease-in-out;
+}
+
+/* Responsive : Adaptation sur petits écrans */
+@media (max-width: 768px) {
+    .project-box {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .project-box img {
+        width: 100%;
+        height: auto;
+        border-radius: 12px 12px 0 0;
+    }
+
+    .project-text {
+        width: 100%;
+        padding: 20px;
+    }
+
+    /* Effet de déplacement désactivé sur mobile */
+    .project-box:hover .project-text {
+        transform: none;
+    }
+}
+/* Compétences - Rectangles avec images et compétences */
+.skills-container {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+.skill-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    min-width: 250px;
+    height: 120px;
+}
+
+.skill-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.skill-box img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.skill-box h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+/* Animation de défilement des compétences */
+.skill-box[data-aos="fade-right"] {
+    animation: fadeInRight 1.5s ease-out forwards;
+}
+
+.skill-box[data-aos="fade-left"] {
+    animation: fadeInLeft 1.5s ease-out forwards;
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    nav a {
+        font-size: 1.2em;
+        padding: 12px;
+    }
+
+    .portfolio img {
+        width: 100%;
+    }
+
+    .skills .progress-bar {
+        height: 8px;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    .skills-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .skill-box {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+}
+
+/* Centrage du header */
+header {
+    text-align: center;
+    margin-top: 50px;
+}
+
+header h1 {
+    font-size: 3em;
+    color: #333;
+}
+
+header p {
+    font-size: 1.5em;
+    color: #777;
+}
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-links {
+    margin-top: 10px;
+}
+
+footer .social-links a {
+    color: #fff;
+    margin: 0 15px;
+    text-decoration: none;
+}
+
+footer .social-links a:hover {
+    color: #4CAF50;
+}
+
+/* Réinitialisation */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Style du menu burger */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.bar {
+    width: 30px;
+    height: 4px;
+    background-color: black;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Navbar cachée par défaut */
+.nav-links {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Cache la navbar */
+    width: 250px;
+    height: 100vh;
+    background-color: #6e6e6ee9;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: left 0.4s ease-in-out;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+/* Quand le menu est actif */
+.nav-active {
+    left: 0;
+}
+
+/* Apparition des liens */
+.nav-active a {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animation du menu burger -> croix */
+.toggle .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: white;
+}
+
+.toggle .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.toggle .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: white;
+}
+
+.profile-box {
+    display: flex;
+    align-items: flex-start;
+    border: 2px solid #ddd;
+    padding: 50px 20px; /* Augmenter le padding vertical */
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    min-height: 220px; /* Augmenter la hauteur minimum de la box */
+}
+
+.profile-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.photo-left {
+    flex: 1;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.photo-left:hover {
+    transform: scale(1.05);
+}
+
+.photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.photo:hover {
+    transform: scale(1.1);
+}
+
+.social-links a {
+    margin: 5px;
+    text-decoration: none;
+    color: #0cafe6;
+    font-size: 1.2em;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+    transform: translateY(-2px);
+    
+}
+
+.about-right {
+    flex: 2;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+}
+.download-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(45deg, #b8b8b8, #b8b8b8);
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.download-btn:hover {
+    background: linear-gradient(45deg, #0cafe6, #0cafe6);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.download-btn:active {
+    transform: scale(0.95);
+}
+
+/* Effet d'onde au clic */
+.download-btn::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.download-btn:active::after {
+    opacity: 1;
+}
+.testimonials {
+    text-align: center;
+    max-width: 800px;
+    margin: auto;
+    padding: 50px 20px;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    margin: 20px 0;
+}
+
+cite {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.swiper-slide {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+/* Fond de la section */
+.skills {
+    background: #f5f5f5; /* Gris très clair */
+    text-align: center;
+    padding: 50px 0;
+}
+
+/* Titre */
+.skills h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #222;
+}
+
+/* Conteneur des compétences */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-box {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(0.8);
+    opacity: 0;
+    animation: fadeInUp 1s forwards;
+}
+
+.skill-box:nth-child(1) { animation-delay: 0.2s; }
+.skill-box:nth-child(2) { animation-delay: 0.4s; }
+.skill-box:nth-child(3) { animation-delay: 0.6s; }
+.skill-box:nth-child(4) { animation-delay: 0.8s; }
+.skill-box:nth-child(5) { animation-delay: 1s; }
+.skill-box:nth-child(6) { animation-delay: 1.2s; }
+.skill-box:nth-child(7) { animation-delay: 1.4s; }
+.skill-box:nth-child(8) { animation-delay: 1.6s; }
+
+@keyframes fadeInUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.skills-container {
+    display: flex;
+    overflow: hidden;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Conteneur interne des éléments */
+.skills-inner {
+    display: flex;
+    gap: 20px;
+    animation: scrollSkills 20s linear infinite; /* Animation de défilement continue */
+}
+
+/* Style des boîtes de compétences */
+.skill-box {
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    padding: 15px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Effet de survol pour les boîtes */
+.skill-box:hover {
+    transform: scale(1.1);
+    background-color: #0cafe6;
+    color: white;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Animation de fade-in */
+.skill-box {
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Animation de défilement continu */
+@keyframes scrollSkills {
+    0% {
+        transform: translateX(0); /* Position initiale */
+    }
+    100% {
+        transform: translateX(-50%); /* Déplace tous les éléments vers la gauche */
+    }
+}
+/* Adaptation pour les téléphones */
+@media (max-width: 768px) {
+    .projects-container {
+        justify-content: center;  /* Centrer les éléments */
+    }
+
+    .project-box {
+        width: 100%;  /* Les projets prennent toute la largeur sur les petits écrans */
+    }
+
+    .project-box img {
+        max-height: 200px;  /* Limiter la hauteur des images */
+    }
+
+    /* Forcer la disposition en colonne : image au-dessus, texte en dessous */
+    .project-box {
+        display: block;
+    }
+
+    .project-text {
+        font-size: 0.9rem;  /* Réduire légèrement la taille du texte pour s'adapter aux écrans plus petits */
+        margin-top: 10px;  /* Espacement entre l'image et le texte */
+    }
+}
+
+/* Adaptation pour les écrans très petits (comme les téléphones verticaux) */
+@media (max-width: 480px) {
+    .project-text {
+        font-size: 0.8rem;  /* Texte encore plus petit pour les très petits écrans */
+    }
+
+    .project-box img {
+        max-height: 180px;  /* Réduire davantage la taille des images */
+    }
+}
+@media (max-width: 768px) {
+    .skills-container {
+        justify-content: center;  /* Centrer les compétences */
+        
+    }
+
+    .skill-box {
+        width: 12px;  /* Largeur réduite pour téléphone */
+        height: 12px;  /* Hauteur réduite pour téléphone */
+    }
+
+    .skill-box img {
+        width: 30px;  /* Réduire la taille des icônes pour téléphone */
+        height: 30px;
+    }
+
+    .skill-title {
+        font-size: 0.9rem;  /* Ajuster la taille du titre pour téléphone */
+    }
+
+    .skill-description {
+        font-size: 0.75rem;  /* Réduire la taille du texte pour téléphone */
+    }
+}
+
+/* Adaptation pour les écrans très petits (comme les téléphones verticaux) */
+@media (max-width: 480px) {
+    .skill-box {
+        width: 10px;  /* Taille encore plus petite pour très petits écrans */
+        height: 10px;  /* Taille encore plus petite pour très petits écrans */
+    }
+
+    .skill-box img {
+        width: 25px;  /* Réduire encore la taille des icônes */
+        height: 25px;
+    }
+
+    .skill-title {
+        font-size: 0.8rem;  /* Titre plus petit pour les très petits écrans */
+    }
+
+    .skill-description {
+        font-size: 0.65rem;  /* Texte encore plus petit sur les très petits écrans */
+    }
+}
