@@ -1040,6 +1040,12 @@ cite {
     .photo-left img {
         width: 25%;
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
 
 }
 
@@ -1065,6 +1071,12 @@ cite {
     .photo-left img {
         width: 25%;
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
 
 }
 @media (min-width: 768px) {
@@ -1082,6 +1094,12 @@ cite {
     .about-right {
         margin-left: 20px;
         text-align: left;
+    }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
 }
 @media screen and (max-width: 768px) {
@@ -1143,16 +1161,34 @@ cite {
     #contact-form input, #contact-form textarea {
         width: 90%;
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
 }
 @media only screen and (max-width: 768px) {
     .mobile-only {
       display: block;
+    }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
   }
   
   @media only screen and (min-width: 769px) {
     .mobile-only {
       display: none;
+    }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
   }
   .social-links {
@@ -1168,6 +1204,12 @@ cite {
         width: 32px; /* Augmente la taille des icônes */
         height: 32px;
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
 }
 html, body {
     
@@ -1180,6 +1222,12 @@ html, body {
   
     .container {
       padding: 10px;
+    }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     }
   }
   html, body {
