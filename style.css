@@ -1234,3 +1234,18 @@ html, body {
     width: 100%;
     overflow-x: hidden;
 }
+
+@media (max-width: 1024px) { /* Tablettes et téléphones */
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .skills-container {
+        overflow-x: scroll;
+        white-space: nowrap;
+        display: none;
+    }
+}
