@@ -81,7 +81,7 @@ body {
     background-color: #f4f4f4;
     color: #333;
     margin: 0;
-    height: 100vh;
+    height: 100%;
     overflow-x: hidden;
     transition: opacity 1s ease-in-out;
 }
@@ -1044,6 +1044,7 @@ cite {
 
     .photo-left {
         margin-bottom: 0;
+        width: 25%;
     }
 
     .about-right {
@@ -1127,10 +1128,28 @@ cite {
     align-items: center; /* Alignement vertical */
     justify-content: center; /* Centre les icônes */
     flex-wrap: nowrap; /* Empêche le retour à la ligne */
+    
 }
 @media (max-width: 600px) { 
     .social-links img {
         width: 32px; /* Augmente la taille des icônes */
         height: 32px;
     }
+}
+html, body {
+    
+    width: 100%;
+}
+@media (max-width: 480px) {
+    body {
+      font-size: 14px;
+    }
+  
+    .container {
+      padding: 10px;
+    }
+  }
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
 }
