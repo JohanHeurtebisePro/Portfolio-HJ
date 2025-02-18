@@ -1248,4 +1248,8 @@ html, body {
         white-space: nowrap;
         display: none;
     }
+    .photo {
+        width: 25%;
+    }
+    
 }
