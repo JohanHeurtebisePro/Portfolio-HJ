@@ -1085,7 +1085,7 @@ cite {
     }
 
     .photo-left img {
-        width: 80%;
+        width: 25%;
     }
 
     .projects-container {
@@ -1121,4 +1121,16 @@ cite {
       display: none;
     }
   }
-  
+  .social-links {
+    display: flex;
+    gap: 10px; /* Espacement entre les icônes */
+    align-items: center; /* Alignement vertical */
+    justify-content: center; /* Centre les icônes */
+    flex-wrap: nowrap; /* Empêche le retour à la ligne */
+}
+@media (max-width: 600px) { 
+    .social-links img {
+        width: 32px; /* Augmente la taille des icônes */
+        height: 32px;
+    }
+}
