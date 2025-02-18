@@ -572,6 +572,8 @@ input[type="submit"]:focus {
     .skills-container {
         flex-direction: column;
         align-items: center;
+        display: none;
+
     }
 
     .skill-box {
@@ -910,6 +912,7 @@ cite {
 .skills-inner {
     display: flex;
     gap: 20px;
+    text-align: center;
     animation: scrollSkills 20s linear infinite; /* Animation de défilement continue */
 }
 
@@ -917,7 +920,7 @@ cite {
 .skill-box {
     background-color: #f0f0f0;
     border-radius: 8px;
-    padding: 15px 25px;
+    padding: 25px 25px;
     font-size: 16px;
     font-weight: 600;
     color: #333;
@@ -928,7 +931,7 @@ cite {
 
 /* Effet de survol pour les boîtes */
 .skill-box:hover {
-    transform: scale(1.1);
+    transform: scale(0.9);
     background-color: #0cafe6;
     color: white;
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -978,6 +981,16 @@ cite {
         font-size: 0.9rem;  /* Réduire légèrement la taille du texte pour s'adapter aux écrans plus petits */
         margin-top: 10px;  /* Espacement entre l'image et le texte */
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+    .photo-left img {
+        width: 25%;
+    }
+
 }
 
 /* Adaptation pour les écrans très petits (comme les téléphones verticaux) */
@@ -989,10 +1002,21 @@ cite {
     .project-box img {
         max-height: 180px;  /* Réduire davantage la taille des images */
     }
+    .skill-box:hover {
+        transform: scale(0.8);
+        background-color: #0cafe6;
+        color: white;
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    }
+    .photo-left img {
+        width: 25%;
+    }
+
 }
 @media (max-width: 768px) {
     .skills-container {
         justify-content: center;  /* Centrer les compétences */
+        display: none;
         
     }
 
@@ -1013,6 +1037,10 @@ cite {
     .skill-description {
         font-size: 0.75rem;  /* Réduire la taille du texte pour téléphone */
     }
+    .photo-left img {
+        width: 25%;
+    }
+
 }
 
 /* Adaptation pour les écrans très petits (comme les téléphones verticaux) */
@@ -1034,6 +1062,10 @@ cite {
     .skill-description {
         font-size: 0.65rem;  /* Texte encore plus petit sur les très petits écrans */
     }
+    .photo-left img {
+        width: 25%;
+    }
+
 }
 @media (min-width: 768px) {
     /* Sur les écrans plus grands (tablettes et plus) */
@@ -1100,6 +1132,7 @@ cite {
     .skills-container {
         overflow-x: scroll;
         white-space: nowrap;
+        display: none;
     }
 
     .skill-box {
