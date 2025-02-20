@@ -1254,8 +1254,10 @@ html, body {
     
 }
 .menu-toggle {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
+    position: fixed !important;
+    top: 10px !important;
+    left: 10px !important;
+    z-index: 1000 !important;
+    padding: 10px;
+    border-radius: 5px;
 }
