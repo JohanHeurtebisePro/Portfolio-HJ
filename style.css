@@ -1253,3 +1253,10 @@ html, body {
     }
     
 }
+#particles-js {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff00;
+    z-index: -1;
+}
