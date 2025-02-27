@@ -1268,3 +1268,13 @@ html, body {
         border-radius: 20px; /* Arrondi plus prononcé */
     }
 }
+@media screen and (max-width: 768px) {
+    .photo {
+        width: 150px !important; /* Force la taille */
+        height: 150px !important;
+        object-fit: cover;
+        border-radius: 20px;
+        display: block; /* Évite les problèmes d'affichage */
+        margin: 0 auto; /* Centre l’image */
+    }
+}
