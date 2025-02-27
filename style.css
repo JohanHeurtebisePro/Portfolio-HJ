@@ -724,8 +724,8 @@ body {
 }
 
 .photo {
-    width: 150px;
-    height: 150px;
+    width: 175px;
+    height: 175px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
@@ -1262,7 +1262,7 @@ html, body {
 }
 @media screen and (max-width: 768px) {
     .photo {
-        width: 150px; /* Taille plus grande */
+        width: 175px; /* Taille plus grande */
         height: 150px;
         object-fit: cover; /* Évite la déformation */
         border-radius: 20px; /* Arrondi plus prononcé */
