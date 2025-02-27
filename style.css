@@ -1262,9 +1262,9 @@ html, body {
 }
 @media screen and (max-width: 768px) {
     .photo {
-        width: 100px; /* Taille carrée */
-        height: 100px;
+        width: 150px; /* Taille plus grande */
+        height: 150px;
         object-fit: cover; /* Évite la déformation */
-        border-radius: 15px; /* Arrondi plus prononcé */
+        border-radius: 20px; /* Arrondi plus prononcé */
     }
 }
