@@ -82,7 +82,6 @@ body {
     color: #333;
     margin: 0;
     height: 100%;
-    overflow-x: hidden;
     transition: opacity 1s ease-in-out;
 }
 body.loaded {
@@ -360,6 +359,7 @@ input[type="submit"]:focus {
     align-items: center;
     gap: 40px;
     padding: 20px;
+    overflow-x: hidden;
 }
 
 /* Boîte individuelle pour chaque projet */
@@ -642,7 +642,7 @@ body {
     top: 0;
     left: -250px; /* Cache la navbar */
     width: 250px;
-    height: 100vh;
+    height: 100%;
     background-color: #6e6e6ee9;
     display: flex;
     flex-direction: column;
@@ -2082,12 +2082,7 @@ ul li .descr::before {
     font-size: 14px;
     padding: 5px;
 }
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    
-}
+
 
 .skills-container {
     width: 100%; /* Fait en sorte que l'élément ne dépasse pas */
@@ -2333,16 +2328,12 @@ ul li .descr::before {
 /* Animation pour les cartes de compétence */
 
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 body {
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
-    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    min-height: 100%; /* Prend toute la hauteur de l'écran */
     text-align: center; /* Centre le texte */
     flex-direction: column; /* Organise les éléments en colonne */
 }
@@ -2367,9 +2358,6 @@ html, body {
     padding: 0;
     width: 100%;
     max-width: 100%;
-    overflow-x: hidden;
 }
 
-* {
-    box-sizing: border-box;
-}
+
