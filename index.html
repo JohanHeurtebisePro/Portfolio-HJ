@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+
 
     
 
@@ -22,7 +24,7 @@
 <body>
 
     <div id="particles-js"></div>
-
+    
     
 
     <!-- Barre de navigation -->
@@ -37,9 +39,11 @@
         <!-- Navigation -->
         <nav class="nav-links">
             <a href="#profil">À propos</a>
+            <a href="#actu">Actualités</a>
             <a href="#portfolio">Portfolio</a>
             <a href="#comp">Compétences</a>
-            <a href="#testimonials">Expériences Professionnelles</a>
+            <a href="#exp">Expériences Professionnelles</a>
+            <a href="#cert">Certifications</a>
             <a href="#contact">Contact</a>
         </nav>
     
@@ -58,7 +62,7 @@
 
         <div class="profile-box">
             <div class="photo-left">
-                <img src="photo1.jpeg" alt="Ma Photo" class="photo">
+                <img src="pp.jpeg" alt="Ma Photo" class="photo">
                 <div class="social-links">
                     <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank">
                         <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
@@ -79,14 +83,50 @@
                 <h2>À propos de moi</h2>
                 <p>Je suis un étudiant passionné par les technologies et les réseaux, avec une envie constante d'apprendre et de développer des solutions innovantes. Mon travail consiste à explorer les avancées du domaine tout en relevant des défis techniques.</p>
             </div>
-            <a href="Heurtebise_Johan.pdf" class="download-btn" download>
+            <a href="CV-HJ.pdf" class="download-btn" download>
                 📥 Mon CV
             </a>
     
         </div>
     </div>
 
-
+    <div id="actu" class="actu section" data-aos="fade-up">
+    <div class="contenu-global">
+        <h1 class="titre-principal">🗞️ Dernières Actualités</h1>
+    
+        <!-- 📌 Conteneur en deux colonnes -->
+        <div class="conteneur-flex">
+    
+            <!-- 🟦 Colonne LinkedIn (devient aussi grande que la droite) -->
+            <div class="colonne colonne-gauche">
+                <div class="bloc-info bloc-linkedin">
+                    <h2>📝 Derniers posts LinkedIn</h2>
+                    <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="johan-heurtebise" data-version="v1">
+                        <a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/johan-heurtebise?trk=profile-badge" target="_blank"</a>
+                    </div>
+                    
+                    <!-- Ajout d'un bouton vers le dernier post -->
+                    <a href="https://www.linkedin.com/posts/johan-heurtebise_recherche-contrat-dapprentissage-heurtebise-activity-7301331777791414272-W3JD?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFSrKOoB6niojsZuB1a-kyZpUr3VFlu0oW4" target="_blank" class="btn-post-linkedin">Voir mon dernier post</a>
+                </div>
+            </div>
+    
+            <!-- 🟧 Colonne Droite : Annonces & Médias -->
+            <div class="colonne colonne-droite">
+                <div class="bloc-info bloc-annonce">
+                    <h2>📢 Annonce Importante</h2>
+                    <p>📃 Recherche Contrat d'apprentissage de 2 ans (2025-2027).
+                        <br>
+                        📍Le Mans, Blois.
+                    </p>
+                </div>
+    
+            </div>
+    
+        </div>
+    
+    </div>
+    </div>
+    
 
 
 
@@ -185,39 +225,160 @@
             
         </div>
     </div>
+    <div id="comp" class="compéences section" data-aos="fade-up">
+    <h2> Compétences </h2>
+        <div class="skills-container">
+            <div class="skill-card" id="webdev-card">
+                <img src="htmllogo.png" alt="Web Development" class="skill-image">
+                <h3 class="skill-title">HTML</h3>
+                <p class="skill-detail">Création d’un site Web personnel, avec des fonctionnalités basiques</p>
+                <strong>Niveau : Intermédiaire</strong>
+
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="csslogo.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">CSS</h3>
+                <p class="skill-detail">Ajout de style sur un site Web personnel, avec responsive design.</p>
+                <strong>Niveau : Intermédiaire</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="bashlogo2.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">Bash</h3>
+                <p class="skill-detail">Découverte de l'environnement Linux, script / commandes simples.</p>
+                <strong>Niveau : Débutant</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="pythonlogo.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">Python</h3>
+                <p class="skill-detail">CCréation de plusieurs algorithmes, d’un niveau assez modeste.</p>
+                <strong>Niveau : Intermédiaire confirmé</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="jslogo.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">JavaScript</h3>
+                <p class="skill-detail">Initiation à la POO en JavaScript, quelques heures de pratiques</p>
+                <br>
+                <strong>Niveau : Débutant</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="sqllogo.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">SQL</h3>
+                <p class="skill-detail">Conception de tables avancées et création de requêtes complexes.</p>
+                <strong>Niveau : Intermédiaire</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="réseaulogo.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">Architecture des Réseaux</h3>
+                <p class="skill-detail">Initiation aux Réseaux Informatiques, strucure et équipements.</p>
+                <strong>Niveau : Débutant</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="logotelecom2.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">Télécommunications</h3>
+                <p class="skill-detail">Initiation à la Télécommunications, à la Téléphonie d'entreprise.</p>
+                <strong>Niveau : Débutant</strong>
+            </div>
+            <div class="skill-card" id="uxui-card">
+                <img src="cyberlogo2.png" alt="UX/UI Design" class="skill-image">
+                <h3 class="skill-title">Cybersécurité - Hygiène Informatique</h3>
+                <p class="skill-detail">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
+                <strong>Niveau : Débutant</strong>
+            </div>
+            <!-- Ajouter plus de cartes de compétences ici -->
+        </div>
+
+        <div style="height: 50px;"></div> <!-- Crée un espace vertical de 50px -->
+        <div id="exp" class="exp section" data-aos="fade-up">
+        <h2> Expériences Professionnelles / Formations Suivies </h2>
+        <br>
+        <ul>
+            <li style="--accent-color:#41516C">
+                <div class="date">2024-2027</div>
+                <div class="title"><strong>Etudiant en BUT R&T</strong></div>
+                <div class="descr">Développement de mes compétences de techniques en réseaux, cybersécurité, et systèmes de 
+                    communication, avec une forte volonté de contribuer à l’innovation dans ce domaine.</div>
+            </li>
+            <li style="--accent-color:#1B5F8C">
+                <div class="date">Juillet 2024</div>
+                <div class="title"><strong>Saisonnier dans une Exploitation Agricole</strong></div>
+                <div class="descr">Participation à la production de maïs en réalisant la castration
+                    manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité..</div>
+            </li>
+            <li style="--accent-color:#41516C">
+                <div class="date">2021-2024</div>
+                <div class="title"><strong>Lycéen au Lycée d'Estournelle de Constant, La Flèche</strong></div>
+                <div class="descr">Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</div>
+            </li>
+            <li style="--accent-color:#1B5F8C">
+                <div class="date">Janvier 2021</div>
+                <div class="title"><strong> Stage d'observation de 3ème - Infographiste</strong></div>
+                <div class="descr">Découverte un métier dans l’informatique, et dans la création de
+                    design (maquette, images d’illustrations, etc.). Ce stage m’a permis
+                    d’apprendre à utiliser diverses logiciel tel que Illustrator, Photoshop.</div>
+            </li>
+        </ul>
     
+    
+    <!-- Conteneur principal des compétences -->
+    </div>
 
     
 
     <!-- Compétences -->
 
 
-    <div id="comp" class="comp section" data-aos="fade-up"></div>
-        <h2>Compétences</h2>
 
-        <div class="skills-container">
-            <div class="skills-inner">
-                <div class="skill-box">HTML</div>
-                <div class="skill-box">CSS</div>
-                <div class="skill-box">Python</div>
-                <div class="skill-box">SQL</div>
-                <div class="skill-box">BASH</div>
-                <div class="skill-box">JS</div>
-                <div class="skill-box">Réseau</div>
+    <div id="cert" class="cert section" data-aos="fade-up">
+          <section id="certifications">
+            <div class="cert-container">
+              <h2>Certifications & Permis</h2>
+              <div class="card-container">
+                <div class="card">
+                  <img src="sae1.jpg" alt="Certification 1" class="card-img">
+                  <div class="card-content">
+                    <h3>Certification ANSSI</h3>
+                    <p>Certification sur la cybersécurité obtenue via le MOOC de l'ANSSI.
+                        <br>
+                        <strong>Score : 100%</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="card">
+                  <img src="permis.jpg" alt="Certification 2" class="card-img">
+                  <div class="card-content">
+                    <h3>Permis de conduire</h3>
+                    <p>Permis B obtenu en Avril 2024.
+                        <strong>Résultat : Admissible, 31/31</strong>
+                    </p>
+                  </div>
+                </div>
+                <div class="card">
+                    <img src="bac.jpg" alt="Certification 2" class="card-img">
+                    <div class="card-content">
+                      <h3>Baccalauréat Général</h3>
+                      <p>2024 - Spécialitées : Mathématiques / NSI
+                        <br>
+                        <strong>Mention : Assez Bien</strong>
+                      </p>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <img src="Pixlogo.svg.png" alt="Certification 2" class="card-img">
+                    <div class="card-content">
+                      <h3>Certification PIX</h3>
+                      <p>2024
+                        <br>
+                        <strong>Score : 328</strong>
+                      </p>
+                    </div>
+                  </div>
+                  
+                <!-- Ajoute d'autres cartes ici si nécessaire -->
+              </div>
             </div>
-            
-        </div>
-        <div class="mobile-only">
-            <div class="skills-inner2">
-                <div class="skill-box">HTML</div>
-                <div class="skill-box">CSS</div>
-                <div class="skill-box">Python</div>
-                <div class="skill-box">SQL</div>
-                <div class="skill-box">BASH</div>
-                <div class="skill-box">JS</div>
-                <div class="skill-box">Réseau</div>
-            </div>
-          </div>
+          </section>
+    
+          
           
     
     <script>
@@ -236,63 +397,11 @@
     
     
 
-    <!-- Témoignages -->
-    <div id="testimonials" class="testimonials section" data-aos="fade-up">
-        <h2>Expériences Professionnelles</h2>
-        <div class="swiper-container">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <blockquote>
-                        "Stage d'infographiste dans l'entreprise POINTCOM"
-                    </blockquote>
-                    <cite>2021</cite>
-                </div>
-                <div class="swiper-slide">
-                    <blockquote>
-                        "Saisonnier dans une exploitation agricole"
-                    </blockquote>
-                    <cite>2024</cite>
-                </div>
-                <div class="swiper-slide">
-                    <blockquote>
-                        "En recherche de stage / alternance"
-                    </blockquote>
-                    <cite>2025</cite>
-                </div>
-            </div>
-            <!-- Pagination et navigation -->
-            <div class="swiper-pagination"></div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-        </div>
-    </div>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var swiper = new Swiper(".swiper-container", {
-                loop: true,
-                autoplay: {
-                    delay: 5000,
-                    disableOnInteraction: false
-                },
-                pagination: {
-                    el: ".swiper-pagination",
-                    clickable: true
-                },
-                navigation: {
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev"
-                },
-                effect: "fade",
-                fadeEffect: {
-                    crossFade: true
-                }
-            });
-        });
-    </script>
+    
+    
     
 
-
-
+    
     <!-- Contact -->
     <div id="contact" class="contact section" data-aos="fade-up">
         <h2>Contact</h2>
@@ -314,7 +423,6 @@
     </script>
     
     <script src="script.js"></script>
-    <script src="particles.js"></script>
 
 
     
