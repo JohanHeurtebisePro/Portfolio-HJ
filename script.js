@@ -51,46 +51,79 @@ document.addEventListener('mousemove', (event) => {
     element.style.transform = `translate3d(${x - 25}px, ${y - 25}px, 0)`;
 });
 
-particlesJS("particles-js", {
-    "particles": {
-      "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
-      "color": { "value": "#6CCDF7" },
-      "shape": { "type": "circle" },
-      "opacity": { "value": 0.5, "random": true },
-      "size": { "value": 3, "random": true },
-      "line_linked": { "enable": true, "distance": 150, "color": "#6CCDF7", "opacity": 0.4, "width": 1 },
-      "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out" }
-    },
+// Attendre que le DOM soit prêt
+// Attendre que le DOM soit prêt
+// Fonction pour vérifier si un élément est visible à l'écran
+function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top >= 0 && rect.left >= 0 && rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) && rect.right <= (window.innerWidth || document.documentElement.clientWidth);
+  }
   
-    // 🛠️ Ajout des interactions ici
-    "interactivity": {
-      "detect_on": "canvas",  // Détection sur le canvas
-      "events": {
-        "onhover": {
-          "enable": true,
-          "mode": "repulse"  // Repousse les particules quand la souris passe dessus
-        },
-        "onclick": {
-          "enable": true,
-          "mode": "push"  // Ajoute des particules au clic
-        }
-      },
-      "modes": {
-        "grab": { 
-          "distance": 200, 
-          "line_linked": { "opacity": 1 } 
-        },
-        "bubble": { 
-          "distance": 400, 
-          "size": 10, 
-          "duration": 2 
-        },
-        "repulse": { 
-          "distance": 200, 
-          "duration": 0.4 
-        }
-      }
-    },
+  // Fonction d'animation pour la section et les cartes
+  function animateCertifications() {
+    const certificationsSection = document.getElementById('certifications');
+    if (isElementInViewport(certificationsSection)) {
+      certificationsSection.classList.add('visible');
+      
+      const cards = certificationsSection.querySelectorAll('.card');
+      cards.forEach(card => {
+        card.classList.add('visible');
+      });
+    }
+  }
   
-    "retina_detect": true  // Active le support des écrans Retina
-  });
+  // Écouteur d'événements pour détecter le défilement de la page
+  window.addEventListener('scroll', animateCertifications);
+  
+  // Lancer l'animation au chargement de la page au cas où la section serait déjà visible
+  window.addEventListener('load', animateCertifications);
+
+
+// Sélectionner toutes les barres de niveau
+const skillBars = document.querySelectorAll('.skill-level-bar');
+
+// Fonction pour animer la barre de niveau
+function animateSkillBar(bar) {
+    const level = bar.getAttribute('data-level'); // Récupérer le niveau depuis l'attribut data-level
+    bar.style.width = level + '%'; // Ajuster la largeur de la barre en fonction du niveau
+}
+
+// Appliquer l'animation sur chaque barre au chargement de la page
+document.addEventListener('DOMContentLoaded', () => {
+    skillBars.forEach(bar => {
+        animateSkillBar(bar);
+    });
+});
+// Fonction pour animer les éléments au fur et à mesure qu'ils deviennent visibles
+document.addEventListener('DOMContentLoaded', () => {
+    const timelineElements = document.querySelectorAll('.timeline-container');
+
+    // Fonction de balayage pour animer l'apparition des éléments
+    function checkPosition() {
+        timelineElements.forEach((element) => {
+            const position = element.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Si l'élément est visible à l'écran
+            if (position.top < windowHeight && position.bottom > 0) {
+                element.classList.add('visible');
+            }
+        });
+    }
+
+    // Initialiser l'animation au chargement de la page
+    checkPosition();
+
+    // Vérifier la position des éléments lors du défilement
+    window.addEventListener('scroll', checkPosition);
+});
+document.querySelectorAll('ul li').forEach(event => {
+    event.addEventListener('mouseenter', () => {
+        event.style.transform = 'scale(1.1)';
+        event.style.transition = 'transform 0.3s ease-in-out';
+    });
+
+    event.addEventListener('mouseleave', () => {
+        event.style.transform = 'scale(1)';
+    });
+});
