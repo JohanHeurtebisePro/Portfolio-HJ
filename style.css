@@ -568,12 +568,7 @@ input[type="submit"]:focus {
         width: 100%;
     }
 
-    .skills-container {
-        flex-direction: column;
-        align-items: center;
-        display: none;
 
-    }
 
     .skill-box {
         min-width: 100%;
@@ -2091,10 +2086,23 @@ ul li .descr::before {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
+
 .skills-container {
-    width: 100vw; /* Prend toute la largeur de l'écran */
-    max-width: 100%; /* Empêche tout dépassement */
+    width: 100%; /* Fait en sorte que l'élément ne dépasse pas */
+    max-width: 100%; /* Ne permet pas à l'élément de devenir plus large que son parent */
+    overflow: hidden; /* Cache tout contenu qui dépasse */
+    box-sizing: border-box; /* Inclut padding et bordures dans la largeur */
+
+}
+@media screen and (max-width: 500px) and (max-height: 600px) {
+    .skills-container {
+        width: 100%; /* Assure que l'élément prend toute la largeur de son parent */
+        max-width: 100%; /* Ne permet pas à l'élément de devenir plus large que son parent */
+        overflow: hidden; /* Cache tout débordement */
+        box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+    }
 }
 
 .cert-container{
@@ -2339,7 +2347,6 @@ body {
     flex-direction: column; /* Organise les éléments en colonne */
 }
 html, body {
-    overflow-x: hidden;
     width: 100%;
 }
 
@@ -2348,4 +2355,10 @@ html, body {
     ul {
         --row-gap: 10rem;
     }
+}
+
+
+.skills-container {
+    margin: 0 auto; /* Centre horizontalement */
+    text-align: center; /* Centre le texte à l'intérieur */
 }
