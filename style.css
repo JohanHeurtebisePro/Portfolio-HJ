@@ -2362,3 +2362,14 @@ html, body {
     margin: 0 auto; /* Centre horizontalement */
     text-align: center; /* Centre le texte à l'intérieur */
 }
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+* {
+    box-sizing: border-box;
+}
