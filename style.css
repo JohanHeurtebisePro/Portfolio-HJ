@@ -2325,4 +2325,27 @@ ul li .descr::before {
 /* Animation pour les cartes de compétence */
 
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: 100vh; /* Prend toute la hauteur de l'écran */
+    text-align: center; /* Centre le texte */
+    flex-direction: column; /* Organise les éléments en colonne */
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
+@media (max-width: 768px) {
+    ul {
+        --row-gap: 10rem;
+    }
+}
