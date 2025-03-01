@@ -480,7 +480,6 @@ input[type="submit"]:focus {
 /* Compétences - Rectangles avec images et compétences */
 .skills-container {
     display: flex;
-    overflow-x: auto;
     gap: 20px;
     padding: 20px 0;
     margin-top: 40px;
@@ -906,7 +905,13 @@ cite {
     overflow: hidden;
     padding: 20px;
     width: 100%;
+    background-color: #ffffff;
+
 }
+.blanc-background {
+    background-color: rgb(255, 255, 255);
+}
+
 
 /* Conteneur interne des éléments */
 .skills-inner {
@@ -1232,7 +1237,6 @@ html, body {
   }
   html, body {
     width: 100%;
-    overflow-x: hidden;
 }
 
 @media (max-width: 1024px) { /* Tablettes et téléphones */
@@ -1278,3 +1282,1047 @@ html, body {
         margin: 0 auto; /* Centre l’image */
     }
 }
+/* Section Certifications */
+#certifications {
+    background-color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 0px; /* Réduit l'écart entre cette section et la précédente */
+
+  }
+  
+  #certifications h2 {
+    color: #000b0e; /* Bleu */
+    font-size: 2em;
+    margin-bottom: 30px;
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px); /* Déplacement de la carte vers le haut */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Ombre de la carte */
+    border: 2px solid #0cafe6; /* Contour bleu au survol */
+}
+  
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover .card-img {
+    transform: scale(1.05);
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .card-content h3 {
+    color: #00172e; /* Bleu */
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .card-content p {
+    color: #666;
+    font-size: 1em;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card-container {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .card-container {
+      grid-template-columns: 1fr;
+    }
+  }
+/* Réinitialisation pour garder le même effet que précédemment */
+
+.competences {
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    max-width: 900px;
+    text-align: center;
+}
+
+.competences h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #2a3d66;
+}
+
+/* Catégories de compétences */
+.competence-category {
+    margin-bottom: 200px;
+    margin-top: 75px;
+    gap: 20px; /* Espacement entre les éléments, ajustez à votre convenance */
+}
+
+.competence-category h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #000612;
+}
+
+/* Compétences individuelles */
+.competence {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.skill {
+    width: 30%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.skill-name {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+    background-color: #2a3d66;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+/* Animation de l'icône au survol */
+.skill:hover .icon {
+    transform: scale(1.2);
+}
+
+/* Barres de progression */
+.progress-bar {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    height: 10px;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    border-radius: 5px;
+    width: 0;
+    animation: fillBar 2s ease-out forwards;
+}
+
+/* Animations des barres de progression */
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 80%; /* Ajuste le pourcentage selon ton niveau de compétence */
+    }
+}
+
+/* Icônes spécifiques */
+.html-icon::before {
+    content: "H";
+}
+
+.css-icon::before {
+    content: "C";
+}
+
+.js-icon::before {
+    content: "J";
+}
+
+.management-icon::before {
+    content: "M";
+}
+:root {
+    --html-progress: 90%;   /* Modifiez ici pour changer le pourcentage de HTML */
+    --css-progress: 80%;    /* Modifiez ici pour changer le pourcentage de CSS */
+    --js-progress: 75%;     /* Modifiez ici pour changer le pourcentage de JavaScript */
+    --management-progress: 85%; /* Modifiez ici pour changer le pourcentage de Gestion de Projet */
+}
+
+/* Style des barres de progression */
+.progress-bar {
+    width: 100%;
+    background-color: #f0f0f0;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.progress {
+    height: 20px; /* Hauteur de la barre */
+    background-color: #1db2f1d6; /* Couleur de la barre */
+    border-radius: 10px;
+}
+
+/* Attribuer les pourcentages dynamiques pour chaque compétence */
+.progress.html {
+    width: var(--html-progress);
+}
+
+.progress.css {
+    width: var(--css-progress);
+}
+
+.progress.js {
+    width: var(--js-progress);
+}
+
+.progress.management {
+    width: var(--management-progress);
+}
+
+/* Ajouter quelques autres styles pour les icônes et le texte si nécessaire */
+.icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    display: inline-block;
+    background-color: #024877;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+}
+
+.skill-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+    
+}
+/* Styles de base pour la section */
+#certifications {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  /* Classe activée par JavaScript */
+  #certifications.visible {
+    opacity: 1;
+  }
+  
+  /* Animation des cartes */
+  .card {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .card.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  /* Ajouter des transitions spécifiques pour chaque carte pour un effet différé */
+  .card:nth-child(1) {
+    transition-delay: 0s;
+  }
+  
+  .card:nth-child(2) {
+    transition-delay: 0.1s;
+  }
+  
+  .card:nth-child(3) {
+    transition-delay: 0.2s;
+  }
+  
+  .card:nth-child(4) {
+    transition-delay: 0.3;
+  }
+  .compsection {
+    background-color: white;
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de la section */
+    margin-bottom: 10px; /* Réduit l'écart entre cette section et la suivante */
+  }
+
+  .skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 40px;
+    justify-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Style pour chaque carte */
+.skill-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    text-align: center;
+    transition: transform 0.4s ease, box-shadow 0.4s ease, opacity 0.3s ease;
+    cursor: pointer;
+    transform: scale(1);
+    opacity: 0.9;
+}
+
+/* Animation au survol */
+.skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+    opacity: 1;
+}
+
+/* Image */
+.skill-image {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Changement d'apparence de l'image au survol */
+.skill-card:hover .skill-image {
+    transform: rotate(15deg);
+}
+
+/* Titre */
+.skill-title {
+    font-size: 1.5em;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+/* Détails */
+.skill-detail {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Affichage des détails au survol */
+.skill-card:hover .skill-detail {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bouton "Learn More" */
+.learn-more-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Effet sur le bouton */
+.learn-more-btn:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px);
+}
+
+/* Effet de focus pour accessibilité */
+.learn-more-btn:focus {
+    outline: 2px solid #0056b3;
+}
+/* Style de la modale (par défaut cachée) */
+.modal {
+    display: none; /* Modale cachée par défaut */
+    position: fixed;
+    z-index: 1; /* S'assure que la modale est au-dessus des autres éléments */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fond sombre avec opacité */
+    padding-top: 60px; /* Décalage vers le bas */
+    overflow: auto; /* Pour faire défiler si nécessaire */
+    transition: opacity 0.3s ease-in-out; /* Animation d'apparition */
+}
+
+/* Contenu de la modale */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombre douce */
+    transition: transform 0.3s ease-in-out; /* Animation d'apparition de la modale */
+}
+
+/* Style du bouton de fermeture */
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 25px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #2196F3;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+    transition: all 0.5s ease-in-out;
+}
+
+.timeline-container {
+    padding: 20px 30px;
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    width: 45%;
+    margin: 20px 0;
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.5s ease;
+}
+
+.timeline-container.left {
+    left: 0;
+}
+
+.timeline-container.right {
+    left: 50%;
+}
+
+.date {
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.timeline-container .content {
+    padding: 20px;
+    background-color: #e9f7fe;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.timeline-container .title {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.timeline-container .description {
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .timeline-container {
+        width: 100%;
+        left: 0;
+    }
+    .timeline::after {
+        left: 31px;
+    }
+}
+
+/* Animations pour faire apparaître les éléments */
+.timeline-container.left,
+.timeline-container.right {
+    animation: slideIn 0.7s forwards;
+}
+
+.timeline-container.left {
+    animation-delay: 0.2s;
+}
+
+.timeline-container.right {
+    animation-delay: 0.4s;
+}
+
+/* Animation pour l'apparition des éléments */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Transition fluide pour la ligne centrale */
+.timeline::after {
+    transition: all 0.5s ease-in-out;
+}
+
+/* Animation au survol */
+.timeline-container:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.timeline-container .content:hover {
+    background-color: #cce7ff;
+    transition: background-color 0.3s ease;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+
+ul {
+  --col-gap: 3rem;
+  --row-gap: 20rem;
+  --line-w: 0.25rem;
+  display: grid;
+  grid-template-columns: var(--line-w) 1fr;
+  grid-auto-columns: max-content;
+  column-gap: var(--col-gap);
+  list-style: none;
+  width: min(60rem, 90%);
+  margin-inline: auto;
+}
+
+/* Ligne centrale */
+ul::before {
+  content: "";
+  grid-column: 1;
+  grid-row: 1 / span 20;
+  background: rgb(225, 225, 225);
+  border-radius: calc(var(--line-w) / 2);
+}
+
+/* Espacement entre les éléments */
+ul li:not(:last-child) {
+  margin-bottom: var(--row-gap);
+}
+
+/* Carte */
+ul li {
+  grid-column: 2;
+  --inlineP: 1.5rem;
+  margin-inline: var(--inlineP);
+  grid-row: span 2;
+  display: grid;
+  grid-template-rows: min-content min-content min-content;
+}
+
+/* Date */
+ul li .date {
+  --dateH: 3rem;
+  height: var(--dateH);
+  margin-inline: calc(var(--inlineP) * -1);
+  text-align: center;
+  background-color: var(--accent-color);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 700;
+  display: grid;
+  place-content: center;
+  position: relative;
+  border-radius: calc(var(--dateH) / 2) 0 0 calc(var(--dateH) / 2);
+}
+
+/* Triangle sous la date */
+ul li .date::before {
+  content: "";
+  width: var(--inlineP);
+  aspect-ratio: 1;
+  background: var(--accent-color);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2) 100%, transparent);
+  position: absolute;
+  top: 100%;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  right: 0;
+}
+
+/* Cercle sur la ligne */
+ul li .date::after {
+  content: "";
+  position: absolute;
+  width: 2rem;
+  aspect-ratio: 1;
+  background: var(--bgColor);
+  border: 0.3rem solid var(--accent-color);
+  border-radius: 50%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  right: calc(100% + var(--col-gap) + var(--line-w) / 2);
+}
+
+/* Titres et descriptions */
+ul li .title,
+ul li .descr {
+  background: var(--bgColor);
+  position: relative;
+  padding-inline: 1.5rem;
+}
+ul li .title {
+  overflow: hidden;
+  padding-block-start: 1.5rem;
+  padding-block-end: 1rem;
+  font-weight: 500;
+}
+ul li .descr {
+  padding-block-end: 1.5rem;
+  font-weight: 300;
+}
+
+/* Ombres */
+ul li .title::before,
+ul li .descr::before {
+  content: "";
+  position: absolute;
+  width: 90%;
+  height: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  left: 50%;
+  border-radius: 50%;
+  filter: blur(4px);
+  transform: translate(-50%, 50%);
+}
+ul li .title::before {
+  bottom: calc(100% + 0.125rem);
+}
+ul li .descr::before {
+  z-index: -1;
+  bottom: 0.25rem;
+}
+
+/* Mise en page responsive */
+@media (min-width: 40rem) {
+  ul {
+    grid-template-columns: 1fr var(--line-w) 1fr;
+  }
+  ul::before {
+    grid-column: 2;
+  }
+  ul li:nth-child(odd) {
+    grid-column: 1;
+  }
+  ul li:nth-child(even) {
+    grid-column: 3;
+  }
+
+  /* Ajustement de la deuxième carte */
+  ul li:nth-child(2) {
+    grid-row: 2/4;
+  }
+
+  ul li:nth-child(odd) .date::before {
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    left: 0;
+  }
+
+  ul li:nth-child(odd) .date::after {
+    transform: translate(-50%, -50%);
+    left: calc(100% + var(--col-gap) + var(--line-w) / 2);
+  }
+  ul li:nth-child(odd) .date {
+    border-radius: 0 calc(var(--dateH) / 2) calc(var(--dateH) / 2) 0;
+  }
+}
+
+.credits {
+  margin-top: 1rem;
+  text-align: right;
+}
+.credits a {
+  color: var(--color);
+}
+/* === Animations générales === */
+@keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  
+  /* Appliquer l'effet de balayage à l'apparition */
+  ul li {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 0.8s ease-out forwards;
+  }
+  
+  /* Délai progressif pour chaque élément */
+  ul li:nth-child(1) { animation-delay: 0.2s; }
+  ul li:nth-child(2) { animation-delay: 0.4s; }
+  ul li:nth-child(3) { animation-delay: 0.6s; }
+  ul li:nth-child(4) { animation-delay: 0.8s; }
+  ul li:nth-child(5) { animation-delay: 1s; }
+  
+  /* === Animation au survol === */
+  ul li:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* === Effet rebond sur le titre === */
+  ul li .title {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  ul li:hover .title {
+    animation: bounce 0.5s ease-in-out;
+  }
+  
+  /* === Transition fluide sur la date === */
+  ul li .date {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  }
+  
+  ul li:hover .date {
+    background-color: var(--accent-color);
+    transform: scale(1.1);
+  }
+  
+  /* === Ombre portée au survol === */
+  ul li:hover .title,
+  ul li:hover .descr {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  .skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Espacement entre les cartes */
+}
+
+.skill-card {
+    width: 400px; /* Largeur uniforme */
+    height: 300px; /* Hauteur uniforme */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    text-align: center;
+}
+
+.skill-image {
+    max-width: 80px;
+    height: auto;
+}
+
+.skill-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.skill-detail {
+    flex-grow: 1; /* Permet au texte de s'étendre sans déborder */
+    font-size: 14px;
+    padding: 5px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.skills-container {
+    width: 100vw; /* Prend toute la largeur de l'écran */
+    max-width: 100%; /* Empêche tout dépassement */
+}
+
+.cert-container{
+    display: grid;
+    flex-wrap: wrap;
+}
+
+
+/* Responsive : Adaptation selon la taille de l'écran */
+@media screen and (max-width: 1024px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    max-width: 90%;
+    margin: auto;
+  }
+}
+/* 📌 Conteneur global */
+.contenu-global {
+    max-width: 1100px;
+    margin: auto;
+    text-align: center;
+}
+
+/* 🏆 Titre principal */
+.titre-principal {
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #000811;
+    text-transform: uppercase;
+    animation: apparitionTitre 1s ease-in-out;
+    margin: 20px;
+}
+
+/* 📌 Conteneur en deux colonnes */
+.conteneur-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Permet aux deux colonnes d'avoir la même hauteur */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+/* 🎯 Colonnes */
+.colonne {
+    display: flex;
+    gap: 20px;
+    flex: 1; /* Permet aux colonnes d'être égales en hauteur */
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* 🟦 Colonne Gauche (LinkedIn) - même largeur que la droite */
+.colonne-gauche {
+    width: 50%;
+}
+
+/* 🟧 Colonne Droite (Annonces & Médias) */
+.colonne-droite {
+    width: 50%;
+}
+
+/* 📌 Bloc d'info */
+.bloc-info {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    text-align: left;
+    flex: 1; /* Permet aux blocs d'avoir une hauteur égale */
+    display: flex;
+    flex-direction: column; /* Assure que le contenu se remplit de haut en bas */
+    justify-content: flex-start; /* Le texte commence en haut du bloc */
+
+    /* Fixe la hauteur du bloc */
+    height: 400px; /* Valeur fixe pour la hauteur */
+    min-height: 400px;
+    max-height: 400px;
+    overflow-y: auto; /* Active le défilement si le texte dépasse */
+}
+
+/* Effet au survol des blocs */
+.bloc-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔗 Bloc LinkedIn */
+.iframe-linkedin {
+    border-radius: 8px;
+    width: 100%;
+    height: 100%; /* Prend toute la hauteur de son parent */
+    min-height: 400px; /* Évite que l'iframe soit trop petit */
+}
+
+/* 📢 Bloc Annonce */
+.bloc-annonce p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* 🖼️ Bloc Médias */
+.image-media, .video-media {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Effet au survol des médias */
+.image-media:hover, .video-media:hover {
+    opacity: 0.8;
+}
+
+/* 🔥 Animation du titre */
+@keyframes apparitionTitre {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 🎯 Bouton LinkedIn - Dernier post */
+.btn-post-linkedin {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 15px;
+    background-color: #0077b5; /* LinkedIn color */
+    color: white;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+/* Effet de survol sur le bouton */
+.btn-post-linkedin:hover {
+    background-color: #005f8a; /* Couleur foncée au survol */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Désactiver les effets de transform et box-shadow au focus/active */
+.btn-post-linkedin:focus, .btn-post-linkedin:active {
+    transform: none !important;
+    box-shadow: none !important;
+    background-color: #0077b5; /* Remettre la couleur initiale */
+}
+
+/* 📱 Responsive pour mobile */
+@media (max-width: 900px) {
+    .conteneur-flex {
+        flex-direction: column;
+    }
+
+    .colonne-gauche, .colonne-droite {
+        width: 100%;
+    }
+
+    .iframe-linkedin {
+        min-height: 300px; /* Réduit la hauteur sur mobile */
+    }
+
+    .btn-post-linkedin {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+
+/* 🔄 Animation de Fade In pour les blocs */
+.bloc-info {
+    animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* 📱 Responsive pour mobile */
+@media (max-width: 900px) {
+    .conteneur-flex {
+        flex-direction: column;
+    }
+
+    .colonne-gauche, .colonne-droite {
+        width: 100%;
+    }
+
+    .iframe-linkedin {
+        min-height: 300px; /* Réduit la hauteur sur mobile */
+        width: 100%; /* Prend toute la largeur de son parent */
+        height: auto; /* Permet à l'iframe de s'ajuster automatiquement à la hauteur */
+        margin: 0 auto; /* Centre l'iframe horizontalement */
+        display: block; /* Assure que l'iframe est un bloc (permet le centrage) */
+    }
+
+    .btn-post-linkedin {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+}
+/* Animation pour les cartes de compétence */
+
+
+
