@@ -2357,5 +2357,8 @@ html, body {
     width: 100%;
     max-width: 100%;
 }
-
-
+.skill-detail, .skill-title, strong {
+    white-space: normal; /* Permet les retours à la ligne */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
