@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+
 
 
     
@@ -297,49 +299,58 @@
                 <strong>Niveau : Débutant</strong>
                 
             </div>
+            
             <!-- Ajouter plus de cartes de compétences ici -->
         </div>
 
         <div style="height: 50px;"></div> <!-- Crée un espace vertical de 50px -->
-        <div id="exp" class="exp section" data-aos="fade-up">
-        <h2> Expériences Professionnelles / Formations Suivies </h2>
-        <br>
-        <ul>
-            <li style="--accent-color:#41516C">
-                <div class="date">2024-2027</div>
-                <div class="title"><strong>Etudiant en BUT R&T</strong></div>
-                <div class="descr">Développement de mes compétences de techniques en réseaux, cybersécurité, et systèmes de 
-                    communication, avec une forte volonté de contribuer à l’innovation dans ce domaine.</div>
-            </li>
-            <li style="--accent-color:#1B5F8C">
-                <div class="date">Juillet 2024</div>
-                <div class="title"><strong>Saisonnier dans une Exploitation Agricole</strong></div>
-                <div class="descr">Participation à la production de maïs en réalisant la castration
-                    manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité..</div>
-            </li>
-            <li style="--accent-color:#41516C">
-                <div class="date">2021-2024</div>
-                <div class="title"><strong>Lycéen au Lycée d'Estournelle de Constant, La Flèche</strong></div>
-                <div class="descr">Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</div>
-            </li>
-            <li style="--accent-color:#1B5F8C">
-                <div class="date">Janvier 2021</div>
-                <div class="title"><strong> Stage d'observation de 3ème - Infographiste</strong></div>
-                <div class="descr">Découverte un métier dans l’informatique, et dans la création de
-                    design (maquette, images d’illustrations, etc.). Ce stage m’a permis
-                    d’apprendre à utiliser diverses logiciel tel que Illustrator, Photoshop.</div>
-            </li>
-        </ul>
-    
-    
-    <!-- Conteneur principal des compétences -->
-    </div>
+
 
     
 
     <!-- Compétences -->
+    <div class="separator"></div>
+    <div id="exp" class="exp section" data-aos="fade-up">
 
+    <h2> Expérience Professionnelles / Formation suivi </h2>
 
+    <section>
+        <div class="cosmic-timeline">
+            <!-- Premier événement -->
+            <div class="spaghetti-event">
+                <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
+                <p class="space-time">2024-2027</p>
+                <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
+                <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
+            </div>
+    
+            <!-- Deuxième événement -->
+            <div class="spaghetti-event">
+                <h3>Expérience d'Ouvrier Agricole</h3>
+                <p class="space-time">Juillet 2024</p>
+                <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
+                <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
+            </div>
+    
+            <!-- Troisième événement -->
+            <div class="spaghetti-event">
+                <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
+                <p class="space-time">2021-2024</p>
+                <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
+                <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
+            </div>
+    
+            <!-- Quatrième événement -->
+            <div class="spaghetti-event">
+                <h3>Stage d'observation de 3ème - Infographiste</h3>
+                <p class="space-time">Janvier 2021</p>
+                <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
+                <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
+            </div>
+        </div>
+    </section>
+
+    
     
     
     
@@ -360,8 +371,9 @@
 
     <script src="script.js"></script>
     
-    <div class="separator"></div>
 
+
+    
     
     
     
@@ -375,20 +387,8 @@
         <form action="mailto:johanheurtebise@frstud.fr" method="post" enctype="text/plain" id="contact-form">
             <input type="text" name="name" id="name" placeholder="Ton Nom" required>
             <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
-            <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone" required>
-            
-            <select name="subject" id="subject" required>
-                <option value="" disabled selected>Veuillez choisir un sujet</option>
-                <option value="question">Question</option>
-                <option value="projet">Projet</option>
-                <option value="autre">Autre</option>
-            </select>
-            
+            <input type="text" name="subject" id="subject" placeholder="Objet" required>
             <textarea name="message" id="message" placeholder="Ton message..." rows="5" required></textarea>
-            
-            <label for="file">Joindre un fichier :</label>
-            <input type="file" name="file" id="file">
-            
             <input type="submit" value="Envoyer">
         </form>
     </div>
