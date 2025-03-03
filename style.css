@@ -675,6 +675,10 @@ body {
     background-color: white;
 }
 
+html {
+    scroll-behavior: smooth; /* Active le défilement fluide sur toute la page */
+}
+
 .profile-box {
     display: flex;
     align-items: flex-start;
@@ -2498,4 +2502,348 @@ html, body {
     content: "✉️ ";
     font-size: 1.2em;
     margin-right: 8px;
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap');
+
+.design-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+  padding: 100px 0;
+  font-family: Jost;
+  
+}
+
+.timeline {
+  width: 80%;
+  height: auto;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-direction: column;
+  display: grid;
+
+}
+
+.timeline-content {
+  padding: 20px;
+  background: #e9e9e9;
+  -webkit-box-shadow: 5px 5px 10px #c6c6c6, -5px -5px 10px #c6c6c6;
+          box-shadow: 5px 5px 10px #c6c6c6, -5px -5px 10px #c6c6c6;
+  border-radius: 5px;
+  color: white;
+  padding: 1.75rem;
+  transition: 0.4s ease;
+  overflow-wrap: break-word !important;
+  margin: 1rem;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  transform: scale(1);
+}
+
+.timeline-content:hover {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.timeline-component {
+  margin: 0px 20px 20px 20px;
+  transition: all 0.3s ease;
+}
+
+.timeline-middle {
+  position: relative;
+  width: 3px;
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.timeline-middle:hover {
+  width: 6px;
+  position: relative;
+
+}
+
+
+
+.timeline-circle:hover {
+  transform: translateX(-50%) scale(1.3);
+  background-image: linear-gradient(45deg, #8A2387, #E94057, #F27121);
+}
+
+@media screen and (min-width: 768px) {
+  .timeline {
+    display: grid;
+    grid-template-columns: 1fr 3px 1fr;
+  }
+
+  .timeline-middle {
+    position: relative;
+    background-image: linear-gradient(45deg, #F27121, #E94057, #8A2387);
+    width: 3px;
+    height: 100%;
+  }
+
+  .timeline-circle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-image: linear-gradient(45deg, #F27121, #E94057, #8A2387);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+
+  .timeline-middle:hover .timeline-circle {
+    transform: scale(1.2);
+    background-image: linear-gradient(45deg, #8A2387, #E94057, #F27121);
+  }
+}
+.timeline-content h3 {
+    color: #202020; /* Remplace par la couleur de ton choix */
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+  .cosmic-timeline {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Ombre de la frise */
+}
+
+/* Lignes de la timeline */
+.cosmic-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #2d87f0; /* Ligne verticale de la timeline */
+    transform: translateX(-50%); /* Centrer la ligne */
+}
+
+/* Structure de chaque événement */
+.spaghetti-event {
+    margin: 50px 0; /* Espacement entre les événements */
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    width: 45%; /* Largeur des événements */
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeIn 1s ease-out forwards;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.3s ease;
+}
+
+/* Animation d'entrée des événements */
+.spaghetti-event:nth-child(odd) {
+    animation-delay: 0.2s;
+    margin-right: auto; /* Les événements impairs sont à gauche */
+}
+
+.spaghetti-event:nth-child(even) {
+    animation-delay: 0.4s;
+    margin-left: auto; /* Les événements pairs sont à droite */
+    text-align: right; /* Aligner le texte à droite pour les événements pairs */
+}
+
+/* Effet de survol */
+.spaghetti-event:hover {
+    transform: translateX(0);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    background-color: #e8f4fd; /* Changement de couleur de fond lors du survol */
+}
+
+/* Position des événements à gauche et à droite */
+.spaghetti-event:nth-child(odd) {
+    margin-right: auto; /* Les événements impairs sont à gauche */
+}
+
+.spaghetti-event:nth-child(even) {
+    margin-left: auto; /* Les événements pairs sont à droite */
+    text-align: right; /* Aligner le texte à droite pour les événements pairs */
+}
+
+/* Style du titre de chaque événement */
+.spaghetti-event h3 {
+    font-size: 1.3em;
+    color: #2d87f0;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Style de la date de chaque événement */
+.space-time {
+    font-size: 1em;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+/* Style des descriptions des événements */
+.spaghetti-event p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* Ajouter des bordures aux événements pour mieux les délimiter */
+.spaghetti-event:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+}
+
+/* Style du texte "Compétences acquises" */
+.spaghetti-event strong {
+    color: #333;
+    font-weight: bold;
+}
+
+/* Animation d'entrée des événements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* Structure générale de la timeline */
+.timeline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+}
+
+/* Barre centrale de la timeline */
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: #2d87f0;
+    transform: translateX(-50%);
+}
+
+/* Structure de chaque événement */
+.spaghetti-event {
+    margin: 50px 0; /* Espacement entre les événements */
+    padding-left: 40px;
+    padding-right: 40px;
+    position: relative;
+    width: 45%; /* Largeur des événements */
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: fadeIn 1s ease-out forwards;
+    transition: transform 0.5s ease, box-shadow 0.5s ease, background-color 0.3s ease;
+    border-radius: 10px; /* Coins arrondis */
+    background-color: #ffffff; /* Fond des événements */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    padding-top: 20px; /* Espace au-dessus du contenu */
+}
+
+/* Animation d'entrée des événements */
+.spaghetti-event:nth-child(odd) {
+    animation-delay: 0.2s;
+    margin-right: auto; /* Les événements impairs sont à gauche */
+    text-align: left; /* Texte normal à gauche */
+}
+
+.spaghetti-event:nth-child(even) {
+    animation-delay: 0.4s;
+    margin-left: auto; /* Les événements pairs sont à droite */
+    text-align: right; /* Aligner le texte à droite pour les événements pairs */
+}
+
+/* Style du titre de chaque événement */
+.spaghetti-event h3 {
+    font-size: 1.3em;
+    color: #2d87f0;
+    margin-bottom: 10px; /* Ajouter de l'espace entre le titre et la box */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+/* Effet de survol */
+.spaghetti-event:hover {
+    transform: translateX(0);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    background-color: #e8f4fd; /* Changement de couleur de fond lors du survol */
+    border-radius: 12px; /* Coins encore plus arrondis lors du survol */
+}
+
+/* Effet d'animation lors de l'entrée des événements */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Media queries pour la responsivité */
+
+/* Mobile et tablettes (moins de 768px) */
+@media (max-width: 768px) {
+    .timeline {
+        padding: 10px; /* Réduit l'espace autour de la timeline */
+    }
+
+    .spaghetti-event {
+        width: 80%; /* Les événements prennent plus de place */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .spaghetti-event:nth-child(odd), .spaghetti-event:nth-child(even) {
+        text-align: center; /* Centrer le texte sur mobile */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .spaghetti-event h3 {
+        font-size: 1.1em; /* Réduire la taille du titre sur mobile */
+    }
+}
+
+/* Très petit écran (moins de 480px) */
+@media (max-width: 480px) {
+    .spaghetti-event {
+        width: 95%; /* Prend presque toute la largeur */
+        margin-bottom: 30px; /* Plus d'espace entre les événements */
+    }
+
+    .timeline::before {
+        width: 2px; /* Réduire la largeur de la barre centrale */
+    }
+
+    .spaghetti-event h3 {
+        font-size: 1em; /* Réduire encore la taille du titre */
+    }
 }
