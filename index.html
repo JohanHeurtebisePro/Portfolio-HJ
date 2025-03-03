@@ -360,7 +360,7 @@
 
     <script src="script.js"></script>
     
-    
+    <div class="separator"></div>
 
     
     
@@ -375,8 +375,20 @@
         <form action="mailto:johanheurtebise@frstud.fr" method="post" enctype="text/plain" id="contact-form">
             <input type="text" name="name" id="name" placeholder="Ton Nom" required>
             <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
-            <input type="text" name="subject" id="subject" placeholder="Objet" required>
+            <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone" required>
+            
+            <select name="subject" id="subject" required>
+                <option value="" disabled selected>Veuillez choisir un sujet</option>
+                <option value="question">Question</option>
+                <option value="projet">Projet</option>
+                <option value="autre">Autre</option>
+            </select>
+            
             <textarea name="message" id="message" placeholder="Ton message..." rows="5" required></textarea>
+            
+            <label for="file">Joindre un fichier :</label>
+            <input type="file" name="file" id="file">
+            
             <input type="submit" value="Envoyer">
         </form>
     </div>
