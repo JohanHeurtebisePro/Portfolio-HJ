@@ -224,17 +224,7 @@ h2 {
 
 /* Contact */
 /* Style général de la section contact */
-.contact {
-    padding: 40px 20px;
-    background-color: #ececece9;
-    color: #f1f1f1;
-    text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 50px auto;
-    animation: fadeIn 1s ease-out;
-}
+
 
 /* Animation de la section lors du chargement */
 @keyframes fadeIn {
@@ -249,17 +239,17 @@ h2 {
 }
 
 /* Style des liens */
-.contact a {
-    color: #555555;
-    text-decoration: none;
-    font-size: 1.5em;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
 
-.contact a:hover {
-    color: #0cafe6;
-    transform: scale(1.1);
-}
+
+
+
+
+
+
+
+
+/* Élargir la section de contact */
+
 
 /* Formulaire */
 form {
@@ -2361,4 +2351,151 @@ html, body {
     white-space: normal; /* Permet les retours à la ligne */
     word-wrap: break-word;
     overflow-wrap: break-word;
+}
+.exp ul {
+    position: relative;
+    overflow: hidden;
+}
+
+.exp ul li {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Ajout d'un effet de décalage pour chaque élément */
+.exp ul li:nth-child(1) {
+    animation-delay: 0.2s;
+}
+.exp ul li:nth-child(2) {
+    animation-delay: 0.4s;
+}
+.exp ul li:nth-child(3) {
+    animation-delay: 0.6s;
+}
+.exp ul li:nth-child(4) {
+    animation-delay: 0.8s;
+}
+.separator {
+    width: 80%;
+    height: 3px;
+    background-color: #333;
+    margin: 20px auto;
+    border-radius: 5px;
+  }
+
+
+  .contact {
+    padding: 50px 30px;
+    background-color: #ececece9;
+    color: #f1f1f1;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Augmenté pour plus de largeur */
+    margin: 50px auto;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Style du formulaire */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    max-width: 700px; /* Ajusté pour remplir la zone */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Champs de saisie et sélection */
+#contact-form input,
+#contact-form select,
+#contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    background: #f9f9f9;
+    transition: border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Effet au focus */
+#contact-form input:focus,
+#contact-form select:focus,
+#contact-form textarea:focus {
+    border-color: #0cafe6;
+    outline: none;
+    transform: scale(1.02);
+}
+
+/* Champ de fichier */
+#contact-form input[type="file"] {
+    padding: 5px;
+    border: none;
+    background: none;
+    font-size: 1em;
+}
+
+/* Case à cocher */
+#contact-form label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1em;
+    color: #555;
+}
+
+/* Bouton d'envoi */
+#contact-form input[type="submit"] {
+    background: #0cafe6;
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#contact-form input[type="submit"]:hover {
+    background: #088bb5;
+    transform: scale(1.05);
+}
+/* Style du lien e-mail */
+.contact a {
+    display: inline-block;
+    color: #0cafe6;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    background: rgba(12, 175, 230, 0.1);
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
+}
+
+.contact a:hover {
+    background: #0cafe6;
+    color: white;
+    transform: scale(1.01);
+}
+
+/* Icône devant l'adresse mail */
+.contact a::before {
+    content: "✉️ ";
+    font-size: 1.2em;
+    margin-right: 8px;
 }
