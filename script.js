@@ -127,3 +127,42 @@ document.querySelectorAll('ul li').forEach(event => {
         event.style.transform = 'scale(1)';
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll(".proj_details_btn").forEach(button => {
+        button.addEventListener("click", function() {
+            let modalId = this.getAttribute("data-target");
+            document.getElementById(modalId).style.display = "flex";
+        });
+    });
+
+    document.querySelectorAll(".proj_close_btn").forEach(close => {
+        close.addEventListener("click", function() {
+            this.closest(".proj_modal_container").style.display = "none";
+        });
+    });
+
+    window.addEventListener("click", function(event) {
+        if (event.target.classList.contains("proj_modal_container")) {
+            event.target.style.display = "none";
+        }
+    });
+});
+
+
+//Projet
+
+function ouvrirFenetre(id) {
+    document.getElementById(id).style.display = "block";
+    
+}
+
+function fermerFenetre(id) {
+    document.getElementById(id).style.display = "none";
+    
+}
+
+
+
+
+
+
