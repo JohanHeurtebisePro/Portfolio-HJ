@@ -347,6 +347,7 @@ input[type="submit"]:focus {
     align-items: center;
     gap: 40px;
     padding: 20px;
+    margin: 0px; /* Applique une marge de 20px tout autour */
     overflow-x: hidden;
 }
 
@@ -745,6 +746,7 @@ h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
     font-weight: bold;
+    font-size:30px;
 }
 
 p {
@@ -2846,4 +2848,301 @@ html, body {
     .spaghetti-event h3 {
         font-size: 1em; /* Réduire encore la taille du titre */
     }
+}
+/* Styles de base */
+.conteneur-projets {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boite-projet {
+    border: 1px solid #ddd;
+    padding: 20px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+}
+
+.btn-telechargement, .btn-info {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-telechargement {
+    background-color: #007BFF;
+}
+
+.btn-info {
+    background-color: #28a745;
+    border: none;
+}
+
+/* Fenêtre pop-up */
+.fenetre-cachee {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.contenu-fenetre {
+    background: white;
+    padding: 20px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+
+.btn-fermer {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+/* --- Fenêtre modale stylisée --- */
+
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Assure que le contenu est bien espacé */
+    overflow: hidden;
+}
+
+/* Animation d'entrée */
+.modal.show {
+    display: flex;
+    opacity: 1;
+}
+
+.modal.show .modal-content {
+    transform: translateY(0);
+}
+
+/* --- Barre de défilement dans la modale --- */
+.modal-text {
+    overflow-y: auto;  /* Ajoute une barre de défilement verticale */
+    padding-right: 10px;  /* Espace à droite pour la barre de défilement */
+    margin-top: 20px;
+    flex-grow: 1;  /* Permet à la zone de texte de s'étirer pour prendre tout l'espace restant */
+    text-align: left;
+}
+
+/* --- Style des paragraphes dans la modale --- */
+.modal-text p {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* --- Bouton de fermeture --- */
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(232, 232, 232, 0.414);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+/* --- Style général --- */
+.modal-img {
+    width: 100%;
+    max-width: 300px;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+.more-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 20px;
+    background-color: #cbcbcb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    width: 230px;  /* Ajuste la largeur pour plus d'équilibre avec le bouton précédent */
+    text-align: center;
+    margin: 15px auto;
+}
+
+.more-btn:hover {
+    background-color: #39b3f5;
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.more-btn:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(40, 167, 69, 0.6);
+}
+body.modal-open {
+    overflow: hidden;  /* Empêche le défilement de la page sous-jacente */
+}
+.modal-img {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    border-radius: 8px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Style général des images dans la modale */
+.modal-img {
+    width: 100%;
+    max-width: 500px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animation d'agrandissement et de box-shadow */
+}
+
+/* Effet d'animation au survol */
+.modal-img:hover {
+    transform: scale(1.05); /* Agrandir légèrement l'image */
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.2); /* Ajoute un effet de profondeur */
+}
+
+/* Animation au chargement de la modale */
+@keyframes fadeInImage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Appliquer l'animation aux images */
+.modal-img {
+    animation: fadeInImage 0.8s ease-out;
+}
+
+/* Animation pour la modale et son contenu */
+.modal-content {
+    animation: fadeInContent 1s ease-out;
+}
+
+/* Animation pour l'apparition du contenu de la modale */
+@keyframes fadeInContent {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.modal-content {
+    position: relative;
+    transform: none;
+    transition: opacity 0.3s ease-in-out;
+}
+.modal {
+    display: none; /* Caché par défaut */
+    position: fixed; /* Fixe la modale sur l'écran */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Fond noir semi-transparent */
+    backdrop-filter: blur(5px); /* Effet de flou */
+    z-index: 9999; /* Devant tout */
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.3s ease; /* Animation de fondu */
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 90%;
+    max-width: 1000px;
+    height: 70vh;
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2); /* Ombre douce */
+}
+
+/* Désactiver l'effet de sélection disgracieux */
+.modal:focus {
+    outline: none;
+}
+
+/* Effet smooth quand la modale s'ouvre */
+.modal.show {
+    opacity: 1;
+}
+
+/* Supprimer l'ancienne couleur de fond du bouton */
+.close-btn {
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+/* Effet hover du bouton */
+.close-btn:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+body.modal-open {
+    overflow: hidden;  /* Empêche le défilement de la page sous-jacente */
+}
+.more-btn {
+    font-size: 12px; /* Réduit la taille du texte */
+    padding: 5px 10px; /* Ajuste l'espace à l'intérieur du bouton */
+    width: auto; /* Garde une largeur adaptée au contenu */
+    height: auto; /* Ajuste la hauteur en fonction du texte */
+    margin-left: 10px;
 }
