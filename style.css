@@ -3146,3 +3146,22 @@ body.modal-open {
     height: auto; /* Ajuste la hauteur en fonction du texte */
     margin-left: 10px;
 }
+
+
+.skill-card {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    width: calc(50% - 15px); /* 2 par ligne avec espace */
+    max-width: 300px; /* ✅ Limite la largeur sur PC */
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 500px) {
+    .skill-card {
+        width: 100%;
+    }
+}
