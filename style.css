@@ -3165,3 +3165,7 @@ body.modal-open {
         width: 100%;
     }
 }
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
