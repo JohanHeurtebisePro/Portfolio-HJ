@@ -153,11 +153,13 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function ouvrirFenetre(id) {
     document.getElementById(id).style.display = "block";
+    document.body.classList.add("no-scroll");
     
 }
 
 function fermerFenetre(id) {
     document.getElementById(id).style.display = "none";
+    document.body.classList.remove("no-scroll");
     
 }
 
