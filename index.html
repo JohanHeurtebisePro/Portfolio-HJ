@@ -547,18 +547,53 @@
     
     
     <!-- Contact -->
-    <div id="contact" class="contact section" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Pour me contacter, envoyez-moi un e-mail à : <a href="mailto:johanheurtebise@frstud.fr">johanheurtebise@frstud.fr</a></p>
-        <p>Ou remplissez ce formulaire :</p>
-        <form action="mailto:johanheurtebise@frstud.fr" method="post" enctype="text/plain" id="contact-form">
-            <input type="text" name="name" id="name" placeholder="Ton Nom" required>
-            <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
-            <input type="text" name="subject" id="subject" placeholder="Objet" required>
-            <textarea name="message" id="message" placeholder="Ton message..." rows="5" required></textarea>
-            <input type="submit" value="Envoyer">
-        </form>
-    </div>
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulaire de Contact</title>
+        <link rel="stylesheet" href="MonCSS.css">
+    </head>
+    <body>
+    
+        <div id="contact" class="contact section" data-aos="fade-up">
+            <h2>Contact</h2>
+            <p>Pour me contacter, envoyez-moi un e-mail à : <a href="mailto:johanheurtebise@frstud.fr">johanheurtebise@frstud.fr</a></p>
+            <p>Ou remplissez ce formulaire :</p>
+            
+            <form action="mailto:johanheurtebise@frstud.fr" method="post" enctype="text/plain" id="contact-form">
+                
+                <label for="name">Nom <span class="required">*</span></label>
+                <input type="text" name="name" id="name" placeholder="Ton Nom" required>
+        
+                <label for="email">E-mail <span class="required">*</span></label>
+                <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
+        
+                <label for="phone">Numéro de téléphone</label>
+                <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone (optionnel)">
+        
+                <label for="reason">Pourquoi me contacter ? <span class="required">*</span></label>
+                <select name="reason" id="reason" required>
+                    <option value="" disabled selected>Choisissez une option</option>
+                    <option value="collaboration">Collaboration</option>
+                    <option value="question">Question</option>
+                    <option value="support">Support technique</option>
+                    <option value="autre">Autre</option>
+                </select>
+        
+                <label for="subject">Objet <span class="required">*</span></label>
+                <input type="text" name="subject" id="subject" placeholder="Objet" required>
+        
+                <label for="message">Message <span class="required">*</span></label>
+                <textarea name="message" id="message" placeholder="Ton message..." rows="5" required></textarea>
+        
+                <input type="submit" value="Envoyer">
+            </form>
+        </div>
+    
+    </body>
+    </html>
 
     <!-- Ajout de AOS (Animate On Scroll) -->
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
