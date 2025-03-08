@@ -164,7 +164,21 @@ function fermerFenetre(id) {
 }
 
 
+document.querySelectorAll('.modal-text').forEach(modal => {
+    modal.addEventListener('scroll', function () {
+        let atTop = modal.scrollTop === 0;
+        let atBottom = modal.scrollTop + modal.clientHeight >= modal.scrollHeight;
 
+        if (atTop || atBottom) {
+            modal.style.transition = "transform 0.2s ease-out";
+            modal.style.transform = atBottom ? "translateY(-5px)" : "translateY(5px)";
+            
+            setTimeout(() => {
+                modal.style.transform = "translateY(0)";
+            }, 200);
+        }
+    });
+});
 
 
 
