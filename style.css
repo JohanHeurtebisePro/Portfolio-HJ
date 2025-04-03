@@ -3077,16 +3077,7 @@ body.modal-open {
     gap: 20px;
 }
 
-.skill-card {
-    flex: 1 1 calc(33.333% - 20px);
-    max-width: calc(33.333% - 20px);
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s ease-in-out;
-}
+
 
 .skill-card:hover {
     transform: scale(1.05);
@@ -3408,4 +3399,15 @@ ul.special-list li::before {
     color: #3498db;
     top: 50%;
     transform: translateY(-50%);
+}
+/* Taille normale du bouton */
+input[type="checkbox"] {
+    transform: scale(1);
+}
+
+/* Sur les petits écrans (moins de 600px de large) */
+@media (max-width: 500px) {
+    input[type="checkbox"] {
+        transform: scale(0.8); /* Réduit la taille du checkbox */
+    }
 }
