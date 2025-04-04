@@ -640,26 +640,7 @@
         </div>
     </div>
     
-    <script>
-        const form = document.getElementById('contactForm');
-        const loadingMessage = document.getElementById('loadingMessage');
-        const confirmationMessage = document.getElementById('confirmationMessage');
-        const submitBtn = document.getElementById('submitBtn');
-    
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-    
-            loadingMessage.style.display = 'block'; // Affiche le message de chargement
-            submitBtn.disabled = true; // Désactive le bouton d'envoi
-    
-            // Simuler l'envoi de données pour cette démo (remplacer avec une vraie API)
-            setTimeout(function() {
-                // Simuler une réponse réussie
-                loadingMessage.style.display = 'none'; // Masque le message de chargement
-                confirmationMessage.style.display = 'block'; // Affiche le message de confirmation
-            }, 3000); // Remplacer ce délai par un délai de réponse réel d'une API
-        });
-    </script>
+
     </body>
     </html>
 
