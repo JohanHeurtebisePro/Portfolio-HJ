@@ -60,6 +60,7 @@
         <br>
         <h1>Heurtebise Johan</h1>
         <p>Étudiant en BUT R&T à Blois</p>
+
         </div>
     </header>
     
@@ -92,6 +93,7 @@
             <a href="CV-HJ.pdf" class="download-btn" download>
                 📥 Mon CV
             </a>
+            
     
         </div>
     </div>
@@ -247,7 +249,27 @@
                             <li>📘 <a href="https://cyber.gouv.fr" target="_blank">Site de l'ANSSI</a> : Formation et actualités sur la cybersécurité.</li>
                         </ul>
                         
-                        <!-- Ajout d'un schéma -->
+                        <form id="quizForm">
+                            <div class="question">
+                              <p>1. Quelle balise est utilisée pour insérer une image en HTML ?</p>
+                              <input type="radio" name="q1" value="a"> &lt;img&gt;<br>
+                              <input type="radio" name="q1" value="b"> &lt;image&gt;<br>
+                              <input type="radio" name="q1" value="c"> &lt;pic&gt;
+                            </div>
+                        
+                            <div class="question">
+                              <p>2. Que signifie HTML ?</p>
+                              <input type="radio" name="q2" value="a"> Hyper Tool Markup Language<br>
+                              <input type="radio" name="q2" value="b"> HyperText Markup Language<br>
+                              <input type="radio" name="q2" value="c"> HighText Markdown Language
+                            </div>
+                        
+                            <button type="button" onclick="checkAnswers()">Valider</button>
+                          </form>
+                        
+                          <div class="result" id="result"></div>
+                        
+
                          </div>
                 </div>
             </div>
@@ -611,17 +633,10 @@
     
             <div class="form-group">
                 <label for="message">Message <span class="required">*</span></label>
-                <textarea name="message" id="message" placeholder="Votre kmessage..." rows="5" required></textarea>
+                <textarea name="message" id="message" placeholder="Votre message..." rows="5" required></textarea>
             </div>
     
 
-    
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" name="consent" required>
-                    J'accepte la politique de confidentialité.
-                </label>
-            </div>
     
             <div class="form-group">
                 <input type="submit" value="Envoyer" id="submitBtn">
