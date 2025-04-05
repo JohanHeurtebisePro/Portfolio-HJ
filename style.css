@@ -3098,7 +3098,7 @@ body.modal-open {
     font-size: 1em;
 }
 
-@media screen and (min-width: 1600px) {
+@media screen and (min-width: 1800px) {
     .photo {
         width: 250px;
         height: 250px;
@@ -3114,7 +3114,7 @@ body.modal-open {
     }
 
     .about-right p {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
     .download-btn {
@@ -3411,3 +3411,7 @@ input[type="checkbox"] {
         transform: scale(0.8); /* Réduit la taille du checkbox */
     }
 }
+
+
+
+
