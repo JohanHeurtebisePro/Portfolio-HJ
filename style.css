@@ -3415,3 +3415,7 @@ input[type="checkbox"] {
 
 
 
+textarea {
+    resize: vertical;
+}
+
