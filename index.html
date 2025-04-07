@@ -15,7 +15,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-
+    <!-- Dans ton <head> ou juste avant </body> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+    AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+    });
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
 
 
     
@@ -23,6 +39,8 @@
  
 </head>
 <body>
+
+
     
 
     <div id="particles-js"></div>
@@ -106,7 +124,7 @@
         <div class="conteneur-flex">
     
             <!-- 🟦 Colonne LinkedIn (devient aussi grande que la droite) -->
-            <div class="colonne colonne-gauche">
+            <div class="colonne colonne-gauche" data-aos="fade-right" data-aos-delay="100">
                 <div class="bloc-info bloc-linkedin">
                     <h2>📝 Derniers posts LinkedIn</h2>
                     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
@@ -121,7 +139,7 @@
             </div>
     
             <!-- 🟧 Colonne Droite : Annonces & Médias -->
-            <div class="colonne colonne-droite">
+            <div class="colonne colonne-droite" data-aos="fade-left" data-aos-delay="150">
                 <div class="bloc-info bloc-annonce">
                     <h2>📢 Annonce Importante</h2>
                     <p>📃 Recherche Contrat d'apprentissage de 2 ans (2025-2027).
@@ -414,72 +432,124 @@
 
     
 
-    <section>
-        <div id="comp" class="compéences section" data-aos="fade-up">
-        <h2> Compétences </h2>
-        <div class="skills-container">
-            <div class="skill-card" id="webdev-card">
-                <img src="htmllogo.png" alt="Web Development" class="skill-image">
-                <h3 class="skill-title">HTML</h3>
-                <p class="skill-detail">Création d’un site Web personnel, avec des fonctionnalités basiques</p>
-                <strong>Niveau : Intermédiaire</strong>
+        <section>
+            <div id="comp" class="compétences section" data-aos="fade-up">
+                <h2>Compétences</h2>
+                
+                <div class="skills-container">
 
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="csslogo.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">CSS</h3>
-                <p class="skill-detail">Ajout de style sur un site Web personnel, avec responsive design.</p>
-                <strong>Niveau : Intermédiaire</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="bashlogo2.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Bash</h3>
-                <p class="skill-detail">Découverte de l'environnement Linux, script / commandes simples.</p>
-                <strong>Niveau : Débutant</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="pythonlogo.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Python</h3>
-                <p class="skill-detail">Création de plusieurs algorithmes, d’un niveau assez modeste.</p>
-                <strong>Niveau : Intermédiaire confirmé</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="java.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Java</h3>
-                <p class="skill-detail">Initiation à la POO en JavaScript, quelques heures de pratiques</p>
-                
-                <strong>Niveau : Débutant</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="sqllogo.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">SQL</h3>
-                <p class="skill-detail">Conception de tables avancées et création de requêtes complexes.</p>
-                <strong>Niveau : Intermédiaire</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="reseaulogo.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Architecture des Réseaux</h3>
-                <p class="skill-detail">Initiation aux Réseaux Informatiques, strucure et équipements.</p>
-                <strong>Niveau : Débutant</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="logotelecom2.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Télécommunications</h3>
-                <p class="skill-detail">Initiation à la Télécommunications, à la Téléphonie d'entreprise.</p>
-                <strong>Niveau : Débutant</strong>
-            </div>
-            <div class="skill-card" id="uxui-card">
-                <img src="cyberlogo2.png" alt="UX/UI Design" class="skill-image">
-                <h3 class="skill-title">Cybersécurité - Hygiène Informatique</h3>
-                <p class="skill-detail">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
-                
-                <strong>Niveau : Débutant</strong>
-                
-            </div>
-            
-            <!-- Ajouter plus de cartes de compétences ici -->
-        </div>
-    </section>
+                    
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="htmllogo.png" alt="Logo HTML" class="skill-image" />
+                        <h3 class="skill-title">HTML</h3>
+                        <p class="skill-detail">Création d’un site Web personnel.</p>
+                        <strong>Niveau : Intermédiaire</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="csslogo.png" alt="Logo CSS" class="skill-image" />
+                        <h3 class="skill-title">CSS</h3>
+                        <p class="skill-detail">Ajout de style sur un site Web personnel, avec responsive design.</p>
+                        <strong>Niveau : Intermédiaire</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="bashlogo2.png" alt="Logo Bash" class="skill-image" />
+                        <h3 class="skill-title">Bash</h3>
+                        <p class="skill-detail">Découverte de l'environnement Linux, script / commandes simples.</p>
+                        <strong>Niveau : Débutant</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="pythonlogo.png" alt="Logo Python" class="skill-image" />
+                        <h3 class="skill-title">Python</h3>
+                        <p class="skill-detail">Création de plusieurs algorithmes, d’un niveau modeste à intermédiaire.</p>
+                        <strong>Niveau : Intermédiaire confirmé</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="java.png" alt="Logo Java" class="skill-image" />
+                        <h3 class="skill-title">Java</h3>
+                        <p class="skill-detail">Initiation à la POO en Java.</p>
+                        <strong>Niveau : Débutant</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="sqllogo.png" alt="Logo SQL" class="skill-image" />
+                        <h3 class="skill-title">SQL</h3>
+                        <p class="skill-detail">Conception de tables avancées et création de requêtes complexes.</p>
+                        <strong>Niveau : Intermédiaire</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                        
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="reseaulogo.png" alt="Logo Réseaux" class="skill-image" />
+                        <h3 class="skill-title">Architecture des Réseaux</h3>
+                        <p class="skill-detail">Initiation aux Réseaux Informatiques, structure et équipements.</p>
+                        <strong>Niveau : Débutant</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="logotelecom2.png" alt="Logo Télécom" class="skill-image" />
+                        <h3 class="skill-title">Télécommunications</h3>
+                        <p class="skill-detail">Initiation aux Télécommunications, à la Téléphonie d'entreprise.</p>
+                        <strong>Niveau : Débutant</strong>
+                      </div>
+                    </div>
+                  
+                    <div class="skill-card" data-aos="zoom-in-up">
+                      <div class="skill-expanded-content">
+
+                      </div>
+                      <div class="skill-main-content">
+                        <img src="cyberlogo2.png" alt="Logo Cybersécurité" class="skill-image" />
+                        <h3 class="skill-title">Cybersécurité - Hygiène Informatique</h3>
+                        <p class="skill-detail">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
+                        <strong>Niveau : Débutant</strong>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  
+        </section>
 
     
 
@@ -506,44 +576,46 @@
     <!-- Compétences -->
     <div class="separator"></div>
     <div id="exp" class="exp section" data-aos="fade-up">
-
-    <h2> Expériences Professionnelles / Formation suivies </h2>
-
-    <section>
-        <div class="cosmic-timeline">
-            <!-- Premier événement -->
-            <div class="spaghetti-event">
-                <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
-                <p class="space-time">2024-2027</p>
-                <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
-                <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
-            </div>
+        <h2>Expériences Professionnelles / Formation suivies</h2>
     
-            <!-- Deuxième événement -->
-            <div class="spaghetti-event">
-                <h3>Expérience d'Ouvrier Agricole</h3>
-                <p class="space-time">Juillet 2024</p>
-                <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
-                <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
-            </div>
+        <section>
+            <div class="cosmic-timeline">
     
-            <!-- Troisième événement -->
-            <div class="spaghetti-event">
-                <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
-                <p class="space-time">2021-2024</p>
-                <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
-                <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
-            </div>
+                <!-- Premier événement -->
+                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
+                    <p class="space-time">2024-2027</p>
+                    <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
+                    <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
+                </div>
     
-            <!-- Quatrième événement -->
-            <div class="spaghetti-event">
-                <h3>Stage d'observation de 3ème - Infographiste</h3>
-                <p class="space-time">Janvier 2021</p>
-                <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
-                <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
+                <!-- Deuxième événement -->
+                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Expérience d'Ouvrier Agricole</h3>
+                    <p class="space-time">Juillet 2024</p>
+                    <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
+                    <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
+                </div>
+    
+                <!-- Troisième événement -->
+                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
+                    <p class="space-time">2021-2024</p>
+                    <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
+                    <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
+                </div>
+    
+                <!-- Quatrième événement -->
+                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Stage d'observation de 3ème - Infographiste</h3>
+                    <p class="space-time">Janvier 2021</p>
+                    <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
+                    <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
+                </div>
+    
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     
     
@@ -578,27 +650,33 @@
     <div class="separator"></div>
 
     <div id="contact" class="contact section" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Pour me contacter, envoyez-moi un e-mail à : <a href="mailto:Contact@heurtebisej-pro.com">Contact@heurtebisej-pro.com</a></p>
-        <p>Ou remplissez ce formulaire :</p>
-        
+        <h2 data-aos="fade-right" data-aos-delay="100">Contact</h2>
+    
+        <p data-aos="fade-left" data-aos-delay="200">
+            Pour me contacter, envoyez-moi un e-mail à :
+            <a href="mailto:Contact@heurtebisej-pro.com">Contact@heurtebisej-pro.com</a>
+        </p>
+    
+        <p data-aos="zoom-in" data-aos-delay="300">Ou remplissez ce formulaire :</p>
+    
         <form action="https://formspree.io/f/xldjrynw" method="POST" class="contact-form" id="contactForm" enctype="multipart/form-data">
-            <div class="form-group">
+            
+            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
                 <label for="name">Nom <span class="required">*</span></label>
                 <input type="text" name="name" id="name" placeholder="Ton Nom" required>
             </div>
-            
-            <div class="form-group">
+    
+            <div class="form-group" data-aos="fade-left" data-aos-delay="100">
                 <label for="email">E-mail <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
             </div>
     
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
                 <label for="phone">Numéro de téléphone</label>
                 <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone (optionnel)">
             </div>
     
-            <div class="form-group">
+            <div class="form-group" data-aos="fade-left" data-aos-delay="100">
                 <label for="reason">Pourquoi me contacter ? <span class="required">*</span></label>
                 <select name="reason" id="reason" required>
                     <option value="" disabled selected>Choisissez une option</option>
@@ -608,30 +686,21 @@
                 </select>
             </div>
     
-            <div class="form-group">
+            <div class="form-group" data-aos="zoom-in" data-aos-delay="100">
                 <label for="subject">Objet <span class="required">*</span></label>
                 <input type="text" name="subject" id="subject" placeholder="Objet" required>
             </div>
     
-            <div class="form-group">
+            <div class="form-group" data-aos="flip-left" data-aos-delay="100">
                 <label for="message">Message <span class="required">*</span></label>
                 <textarea name="message" id="message" placeholder="Votre message..." rows="5" required></textarea>
             </div>
-    
-
     
             <div class="form-group">
                 <input type="submit" value="Envoyer" id="submitBtn">
             </div>
         </form>
     
-        <div id="loadingMessage" style="display: none;">
-            <p>Envoi en cours...</p>
-        </div>
-    
-        <div id="confirmationMessage" style="display: none;">
-            <p>Merci pour votre message ! Vous recevrez une réponse sous peu.</p>
-        </div>
     </div>
     
 
