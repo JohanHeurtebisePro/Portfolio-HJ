@@ -24,6 +24,7 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
     AOS.init({
+        offset: 2000, // Augmente la distance avant que l'élément ne soit détecté
         duration: 1000,
         easing: 'ease-in-out',
         once: true,
@@ -44,10 +45,13 @@
 
 
     <div id="intro" class="intro">
-        <h1 class="typing" id="typing-text">Bienvenue sur mon Portfolio !</h1>
-        <p class="subtext">Etudiant en BUT R&T</p>
-        <button class="enter-btn" onclick="enterSite()">Entrer sur le site</button>
+        <h1 class="typing" id="typing-text">Chargement en cours...</h1>
+        <p class="subtext">Veuillez patienter</p> <!-- "patienter" est au présent, sans majuscule -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progress-bar"></div>
+        </div>
     </div>
+
 
     
     <div id="main-content" class="hidden">
@@ -129,7 +133,7 @@
         <div class="conteneur-flex">
     
             <!-- 🟦 Colonne LinkedIn (devient aussi grande que la droite) -->
-            <div class="colonne colonne-gauche" data-aos="fade-right" data-aos-delay="100">
+            <div class="colonne colonne-gauche">
                 <div class="bloc-info bloc-linkedin">
                     <h2>📝 Derniers posts LinkedIn</h2>
                     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
@@ -144,7 +148,7 @@
             </div>
     
             <!-- 🟧 Colonne Droite : Annonces & Médias -->
-            <div class="colonne colonne-droite" data-aos="fade-left" data-aos-delay="150">
+            <div class="colonne colonne-droite">
                 <div class="bloc-info bloc-annonce">
                     <h2>📢 Annonce Importante</h2>
                     <p>📃 Recherche Contrat d'apprentissage de 2 ans (2025-2027).
@@ -444,7 +448,7 @@
                 <div class="skills-container">
 
                     
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -456,7 +460,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -468,7 +472,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -480,7 +484,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -492,7 +496,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -504,7 +508,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
                       </div>
                       <div class="skill-main-content">
@@ -515,7 +519,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                         
@@ -528,7 +532,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -540,7 +544,7 @@
                       </div>
                     </div>
                   
-                    <div class="skill-card" data-aos="zoom-in-up">
+                    <div class="skill-card" data-aos="flip-left">
                       <div class="skill-expanded-content">
 
                       </div>
@@ -584,7 +588,7 @@
         <h2>Expériences Professionnelles / Formation suivies</h2>
     
         <section>
-            <div class="cosmic-timeline">
+            <div class="cosmic-timeline" data-aos="fade-up">
     
                 <!-- Premier événement -->
                 <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="100">
@@ -731,7 +735,7 @@
         
    
 </body>
-<footer>
+<footer id="footer">
     <p>&copy; 2025 Heurtebise Johan. Tous droits réservés.</p>
 </footer>
 </html>
