@@ -182,3 +182,12 @@ document.querySelectorAll('.modal-text').forEach(modal => {
 
 
 
+function enterSite() {
+    document.getElementById('intro').style.opacity = 0;
+    setTimeout(() => {
+        document.getElementById('intro').style.display = 'none';
+        const main = document.getElementById('main-content');
+        main.classList.remove('hidden');
+        main.style.display = 'block';
+    }, 1000);
+}
