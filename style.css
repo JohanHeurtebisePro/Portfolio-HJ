@@ -195,7 +195,7 @@ h2 {
     margin: 10px 0;
 }
 
-.skills .progress-bar {
+.skills {
     width: 0%;
     height: 10px;
     background-color: #0cafe6;
@@ -549,7 +549,7 @@ input[type="submit"]:focus {
         width: 100%;
     }
 
-    .skills .progress-bar {
+    .skills {
         height: 8px;
     }
 
@@ -569,11 +569,15 @@ input[type="submit"]:focus {
 header {
     text-align: center;
     margin-top: 15px;
+    gap : 20px;
+    
 }
 
 header h1 {
     font-size: 3em;
     color: #333;
+    margin-top: 15px;
+
 }
 
 header p {
@@ -1414,20 +1418,7 @@ html, body {
 }
 
 /* Barres de progression */
-.progress-bar {
-    width: 100%;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    height: 10px;
-    margin-top: 10px;
-}
 
-.progress {
-    height: 100%;
-    border-radius: 5px;
-    width: 0;
-    animation: fillBar 2s ease-out forwards;
-}
 
 /* Animations des barres de progression */
 @keyframes fillBar {
@@ -1455,43 +1446,8 @@ html, body {
 .management-icon::before {
     content: "M";
 }
-:root {
-    --html-progress: 90%;   /* Modifiez ici pour changer le pourcentage de HTML */
-    --css-progress: 80%;    /* Modifiez ici pour changer le pourcentage de CSS */
-    --js-progress: 75%;     /* Modifiez ici pour changer le pourcentage de JavaScript */
-    --management-progress: 85%; /* Modifiez ici pour changer le pourcentage de Gestion de Projet */
-}
 
-/* Style des barres de progression */
-.progress-bar {
-    width: 100%;
-    background-color: #f0f0f0;
-    border-radius: 100px;
-    overflow: hidden;
-}
 
-.progress {
-    height: 20px; /* Hauteur de la barre */
-    background-color: #1db2f1d6; /* Couleur de la barre */
-    border-radius: 10px;
-}
-
-/* Attribuer les pourcentages dynamiques pour chaque compétence */
-.progress.html {
-    width: var(--html-progress);
-}
-
-.progress.css {
-    width: var(--css-progress);
-}
-
-.progress.js {
-    width: var(--js-progress);
-}
-
-.progress.management {
-    width: var(--management-progress);
-}
 
 /* Ajouter quelques autres styles pour les icônes et le texte si nécessaire */
 .icon {
@@ -1985,7 +1941,7 @@ html, body {
 
 /* 🏆 Titre principal */
 .titre-principal {
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     color: #000811;
     text-transform: uppercase;
@@ -3423,73 +3379,89 @@ textarea {
 
 
 /* Intro */
+/* Intro */
 .intro {
     height: 100vh;
     width: 100%;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    background: linear-gradient(135deg, #f5f6f6, #d8dada, #a2a2a2);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
+    color: rgb(28, 28, 28);
     text-align: center;
-    transition: all 1s ease;
+    opacity: 0; /* Initialement invisible */
+    animation: fadeInIntro 1s ease-out forwards, slideUpIntro 1s ease-out forwards;
 }
 
+@keyframes fadeInIntro {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes slideUpIntro {
+    0% { transform: translateY(20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animation de saisie du texte */
+/* Animations avancées de texte */
 .typing {
-    font-size: 2em;
+    font-size: 3em;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid white;
     width: 0;
-    animation: typing 2.5s steps(30, end) forwards, blink 1s step-end infinite;
+    animation: typing 1.5s steps(30, end) forwards, blink 1s step-end infinite, slideIn 1s ease-out;
+  }
+
+/* Clignotement du curseur */
+@keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: white; }
 }
 
 @keyframes typing {
-    from { width: 0 }
-    to { width: 100% }
+    from { width: 0; }
+    to { width: 100%; }
 }
 
-@keyframes blink {
-    from, to { border-color: transparent }
-    50% { border-color: white }
-}
-
+/* Animation de fade-in pour la sous-texte */
 .subtext {
     font-size: 1.2em;
     margin-top: 20px;
     opacity: 0;
-    animation: fadeIn 2s ease-in-out 3s forwards;
+    animation: fadeInSubtext 1s ease-in-out 2s forwards;
 }
 
-.enter-btn {
-    margin-top: 40px;
-    padding: 12px 24px;
-    font-size: 1em;
-    background-color: white;
-    color: #203a43;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0;
-    animation: fadeIn 2s ease-in-out 4s forwards;
+@keyframes fadeInSubtext {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
-.enter-btn:hover {
-    background-color: #f0f0f0;
+/* Barre de progression */
+.progress-container {
+    width: 80%;
+    background-color: #f1f1f1;
+    height: 5px;
+    border-radius: 5px;
+    margin-top: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Animation fade */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+.progress-bar {
+    width: 0;
+    height: 100%;
+    background-color: #1f1f1f;
+    border-radius: 5px;
+    transition: width 3s ease; /* Animation fluide */
 }
 
+/* Effets pour le contenu principal après l’intro */
 /* Contenu principal */
 #main-content {
     display: none;
-    animation: fadeInMain 1s ease-in-out;
+    overflow: hidden;
 }
 
 @keyframes fadeInMain {
@@ -3497,32 +3469,28 @@ textarea {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Masquer et afficher */
+#main-content.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
+/* Pour rendre tout le site responsive */
+@media (max-width: 768px) {
+    .intro h1 {
+        font-size: 2rem;
+    }
 
-  
-  /* Responsive */
-  @media (max-width: 768px) {
-    .HJ h1 {
-      font-size: 2rem;
+    .intro p {
+        font-size: 1rem;
     }
-  
-    .HJ p {
-      font-size: 1rem;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .HJ h1 {
-      font-size: 1.6rem;
-    }
-  
-    .HJ p {
-      font-size: 0.95rem;
-    }
-  }
+}
 
-/* Masquer et afficher */
-.hidden {
-    display: none;
+@media (max-width: 480px) {
+    .intro h1 {
+        font-size: 1.5rem;
+    }
+
+    .intro p {
+        font-size: 0.9rem;
+    }
 }
