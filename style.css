@@ -3421,11 +3421,6 @@ textarea {
 
 
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-}
 
 /* Intro */
 .intro {
@@ -3494,7 +3489,6 @@ body, html {
 /* Contenu principal */
 #main-content {
     display: none;
-    padding: 50px;
     animation: fadeInMain 1s ease-in-out;
 }
 
@@ -3504,9 +3498,6 @@ body, html {
 }
 
 /* Masquer et afficher */
-.hidden {
-    display: none;
-}
 
 
   
