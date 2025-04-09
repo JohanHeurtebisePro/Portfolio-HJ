@@ -3521,3 +3521,8 @@ textarea {
       font-size: 0.95rem;
     }
   }
+
+/* Masquer et afficher */
+.hidden {
+    display: none;
+}
