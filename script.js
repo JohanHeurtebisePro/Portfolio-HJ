@@ -182,12 +182,21 @@ document.querySelectorAll('.modal-text').forEach(modal => {
 
 
 
-function enterSite() {
-    document.getElementById('intro').style.opacity = 0;
+
+window.addEventListener("DOMContentLoaded", () => {
+    const progressBar = document.getElementById("progress-bar");
+
+    // Lancer la progression fluide
     setTimeout(() => {
-        document.getElementById('intro').style.display = 'none';
-        const main = document.getElementById('main-content');
-        main.classList.remove('hidden');
-        main.style.display = 'block';
-    }, 1000);
-}
+      progressBar.style.width = "100%";
+    }, 100);
+
+    // Une fois la barre pleine, afficher le site
+    setTimeout(() => {
+      document.getElementById("intro").style.display = "none";
+      document.getElementById("main-content").style.display = "block";
+
+      // Réinitialiser AOS pour prendre en compte les animations
+      AOS.refresh(); 
+    }, 3100); // Assurez-vous que le délai est assez long pour la barre de progression
+});
