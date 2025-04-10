@@ -183,20 +183,3 @@ document.querySelectorAll('.modal-text').forEach(modal => {
 
 
 
-window.addEventListener("DOMContentLoaded", () => {
-    const progressBar = document.getElementById("progress-bar");
-
-    // Lancer la progression fluide
-    setTimeout(() => {
-      progressBar.style.width = "100%";
-    }, 100);
-
-    // Une fois la barre pleine, afficher le site
-    setTimeout(() => {
-      document.getElementById("intro").style.display = "none";
-      document.getElementById("main-content").style.display = "block";
-
-      // Réinitialiser AOS pour prendre en compte les animations
-      AOS.refresh(); 
-    }, 3100); // Assurez-vous que le délai est assez long pour la barre de progression
-});
