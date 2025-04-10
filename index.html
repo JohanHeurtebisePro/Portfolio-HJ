@@ -315,33 +315,72 @@
                     <button class="close-btn" onclick="fermerFenetre('info-window-2')">X</button>
                     <h3>Exploration des réseaux informatiques</h3>
                     <div class="modal-text">
-                        <p>Ce projet visait à nous initier aux fondements des réseaux informatiques en étudiant aussi bien des réseaux domestiques que professionnels. Nous avons manipulé des concepts tels que le <strong>routage</strong>, la <strong>commutation</strong> et la <strong>gestion d’adresses IP</strong>.</p>
-    
+                        <p>Ce projet s’inscrit dans la SAÉ 1.02 : <strong>“S’initier aux réseaux informatiques”</strong>. Il avait pour objectif de nous familiariser avec les bases du fonctionnement des réseaux, en nous plaçant dans la peau d’un technicien R&T amené à comprendre et mettre en œuvre une architecture réseau aussi bien domestique qu’institutionnelle.</p>
+            
+                        <p>Dans un premier temps, nous avons mené un travail d’enquête sur le terrain. En binômes, nous avons repéré et documenté la configuration de deux réseaux physiques différents : un <strong>réseau domestique</strong> et un <strong>réseau universitaire</strong>. Cela impliquait la collecte d’informations techniques telles que :</p>
+            
+                        <ul class="special-list">
+                            <li>📡 L’adresse IP et le masque de sous-réseau de plusieurs postes</li>
+                            <li>🖥️ L’adresse MAC des équipements connectés</li>
+                            <li>🔌 Le type de connexion utilisé (Ethernet, Wi-Fi)</li>
+                            <li>🧭 L’organisation logique et physique des équipements</li>
+                        </ul>
+            
+                        <p>Ces observations nous ont permis d’avoir une vision concrète de la manière dont sont structurés les réseaux dans la réalité, au-delà de la simple théorie. Cela nous a également amenés à réfléchir à l’usage et à la configuration des <strong>box Internet</strong>, routeurs domestiques ou bornes d’accès universitaires.</p>
+            
                         <div class="content-block left fade-in">
                             <img src="box2-1.png" alt="Simulation réseau" class="modal-img">
                             <div class="text-content">
-                                <p>Nous avons utilisé <strong>Cisco Packet Tracer</strong>, un outil de simulation développé par Cisco. Il nous a permis de configurer des équipements virtuels (switches, routeurs, PC) et de créer des topologies réseau complexes tout en testant leur fonctionnement.</p>
+                                <p>Dans un second temps, nous avons reproduit ces deux architectures dans le simulateur <strong>Cisco Packet Tracer</strong>. Ce logiciel nous a permis de concevoir des topologies réseau, de configurer des routeurs et d’établir la communication entre plusieurs machines virtuelles réparties sur différents sous-réseaux.</p>
                             </div>
                         </div>
-    
+            
+                        <p>Le travail sur Packet Tracer a été divisé en plusieurs phases techniques :</p>
+            
                         <ul class="special-list">
-                            <li>🔁 <strong>Routage</strong> : Création de chemins entre différents réseaux pour permettre la communication entre sous-réseaux.</li>
-                            <li>🔄 <strong>Commutation</strong> : Configuration de switches pour une communication fluide et sans conflits dans un réseau local.</li>
-                            <li>🧠 <strong>Adresses IP</strong> : Attribution d’adresses IP statiques/dynamiques pour organiser et sécuriser les flux réseau.</li>
+                            <li>📑 <strong>Plan d’adressage IP</strong> : Nous avons conçu des plans d’adressage cohérents en utilisant à la fois des adresses IP statiques et dynamiques selon les besoins du réseau.</li>
+                            <li>📡 <strong>Serveur DHCP</strong> : Nous avons mis en place un serveur DHCP pour distribuer automatiquement les adresses IP aux clients du réseau, tout en réservant certaines plages d’adresses pour des usages spécifiques.</li>
+                            <li>🧭 <strong>Routage statique</strong> : Nous avons configuré manuellement les routeurs pour permettre la communication entre les différents sous-réseaux. Cela nous a permis de comprendre comment les paquets transitent dans un réseau segmenté.</li>
+                            <li>🗄️ <strong>Serveur DNS</strong> : Un serveur DNS a également été simulé afin de traduire des noms de domaine en adresses IP, illustrant l’importance des services réseau pour les utilisateurs finaux.</li>
                         </ul>
-    
+            
                         <div class="content-block right fade-in">
                             <div class="text-content">
-                                <p>Nous avons également effectué une comparaison entre <strong>réseau domestique</strong> et <strong>réseau institutionnel</strong>. Cela nous a permis d’identifier les besoins spécifiques à chaque environnement, notamment en termes de <strong>sécurité</strong> et de <strong>performance réseau</strong>.</p>
+                                <p>Les switches, dans notre projet, étaient utilisés uniquement en <strong>mode plug-and-play</strong>. Nous ne les avons pas configurés, car l’accent était mis sur la compréhension du fonctionnement des routeurs et des services réseau fondamentaux.</p>
+                                <p>Cette distinction entre matériel actif configuré (routeurs) et matériel passif ou autonome (switches) nous a permis de mieux comprendre le rôle de chaque équipement dans un réseau.</p>
                             </div>
-                            <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
+                            <img src="box2-2.png" alt="Rôle des équipements" class="modal-img">
                         </div>
-    
-                        <p>Ce projet m’a permis de développer une meilleure compréhension de l’<strong>infrastructure réseau</strong>, mais aussi de renforcer ma capacité à <strong>expliquer et présenter</strong> clairement des solutions techniques à un public cible.</p>
-    
+            
+                        <p>Nous avons également procédé à une comparaison entre les réseaux domestique et universitaire. Cela nous a permis d’identifier plusieurs différences importantes :</p>
+            
+                        <ul class="special-list">
+                            <li>🏠 Le réseau domestique est souvent <strong>simple, centralisé</strong> et géré automatiquement par une box Internet.</li>
+                            <li>🏢 Le réseau universitaire repose sur une infrastructure <strong>complexe, segmentée</strong> et conçue pour répondre à des exigences de sécurité, de performance et de scalabilité.</li>
+                            <li>🔐 La sécurité y est un enjeu majeur, notamment à travers l’utilisation de VLANs, de firewalls ou d’authentification centralisée (non simulés mais abordés).</li>
+                        </ul>
+            
+                        <div class="content-block left fade-in">
+                            <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
+                            <div class="text-content">
+                                <p>En analysant les besoins spécifiques à chaque environnement, nous avons appris à adapter les choix d’architecture réseau en fonction du contexte professionnel ou privé.</p>
+                            </div>
+                        </div>
+            
+                        <p>En plus de la configuration technique, une attention particulière a été portée à notre capacité à <strong>présenter et expliquer</strong> notre démarche. En effet, à l’issue du projet, nous avons réalisé une soutenance orale illustrée de captures d’écran de Packet Tracer, de schémas réseau, et de nos plans d’adressage.</p>
+            
                         <img src="box2-5.png" alt="Présentation technique" class="modal-img">
-    
-                        <p>Grâce à ce projet, j’ai acquis des compétences solides en <strong>modélisation de réseaux</strong>, <strong>diagnostic</strong>, et <strong>communication technique</strong>, tout en développant une approche rigoureuse et structurée pour la résolution de problèmes complexes.</p>
+            
+                        <p>Ce projet nous a permis de développer des compétences concrètes et directement mobilisables en milieu professionnel :</p>
+            
+                        <ul class="special-list">
+                            <li>🛠️ Savoir <strong>configurer un routeur</strong> pour permettre la communication entre plusieurs sous-réseaux</li>
+                            <li>🌐 Maîtriser les <strong>bases du DHCP et du DNS</strong></li>
+                            <li>📊 Être capable de <strong>concevoir un plan d’adressage</strong> structuré et cohérent</li>
+                            <li>🗣️ Expliquer clairement une solution technique à un interlocuteur</li>
+                        </ul>
+            
+                        <p>Cette expérience a renforcé notre compréhension globale des <strong>architectures réseau</strong> tout en nous permettant d’acquérir une méthode de travail rigoureuse, structurée et orientée vers la résolution de problèmes concrets.</p>
                     </div>
                 </div>
             </div>
@@ -375,35 +414,70 @@
                     <button class="close-btn" onclick="fermerFenetre('info-window-3')">X</button>
                     <h3>Étude des supports de transmission</h3>
                     <div class="modal-text">
-                        <p>Ce projet portait sur la <strong>caractérisation technique</strong> des principaux supports de transmission utilisés en réseaux : le <strong>cuivre</strong>, la <strong>fibre optique</strong> et les <strong>liaisons radio</strong>.</p>
-    
+                        <p>Ce projet faisait partie de la SAÉ 1.03 : <strong>“Découvrir un dispositif de transmission”</strong>, visant à étudier les performances des différents supports de transmission, tels que le <strong>cuivre (RJ45)</strong> et la <strong>fibre optique</strong>, en mesurant des paramètres de signal et en analysant les résultats obtenus.</p>
+            
+                        <h4>1. Découverte du système de transmission RJ45</h4>
+                        <p>Nous avons d'abord étudié la transmission de données à travers des câbles RJ45 de différentes longueurs : <strong>10m, 20m, et 30m</strong>. L’objectif était de mesurer l’impact de la distance sur la qualité du signal. Grâce à l’utilisation d’un <strong>oscilloscope</strong>, nous avons observé plusieurs paramètres :</p>
+            
+                        <ul class="special-list">
+                            <li>⤵️ <strong>Atténuation (dB)</strong> : mesure de la perte de signal causée par la longueur du câble.</li>
+                            <li>⏱️ <strong>Temps de vol (retard)</strong> : mesure du temps que met le signal à parcourir le câble.</li>
+                            <li>📏 <strong>Longueur d'onde</strong> : caractérisation des variations du signal à travers le câble.</li>
+                        </ul>
+            
+                        <p>Les résultats ont été rassemblés dans des <strong>feuilles Excel</strong>, et nous avons développé un petit outil permettant de calculer la tension de sortie et le temps de vol en fonction de la longueur du câble et de la tension initiale. Cela nous a permis de mieux comprendre comment la longueur du câble influence la transmission et de maîtriser les effets de la distance sur le signal.</p>
+            
                         <div class="content-block left fade-in">
-                            <img src="box3-2.png" alt="Supports de transmission" class="modal-img">
+                            <img src="box3-2.png" alt="Mesure à l'oscilloscope" class="modal-img">
                             <div class="text-content">
-                                <p>Nous avons réalisé des <strong>mesures physiques</strong> à l’aide d’appareils comme des <strong>analyseurs de câbles</strong> ou des <strong>réflectomètres optiques (OTDR)</strong>. Ces outils nous ont permis d’évaluer la qualité de transmission et d’identifier d’éventuels défauts.</p>
+                                <p>Mesure de transmission à l'oscilloscope avec un câble RJ45 de 20 mètres. On observe l’atténuation du signal au fur et à mesure de la distance, ce qui permet de visualiser la perte de signal en fonction de la longueur du câble.</p>
                             </div>
                         </div>
-    
-                        <ul class="special-list">
-                            <li>📏 <strong>Mesures techniques</strong> : Atténuation, écho, bruit, retard de propagation.</li>
-                            <li>🔍 <strong>Outils utilisés</strong> : OTDR, analyseurs de câbles, simulateurs de perturbations.</li>
-                            <li>🔌 <strong>Supports étudiés</strong> : Cuivre (RJ45), Fibre optique (monomode/multimode), Radio (Wi-Fi, hertzien).</li>
-                        </ul>
-    
+            
                         <div class="content-block right fade-in">
                             <div class="text-content">
-                                <p>Nous avons aussi étudié les critères techniques permettant de <strong>choisir un support adapté</strong> selon différents paramètres : distance, débit, coût, environnement, contraintes physiques…</p>
+                                <p>Les données de ces mesures ont été analysées pour déterminer les effets de la distance sur l'atténuation et le temps de vol. Cette analyse nous a permis de mieux comprendre comment la transmission évolue en fonction de la longueur du câble.</p>
                             </div>
-                            <img src="box3-4.png" alt="Comparaison des supports" class="modal-img">
+                            <img src="ampldb.png" alt="Analyse des données RJ45" class="modal-img">
                         </div>
-    
-                        <p>Une dimension essentielle du projet a été la <strong>communication technique</strong>. Nous avons dû adapter notre discours selon le profil de l’interlocuteur : technique pour un collaborateur, simplifié pour un client non-expert.</p>
-    
-                        <img src="box3-3.png" alt="Communication des résultats" class="modal-img">
-    
-                        <p>Ce projet m’a permis de renforcer mes compétences en <strong>mesures électroniques</strong>, en <strong>analyse de signal</strong>, et en <strong>présentation structurée</strong> des résultats, des compétences essentielles dans les métiers des télécoms et des réseaux.</p>
-    
-                        <img src="box3-5.png" alt="Câblage et certification" class="modal-img">
+            
+                        <h4>2. Simulation d’un câble de 20 km avec une plaquette</h4>
+                        <p>La deuxième phase du projet a consisté à utiliser une <strong>plaquette de simulation</strong> pour simuler un câble longue distance jusqu’à 20 km. Nous avons effectué les mêmes mesures et comparé les résultats obtenus pour trois types de terminaisons :</p>
+            
+                        <ul class="special-list">
+                            <li>🔌 <strong>Terminaison adaptée</strong> : lorsque l’impédance du câble est correctement appariée à celle de la terminaison.</li>
+                            <li>🔓 <strong>Terminaison ouverte</strong> : l’impédance n’est pas adaptée, ce qui crée des réflexions du signal.</li>
+                            <li>🚫 <strong>Terminaison court-circuitée</strong> : également une impédance mal adaptée, engendrant des réflexions.</li>
+                        </ul>
+            
+                        <div class="content-block right fade-in">
+                            <div class="text-content">
+                                <p>En observant les signaux à l’oscilloscope, nous avons pu étudier les signaux incident, réfléchi et confondu, et ainsi identifier les différences de comportement en fonction des configurations de terminaison.</p>
+                            </div>
+                            <img src="plaquette.png" alt="Simulation avec plaquette" class="modal-img">
+                        </div>
+            
+                        <div class="content-block right fade-in">
+                            <div class="text-content">
+                                <p>Les résultats ont été exploités pour comparer les configurations et observer les effets de chaque terminaison sur la qualité du signal et l’amplitude du signal mesuré à l'oscilloscope.</p>
+                            </div>
+                            <img src="sgn.png" alt="Comparaison des terminaisons" class="modal-img">
+                        </div>
+            
+                        <h4>Conclusion des observations de terminaisons</h4>
+                        <p>Les résultats ont montré que la <strong>terminaison adaptée</strong> est la plus stable, avec une amplitude régulière et une faible atténuation sur toute la distance. En revanche, les configurations avec <strong>terminaison ouverte</strong> et <strong>court-circuitée</strong> ont produit des oscillations et une perte de stabilité, ce qui diminue la qualité de la transmission.</p>
+            
+                        <h4>Résultats et comparaison des configurations</h4>
+                        <p>En conclusion, les observations nous ont permis de confirmer que la <strong>terminaison adaptée</strong> est idéale pour une transmission stable, car elle minimise les réflexions et les pertes. Les configurations ouvertes et court-circuitées engendrent des réflexions qui perturbent la transmission et affectent la qualité du signal, rendant ces solutions moins efficaces sur de longues distances.</p>
+            
+                        <div class="content-block left fade-in">
+                            <img src="box3-3.png" alt="Analyse des signaux et comparaisons" class="modal-img">
+                            <div class="text-content">
+                                <p>Les courbes illustrent les différentes configurations de terminaison et leurs effets sur l’amplitude du signal à l’oscilloscope. L'analyse montre clairement la stabilité de la terminaison adaptée par rapport aux autres configurations.</p>
+                            </div>
+                        </div>
+            
+                        <p>Ce projet m’a permis de renforcer mes compétences en <strong>mesures électroniques</strong>, en <strong>analyse de signal</strong>, et en <strong>présentation technique des résultats</strong>. Ces compétences sont fondamentales pour comprendre la performance des supports de transmission dans les réseaux de télécommunications.</p>
                     </div>
                 </div>
             </div>
