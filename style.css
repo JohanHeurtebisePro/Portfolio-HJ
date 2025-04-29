@@ -2,6 +2,10 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+
+
+
 }
 
         .modal {
@@ -60,10 +64,11 @@
     }
 }
 h1 {
+    font-size: 4rem; /* Texte en gros (tu peux ajuster cette valeur à ta préférence) */
     overflow: hidden;
     white-space: nowrap;
     border-right: 2px solid #333; /* curseur */
-    animation: typing 3s steps(50) 1s 1 normal both;
+    display: inline-block; /* Assure que le texte s'affiche sur une seule ligne */
 }
 
 
@@ -81,39 +86,13 @@ body {
     margin: 0;
     height: 100%;
     transition: opacity 1s ease-in-out;
+    
 }
 body.loaded {
     opacity: 1;
 }
 
 /* Barre de navigation fixe */
-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 10px 0;
-    z-index: 1000;
-    text-align: center;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 15px;
-    font-size: 1.2em;
-    margin: 0 20px;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-nav a:hover {
-    background-color: #acacac;
-    color: #ffffff; /* couleur du survol */
-    transform: scale(1.1); /* effet de zoom */
-}
 
 
 /* Section photo */
@@ -123,12 +102,17 @@ nav a:hover {
     margin-bottom: 50px;
 }
 
-.photo-section img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    border: 4px solid #00bcd4;
-    transition: transform 0.3s ease-in-out;
+.profile-photo img {
+    width: 100%; /* Assure que l'image occupe toute la largeur du conteneur */
+    border-radius: 20px; /* Coins arrondis */
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition pour l'animation */
+    z-index: 2; /* L'image est au-dessus du cercle */
+
+}
+
+.profile-photo img:hover {
+    transform: scale(1.005); /* Agrandit l'image à 110% de sa taille initiale */
 }
 
 .photo-section img:hover {
@@ -621,6 +605,11 @@ body {
     z-index: 1000;
 }
 
+
+
+
+
+
 .bar {
     width: 30px;
     height: 4px;
@@ -777,7 +766,7 @@ p {
 }
 
 .download-btn:hover {
-    background: linear-gradient(45deg, #0cafe6, #0cafe6);
+    background: linear-gradient(45deg, #1d8cf5cd, #1287f5cd);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
@@ -3543,7 +3532,699 @@ textarea {
 }
 
 
+.reseaux_galactique .icone_reseau {
+    color: black; /* Couleur des icônes par défaut */
+    font-size: 25px; /* Taille des icônes */
+    transition: color 0.3s ease; /* Transition pour le changement de couleur */
+    margin-right: 10px; /* Espace de 10px entre chaque icône */
+}
+
+.reseaux_galactique .icone_reseau:hover {
+    color: rgba(39, 143, 255, 0.7); /* Bleu clair transparent au survol */
+}
 
 
+/* Hero Section */
+.hero-section {
+    height: 100vh;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+    background: #f9f9f9;
+    color: #555;
+    padding: 12px 30px;
+    border: 2px solid #ccc;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.4s ease;
+    display: inline-block;
+    margin: 20px;
+}
+
+.btn:hover {
+    border-color: #5cb6ff;
+    color: #5cb6ff;
+    background: #ffffff;
+}
+
+
+
+/* News */
+.news-block {
+    background: #f5f5f5;
+    padding: 40px;
+    border-radius: 15px;
+    margin-top: 30px;
+    transition: transform 0.3s ease;
+}
+
+.news-block:hover {
+    transform: translateY(-5px);
+}
+
+.news-block h3 {
+    margin-bottom: 10px;
+    color: #5cb6ff;
+}
+
+/* Footer */
+footer {
+    background: #f5f5f5;
+    text-align: center;
+    padding: 20px 0;
+    color: #777;
+    font-size: 0.9rem;
+}
+
+/* Separators */
+.separator {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ccc, transparent);
+    margin: 60px 0;
+}
+
+.separator-bar {
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    margin: 20px 0;
+
+}
+
+#profil {
+    position: relative;
+}
+
+.background-shape {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #17abf01d;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%, 0 50%, 50% 0);
+    z-index: -1; /* Permet de mettre la forme en arrière-plan */
+}
+
+
+#actualites {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    border-radius: 10px;
+    position: relative;
+}
+
+#actualites .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#actualites h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.news-grid {
+    display: grid;
+    gap: 30px;
+}
+
+.news-block {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.news-block:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.news-block h3 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.75rem;
+    color: #222222;
+    margin-bottom: 15px;
+}
+
+.info-block {
+    background-color: #e9ecef;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.info-block h4 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.details p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.cv-thumbnail {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+
+
+.social-icons {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.social-icon img {
+    width: 35px;
+    height: 35px;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover img {
+    transform: scale(1.1);
+}
+
+
+.cv-thumbnail {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 5px;
+    margin-top: 15px;
+    transition: transform 0.3s ease; /* Animation du zoom */
+}
+
+.cv-thumbnail:hover {
+    transform: scale(1.1); /* Grossissement de l'image */
+}
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Sections */
+.section {
+    padding: 25px 0;
+}
+
+/* Profil */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+    align-items: center;
+}
+
+.profile-photo {
+    max-width: 80%;
+    margin-right: 20px;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 2; /* L'image est au-dessus du cercle */
+
+}
+
+.profile-photo img {
+    width: 70%;
+    border-radius: 20px;
+    object-fit: cover;
+    z-index: 2; /* L'image est au-dessus du cercle */
+
+}
+
+.profile-about h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+section#profil .profile-about h2 {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+
+.profile-about p {
+    margin-bottom: 20px;
+    color: #555;
+    font-size: 20px;
+    
+}
+
+.social-links a {
+    margin-right: 15px;
+    font-size: 1.8rem;
+    color: #555;
+    transition: color 0.3s ease, transform 0.3s ease; /* Ajout de la transition de transformation */
+}
+
+.social-links a:hover {
+    color: #5cb6ff;
+    transform: scale(1.1); /* Légère augmentation de la taille lors du survol */
+}
+
+.circle-background {
+    position: absolute;
+    top: 5%;
+    right: 0;
+    width: 300px;
+    max-width: 100%;
+    height: 600px;
+    background:
+        radial-gradient(circle, #000080 5%, transparent 6%) 0 0 / 20px 20px,
+        radial-gradient(circle, #2799f7c1, #2799f7c1);
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 300px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    opacity: 0.3;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+  .pentagon-background {
+    position: absolute;
+    top: 65%;
+    right: 80%;
+    width: 200px;
+    height: 200px;
+    background:
+    radial-gradient(circle, #000080 5%, transparent 6%) 0 0 / 20px 20px,
+    radial-gradient(circle, #2799f7c1, #2799f7c1);
+    clip-path: polygon(50% 0%, 100% 38%, 81% 100%, 19% 100%, 0% 38%);
+    opacity: 0.3;
+    max-width: 100%; /* Empêche de dépasser la largeur du viewport */
+
+}
+
+
+  
+/* Responsive Grid pour le Profil */
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .profile-photo {
+        margin: 0 auto 30px auto;
+        transform: none; /* enlever l'effet initial sur mobile */
+        opacity: 1; /* rendre l'image visible immédiatement */
+    }
+
+    .profile-photo img {
+        width: 60%;
+    }
+
+    .profile-about h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile-about p {
+        font-size: 1rem;
+    }
+    
+    .circle-background {
+        top: 115%;
+        left: 0%;
+        transform: translateX(-50%);
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        opacity: 0.2;
+        z-index: -1;
+        max-width: 100%; /* Empêche de dépasser la largeur du viewport */
+        overflow: hidden; /* Cache tout débordement */
+
+    }
+    .pentagon-background {
+        position: absolute;
+        top: 25%;
+        right: 0%;
+        width: 150px;
+        height: 150px;
+        background:
+        radial-gradient(circle, #000080 5%, transparent 6%) 0 0 / 20px 20px,
+        radial-gradient(circle, #2799f7c1, #2799f7c1);
+        clip-path: polygon(
+            50% 0%,     /* sommet haut au milieu */
+            100% 0%,    /* sommet tout en haut à droite (nouveau point) */
+            100% 70%,  /* sommet tout en bas à droite */
+            81% 70%,   /* bas droite */
+            19% 70%,   /* bas gauche */
+            0% 38%      /* côté gauche */
+        );
+        opacity: 0.3;
+        max-width: 100%;
+        overflow: hidden;
+    }
+}
+
+/* Responsive pour la section Actualités */
+@media (max-width: 768px) {
+    #actualites .news-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .news-block {
+        padding: 20px;
+    }
+
+    .news-block h3 {
+        font-size: 1.5rem;
+    }
+
+    .info-block h4 {
+        font-size: 1.1rem;
+    }
+
+    .details p {
+        font-size: 0.95rem;
+    }
+
+    .cv-thumbnail {
+        max-width: 100%;
+    }
+}
+
+/* Responsive général pour très petits écrans (mobiles < 500px) */
+@media (max-width: 500px) {
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    #actualites h2 {
+        font-size: 2rem;
+    }
+
+    .profile-about h2 {
+        font-size: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        margin: 0 10px;
+    }
+}
+@media screen and (max-width: 768px) {
+
+}
+
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 8vw; /* Ajuster la taille pour un écran plus petit */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 10vw; /* Taille encore plus petite sur les petits écrans */
+    }
+}
+
+
+h2 {
+    font-size: 1.8rem; /* Taille de police plus petite que le <h1>, mais bien lisible */
+    color: #555; /* Couleur sombre pour le contraste */
+    text-align: center; /* Centrer le texte */
+    margin: 10px 0 20px 0; /* Espacement autour du titre */
+    letter-spacing: 0.5px; /* Espacement léger entre les lettres pour une meilleure lisibilité */
+    line-height: 1.5; /* Espacement des lignes pour éviter que le texte soit trop serré */
+    font-weight: 400; /* Poids de la police normal */
+    text-transform: uppercase; /* Mettre le texte en majuscule pour un effet stylé */
+    font-family: Arial, sans-serif;
+
+}
+
+/* Pour les écrans plus petits */
+@media screen and (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem; /* Réduire un peu la taille sur les écrans plus petits */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem; /* Taille plus petite pour les téléphones */
+    }
+}
+
+
+
+@media (min-width: 1200px) {
+    .container {
+        justify-content: space-between;
+    }
+
+    .profile-photo img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .profile-about {
+        max-width: 50%;
+    }
+
+    /* Éléments de la section "À propos" */
+    .profile-about h2 {
+        font-size: 2rem;
+    }
+
+    .separator-bar {
+        width: 50%;
+        margin: 20px 0;
+    }
+
+    .social-links a {
+        font-size: 1.5rem;
+        margin-right: 15px;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+    }
+
+}
+
+/* Pour les très grands écrans (≥1600px) */
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .profile-photo img {
+        max-width: 80%;
+    }
+
+    .profile-about {
+        max-width: 45%;
+    }
+
+    .profile-about h2 {
+        font-size: 3rem;
+    }
+    .profile-about p {
+        font-size: 1.5rem;
+    }
+
+    .social-links a {
+        font-size: 1.8rem;
+        margin-right: 20px;
+    }
+
+    .btn {
+        font-size: 1.4rem;
+    }
+}
+@media (max-width: 1200px) {
+    .pentagon-background {
+        width: 60%;  /* Agrandir le fond pentagonal */
+        height: 100%;  /* L'agrandir aussi en hauteur pour couvrir plus */
+        max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+        overflow: hidden;
+
+
+    }
+}
+@media (min-width: 1200px) {
+    .pentagon-background {
+        width: 60%;  /* Agrandir le fond pentagonal */
+        height: 100%;  /* L'agrandir aussi en hauteur pour couvrir plus */
+        max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+
+    }
+
+    .container {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .profile-photo, .profile-about {
+        flex: 1;
+    }
+
+    .profile-about {
+        max-width: 50%;
+    }
+}
+
+/* Pour les très grands écrans (≥1600px) */
+@media (min-width: 1600px) {
+    .pentagon-background {
+        width: 60%;  /* Agrandir le fond pentagonal */
+        height: 100%;  /* L'agrandir aussi en hauteur pour couvrir plus */
+        max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+
+    }
+
+}
+
+@media (min-width: 2500x) {
+    .pentagon-background {
+        width: 60%;  /* Agrandir le fond pentagonal */
+        height: 100%;  /* L'agrandir aussi en hauteur pour couvrir plus */
+        max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+
+    }
+    .circle-background {
+        width: 100%;  /* Augmenter encore la taille sur très grand écran */
+        height: 100%;  /* Ajuster la hauteur pour être proportionnel */
+        max-width: 100%; /* Limite la largeur maximale à 100% de la fenêtre */
+
+    }
+
+
+}
+
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    z-index: 1000;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 15px;
+    font-size: 1.2em;
+    margin: 0 20px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #acacac;
+    color: #ffffff; /* couleur du survol */
+    transform: scale(1.1); /* effet de zoom */
+}
+
+
+
+.grille-competences {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+  }
+
+
+  
+  .carte-competence {
+    width: 250px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    will-change: transform;
+  }
+  
+  .carte-competence:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  }
+  .contenu-competence {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .image-competence {
+    width: 60px;
+    height: auto;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+  }
+  
+  .carte-competence:hover .image-competence {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  .nom-competence {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .description-competence {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+  
+  .titre-competences {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 
 
