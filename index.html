@@ -21,6 +21,15 @@
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <!-- AOS CSS -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+<!-- AOS JS -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Initialiser AOS
+    AOS.init();
+</script>
+    <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
     AOS.init({
@@ -44,7 +53,11 @@
 <body>
 
 
-
+    <header>
+        
+        <h1>Heurtebise Johan</h1>
+        <h2>Etudiant en BUT R&T à l'IUT de Blois</h2>
+    </header>
 
 
     
@@ -58,7 +71,7 @@
             <div class="bar"></div>
             <div class="bar"></div>
         </div>
-    
+
         <!-- Navigation -->
         <nav class="nav-links">
             <a href="#HJ"><strong>Heurtebise Johan</strong></a>
@@ -75,89 +88,75 @@
         <script src="script.js"></script>
 
     <!-- Fond animé -->
-    <header>
-        <div id="HJ" class="HJ section" data-aos="fade-up">
-        <br>
-        <br>
-        <h1>Heurtebise Johan</h1>
-        <p>Étudiant en BUT R&T à Blois</p>
+    <div class="circle-background"></div>
 
-        </div>
-    </header>
-    
-    <!-- Section Photo et À propos -->
-    <div id="profil" class="profil section" data-aos="fade-up">
 
-        <div class="profile-box">
-            <div class="photo-left">
-                <img src="pp.jpeg" alt="Ma Photo" class="photo">
+
+
+    <div class="pentagon-background"></div>
+
+    <section id="profil" class="section" data-aos="fade-right">
+
+        <div class="container grid-2">
+            <div class="profile-photo" data-aos="fade-left">
+                <img src="pp6.png" alt="Photo de Johan">
+            </div>
+            <div class="profile-about">
+                <h2>À propos</h2>
+                <div class="separator-bar"></div> <!-- Séparateur -->
+
+                <p>Passionné par les réseaux et les nouvelles technologies, je suis toujours en quête d'innovation et d'amélioration continue.</p>
+                <p>Je cherche constamment à améliorer mes compétences et à relever de nouveaux défis dans le domaine des réseaux et des télécommunications.</p>
                 <div class="social-links">
-                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/linkedin.svg" alt="LinkedIn" width="24" height="24">
-                    </a>
-                    <a href="https://www.instagram.com/heurtebisejohan/" target="_blank">
-                        <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="24" height="24">
-                    </a>
-                    <a href="mailto:johan@heurtebisej-pro.com">
-                        <img src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/mail.svg" alt="Email" width="29" height="29">
-                    </a>
-                    <a href="tel:+33671299610">
-                        <img src="https://cdn.jsdelivr.net/npm/heroicons@1.0.6/outline/phone.svg" alt="Téléphone" width="29" height="29">
-                    </a>
+                    <a href="https://www.instagram.com/heurtebisejohan/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:johan@heurtebisej-pro.com"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+33671299610"><i class="fas fa-phone"></i></a>
                 </div>
+                <a href="CV - HJ.pdf" class="btn" download>📄 Télécharger mon CV</a>
             </div>
-    
-            <div class="about-right">
-                <h2>À propos de moi</h2>
-                <p>Je suis un étudiant passionné par les technologies et les réseaux, avec une envie constante d'apprendre et de développer des solutions innovantes. Mon travail consiste à explorer les avancées du domaine tout en relevant des défis techniques.</p>
-            </div>
-            <a href="CV - HJ.pdf" class="download-btn" download>
-                📥 Mon CV
-            </a>
-            
-    
         </div>
-    </div>
+    </section>
+    
+    <div class="separator"></div>
 
-    <div id="actu" class="actu section" data-aos="fade-up">
-    <div class="contenu-global">
-        <h2 class="titre-principal">🗞️ Dernières Actualités</h2>
+    <section id="actualites" class="section" data-aos="fade-up" data-aos-duration="1000">
+        <div class="container">
+            <h2>Actualités</h2>
     
-        <!-- 📌 Conteneur en deux colonnes -->
-        <div class="conteneur-flex">
-    
-            <!-- 🟦 Colonne LinkedIn (devient aussi grande que la droite) -->
-            <div class="colonne colonne-gauche">
-                <div class="bloc-info bloc-linkedin">
-                    <h2>📝 Derniers posts LinkedIn</h2>
-                    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+            <div class="news-grid">
+                <div class="news-block" data-aos="fade-right" data-aos-duration="500">
+                    <h3><span role="img" aria-label="megaphone">📢</span> Recherche d'alternance - 2025-2027</h3>
                     
-                    <div class="badge-base LI-profile-badge" data-locale="fr_FR" data-size="medium" data-theme="light" data-type="HORIZONTAL" data-vanity="johan-heurtebise" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://fr.linkedin.com/in/johan-heurtebise?trk=profile-badge" target="_blank"</a>
-                        
+                    <!-- Encadré d'info -->
+                    <div class="info-block">
+                        <h4>Pourquoi je suis un bon candidat ?</h4>
+                        <p>Spécialisé en réseaux et télécommunications, je suis motivé à intégrer une entreprise innovante, où je pourrai mettre mes compétences au service de projets concrets et enrichir mon expertise avec de nouvelles technologies.</p>
                     </div>
-                    
-                    <!-- Ajout d'un bouton vers le dernier post -->
-                    <a href="https://www.linkedin.com/posts/johan-heurtebise_heurtebise-johan-contrat-dapprentissage-activity-7304515295627390999-JkHp?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFSrKOoB6niojsZuB1a-kyZpUr3VFlu0oW4" target="_blank" class="btn-post-linkedin">Voir mon dernier post</a>
-                </div>
-            </div>
     
-            <!-- 🟧 Colonne Droite : Annonces & Médias -->
-            <div class="colonne colonne-droite">
-                <div class="bloc-info bloc-annonce">
-                    <h2>📢 Annonce Importante</h2>
-                    <p>📃 Recherche Contrat d'apprentissage de 2 ans (2025-2027).
+                    <!-- Détails supplémentaires avec image -->
+                    <div class="details">
+                        <p><strong>Disponibilité :</strong> Dès septembre 2025</p>
+                        <p><strong>Lieux :</strong> Pays de la Loire, Centre-val de Loire</p>
+                        <p><strong>Poste recherché :</strong> Alternance en réseaux et télécommunications</p>
+                        <img src="screenCV.png" alt="Exemple de mon CV" class="cv-thumbnail">
+                    </div>
+    
+                    <!-- Boutons supplémentaires -->
+                    <div class="actions">
                         <br>
-                        📍Le Mans, Blois.
-                    </p>
-                    
+                        <a href="https://www.linkedin.com/posts/johan-heurtebise_heurtebise-johan-contrat-dapprentissage-activity-7304515295627390999-JkHp" target="_blank" class="btn">Voir sur LinkedIn</a>
+                        <a href="CV - HJ" target="_blank" class="btn btn-secondary">Télécharger mon CV</a>
+                        <a href="mailto:johan@heurtebisej-pro.com" class="btn btn-contact">Contacter par email</a>
+                    </div>
                 </div>
-    
             </div>
     
+            <!-- Icônes sociales -->
+
         </div>
-    
-    </div>
-    </div>
+    </section>
+
     
 
 
@@ -662,127 +661,100 @@
         
     
 
-
-    
+          <div class="separator"></div>
 
         <section>
-            <div id="comp" class="compétences section" data-aos="fade-up">
-                <h2>Compétences</h2>
-                
-                <div class="skills-container">
-
-                    
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="htmllogo.png" alt="Logo HTML" class="skill-image" />
-                        <h3 class="skill-title">HTML</h3>
-                        <p class="skill-detail">Création d’un site Web personnel.</p>
-                        <strong>Niveau : Intermédiaire</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="csslogo.png" alt="Logo CSS" class="skill-image" />
-                        <h3 class="skill-title">CSS</h3>
-                        <p class="skill-detail">Ajout de style sur un site Web personnel, avec responsive design.</p>
-                        <strong>Niveau : Intermédiaire</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="bashlogo2.png" alt="Logo Bash" class="skill-image" />
-                        <h3 class="skill-title">Bash</h3>
-                        <p class="skill-detail">Découverte de l'environnement Linux, script / commandes simples.</p>
-                        <strong>Niveau : Débutant</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="pythonlogo.png" alt="Logo Python" class="skill-image" />
-                        <h3 class="skill-title">Python</h3>
-                        <p class="skill-detail">Création de plusieurs algorithmes, d’un niveau modeste à intermédiaire.</p>
-                        <strong>Niveau : Intermédiaire confirmé</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="java.png" alt="Logo Java" class="skill-image" />
-                        <h3 class="skill-title">Java</h3>
-                        <p class="skill-detail">Initiation à la POO en Java.</p>
-                        <strong>Niveau : Débutant</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="sqllogo.png" alt="Logo SQL" class="skill-image" />
-                        <h3 class="skill-title">SQL</h3>
-                        <p class="skill-detail">Conception de tables avancées et création de requêtes complexes.</p>
-                        <strong>Niveau : Intermédiaire</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                        
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="reseaulogo.png" alt="Logo Réseaux" class="skill-image" />
-                        <h3 class="skill-title">Architecture des Réseaux</h3>
-                        <p class="skill-detail">Initiation aux Réseaux Informatiques, structure et équipements.</p>
-                        <strong>Niveau : Débutant</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="logotelecom2.png" alt="Logo Télécom" class="skill-image" />
-                        <h3 class="skill-title">Télécommunications</h3>
-                        <p class="skill-detail">Initiation aux Télécommunications, à la Téléphonie d'entreprise.</p>
-                        <strong>Niveau : Débutant</strong>
-                      </div>
-                    </div>
-                  
-                    <div class="skill-card" data-aos="flip-left">
-                      <div class="skill-expanded-content">
-
-                      </div>
-                      <div class="skill-main-content">
-                        <img src="cyberlogo2.png" alt="Logo Cybersécurité" class="skill-image" />
-                        <h3 class="skill-title">Cybersécurité - Hygiène Informatique</h3>
-                        <p class="skill-detail">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
-                        <strong>Niveau : Débutant</strong>
-                      </div>
-                    </div>
+            <div id="comp" class="section-competences" data-aos="fade-up">
+                <br>
+              <h2 class="titre-competences">Compétences</h2>
+              <div class="grille-competences">
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="htmllogo.png" alt="Logo HTML" class="image-competence" />
+                    <h3 class="nom-competence">HTML</h3>
+                    <p class="description-competence">Création d’un site Web personnel.</p>
+                    <strong>Niveau : Intermédiaire</strong>
                   </div>
-                  
-                  
-        </section>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="csslogo.png" alt="Logo CSS" class="image-competence" />
+                    <h3 class="nom-competence">CSS</h3>
+                    <p class="description-competence">Ajout de style sur un site Web personnel, avec responsive design.</p>
+                    <strong>Niveau : Intermédiaire</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="bashlogo2.png" alt="Logo Bash" class="image-competence" />
+                    <h3 class="nom-competence">Bash</h3>
+                    <p class="description-competence">Découverte de l'environnement Linux, script / commandes simples.</p>
+                    <strong>Niveau : Débutant</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="pythonlogo.png" alt="Logo Python" class="image-competence" />
+                    <h3 class="nom-competence">Python</h3>
+                    <p class="description-competence">Création de plusieurs algorithmes, d’un niveau modeste à intermédiaire.</p>
+                    <strong>Niveau : Intermédiaire confirmé</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="java.png" alt="Logo Java" class="image-competence" />
+                    <h3 class="nom-competence">Java</h3>
+                    <p class="description-competence">Initiation à la POO en Java.</p>
+                    <strong>Niveau : Débutant</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="sqllogo.png" alt="Logo SQL" class="image-competence" />
+                    <h3 class="nom-competence">SQL</h3>
+                    <p class="description-competence">Conception de tables avancées et création de requêtes complexes.</p>
+                    <strong>Niveau : Intermédiaire</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="reseaulogo.png" alt="Logo Réseaux" class="image-competence" />
+                    <h3 class="nom-competence">Architecture des Réseaux</h3>
+                    <p class="description-competence">Initiation aux Réseaux Informatiques, structure et équipements.</p>
+                    <strong>Niveau : Débutant</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="logotelecom2.png" alt="Logo Télécom" class="image-competence" />
+                    <h3 class="nom-competence">Télécommunications</h3>
+                    <p class="description-competence">Initiation aux Télécommunications, à la Téléphonie d'entreprise.</p>
+                    <strong>Niveau : Débutant</strong>
+                  </div>
+                </div>
+          
+                <div class="carte-competence" data-aos="flip-left">
+                  <div class="contenu-competence">
+                    <img src="cyberlogo2.png" alt="Logo Cybersécurité" class="image-competence" />
+                    <h3 class="nom-competence">Cybersécurité - Hygiène Informatique</h3>
+                    <p class="description-competence">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
+                    <strong>Niveau : Débutant</strong>
+                  </div>
+                </div>
+          
+              </div>
+            </div>
+          </section>
+
+        
 
     
 
