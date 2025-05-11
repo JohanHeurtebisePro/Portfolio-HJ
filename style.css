@@ -555,6 +555,7 @@ header {
     margin-top: 15px;
     gap : 20px;
     
+    
 }
 
 header h1 {
@@ -3372,9 +3373,12 @@ textarea {
 /* Effets pour le contenu principal après l’intro */
 /* Contenu principal */
 #main-content {
-    padding-top: 20px; /* à ajuster selon la hauteur de ton header */
     overflow: hidden;
 }
+.hidden {
+    display: none;
+}
+
 
 
 /* === MODALE COORDONNÉES === */
@@ -3645,20 +3649,20 @@ footer {
 }
 
 
-#actualites {
+#actu {
     background-color: #f8f9fa;
     padding: 50px 0;
     border-radius: 10px;
     position: relative;
 }
 
-#actualites .container {
+#actu .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
 
-#actualites h2 {
+#actu h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
     color: #333;
@@ -3757,9 +3761,8 @@ footer {
 
 /* Container */
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 1100px;
-    margin: auto;
 }
 
 /* Sections */
@@ -3925,7 +3928,7 @@ section#profil .profile-about h2 {
 
 /* Responsive pour la section Actualités */
 @media (max-width: 768px) {
-    #actualites .news-grid {
+    #actu .news-grid {
         grid-template-columns: 1fr;
     }
 
@@ -3957,7 +3960,7 @@ section#profil .profile-about h2 {
         font-size: 0.9rem;
     }
 
-    #actualites h2 {
+    #actu h2 {
         font-size: 2rem;
     }
 
@@ -4226,5 +4229,10 @@ nav a:hover {
     font-size: 2rem;
     margin-bottom: 2rem;
   }
+
+
+
+
+
 
 
