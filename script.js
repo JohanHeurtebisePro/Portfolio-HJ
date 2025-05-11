@@ -183,3 +183,55 @@ document.querySelectorAll('.modal-text').forEach(modal => {
 
 
 
+AOS.init({
+    duration: 1000, // Durée de l'animation
+    easing: 'ease-in-out', // Animation fluide
+    once: true, // L'animation ne se produit qu'une seule fois
+    offset: 100, // Décalage avant l'activation de l'animation
+  });
+  
+  // Optionnel: gérer les effets de survol sur les cartes
+  document.querySelectorAll('.project-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.classList.add('active');
+    });
+    card.addEventListener('mouseleave', () => {
+      card.classList.remove('active');
+    });
+  });
+
+
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+      threshold: 0.2
+  };
+  
+  const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+      entries.forEach(entry => {
+          if (!entry.isIntersecting) {
+              return;
+          } else {
+              entry.target.classList.add('visible');
+              appearOnScroll.unobserve(entry.target);
+          }
+      });
+  }, appearOptions);
+  
+  faders.forEach(fader => {
+      appearOnScroll.observe(fader);
+  });
+
+
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.getElementById('main-content').classList.remove('hidden');
+});
