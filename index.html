@@ -29,13 +29,7 @@
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script>
-    AOS.init({
-        offset: 2000, // Augmente la distance avant que l'élément ne soit détecté
-        duration: 1000,
-        easing: 'ease-in-out',
-        once: true,
-        mirror: false
-    });
+
     </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
@@ -56,7 +50,7 @@
 
 
     
-    <div id="main-content" class="hidden">
+    <div id="main-content">
 
     <!-- Barre de navigation -->
      
@@ -854,7 +848,7 @@
     <div id="contact" class="contact section" data-aos="fade-up">
         <h2 data-aos="fade-right" data-aos-delay="100">Contact</h2>
     
-        <p data-aos="fade-left" data-aos-delay="200">
+        <p data-aos="fade-left" data-aos-delay="50">
             Pour me contacter, envoyez-moi un e-mail à :
             <a href="mailto:johan@heurtebisej-pro.com">johan@heurtebisej-pro.com</a>
         </p>
@@ -863,22 +857,22 @@
     
         <form action="https://formspree.io/f/xldjrynw" method="POST" class="contact-form" id="contactForm" enctype="multipart/form-data">
             
-            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="50">
                 <label for="name">Nom <span class="required">*</span></label>
                 <input type="text" name="name" id="name" placeholder="Ton Nom" required>
             </div>
     
-            <div class="form-group" data-aos="fade-left" data-aos-delay="100">
+            <div class="form-group" data-aos="fade-left" data-aos-delay="50">
                 <label for="email">E-mail <span class="required">*</span></label>
                 <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
             </div>
     
-            <div class="form-group" data-aos="fade-right" data-aos-delay="100">
+            <div class="form-group" data-aos="fade-right" data-aos-delay="50">
                 <label for="phone">Numéro de téléphone</label>
                 <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone (optionnel)">
             </div>
     
-            <div class="form-group" data-aos="fade-left" data-aos-delay="100">
+            <div class="form-group" data-aos="fade-left" data-aos-delay="50">
                 <label for="reason">Pourquoi me contacter ? <span class="required">*</span></label>
                 <select name="reason" id="reason" required>
                     <option value="" disabled selected>Choisissez une option</option>
@@ -888,12 +882,12 @@
                 </select>
             </div>
     
-            <div class="form-group" data-aos="zoom-in" data-aos-delay="100">
+            <div class="form-group" data-aos="zoom-in" data-aos-delay="50">
                 <label for="subject">Objet <span class="required">*</span></label>
                 <input type="text" name="subject" id="subject" placeholder="Objet" required>
             </div>
     
-            <div class="form-group" data-aos="flip-left" data-aos-delay="100">
+            <div class="form-group" data-aos="flip-left" data-aos-delay="50">
                 <label for="message">Message <span class="required">*</span></label>
                 <textarea name="message" id="message" placeholder="Votre message..." rows="5" required></textarea>
             </div>
