@@ -184,10 +184,11 @@ document.querySelectorAll('.modal-text').forEach(modal => {
 
 
 AOS.init({
-    duration: 1000, // Durée de l'animation
+    duration: 500, // Durée de l'animation
     easing: 'ease-in-out', // Animation fluide
     once: true, // L'animation ne se produit qu'une seule fois
-    offset: 100, // Décalage avant l'activation de l'animation
+    offset: 50, // Décalage avant l'activation de l'animation
+    mirror: true,
   });
   
   // Optionnel: gérer les effets de survol sur les cartes
