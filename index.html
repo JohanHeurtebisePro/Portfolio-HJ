@@ -50,7 +50,7 @@
 
 
     
-    <div id="main-content">
+<div id="main-content" class=hidden>
 
     <!-- Barre de navigation -->
      
@@ -108,42 +108,29 @@
     </section>
     
     <div class="separator"></div>
-
     <section id="actu" class="section" data-aos="fade-up" data-aos-duration="1000">
-        <div class="container">
-            <h2>Actualités</h2>
-    
-            <div class="news-grid">
-                <div class="news-block" data-aos="fade-right" data-aos-duration="500">
-                    <h3><span role="img" aria-label="megaphone">📢</span> Recherche d'alternance - 2025-2027</h3>
-                    
-                    <!-- Encadré d'info -->
-                    <div class="info-block">
-                        <h4>Pourquoi je suis un bon candidat ?</h4>
-                        <p>Spécialisé en réseaux et télécommunications, je suis motivé à intégrer une entreprise innovante, où je pourrai mettre mes compétences au service de projets concrets et enrichir mon expertise avec de nouvelles technologies.</p>
-                    </div>
-    
-                    <!-- Détails supplémentaires avec image -->
-                    <div class="details">
-                        <p><strong>Disponibilité :</strong> Dès septembre 2025</p>
-                        <p><strong>Lieux :</strong> Pays de la Loire, Centre-val de Loire</p>
-                        <p><strong>Poste recherché :</strong> Alternance en réseaux et télécommunications</p>
-                        <img src="screenCV.png" alt="Exemple de mon CV" class="cv-thumbnail">
-                    </div>
-    
-                    <!-- Boutons supplémentaires -->
-                    <div class="actions">
-                        <br>
-                        <a href="https://www.linkedin.com/posts/johan-heurtebise_heurtebise-johan-contrat-dapprentissage-activity-7304515295627390999-JkHp" target="_blank" class="btn">Voir sur LinkedIn</a>
-                        <a href="CV - HJ" target="_blank" class="btn btn-secondary">Télécharger mon CV</a>
-                        <a href="mailto:johan@heurtebisej-pro.com" class="btn btn-contact">Contacter par email</a>
-                    </div>
-                </div>
-            </div>
-    
-            <!-- Icônes sociales -->
+<div class="container">
+    <h2>Actualités</h2>
 
+    <div class="news-grid">
+        <div class="news-block" data-aos="fade-right" data-aos-duration="500">
+            <h3><span role="img" aria-label="hourglass">⏳</span> Aucune actualité pour le moment</h3>
+
+            <!-- Encadré d'info -->
+            <div class="info-block">
+                <h4>Pas d'information actuelle</h4>
+                <p>Je n'ai pas d'actualité à partager pour le moment. Cette section sera mise à jour lorsque j'aurai des nouvelles informations à communiquer.</p>
+            </div>
+
+            <!-- Boutons de contact malgré tout -->
+            <div class="actions">
+                <br>
+                <a href="https://www.linkedin.com/in/johan-heurtebise/" target="_blank" class="btn">Voir sur LinkedIn</a>
+                <a href="mailto:johan@heurtebisej-pro.com" class="btn btn-contact">Contacter par email</a>
+            </div>
         </div>
+    </div>
+</div>
     </section>
 
     
@@ -166,113 +153,174 @@
         <div class="separator"></div>
 
     </div>
+    <h2>Portfolio</h2>
     <!-- DEBUT -->
-    <section>
-        <!-- Portfolio -->
-        <h2>Portfolio</h2>
-        <div class="projects-container">
-            <div class="project-box" data-aos="fade-right">
-                <img src="sae1.jpg" alt="Projet 1">
-                <div class="project-text">
-                    <h3>Projet SAE101 : Sensibilisation à l'hygiène informatique</h3>
-                    <br>
-                    <p>Dans le cadre de notre projet en S1 de BUT R&T, nous avons abordé les fondamentaux de l’hygiène 
-                        informatique, la sécurité des données et les bonnes pratiques à adopter sur Internet...</p>
-                    <br>
-                    <strong>Compétences ciblées :</strong> Administrer les réseaux et l’Internet
-                    <br>
-                    <strong>Mots clefs :</strong> Sécurité numérique, Utilisation d’Internet, Menaces communes, Remédiations.
-                    <br><br>
-                    <a href="SAE101-Présentation.pdf" class="download-btn" download>📥 PowerPoint</a>
-                    <br>
-                    <button class="more-btn" onclick="ouvrirFenetre('info-window-1')">🔍 En savoir plus</button>
+ <section>
+    <!-- Portfolio -->
+<div class="projects-container">
+    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-header">
+            <div class="tech-tags">
+                <span class="tag blue">Sécurité numérique</span>
+                <span class="tag blue">Bonnes pratiques</span>
+                <span class="tag blue">Présentation</span>
+            </div>
+            <h3 class="project-title">SAE101 : Hygiène Informatique</h3>
+            <p class="project-subtitle">Sensibilisation aux enjeux de sécurité numérique en entreprise</p>
+        </div>
+        
+        <div class="card-content">
+            <div class="project-image">
+                <img src="cyber1.png" alt="Présentation hygiène informatique" class="hover-zoom">
+                <div class="image-overlay">
+                    <span>Voir le projet</span>
                 </div>
             </div>
+            
+            <div class="project-details">
+                <p class="project-description">
+                    Dans ce projet, nous avons joué le rôle de techniciens informatiques chargés de former les nouveaux employés aux bonnes pratiques de cybersécurité en environnement professionnel.
+                </p>
+                
+                <div class="skills-section">
+                    <h4>Compétences développées</h4>
+                    <div class="skill-chip">Sécurité informatique</div>
+                    <div class="skill-chip">Conception de support visuel</div>
+                    <div class="skill-chip">Analyse des risquess</div>
+                    <div class="skill-chip">Réflexes à adopter</div>
+                </div>
+
+                <div class="additional-info">
+                    <h4>Concrètement dans ce projet :</h4>
+                    <ul class="info-list">
+                        <li><i class="fas fa-check-circle"></i> Formation basée sur le MOOC ANSSI</li>
+                        <li><i class="fas fa-check-circle"></i> Configuration de VPN sécurisés</li>
+                        <li><i class="fas fa-check-circle"></i> Mise en situation professionnelle</li>
+                        <li><i class="fas fa-check-circle"></i> Élaboration de politiques de sécurité</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="card-footer">
+            <a href="SAE101-Présentation.pdf" class="modern-btn download-btn" download>
+                Télécharger
+            </a>
+            <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-1')">
+                En savoir plus
+            </button>
+        </div>
+    </div>
+</div>
+
+
     
             <!-- Fenêtre modale améliorée -->
-            <div id="info-window-1" class="modal">
-                <div class="modal-content">
-                    <button class="close-btn" onclick="fermerFenetre('info-window-1')">X</button>
-                    <h3>Hygiène Informatique & Cybersécurité</h3>
-                    <div class="modal-text">
-                        <p>Dans le cadre de notre projet en <strong>S1 de BUT R&T</strong>, nous avons exploré les <strong>fondamentaux de l’hygiène informatique</strong> et la <strong>sécurité des données</strong>.  
-                        L’objectif principal était de sensibiliser les utilisateurs aux risques numériques actuels et de leur fournir des outils concrets pour protéger efficacement leurs informations personnelles et professionnelles.</p>
-    
-                        <div class="content-block left fade-in">
-                            <img src="box1-1.png" alt="Cybersécurité" class="modal-img">
-                            <div class="text-content">
-                                <p>Dans un premier temps, nous avons suivi la <strong>certification MOOC de l’ANSSI</strong>, qui nous a permis de comprendre les enjeux globaux de la cybersécurité.  
-                                L'ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) fournit des formations essentielles pour maîtriser les bases de la sécurité des informations, de la gestion des incidents et de la protection des données.</p>
-                            </div>
-                        </div>
-                        
-                        <p>Voici quelques-uns des concepts fondamentaux abordés dans le cadre de ce projet et directement applicables à la sécurité des données :</p>
-    
-                        <ul class="special-list">
-                            <li>🔒 <strong>Gestion sécurisée des mots de passe</strong> : Nous avons étudié l’importance de la diversité des mots de passe, l’utilisation de gestionnaires de mots de passe pour éviter la réutilisation, et les bonnes pratiques pour rendre un mot de passe robuste.</li>
-                            <li>🛡️ <strong>Protection contre le phishing</strong> : L’une des menaces les plus courantes sur Internet. Nous avons appris à identifier les signes d'un email frauduleux, les pièges dans les liens suspects, et les méthodes de protection telles que l’authentification à deux facteurs.</li>
-                            <li>📡 <strong>Sécurisation des réseaux</strong> : Des pratiques essentielles pour sécuriser un réseau, comme la configuration des pare-feu, l’utilisation des VPN (réseaux privés virtuels) et l’activation du cryptage des connexions sans fil (Wi-Fi). Nous avons également abordé la sécurité des connexions à distance dans un contexte professionnel.</li>
-                            <li>📑 <strong>Gestion des incidents de sécurité</strong> : Nous avons appris à mettre en place des plans d’intervention pour répondre à une violation de données, à sécuriser les systèmes après une attaque, et à prévenir les risques d'escalade des cyberincidents.</li>
-                        </ul>
-    
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Le projet a également mis l'accent sur <strong>l'éducation et la sensibilisation à la cybersécurité</strong> dans un environnement professionnel. En effet, les cybermenaces sont de plus en plus sophistiquées, allant des attaques de phishing aux ransomwares, en passant par les intrusions dans les systèmes d’information.</p>
-                                <p>Voici quelques exemples de menaces réelles qui rendent la cybersécurité essentielle dans la gestion des données personnelles et professionnelles :</p>
-                            </div>
-                            <img src="box1-2.png" alt="Sécurité des mots de passe" class="modal-img">
-                        </div>
-    
-                        <ul class="special-list">
-                            <li>💻 <strong>Ransomware</strong> : Un logiciel malveillant qui chiffre les fichiers de l’utilisateur et demande une rançon pour les déchiffrer. Les entreprises sont des cibles privilégiées, mais les particuliers peuvent également être touchés.</li>
-                            <li>🔑 <strong>Fuites de données</strong> : En cas de mauvaise gestion des données, des informations sensibles peuvent être exposées. Nous avons étudié les stratégies pour sécuriser les bases de données et protéger les informations des utilisateurs.</li>
-                            <li>🛠️ <strong>Exploitation des vulnérabilités</strong> : Les cyberattaquants exploitent les failles des logiciels non mis à jour. Ce projet a permis de souligner l’importance de maintenir une politique de mise à jour régulière des systèmes et des applications.</li>
-                        </ul>
-    
-                        <div class="content-block left fade-in">
-                            <img src="box1-3.png" alt="Sécurité en ligne" class="modal-img">
-                            <div class="text-content">
-                                <p>Nous avons également approfondi la notion de <strong>comportement responsable en ligne</strong>. Chaque utilisateur joue un rôle clé dans la protection des données et des systèmes.  
-                                Par exemple, un simple clic sur un lien frauduleux peut compromettre la sécurité d’une organisation entière.</p>
-                            </div>
-                        </div>
-    
-                        <p>Ce projet nous a permis de sensibiliser notre entourage et nos collègues à l'importance de sécuriser leurs informations personnelles, mais aussi professionnelles, en ligne. Nous avons aussi abordé les bonnes pratiques liées à l’utilisation des outils numériques dans un cadre collaboratif.</p>
-    
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Nous avons également étudié les <strong>meilleures pratiques de gestion des incidents de sécurité</strong>. En cas de violation de données, il est essentiel de réagir rapidement, de manière coordonnée, et de suivre un protocole clair pour minimiser les risques.  
-                                Cela inclut des actions comme l'alerte immédiate des parties prenantes, la gestion de la communication de crise et la récupération des données perdues ou compromises.</p>
-                            </div>
-                            <img src="box1-4.png" alt="Violation de données" class="modal-img">
-                        </div>
-    
-                        <p>En termes de prévention, nous avons appris l'importance de la <strong>protection par couches</strong>, c'est-à-dire de déployer plusieurs niveaux de sécurité pour se protéger contre différents types d'attaques. Cela comprend des outils comme les antivirus, les firewalls, les systèmes de détection d'intrusion, ainsi que la formation continue des utilisateurs aux bonnes pratiques.</p>
-    
-                        <p>En somme, ce projet nous a non seulement permis d'acquérir des compétences techniques en matière de <strong>cybersécurité</strong>, mais aussi de développer des compétences en <strong>communication</strong>. Expliquer des concepts parfois complexes de manière simple et claire est essentiel pour rendre la cybersécurité accessible à tous.  
-                        Grâce à ce projet, nous avons appris à sensibiliser les autres, à les former aux bonnes pratiques et à créer un environnement numérique plus sûr.</p>
-    
-                        <img src="box1-5.png" alt="Sensibilisation à la cybersécurité" class="modal-img">
-    
-                        <!-- Ajout de la section Conseils pratiques -->
-                        <h4>Conseils pratiques pour une cybersécurité renforcée</h4>
-                        <ul class="special-list">
-                            <li>🔑 Utilisez un gestionnaire de mots de passe pour stocker des mots de passe complexes et uniques.</li>
-                            <li>🚫 Ne cliquez jamais sur des liens suspects dans les emails ou les messages instantanés.</li>
-                            <li>💻 Activez l'authentification à deux facteurs sur vos comptes en ligne pour ajouter une couche de sécurité.</li>
-                            <li>🔒 Effectuez régulièrement des mises à jour de vos logiciels et systèmes d'exploitation pour réduire les vulnérabilités.</li>
-                            <li>🌐 Utilisez un VPN pour sécuriser vos connexions, surtout sur des réseaux Wi-Fi publics.</li>
-                        </ul>
-                        <br>
-                        <!-- Ajout de la section Ressources externes -->
-                        <h4>Ressources pour aller plus loin</h4>
-                        <ul class="special-list">
-                            <li>📘 <a href="https://cyber.gouv.fr" target="_blank">Site de l'ANSSI</a> : Formation et actualités sur la cybersécurité.</li>
-                        </ul>
-                    </div>
+ <div id="info-window-1" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="fermerFenetre('info-window-1')">X</button>
+        <h3>Hygiène Informatique & Cybersécurité</h3>
+        <div class="modal-text">
+            <div class="project-intro">
+                <h4>Mission : Sensibilisation en entreprise</h4>
+                <p>Notre mission consistait à jouer le rôle de techniciens informatiques d'une entreprise accueillant de nouveaux employés. Nous devions leur présenter les fondamentaux de la sécurité informatique dans un contexte professionnel, en adoptant une approche pédagogique et pratique.</p>
+                
+                <h4>Approche méthodologique</h4>
+                <p>Pour préparer cette intervention, nous avons :</p>
+                <ul class="special-list">
+                    <li>Suivi intégralement le MOOC de l'ANSSI sur les fondamentaux de la cybersécurité</li>
+                    <li>Effectué des recherches documentaires sur les risques spécifiques en entreprise</li>
+                    <li>Analysé des cas concrets d'attaques informatiques</li>
+                    <li>Développé des supports adaptés à notre public cible</li>
+                </ul>
+            </div>
+
+            
+            <div class="content-block left fade-in">
+                <img src="box1-1.png" alt="Cybersécurité" class="modal-img">
+                <div class="text-content">
+                    <p>Dans un premier temps, nous avons suivi la <strong>certification MOOC de l'ANSSI</strong>, qui nous a permis de comprendre les enjeux globaux de la cybersécurité.  
+                    L'ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) fournit des formations essentielles pour maîtriser les bases de la sécurité des informations, de la gestion des incidents et de la protection des données.</p>
                 </div>
             </div>
+            
+            <p>Voici quelques-uns des concepts fondamentaux abordés dans le cadre de ce projet et directement applicables à la sécurité des données :</p>
+
+            <ul class="special-list">
+                <li>🔒 <strong>Gestion sécurisée des mots de passe</strong> : Nous avons étudié l'importance de la diversité des mots de passe, l'utilisation de gestionnaires de mots de passe pour éviter la réutilisation, et les bonnes pratiques pour rendre un mot de passe robuste.</li>
+                <li>🛡️ <strong>Protection contre le phishing</strong> : L'une des menaces les plus courantes sur Internet. Nous avons appris à identifier les signes d'un email frauduleux, les pièges dans les liens suspects, et les méthodes de protection telles que l'authentification à deux facteurs.</li>
+                <li>📡 <strong>Sécurisation des réseaux</strong> : Des pratiques essentielles pour sécuriser un réseau, comme la configuration des pare-feu, l'utilisation des VPN (réseaux privés virtuels) et l'activation du cryptage des connexions sans fil (Wi-Fi). Nous avons également abordé la sécurité des connexions à distance dans un contexte professionnel.</li>
+                <li>📑 <strong>Gestion des incidents de sécurité</strong> : Nous avons appris à mettre en place des plans d'intervention pour répondre à une violation de données, à sécuriser les systèmes après une attaque, et à prévenir les risques d'escalade des cyberincidents.</li>
+            </ul>
+
+            <div class="professional-context">
+                <br>
+                <h4>Application en contexte professionnel</h4>
+                <p>Dans le cadre de notre simulation en entreprise, nous avons particulièrement insisté sur :</p>
+                <ul class="special-list">
+                    <li>Les risques spécifiques aux environnements professionnels (attaques ciblées, fuites de données sensibles)</li>
+                    <li>La responsabilité individuelle de chaque employé dans la sécurité collective</li>
+                    <li>Les procédures à suivre en cas de suspicion d'attaque ou de faille de sécurité</li>
+                </ul>
+            </div>
+
+            <div class="content-block right fade-in">
+                <div class="text-content">
+                    <p>Le projet a également mis l'accent sur <strong>l'éducation et la sensibilisation à la cybersécurité</strong> dans un environnement professionnel. En effet, les cybermenaces sont de plus en plus sophistiquées, allant des attaques de phishing aux ransomwares, en passant par les intrusions dans les systèmes d'information.</p>
+                    <p>Voici quelques exemples de menaces réelles qui rendent la cybersécurité essentielle dans la gestion des données personnelles et professionnelles :</p>
+                </div>
+                <img src="box1-2.png" alt="Sécurité des mots de passe" class="modal-img">
+            </div>
+
+            <ul class="special-list">
+                <li>💻 <strong>Ransomware</strong> : Un logiciel malveillant qui chiffre les fichiers de l'utilisateur et demande une rançon pour les déchiffrer. Les entreprises sont des cibles privilégiées, mais les particuliers peuvent également être touchés.</li>
+                <li>🔑 <strong>Fuites de données</strong> : En cas de mauvaise gestion des données, des informations sensibles peuvent être exposées. Nous avons étudié les stratégies pour sécuriser les bases de données et protéger les informations des utilisateurs.</li>
+                <li>🛠️ <strong>Exploitation des vulnérabilités</strong> : Les cyberattaquants exploitent les failles des logiciels non mis à jour. Ce projet a permis de souligner l'importance de maintenir une politique de mise à jour régulière des systèmes et des applications.</li>
+            </ul>
+
+            <div class="content-block left fade-in">
+                <img src="box1-3.png" alt="Sécurité en ligne" class="modal-img">
+                <div class="text-content">
+                    <p>Nous avons également approfondi la notion de <strong>comportement responsable en ligne</strong>. Chaque utilisateur joue un rôle clé dans la protection des données et des systèmes.  
+                    Par exemple, un simple clic sur un lien frauduleux peut compromettre la sécurité d'une organisation entière.</p>
+                </div>
+            </div>
+
+            <p>Ce projet nous a permis de sensibiliser notre entourage et nos collègues à l'importance de sécuriser leurs informations personnelles, mais aussi professionnelles, en ligne. Nous avons aussi abordé les bonnes pratiques liées à l'utilisation des outils numériques dans un cadre collaboratif.</p>
+
+            <div class="content-block right fade-in">
+                <div class="text-content">
+                    <p>Nous avons également étudié les <strong>meilleures pratiques de gestion des incidents de sécurité</strong>. En cas de violation de données, il est essentiel de réagir rapidement, de manière coordonnée, et de suivre un protocole clair pour minimiser les risques.  
+                    Cela inclut des actions comme l'alerte immédiate des parties prenantes, la gestion de la communication de crise et la récupération des données perdues ou compromises.</p>
+                </div>
+                <img src="box1-4.png" alt="Violation de données" class="modal-img">
+            </div>
+
+            <p>En termes de prévention, nous avons appris l'importance de la <strong>protection par couches</strong>, c'est-à-dire de déployer plusieurs niveaux de sécurité pour se protéger contre différents types d'attaques. Cela comprend des outils comme les antivirus, les firewalls, les systèmes de détection d'intrusion, ainsi que la formation continue des utilisateurs aux bonnes pratiques.</p>
+
+            <p>En somme, ce projet nous a non seulement permis d'acquérir des compétences techniques en matière de <strong>cybersécurité</strong>, mais aussi de développer des compétences en <strong>communication</strong>. Expliquer des concepts parfois complexes de manière simple et claire est essentiel pour rendre la cybersécurité accessible à tous.  
+            Grâce à ce projet, nous avons appris à sensibiliser les autres, à les former aux bonnes pratiques et à créer un environnement numérique plus sûr.</p>
+
+            <img src="box1-5.png" alt="Sensibilisation à la cybersécurité" class="modal-img">
+
+            <!-- Ajout de la section Conseils pratiques -->
+            <h4>Conseils pratiques pour une cybersécurité renforcée</h4>
+            <ul class="special-list">
+                <li>🔑 Utilisez un gestionnaire de mots de passe pour stocker des mots de passe complexes et uniques.</li>
+                <li>🚫 Ne cliquez jamais sur des liens suspects dans les emails ou les messages instantanés.</li>
+                <li>💻 Activez l'authentification à deux facteurs sur vos comptes en ligne pour ajouter une couche de sécurité.</li>
+                <li>🔒 Effectuez régulièrement des mises à jour de vos logiciels et systèmes d'exploitation pour réduire les vulnérabilités.</li>
+                <li>🌐 Utilisez un VPN pour sécuriser vos connexions, surtout sur des réseaux Wi-Fi publics.</li>
+            </ul>
+            <br>
+            <!-- Ajout de la section Ressources externes -->
+            <h4>Ressources pour aller plus loin</h4>
+            <ul class="special-list">
+                <li>📘 <a href="https://cyber.gouv.fr" target="_blank">Site de l'ANSSI</a> : Formation et actualités sur la cybersécurité.</li>
+            </ul>
         </div>
+    </div>
+</div>
     </section>
 
     
@@ -281,362 +329,244 @@
 
 
     <!-- DEBUT -->
-    <section>
-        <div class="projects-container">
-            <div class="project-box" data-aos="fade-right">
-                <img src="box2-1.png" alt="Projet SAE102">
-                <div class="project-text">
-                    <h3>Projet SAE102 : S’initier aux réseaux informatiques</h3>
-                    <br>
-                    <p>Dans le cadre de notre projet en S1 de BUT R&T, nous avons modélisé des réseaux à l’aide du simulateur Cisco Packet Tracer. Cette activité m’a permis de mieux comprendre l’architecture des réseaux et de renforcer mes compétences en simulation, configuration et communication technique.</p>
-                    <br>
-                    <strong>Compétences ciblées :</strong> Administrer les réseaux et l’Internet, Configurer et sécuriser des réseaux informatiques  
-                    <br>
-                    <strong>Mots clés :</strong> Réseau local, Routage, Commutation, Adresse IP, Cisco Packet Tracer  
-                    <br><br>
-                    <a href="Reseau12_Heurtebise_Johan.zip" class="download-btn" download>📥 Fichier Cisco</a>
-                    <br>
-                    <button class="more-btn" onclick="ouvrirFenetre('info-window-2')">🔍 En savoir plus</button>
+<section>
+    <!-- Portfolio -->
+    <div class="projects-container">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-header">
+                <div class="tech-tags">
+                    <span class="tag blue">Réseaux informatiques</span>
+                    <span class="tag blue">Simulation</span>
+                    <span class="tag blue">Cisco Packet Tracer</span>
                 </div>
+                <h3 class="project-title">SAE102 : Initiation aux réseaux</h3>
+                <p class="project-subtitle">Modélisation et configuration de réseaux</p>
             </div>
-    
-            <div id="info-window-2" class="modal">
-                <div class="modal-content">
-                    <button class="close-btn" onclick="fermerFenetre('info-window-2')">X</button>
-                    <h3>Exploration des réseaux informatiques</h3>
-                    <div class="modal-text">
-                        <p>Ce projet s’inscrit dans la SAÉ 1.02 : <strong>“S’initier aux réseaux informatiques”</strong>. Il avait pour objectif de nous familiariser avec les bases du fonctionnement des réseaux, en nous plaçant dans la peau d’un technicien R&T amené à comprendre et mettre en œuvre une architecture réseau aussi bien domestique qu’institutionnelle.</p>
             
-                        <p>Dans un premier temps, nous avons mené un travail d’enquête sur le terrain. En binômes, nous avons repéré et documenté la configuration de deux réseaux physiques différents : un <strong>réseau domestique</strong> et un <strong>réseau universitaire</strong>. Cela impliquait la collecte d’informations techniques telles que :</p>
-            
-                        <ul class="special-list">
-                            <li>📡 L’adresse IP et le masque de sous-réseau de plusieurs postes</li>
-                            <li>🖥️ L’adresse MAC des équipements connectés</li>
-                            <li>🔌 Le type de connexion utilisé (Ethernet, Wi-Fi)</li>
-                            <li>🧭 L’organisation logique et physique des équipements</li>
+            <div class="card-content reversed">
+                <div class="project-image">
+                    <img src="box2-1.png" alt="Simulation réseau Cisco Packet Tracer" class="hover-zoom">
+                    <div class="image-overlay">
+                        <span>Voir le projet</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <p class="project-description">
+                        Dans le cadre de notre projet en S1 de BUT R&T, nous avons modélisé des réseaux à l'aide du simulateur Cisco Packet Tracer. 
+                        Cette activité m'a permis de comprendre l'architecture des réseaux et de développer des compétences en configuration réseau.
+                    </p>
+                    
+                    <div class="skills-section">
+                        <h4>Compétences développées</h4>
+                        <div class="skill-chip">Administrer les réseaux</div>
+                        <div class="skill-chip">Configurer des équipements</div>
+                        <div class="skill-chip">Résolution de problèmes</div>
+                    </div>
+
+                    <div class="additional-info">
+                        <h4>Concrètement dans ce projet :</h4>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Modélisation de réseaux domestiques et professionnels</li>
+                            <li><i class="fas fa-check-circle"></i> Configuration de routeurs et service DHCP</li>
+                            <li><i class="fas fa-check-circle"></i> Élaboration de plans d'adressage IP</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse comparative de différentes architectures</li>
                         </ul>
-            
-                        <p>Ces observations nous ont permis d’avoir une vision concrète de la manière dont sont structurés les réseaux dans la réalité, au-delà de la simple théorie. Cela nous a également amenés à réfléchir à l’usage et à la configuration des <strong>box Internet</strong>, routeurs domestiques ou bornes d’accès universitaires.</p>
-            
-                        <div class="content-block left fade-in">
-                            <img src="box2-1.png" alt="Simulation réseau" class="modal-img">
-                            <div class="text-content">
-                                <p>Dans un second temps, nous avons reproduit ces deux architectures dans le simulateur <strong>Cisco Packet Tracer</strong>. Ce logiciel nous a permis de concevoir des topologies réseau, de configurer des routeurs et d’établir la communication entre plusieurs machines virtuelles réparties sur différents sous-réseaux.</p>
-                            </div>
-                        </div>
-            
-                        <p>Le travail sur Packet Tracer a été divisé en plusieurs phases techniques :</p>
-            
-                        <ul class="special-list">
-                            <li>📑 <strong>Plan d’adressage IP</strong> : Nous avons conçu des plans d’adressage cohérents en utilisant à la fois des adresses IP statiques et dynamiques selon les besoins du réseau.</li>
-                            <li>📡 <strong>Serveur DHCP</strong> : Nous avons mis en place un serveur DHCP pour distribuer automatiquement les adresses IP aux clients du réseau, tout en réservant certaines plages d’adresses pour des usages spécifiques.</li>
-                            <li>🧭 <strong>Routage statique</strong> : Nous avons configuré manuellement les routeurs pour permettre la communication entre les différents sous-réseaux. Cela nous a permis de comprendre comment les paquets transitent dans un réseau segmenté.</li>
-                            <li>🗄️ <strong>Serveur DNS</strong> : Un serveur DNS a également été simulé afin de traduire des noms de domaine en adresses IP, illustrant l’importance des services réseau pour les utilisateurs finaux.</li>
-                        </ul>
-            
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Les switches, dans notre projet, étaient utilisés uniquement en <strong>mode plug-and-play</strong>. Nous ne les avons pas configurés, car l’accent était mis sur la compréhension du fonctionnement des routeurs et des services réseau fondamentaux.</p>
-                                <p>Cette distinction entre matériel actif configuré (routeurs) et matériel passif ou autonome (switches) nous a permis de mieux comprendre le rôle de chaque équipement dans un réseau.</p>
-                            </div>
-                            <img src="box2-2.png" alt="Rôle des équipements" class="modal-img">
-                        </div>
-            
-                        <p>Nous avons également procédé à une comparaison entre les réseaux domestique et universitaire. Cela nous a permis d’identifier plusieurs différences importantes :</p>
-            
-                        <ul class="special-list">
-                            <li>🏠 Le réseau domestique est souvent <strong>simple, centralisé</strong> et géré automatiquement par une box Internet.</li>
-                            <li>🏢 Le réseau universitaire repose sur une infrastructure <strong>complexe, segmentée</strong> et conçue pour répondre à des exigences de sécurité, de performance et de scalabilité.</li>
-                            <li>🔐 La sécurité y est un enjeu majeur, notamment à travers l’utilisation de VLANs, de firewalls ou d’authentification centralisée (non simulés mais abordés).</li>
-                        </ul>
-            
-                        <div class="content-block left fade-in">
-                            <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
-                            <div class="text-content">
-                                <p>En analysant les besoins spécifiques à chaque environnement, nous avons appris à adapter les choix d’architecture réseau en fonction du contexte professionnel ou privé.</p>
-                            </div>
-                        </div>
-            
-                        <p>En plus de la configuration technique, une attention particulière a été portée à notre capacité à <strong>présenter et expliquer</strong> notre démarche. En effet, à l’issue du projet, nous avons réalisé une soutenance orale illustrée de captures d’écran de Packet Tracer, de schémas réseau, et de nos plans d’adressage.</p>
-            
-                        <img src="box2-5.png" alt="Présentation technique" class="modal-img">
-            
-                        <p>Ce projet nous a permis de développer des compétences concrètes et directement mobilisables en milieu professionnel :</p>
-            
-                        <ul class="special-list">
-                            <li>🛠️ Savoir <strong>configurer un routeur</strong> pour permettre la communication entre plusieurs sous-réseaux</li>
-                            <li>🌐 Maîtriser les <strong>bases du DHCP et du DNS</strong></li>
-                            <li>📊 Être capable de <strong>concevoir un plan d’adressage</strong> structuré et cohérent</li>
-                            <li>🗣️ Expliquer clairement une solution technique à un interlocuteur</li>
-                        </ul>
-            
-                        <p>Cette expérience a renforcé notre compréhension globale des <strong>architectures réseau</strong> tout en nous permettant d’acquérir une méthode de travail rigoureuse, structurée et orientée vers la résolution de problèmes concrets.</p>
                     </div>
                 </div>
             </div>
+            
+            <div class="card-footer">
+                <a href="Reseau12_Heurtebise_Johan.zip" class="modern-btn download-btn" download>
+                    Télécharger
+                </a>
+                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-2')">
+                    Détails
+                </button>
+            </div>
         </div>
-    </section>
+
+        <!-- Fenêtre modale améliorée -->
+        <div id="info-window-2" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="fermerFenetre('info-window-2')">X</button>
+                <h3>Exploration des réseaux informatiques</h3>
+                <div class="modal-text">
+                    <p>Ce projet s'inscrit dans la SAÉ 1.02 : <strong>"S'initier aux réseaux informatiques"</strong>. Il avait pour objectif de nous familiariser avec les bases du fonctionnement des réseaux, en nous plaçant dans la peau d'un technicien R&T amené à comprendre et mettre en œuvre une architecture réseau aussi bien domestique qu'institutionnelle.</p>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <p>Dans un premier temps, nous avons mené un travail d'enquête sur le terrain. En binômes, nous avons repéré et documenté la configuration de deux réseaux physiques différents : un <strong>réseau domestique</strong> et un <strong>réseau universitaire</strong>.</p>
+                        </div>
+                        <img src="box2-1.png" alt="Enquête réseau" class="modal-img">
+                    </div>
+        
+                    <p>Cela impliquait la collecte d'informations techniques telles que :</p>
+        
+                    <ul class="special-list">
+                        <li>📡 L'adresse IP et le masque de sous-réseau de plusieurs postes</li>
+                        <li>🖥️ L'adresse MAC des équipements connectés</li>
+                        <li>🔌 Le type de connexion utilisé (Ethernet, Wi-Fi)</li>
+                        <li>🧭 L'organisation logique et physique des équipements</li>
+                    </ul>
+        
+                    <p>Ces observations nous ont permis d'avoir une vision concrète de la manière dont sont structurés les réseaux dans la réalité, au-delà de la simple théorie.</p>
+        
+                    <div class="content-block left fade-in">
+                        <img src="box2-2.png" alt="Simulation Cisco Packet Tracer" class="modal-img">
+                        <div class="text-content">
+                            <p>Dans un second temps, nous avons reproduit ces architectures dans <strong>Cisco Packet Tracer</strong>. Ce logiciel nous a permis de concevoir des topologies réseau, de configurer des routeurs et d'établir la communication entre plusieurs machines virtuelles.</p>
+                        </div>
+                    </div>
+        
+                    <p>Le travail sur Packet Tracer a été divisé en plusieurs phases techniques :</p>
+        
+                    <ul class="special-list">
+                        <li>📑 <strong>Plan d'adressage IP</strong> : Conception de plans d'adressage cohérents avec adresses IP statiques et dynamiques</li>
+                        <li>📡 <strong>Serveur DHCP</strong> : Mise en place pour distribuer automatiquement les adresses IP</li>
+                        <li>🧭 <strong>Routage statique</strong> : Configuration manuelle des routeurs pour la communication entre sous-réseaux</li>
+                        <li>🗄️ <strong>Serveur DNS</strong> : Simulation pour traduire noms de domaine en adresses IP</li>
+                    </ul>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <p>Nous avons également procédé à une comparaison entre les réseaux domestique et universitaire. Le réseau domestique est souvent <strong>simple et centralisé</strong>, tandis que le réseau universitaire repose sur une infrastructure <strong>complexe et segmentée</strong>.</p>
+                        </div>
+                        <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
+                    </div>
+        
+                    <p>En plus de la configuration technique, nous avons développé notre capacité à <strong>présenter et expliquer</strong> notre démarche lors d'une soutenance orale illustrée.</p>
+        
+                    <img src="box2-5.png" alt="Présentation technique" class="modal-img">
+        
+                    <h4>Compétences acquises</h4>
+                    <ul class="special-list">
+                        <li>🛠️ Configurer un routeur pour la communication entre sous-réseaux</li>
+                        <li>🌐 Maîtriser les bases du DHCP et du DNS</li>
+                        <li>📊 Concevoir un plan d'adressage structuré</li>
+                        <li>🗣️ Expliquer clairement une solution technique</li>
+                    </ul>
+        
+                    <h4>Ressources techniques</h4>
+                    <ul class="special-list">
+                        <li>📘 <a href="https://www.netacad.com/" target="_blank">Cisco Networking Academy</a> : Ressources pour Packet Tracer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
     <!-- FIN -->
     
 
-    <section>
-        <div class="projects-container">
-            <div class="project-box" data-aos="fade-right">
-                <img src="box3-2.png" alt="Projet SAE103">
-                <div class="project-text">
-                    <h3>Projet SAE103 : Caractérisation des supports de transmission</h3>
-                    <br>
-                    <p>Dans le cadre de la SAE103, nous avons étudié différents supports de transmission (cuivre, fibre optique, hertzien), réalisé des mesures techniques et appris à analyser et présenter ces résultats dans un contexte professionnel.</p>
-                    <br>
-                    <strong>Compétences ciblées :</strong> Connecter les entreprises et les usagers  
-                    <br>
-                    <strong>Mots clés :</strong> Mesures, Supports de transmission, Fibre optique, Cuivre, Radio  
-                    <br><br>
-                    <a href="SAE103P1P2.zip" class="download-btn" download>📥 Rapport complet</a>
-                    <br>
-                    <button class="more-btn" onclick="ouvrirFenetre('info-window-3')">🔍 En savoir plus</button>
+<section>
+    <div class="projects-container">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-header">
+                <div class="tech-tags">
+                    <span class="tag blue">Supports transmission</span>
+                    <span class="tag teal">Mesures techniques</span>
+                    <span class="tag sky">Analyse de signal</span>
                 </div>
+                <h3 class="project-title">SAE103 : Supports de transmission</h3>
+                <p class="project-subtitle">Caractérisation des supports de transmission</p>
             </div>
-    
-            <div id="info-window-3" class="modal">
-                <div class="modal-content">
-                    <button class="close-btn" onclick="fermerFenetre('info-window-3')">X</button>
-                    <h3>Étude des supports de transmission</h3>
-                    <div class="modal-text">
-                        <p>Ce projet faisait partie de la SAÉ 1.03 : <strong>“Découvrir un dispositif de transmission”</strong>, visant à étudier les performances des différents supports de transmission, tels que le <strong>cuivre (RJ45)</strong>, en mesurant des paramètres de signal et en analysant les résultats obtenus.</p>
             
-                        <h4>1. Découverte du système de transmission RJ45</h4>
-                        <p>Nous avons d'abord étudié la transmission de données à travers des câbles RJ45 de différentes longueurs : <strong>10m, 20m, et 30m</strong>. L’objectif était de mesurer l’impact de la distance sur la qualité du signal. Grâce à l’utilisation d’un <strong>oscilloscope</strong>, nous avons observé plusieurs paramètres :</p>
-            
-                        <ul class="special-list">
-                            <li>⤵️ <strong>Atténuation (dB)</strong> : mesure de la perte de signal causée par la longueur du câble.</li>
-                            <li>⏱️ <strong>Temps de vol (retard)</strong> : mesure du temps que met le signal à parcourir le câble.</li>
-                            <li>📏 <strong>Longueur d'onde</strong> : caractérisation des variations du signal à travers le câble.</li>
+            <div class="card-content"> <!-- Suppression de la classe "reversed" -->
+                <div class="project-image">
+                    <img src="box3-2.png" alt="Mesures de supports de transmission" class="hover-zoom">
+                    <div class="image-overlay">
+                        <span>Voir le projet</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <p class="project-description">
+                        Dans le cadre de la SAE103, nous avons étudié différents supports de transmission (cuivre, fibre optique, hertzien),
+                        réalisé des mesures techniques et appris à analyser et présenter ces résultats dans un contexte professionnel.
+                    </p>
+                    
+                    <div class="skills-section">
+                        <h4>Compétences développées</h4>
+                        <div class="skill-chip">Connecter entreprises et usagers</div>
+                        <div class="skill-chip">Analyser des signaux</div>
+                        <div class="skill-chip">Présentation technique</div>
+                    </div>
+
+                    <div class="additional-info">
+                        <h4>Concrètement dans ce projet :</h4>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Mesures sur câbles RJ45 de différentes longueurs</li>
+                            <li><i class="fas fa-check-circle"></i> Utilisation d'oscilloscope pour analyse de signal</li>
+                            <li><i class="fas fa-check-circle"></i> Simulation de câbles longue distance</li>
+                            <li><i class="fas fa-check-circle"></i> Comparaison de configurations de terminaison</li>
                         </ul>
-            
-                        <p>Les résultats ont été rassemblés dans des <strong>feuilles Excel</strong>, et nous avons développé un petit outil permettant de calculer la tension de sortie et le temps de vol en fonction de la longueur du câble et de la tension initiale. Cela nous a permis de mieux comprendre comment la longueur du câble influence la transmission et de maîtriser les effets de la distance sur le signal.</p>
-            
-                        <div class="content-block left fade-in">
-                            <img src="box3-2.png" alt="Mesure à l'oscilloscope" class="modal-img">
-                            <div class="text-content">
-                                <p>Mesure de transmission à l'oscilloscope avec un câble RJ45 de 20 mètres. On observe l’atténuation du signal au fur et à mesure de la distance, ce qui permet de visualiser la perte de signal en fonction de la longueur du câble.</p>
-                            </div>
-                        </div>
-            
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Les données de ces mesures ont été analysées pour déterminer les effets de la distance sur l'atténuation et le temps de vol. Cette analyse nous a permis de mieux comprendre comment la transmission évolue en fonction de la longueur du câble.</p>
-                            </div>
-                            <img src="ampldb.png" alt="Analyse des données RJ45" class="modal-img">
-                        </div>
-            
-                        <h4>2. Simulation d’un câble de 20 km avec une plaquette</h4>
-                        <p>La deuxième phase du projet a consisté à utiliser une <strong>plaquette de simulation</strong> pour simuler un câble longue distance jusqu’à 20 km. Nous avons effectué les mêmes mesures et comparé les résultats obtenus pour trois types de terminaisons :</p>
-            
-                        <ul class="special-list">
-                            <li>🔌 <strong>Terminaison adaptée</strong> : lorsque l’impédance du câble est correctement appariée à celle de la terminaison.</li>
-                            <li>🔓 <strong>Terminaison ouverte</strong> : l’impédance n’est pas adaptée, ce qui crée des réflexions du signal.</li>
-                            <li>🚫 <strong>Terminaison court-circuitée</strong> : également une impédance mal adaptée, engendrant des réflexions.</li>
-                        </ul>
-            
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>En observant les signaux à l’oscilloscope, nous avons pu étudier les signaux incident, réfléchi et confondu, et ainsi identifier les différences de comportement en fonction des configurations de terminaison.</p>
-                            </div>
-                            <img src="plaquette.png" alt="Simulation avec plaquette" class="modal-img">
-                        </div>
-            
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Les résultats ont été exploités pour comparer les configurations et observer les effets de chaque terminaison sur la qualité du signal et l’amplitude du signal mesuré à l'oscilloscope.</p>
-                            </div>
-                            <img src="sgn.png" alt="Comparaison des terminaisons" class="modal-img">
-                        </div>
-            
-                        <h4>Conclusion des observations de terminaisons</h4>
-                        <p>Les résultats ont montré que la <strong>terminaison adaptée</strong> est la plus stable, avec une amplitude régulière et une faible atténuation sur toute la distance. En revanche, les configurations avec <strong>terminaison ouverte</strong> et <strong>court-circuitée</strong> ont produit des oscillations et une perte de stabilité, ce qui diminue la qualité de la transmission.</p>
-            
-                        <h4>Résultats et comparaison des configurations</h4>
-                        <p>En conclusion, les observations nous ont permis de confirmer que la <strong>terminaison adaptée</strong> est idéale pour une transmission stable, car elle minimise les réflexions et les pertes. Les configurations ouvertes et court-circuitées engendrent des réflexions qui perturbent la transmission et affectent la qualité du signal, rendant ces solutions moins efficaces sur de longues distances.</p>
-            
-                        <div class="content-block left fade-in">
-                            <img src="box3-3.png" alt="Analyse des signaux et comparaisons" class="modal-img">
-                            <div class="text-content">
-                                <p>Les courbes illustrent les différentes configurations de terminaison et leurs effets sur l’amplitude du signal à l’oscilloscope. L'analyse montre clairement la stabilité de la terminaison adaptée par rapport aux autres configurations.</p>
-                            </div>
-                        </div>
-            
-                        <p>Ce projet m’a permis de renforcer mes compétences en <strong>mesures électroniques</strong>, en <strong>analyse de signal</strong>, et en <strong>présentation technique des résultats</strong>. Ces compétences sont fondamentales pour comprendre la performance des supports de transmission dans les réseaux de télécommunications.</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section>
-        <div class="projects-container">
-            <div class="project-box" data-aos="fade-left">
-                <img src="box4-0.png" alt="Projet SAE104">
-                <div class="project-text">
-                    <h3>Projet SAE104 : Se présenter sur Internet</h3>
-                    <br>
-                    <p>Dans le cadre de la SAE104, j’ai conçu et développé un site Web personnel en HTML et CSS permettant de valoriser mon profil professionnel tout en respectant les bonnes pratiques liées à l’identité numérique.</p>
-                    <br>
-                    <strong>Compétence ciblée :</strong> Créer des outils et applications informatiques pour les R&T  
-                    <br>
-                    <strong>Mots clés :</strong> Identité numérique, Site personnel, HTML/CSS, Liens internes/externe, Grille, Wrapper  
-                    <br><br>
-                    <a href="Site_Perso_SAE104.zip" class="download-btn" download>📥 Code source du site</a>
-                    <br>
-                    <button class="more-btn" onclick="ouvrirFenetre('info-window-4')">🔍 En savoir plus</button>
-                </div>
-            </div>
-    
-            <div id="info-window-4" class="modal">
-                <div class="modal-content">
-                    <button class="close-btn" onclick="fermerFenetre('info-window-4')">X</button>
-                    <h3>Création d’un site Web personnel</h3>
-                    <div class="modal-text">
-                        <p>Ce projet entrait dans le cadre de la SAÉ 1.04 : <strong>“Se présenter sur Internet”</strong>, qui visait à développer une <strong>présence en ligne maîtrisée</strong> pour un futur professionnel des réseaux et télécommunications. L’objectif était double : <strong>valoriser ses compétences et expériences</strong> tout en maîtrisant les enjeux de l’<strong>e-réputation</strong>.</p>
-    
-                        <h4>1. Conception et structure du site</h4>
-                        <p>Le site a été entièrement réalisé en <strong>HTML et CSS</strong>. Il est composé de plusieurs pages liées entre elles par des <strong>liens internes</strong> (menu de navigation) et des <strong>liens externes</strong> (vers LinkedIn, GitHub, ou d'autres ressources professionnelles).</p>
-    
-                        <ul class="special-list">
-                            <li>🧭 <strong>Navigation fluide</strong> : menu fixe en haut avec liens internes pour faciliter la consultation.</li>
-                            <li>🖼️ <strong>Grille CSS</strong> : organisation responsive du contenu grâce à des grilles CSS.</li>
-                            <li>📦 <strong>Wrapper</strong> : conteneur centralisé pour harmoniser l’affichage sur différents écrans.</li>
-                            <li>🌐 <strong>Pages bilingues</strong> : certaines sections rédigées en anglais pour une ouverture à l’international.</li>
-                        </ul>
-    
-                        <div class="content-block left fade-in">
-                            <img src="box4-1.png" alt="Page d'accueil site perso" class="modal-img">
-                            <div class="text-content">
-                                <p>Page d’accueil du site Web, mettant en avant une présentation claire, une photo, et une brève description professionnelle.</p>
-                            </div>
-                        </div>
-    
-                        <h4>2. Contenu personnalisé et identité numérique</h4>
-                        <p>Le contenu du site a été rédigé de manière à respecter les règles de l’identité numérique professionnelle, en veillant à :</p>
-                        <ul class="special-list">
-                            <li>🔐 <strong>Séparer vie privée et vie professionnelle</strong>.</li>
-                            <li>💼 <strong>Présenter ses expériences et projets</strong> réalisés pendant la formation.</li>
-                            <li>🔗 <strong>Créer une cohérence</strong> entre les différentes plateformes (site, LinkedIn, etc.).</li>
-                        </ul>
-    
-                        <div class="content-block right fade-in">
-                            <div class="text-content">
-                                <p>Les pages incluent une présentation de mon parcours, un mini-CV, une galerie de projets et une page de contact. L’usage des balises HTML sémantiques a permis une structure claire et accessible.</p>
-                            </div>
-                            <img src="box4-3.png" alt="Section interet du site" class="modal-img">
-                        </div>
-    
-                        <h4>3. Compétences mobilisées</h4>
-                        <p>Ce projet m’a permis de mobiliser et développer plusieurs compétences clés :</p>
-                        <ul class="special-list">
-                            <li>💻 <strong>Développement Web statique</strong> : HTML5, CSS3, responsive design.</li>
-                            <li>🎯 <strong>Structuration de contenu</strong> : usage logique des titres, paragraphes, sections, navigation.</li>
-                            <li>🧠 <strong>Réflexion sur l’identité numérique</strong> : choix des informations, cohérence entre pages.</li>
-                            <li>🧩 <strong>Utilisation d’une grille CSS</strong> : mise en page professionnelle.</li>
-                        </ul>
-    
-                        <div class="content-block left fade-in">
-                            <img src="box4-4.png" alt="Formulaire de contact" class="modal-img">
-                            <div class="text-content">
-                                <p>Formulaire de contact avec validation de champ, permettant de simuler une interaction professionnelle via le site.</p>
-                            </div>
-                        </div>
-    
-                        <h4>Conclusion</h4>
-                        <p>Ce projet m’a permis de prendre conscience de l’importance de l’<strong>image professionnelle en ligne</strong> et de la maîtrise des <strong>technologies Web</strong> de base pour créer un support de présentation pertinent. Le site est un outil réutilisable que je peux faire évoluer tout au long de mon parcours.</p>
-                    </div>
-                </div>
+            
+            <div class="card-footer">
+                <a href="SAE103P1P2.zip" class="modern-btn download-btn" download>
+                    Télécharger le rapport
+                </a>
+                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-3')">
+                    Détails
+                </button>
             </div>
         </div>
-    </section>
-        
-    <section>
-        <div class="projects-container">
-          <div class="project-box" data-aos="fade-left">
-            <img src="box5-2.png" alt="Projet SAE105">
-            <div class="project-text">
-              <h3>Projet SAE105 : Traiter des données</h3>
-              <br>
-              <p>Dans le cadre de la SAÉ 1.05, nous avons réalisé un projet visant à concevoir un programme complet en Python capable de lire un fichier de logs (issus d’un service de messagerie), d’en extraire les informations les plus pertinentes, puis de générer une page HTML dynamique présentant ces résultats sous forme de graphiques interactifs.</p>
-              <br>
-              <strong>Compétence ciblée :</strong> Créer des outils et applications informatiques pour les R&T  
-              <br>
-              <strong>Mots clés :</strong> Python, Analyse de logs, Traitement de données, HTML dynamique, Chart.js  
-              <br><br>
-              <a href="Projet_SAE105.zip" class="download-btn" download>📥 Code source du projet</a>
-              <br>
-              <button class="more-btn" onclick="ouvrirFenetre('info-window-5')">🔍 En savoir plus</button>
-            </div>
-          </div>
-      
-          <div id="info-window-5" class="modal">
+
+
+
+        <!-- Fenêtre modale -->
+        <div id="info-window-3" class="modal">
             <div class="modal-content">
-              <button class="close-btn" onclick="fermerFenetre('info-window-5')">X</button>
-              <h3>Analyse d’un fichier de log avec Python</h3>
-              <div class="modal-text">
-                <p>Ce projet a été mené dans le cadre de la SAÉ 1.05 : <strong>“Traiter des données”</strong>. Il s’agissait de concevoir une solution logicielle capable de traiter automatiquement un fichier de logs techniques pour en extraire, analyser et présenter les données essentielles.</p>
-      
-                <h4>1. Objectifs du projet</h4>
-                <p>Dans le secteur des réseaux et télécommunications, les professionnels sont régulièrement confrontés à de grandes quantités de données issues de systèmes techniques : logs système, journaux d’activité réseau, traces d’erreurs, etc. L’objectif principal du projet était de comprendre comment automatiser le traitement de ces fichiers afin d’en tirer des informations exploitables rapidement et efficacement.</p>
-      
-                <ul class="special-list">
-                  <li>📂 <strong>Lecture automatique</strong> d’un fichier de logs au format texte brut</li>
-                  <li>📊 <strong>Extraction d’informations essentielles</strong> : adresses IP, messages envoyés/reçus, protocoles, erreurs</li>
-                  <li>🧮 <strong>Traitements statistiques</strong> : comptage, regroupements par type, moyenne d’occurrence</li>
-                  <li>🌐 <strong>Génération automatique d’un fichier HTML</strong> avec visualisation des résultats</li>
-                </ul>
-      
-                <div class="content-block left fade-in">
-                  <img src="box5-0.png" alt="Extrait du script Python" class="modal-img">
-                  <div class="text-content">
-                    <p>Le cœur du projet repose sur un script structuré en plusieurs fonctions : chaque fonction gère un aspect précis du traitement des données (filtrage par date, tri par adresse IP, analyse des protocoles, etc.).</p>
-                  </div>
+                <button class="close-btn" onclick="fermerFenetre('info-window-3')">X</button>
+                <h3>Étude des supports de transmission</h3>
+                <div class="modal-text">
+                    <p>Ce projet faisait partie de la SAÉ 1.03 : <strong>"Découvrir un dispositif de transmission"</strong>, visant à étudier les performances des différents supports de transmission, tels que le <strong>cuivre (RJ45)</strong>, en mesurant des paramètres de signal et en analysant les résultats obtenus.</p>
+        
+                    <div class="content-block left fade-in">
+                        <img src="box3-2.png" alt="Mesure à l'oscilloscope" class="modal-img">
+                        <div class="text-content">
+                            <h4>1. Découverte du système de transmission RJ45</h4>
+                            <p>Nous avons étudié la transmission de données à travers des câbles RJ45 de <strong>10m, 20m, et 30m</strong>. L'objectif était de mesurer l'impact de la distance sur la qualité du signal avec un <strong>oscilloscope</strong> :</p>
+                            <ul class="special-list">
+                                <li>⤵️ <strong>Atténuation (dB)</strong> : perte de signal causée par la longueur</li>
+                                <li>⏱️ <strong>Temps de vol</strong> : délai de propagation du signal</li>
+                                <li>📏 <strong>Longueur d'onde</strong> : variations du signal</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <h4>2. Simulation d'un câble de 20 km</h4>
+                            <p>Utilisation d'une <strong>plaquette de simulation</strong> pour comparer trois types de terminaisons :</p>
+                            <ul class="special-list">
+                                <li>🔌 <strong>Terminaison adaptée</strong> : impédance correctement appariée</li>
+                                <li>🔓 <strong>Terminaison ouverte</strong> : réflexions du signal</li>
+                                <li>🚫 <strong>Court-circuitée</strong> : réflexions importantes</li>
+                            </ul>
+                        </div>
+                        <img src="plaquette.png" alt="Simulation avec plaquette" class="modal-img">
+                    </div>
+        
+                    <div class="content-block left fade-in">
+                        <img src="sgn.png" alt="Comparaison des signaux" class="modal-img">
+                        <div class="text-content">
+                            <h4>Résultats et observations</h4>
+                            <p>La <strong>terminaison adaptée</strong> s'est révélée la plus stable, avec une amplitude régulière et une faible atténuation. Les configurations ouvertes et court-circuitées ont produit des oscillations perturbant la transmission.</p>
+                            <p>Ce projet a renforcé mes compétences en <strong>mesures électroniques</strong> et <strong>analyse de signal</strong>, fondamentales pour évaluer les performances des réseaux de télécommunications.</p>
+                        </div>
+                    </div>
                 </div>
-      
-                <h4>2. Mise en page et interface graphique</h4>
-                <p>Une fois les données traitées, le programme génère automatiquement un fichier HTML incluant des graphiques interactifs produits avec la bibliothèque <strong>Chart.js</strong>. Cela permet une visualisation claire et intuitive des résultats, facilitant leur analyse.</p>
-                <ul class="special-list">
-                  <li>📈 <strong>Graphiques variés</strong> : histogrammes, diagrammes circulaires, courbes temporelles</li>
-                  <li>🖥️ <strong>Interface web ergonomique</strong> : accessible sans connaissance technique</li>
-                  <li>🔁 <strong>Script réutilisable</strong> : adaptable à d’autres fichiers de logs de même forme</li>
-                </ul>
-      
-                <div class="content-block right fade-in">
-                  <div class="text-content">
-                    <p>Le fichier HTML produit est autonome et peut être consulté localement depuis n’importe quel navigateur. Il regroupe toutes les statistiques sous une forme compréhensible même pour un non-expert.</p>
-                  </div>
-                  <img src="box5-1.png" alt="Page HTML générée" class="modal-img">
-                </div>
-      
-                <h4>3. Compétences mobilisées</h4>
-                <p>Ce projet nous a permis de renforcer de nombreuses compétences essentielles dans notre formation :</p>
-                <ul class="special-list">
-                  <li>🐍 <strong>Python</strong> : lecture de fichiers, traitement de chaînes, utilisation de dictionnaires et boucles</li>
-                  <li>🧠 <strong>Analyse de données</strong> : savoir repérer les informations clés dans un grand volume de texte</li>
-                  <li>🧩 <strong>Organisation du code</strong> : structuration du programme en fonctions lisibles et réutilisables</li>
-                  <li>🌐 <strong>Développement web</strong> : création dynamique de contenu HTML avec intégration de bibliothèques JS</li>
-                </ul>
-      
-                <div class="content-block left fade-in">
-                  <img src="box5-3.png" alt="Statistiques générées" class="modal-img">
-                  <div class="text-content">
-                    <p>Chaque graphique est directement issu des données brutes. Ils permettent d’illustrer rapidement les statistiques importantes extraites du fichier de log (volume de messages par heure, origine des connexions, erreurs rencontrées, etc.).</p>
-                  </div>
-                </div>
-      
-                <h4>Conclusion</h4>
-                <p>Ce projet a été très enrichissant car il nous a permis de lier la théorie à la pratique : extraire de la valeur à partir de données brutes, automatiser un traitement, puis rendre cette analyse accessible via une interface graphique. Une compétence très recherchée dans le monde professionnel actuel, où la donnée est omniprésente.</p>
-              </div>
             </div>
-          </div>
         </div>
-      </section>
+    </div>
+</section>
+    
+
         
 
         
@@ -980,7 +910,7 @@
         };
       </script>
       <!-- JavaScript pour faire avancer la barre de progression -->
-
+    </div>
 </body>
 <footer id="footer">
     <p>&copy; 2025 Heurtebise Johan. Tous droits réservés.</p>
