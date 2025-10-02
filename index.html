@@ -1,43 +1,39 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Heurtebise Johan</title>
-    
-    <!-- Lien vers AOS (Animate On Scroll) pour les animations -->
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <link rel="icon" type="image/jpeg" href="pp.jpeg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
-    <!-- Dans ton <head> ou juste avant </body> -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Portfolio - Heurtebise Johan</title>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <!-- AOS CSS -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="pp.jpeg">
 
-<!-- AOS JS -->
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <!-- Feuille de style principale -->
+  <link rel="stylesheet" href="style.css">
 
-    <!-- AOS CSS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
 
-    </script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
-    
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
 
- 
+  <!-- Script d'init JS -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      AOS.init();
+    });
+  </script>
 </head>
 <body>
 
@@ -45,7 +41,8 @@
     <header>
         <div id="HJ"></div>
         <h1>Heurtebise Johan</h1>
-        <h2>Etudiant en BUT R&T à l'IUT de Blois</h2>
+        <h2 style="font-size: 20px;">Etudiant BUT R&T à l'IUT de Blois - Alternant Chargé d'Études avant-vente chez Orange</h2>
+
     </header>
 
 
@@ -99,7 +96,7 @@
                 <div class="social-links">
                     <a href="https://www.instagram.com/heurtebisejohan/" target="_blank"><i class="fab fa-instagram"></i></a>
                     <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:johan@heurtebisej-pro.com"><i class="fas fa-envelope"></i></a>
+                    <a href="mailto:heurtebise.johan.pro@gmail.com"><i class="fas fa-envelope"></i></a>
                     <a href="tel:+33671299610"><i class="fas fa-phone"></i></a>
                 </div>
                 <a href="CV - HJ.pdf" class="btn" download>📄 Télécharger mon CV</a>
@@ -110,26 +107,184 @@
     <div class="separator"></div>
     <section id="actu" class="section" data-aos="fade-up" data-aos-duration="1000">
 <div class="container">
+
     <h2>Actualités</h2>
 
-    <div class="news-grid">
-        <div class="news-block" data-aos="fade-right" data-aos-duration="500">
-            <h3><span role="img" aria-label="hourglass">⏳</span> Aucune actualité pour le moment</h3>
-
-            <!-- Encadré d'info -->
-            <div class="info-block">
-                <h4>Pas d'information actuelle</h4>
-                <p>Je n'ai pas d'actualité à partager pour le moment. Cette section sera mise à jour lorsque j'aurai des nouvelles informations à communiquer.</p>
-            </div>
-
-            <!-- Boutons de contact malgré tout -->
-            <div class="actions">
-                <br>
-                <a href="https://www.linkedin.com/in/johan-heurtebise/" target="_blank" class="btn">Voir sur LinkedIn</a>
-                <a href="mailto:johan@heurtebisej-pro.com" class="btn btn-contact">Contacter par email</a>
-            </div>
-        </div>
+<div class="actualites-container">
+  <!-- Newsletter à gauche -->
+  <div class="newsletter-left">
+    <div class="newsletter-box">
+      <h3>Mon projet perso : Newsletter Tech & Cyber</h3>
+      <p>
+        J'ai lancé ce projet en septembre 2025 pour partager chaque mois l’actualité des réseaux, de la cybersécurité et du monde IT en général. Restez informé(e) facilement et directement dans votre boîte mail !
+      </p>
+      <a href="https://johanheurtebise.substack.com" target="_blank" class="newsletter-button">
+        S’abonner à ma newsletter
+      </a>
     </div>
+  </div>
+
+  <!-- Slider à droite -->
+  <div class="news-right">
+    <div class="news-slider">
+      <div class="slider-wrapper">
+        <div class="slide">
+          <h3>
+            <img src="or.png" alt="Logo Orange" class="small-logo">
+            <span role="img" aria-label="briefcase">💼</span> Alternance chez Orange - Septembre 2025
+          </h3>
+          <div class="info-block">
+            <h4>Chargé d'Études avant-vente</h4>
+            <p>Je rejoins Orange à Orléans en septembre 2025 pour un contrat de 2 ans en tant qu'alternant chargé d'étude avant-vente. Cette expérience me permettra de développer mes compétences techniques et commerciales dans le secteur des télécommunications.</p>
+          </div>
+        </div>
+
+        <div class="slide">
+          <h3>
+            <img src="ct.png" alt="Logo Newsletter" class="small-logo">
+            <span role="img" aria-label="mailbox">📬</span> Lancement de ma newsletter - Septembre 2025
+          </h3>
+          <div class="info-block">
+            <h4>Restez informé</h4>
+            <p>Je lance ma newsletter mensuelle pour partager les dernières actualités et analyses dans le domaine de la tech, des réseaux et de la cybersécurité. Recevez chaque mois un résumé clair et pertinent directement dans votre boîte mail.</p>
+          </div>
+        </div>
+      </div>
+      <button class="prev">&#10094;</button>
+      <button class="next">&#10095;</button>
+    </div>
+  </div>
+</div>
+
+<style>
+/* Conteneur principal */
+.actualites-container {
+    display: flex;
+    gap: 30px; 
+    max-width: 1200px;
+    margin: 40px auto;
+    align-items: flex-start; /* aligne le haut des blocs */
+}
+
+/* Newsletter */
+.newsletter-left {
+    flex: 1;
+}
+
+.newsletter-box {
+    background-color:#f9f9f9; 
+    padding:20px; 
+    border-radius:12px; 
+    box-shadow:0 4px 12px rgba(0,0,0,0.1); 
+    text-align:center; 
+    font-family:Arial, sans-serif;
+}
+
+.newsletter-button {
+    padding:12px 25px; 
+    background-color:#3995f2a1; 
+    color:white; 
+    border-radius:8px; 
+    text-decoration:none; 
+    font-weight:bold; 
+    font-size:16px; 
+    transition: background-color 0.3s, transform 0.2s; 
+    display:inline-block;
+}
+
+.newsletter-button:hover {
+    background-color: #2799f6e2; 
+    transform: translateY(-2px);
+}
+
+/* Slider */
+.news-right {
+    flex: 2; 
+}
+
+.small-logo {
+    height: 24px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.news-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 20px;
+    background: #fff;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.prev:hover, .next:hover {
+    background: rgba(0,0,0,0.7);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .actualites-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .news-right, .newsletter-left {
+        flex: unset;
+        width: 90%;
+    }
+
+    .newsletter-box {
+        text-align: center;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const slides = document.querySelectorAll('.slide');
+    const wrapper = document.querySelector('.slider-wrapper');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    let index = 0;
+
+    function showSlide(i) {
+        if(i < 0) index = slides.length - 1;
+        else if(i >= slides.length) index = 0;
+        else index = i;
+        wrapper.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    prev.addEventListener('click', () => showSlide(index - 1));
+    next.addEventListener('click', () => showSlide(index + 1));
+});
+</script>
 </div>
     </section>
 
@@ -357,7 +512,242 @@
 
 
     <!-- DEBUT -->
+<section>
+    <!-- Portfolio -->
+    <div class="projects-container">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-header">
+                <div class="tech-tags">
+                    <span class="tag blue">Réseaux informatiques</span>
+                    <span class="tag blue">Simulation</span>
+                    <span class="tag blue">Cisco Packet Tracer</span>
+                </div>
+                <h3 class="project-title">SAE102 : Initiation aux réseaux</h3>
+                <p class="project-subtitle">Modélisation et configuration de réseaux</p>
+            </div>
+            
+            <div class="card-content reversed">
+                <div class="project-image">
+                    <img src="box2-1.png" alt="Simulation réseau Cisco Packet Tracer" class="hover-zoom">
+                    <div class="image-overlay">
+                        <span>Voir le projet</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <p class="project-description">
+                        Dans le cadre de notre projet en S1 de BUT R&T, nous avons modélisé des réseaux à l'aide du simulateur Cisco Packet Tracer. 
+                        Cette activité m'a permis de comprendre l'architecture des réseaux et de développer des compétences en configuration réseau.
+                    </p>
+                    
+                    <div class="skills-section">
+                        <h4>Compétences développées</h4>
+                        <div class="skill-chip">Administrer les réseaux</div>
+                        <div class="skill-chip">Configurer des équipements</div>
+                        <div class="skill-chip">Résolution de problèmes</div>
+                    </div>
 
+                    <div class="additional-info">
+                        <h4>Concrètement dans ce projet :</h4>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Modélisation de réseaux domestiques et professionnels</li>
+                            <li><i class="fas fa-check-circle"></i> Configuration de routeurs et service DHCP</li>
+                            <li><i class="fas fa-check-circle"></i> Élaboration de plans d'adressage IP</li>
+                            <li><i class="fas fa-check-circle"></i> Analyse comparative de différentes architectures</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-footer">
+                <a href="Reseau12_Heurtebise_Johan.zip" class="modern-btn download-btn" download>
+                    Télécharger
+                </a>
+                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-2')">
+                    Détails
+                </button>
+            </div>
+        </div>
+
+        <!-- Fenêtre modale améliorée -->
+        <div id="info-window-2" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="fermerFenetre('info-window-2')">X</button>
+                <h3>Exploration des réseaux informatiques</h3>
+                <div class="modal-text">
+                    <p>Ce projet s'inscrit dans la SAÉ 1.02 : <strong>"S'initier aux réseaux informatiques"</strong>. Il avait pour objectif de nous familiariser avec les bases du fonctionnement des réseaux, en nous plaçant dans la peau d'un technicien R&T amené à comprendre et mettre en œuvre une architecture réseau aussi bien domestique qu'institutionnelle.</p>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <p>Dans un premier temps, nous avons mené un travail d'enquête sur le terrain. En binômes, nous avons repéré et documenté la configuration de deux réseaux physiques différents : un <strong>réseau domestique</strong> et un <strong>réseau universitaire</strong>.</p>
+                        </div>
+                        <img src="box2-1.png" alt="Enquête réseau" class="modal-img">
+                    </div>
+        
+                    <p>Cela impliquait la collecte d'informations techniques telles que :</p>
+        
+                    <ul class="special-list">
+                        <li>📡 L'adresse IP et le masque de sous-réseau de plusieurs postes</li>
+                        <li>🖥️ L'adresse MAC des équipements connectés</li>
+                        <li>🔌 Le type de connexion utilisé (Ethernet, Wi-Fi)</li>
+                        <li>🧭 L'organisation logique et physique des équipements</li>
+                    </ul>
+        
+                    <p>Ces observations nous ont permis d'avoir une vision concrète de la manière dont sont structurés les réseaux dans la réalité, au-delà de la simple théorie.</p>
+        
+                    <div class="content-block left fade-in">
+                        <img src="box2-2.png" alt="Simulation Cisco Packet Tracer" class="modal-img">
+                        <div class="text-content">
+                            <p>Dans un second temps, nous avons reproduit ces architectures dans <strong>Cisco Packet Tracer</strong>. Ce logiciel nous a permis de concevoir des topologies réseau, de configurer des routeurs et d'établir la communication entre plusieurs machines virtuelles.</p>
+                        </div>
+                    </div>
+        
+                    <p>Le travail sur Packet Tracer a été divisé en plusieurs phases techniques :</p>
+        
+                    <ul class="special-list">
+                        <li>📑 <strong>Plan d'adressage IP</strong> : Conception de plans d'adressage cohérents avec adresses IP statiques et dynamiques</li>
+                        <li>📡 <strong>Serveur DHCP</strong> : Mise en place pour distribuer automatiquement les adresses IP</li>
+                        <li>🧭 <strong>Routage statique</strong> : Configuration manuelle des routeurs pour la communication entre sous-réseaux</li>
+                        <li>🗄️ <strong>Serveur DNS</strong> : Simulation pour traduire noms de domaine en adresses IP</li>
+                    </ul>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <p>Nous avons également procédé à une comparaison entre les réseaux domestique et universitaire. Le réseau domestique est souvent <strong>simple et centralisé</strong>, tandis que le réseau universitaire repose sur une infrastructure <strong>complexe et segmentée</strong>.</p>
+                        </div>
+                        <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
+                    </div>
+        
+                    <p>En plus de la configuration technique, nous avons développé notre capacité à <strong>présenter et expliquer</strong> notre démarche lors d'une soutenance orale illustrée.</p>
+        
+                    <img src="box2-5.png" alt="Présentation technique" class="modal-img">
+        
+                    <h4>Compétences acquises</h4>
+                    <ul class="special-list">
+                        <li>🛠️ Configurer un routeur pour la communication entre sous-réseaux</li>
+                        <li>🌐 Maîtriser les bases du DHCP et du DNS</li>
+                        <li>📊 Concevoir un plan d'adressage structuré</li>
+                        <li>🗣️ Expliquer clairement une solution technique</li>
+                    </ul>
+        
+                    <h4>Ressources techniques</h4>
+                    <ul class="special-list">
+                        <li>📘 <a href="https://www.netacad.com/" target="_blank">Cisco Networking Academy</a> : Ressources pour Packet Tracer</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <!-- FIN -->
+    
+
+<section>
+    <div class="projects-container">
+        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-header">
+                <div class="tech-tags">
+                    <span class="tag blue">Supports transmission</span>
+                    <span class="tag teal">Mesures techniques</span>
+                    <span class="tag sky">Analyse de signal</span>
+                </div>
+                <h3 class="project-title">SAE103 : Supports de transmission</h3>
+                <p class="project-subtitle">Caractérisation des supports de transmission</p>
+            </div>
+            
+            <div class="card-content"> <!-- Suppression de la classe "reversed" -->
+                <div class="project-image">
+                    <img src="box3-2.png" alt="Mesures de supports de transmission" class="hover-zoom">
+                    <div class="image-overlay">
+                        <span>Voir le projet</span>
+                    </div>
+                </div>
+                
+                <div class="project-details">
+                    <p class="project-description">
+                        Dans le cadre de la SAE103, nous avons étudié différents supports de transmission (cuivre, fibre optique, hertzien),
+                        réalisé des mesures techniques et appris à analyser et présenter ces résultats dans un contexte professionnel.
+                    </p>
+                    
+                    <div class="skills-section">
+                        <h4>Compétences développées</h4>
+                        <div class="skill-chip">Connecter entreprises et usagers</div>
+                        <div class="skill-chip">Analyser des signaux</div>
+                        <div class="skill-chip">Présentation technique</div>
+                    </div>
+
+                    <div class="additional-info">
+                        <h4>Concrètement dans ce projet :</h4>
+                        <ul class="info-list">
+                            <li><i class="fas fa-check-circle"></i> Mesures sur câbles RJ45 de différentes longueurs</li>
+                            <li><i class="fas fa-check-circle"></i> Utilisation d'oscilloscope pour analyse de signal</li>
+                            <li><i class="fas fa-check-circle"></i> Simulation de câbles longue distance</li>
+                            <li><i class="fas fa-check-circle"></i> Comparaison de configurations de terminaison</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card-footer">
+                <a href="SAE103P1P2.zip" class="modern-btn download-btn" download>
+                    Télécharger le rapport
+                </a>
+                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-3')">
+                    Détails
+                </button>
+            </div>
+        </div>
+
+
+
+        <!-- Fenêtre modale -->
+        <div id="info-window-3" class="modal">
+            <div class="modal-content">
+                <button class="close-btn" onclick="fermerFenetre('info-window-3')">X</button>
+                <h3>Étude des supports de transmission</h3>
+                <div class="modal-text">
+                    <p>Ce projet faisait partie de la SAÉ 1.03 : <strong>"Découvrir un dispositif de transmission"</strong>, visant à étudier les performances des différents supports de transmission, tels que le <strong>cuivre (RJ45)</strong>, en mesurant des paramètres de signal et en analysant les résultats obtenus.</p>
+        
+                    <div class="content-block left fade-in">
+                        <img src="box3-2.png" alt="Mesure à l'oscilloscope" class="modal-img">
+                        <div class="text-content">
+                            <h4>1. Découverte du système de transmission RJ45</h4>
+                            <p>Nous avons étudié la transmission de données à travers des câbles RJ45 de <strong>10m, 20m, et 30m</strong>. L'objectif était de mesurer l'impact de la distance sur la qualité du signal avec un <strong>oscilloscope</strong> :</p>
+                            <ul class="special-list">
+                                <li>⤵️ <strong>Atténuation (dB)</strong> : perte de signal causée par la longueur</li>
+                                <li>⏱️ <strong>Temps de vol</strong> : délai de propagation du signal</li>
+                                <li>📏 <strong>Longueur d'onde</strong> : variations du signal</li>
+                            </ul>
+                        </div>
+                    </div>
+        
+                    <div class="content-block right fade-in">
+                        <div class="text-content">
+                            <h4>2. Simulation d'un câble de 20 km</h4>
+                            <p>Utilisation d'une <strong>plaquette de simulation</strong> pour comparer trois types de terminaisons :</p>
+                            <ul class="special-list">
+                                <li>🔌 <strong>Terminaison adaptée</strong> : impédance correctement appariée</li>
+                                <li>🔓 <strong>Terminaison ouverte</strong> : réflexions du signal</li>
+                                <li>🚫 <strong>Court-circuitée</strong> : réflexions importantes</li>
+                            </ul>
+                        </div>
+                        <img src="plaquette.png" alt="Simulation avec plaquette" class="modal-img">
+                    </div>
+        
+                    <div class="content-block left fade-in">
+                        <img src="sgn.png" alt="Comparaison des signaux" class="modal-img">
+                        <div class="text-content">
+                            <h4>Résultats et observations</h4>
+                            <p>La <strong>terminaison adaptée</strong> s'est révélée la plus stable, avec une amplitude régulière et une faible atténuation. Les configurations ouvertes et court-circuitées ont produit des oscillations perturbant la transmission.</p>
+                            <p>Ce projet a renforcé mes compétences en <strong>mesures électroniques</strong> et <strong>analyse de signal</strong>, fondamentales pour évaluer les performances des réseaux de télécommunications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     
 
         
@@ -495,46 +885,58 @@
     <!-- Compétences -->
     <div class="separator"></div>
     <div id="exp" class="exp section" data-aos="fade-up">
-        <h2>Expériences Professionnelles / Formation suivies</h2>
-    
-        <section>
-            <div class="cosmic-timeline" data-aos="fade-up">
-    
-                <!-- Premier événement -->
-                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
-                    <p class="space-time">2024-2027</p>
-                    <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
-                    <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
-                </div>
-    
-                <!-- Deuxième événement -->
-                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Expérience d'Ouvrier Agricole</h3>
-                    <p class="space-time">Juillet 2024</p>
-                    <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
-                    <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
-                </div>
-    
-                <!-- Troisième événement -->
-                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
-                    <p class="space-time">2021-2024</p>
-                    <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
-                    <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
-                </div>
-    
-                <!-- Quatrième événement -->
-                <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="400">
-                    <h3>Stage d'observation de 3ème - Infographiste</h3>
-                    <p class="space-time">Janvier 2021</p>
-                    <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
-                    <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
-                </div>
-    
+    <h2>Expériences Professionnelles / Formation suivies</h2>
+
+    <section>
+        <div class="cosmic-timeline" data-aos="fade-up">
+
+
+
+            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="150">
+                <h3>Alternant chargé d'Études avant-vente chez Orange - Orléans</h3>
+                <p class="space-time">2025-2027</p>
+                <p>Participation à des missions d'étude et d'analyse pour le département avant-vente. Développement de compétences commerciales et techniques en télécommunications et en solutions réseau pour les clients.</p>
+                <p><strong>Compétences acquises :</strong> Analyse technique, Rédaction de propositions commerciales, Communication client, Gestion de projets, etc.</p>
             </div>
-        </section>
-    </div>
+
+            <!-- Premier événement -->
+            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="100">
+                <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
+                <p class="space-time">2024-2027</p>
+                <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
+                <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
+            </div>
+
+            <!-- Deuxième événement -->
+
+
+            <!-- Troisième événement -->
+            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="200">
+                <h3>Expérience d'Ouvrier Agricole</h3>
+                <p class="space-time">Juillet 2024</p>
+                <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
+                <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
+            </div>
+
+            <!-- Quatrième événement -->
+            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="300">
+                <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
+                <p class="space-time">2021-2024</p>
+                <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
+                <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
+            </div>
+
+            <!-- Cinquième événement -->
+            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="400">
+                <h3>Stage d'observation de 3ème - Infographiste</h3>
+                <p class="space-time">Janvier 2021</p>
+                <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
+                <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
+            </div>
+
+        </div>
+    </section>
+</div>
 
     
     
@@ -573,7 +975,7 @@
     
         <p data-aos="fade-left" data-aos-delay="50">
             Pour me contacter, envoyez-moi un e-mail à :
-            <a href="mailto:johan@heurtebisej-pro.com">johan@heurtebisej-pro.com</a>
+            <a href="mailto:heurtebise.johan.pro@gmail.com">heurtebise.johan.pro@gmail.com</a>
         </p>
     
         <p data-aos="zoom-in" data-aos-delay="300">Ou remplissez ce formulaire :</p>
@@ -645,7 +1047,7 @@
         <div class="modal-coord-content">
           <span class="modal-coord-close">&times;</span>
           <h2>Mes coordonnées</h2>
-          <p><strong>Email :</strong> <a href="mailto:johan@heurtebisej-pro.com">johan@heurtebisej-pro.com</a></p>
+          <p><strong>Email :</strong> <a href="mailto:heurtebise.johan.pro@gmail.com">heurtebise.johan.pro@gmail.com</a></p>
           <p><strong>Téléphone :</strong> <a href="tel:+33671299610">+33 6 71 29 96 10</a></p>
           <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank">Mon profil</a></p>
           <p><strong>Instagram :</strong> <a href="https://www.instagram.com/heurtebisejohan/" target="_blank">@heurtebisejohan</a></p>
