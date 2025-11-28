@@ -1,1114 +1,1812 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Portfolio - Heurtebise Johan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Portfolio | Heurtebise Johan - R&T & Cybersécurité</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="pp.jpeg">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
 
-  <!-- Feuille de style principale -->
-  <link rel="stylesheet" href="style.css">
+    <style>
+        /* =========================================
+           1. VARIABLES & THÈMES
+           ========================================= */
+        :root {
+            /* -- Thème CLAIR (Défaut) -- */
+            --bg-color: #f0f4f8;
+            --text-main: #1e293b;
+            --text-dim: #64748b;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+            --input-bg: #ffffff;
+            --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.1);
+            
+            /* Variables UI Globales */
+            --box-bg: #f9f9f9;
+            --element-bg: #fff;
+            --border-light: #ddd;
+            --tag-bg: #eee;
+            --tag-text: #333;
+            --skill-bar-bg: #e0e0e0;
+            --counter-bg: #f0f0f0;
+            --mini-card-bg: #fff;
+            --mini-card-border: #eee;
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+            /* Couleurs Accent */
+            --primary: #3b82f6; 
+            --primary-dark: #2563eb;
+            --accent: #f97316; 
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        [data-theme="dark"] {
+            /* -- Thème SOMBRE -- */
+            --bg-color: #0f172a;
+            --text-main: #f1f5f9;
+            --text-dim: #94a3b8;
+            --card-bg: rgba(30, 41, 59, 0.7);
+            --nav-bg: rgba(15, 23, 42, 0.95);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.1);
+            --input-bg: rgba(0, 0, 0, 0.3);
+            --shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
 
-  <!-- Swiper.js -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
-  <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+            /* Adaptation UI Sombre */
+            --box-bg: rgba(255, 255, 255, 0.05);
+            --element-bg: rgba(30, 41, 59, 0.6);
+            --border-light: rgba(255, 255, 255, 0.1);
+            --tag-bg: rgba(255, 255, 255, 0.1);
+            --tag-text: #e2e8f0;
+            --skill-bar-bg: rgba(255, 255, 255, 0.1);
+            --counter-bg: rgba(255, 255, 255, 0.1);
+            --mini-card-bg: rgba(30, 41, 59, 0.6);
+            --mini-card-border: rgba(255, 255, 255, 0.1);
+        }
 
-  <!-- Particles.js -->
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        /* =========================================
+           2. RESET & BASE
+           ========================================= */
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: transparent; /* Géré par background-glows */
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            transition: var(--transition);
+        }
 
-  <!-- AOS (Animate On Scroll) -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
 
-  <!-- Script d'init JS -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      AOS.init();
-    });
-  </script>
+        /* =========================================
+           3. FOND ANIMÉ (GLOWS)
+           ========================================= */
+        .background-glows {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; overflow: hidden; background: var(--bg-color);
+        }
+        .glow-blob {
+            position: absolute; border-radius: 50%;
+            filter: blur(120px); opacity: 0.15;
+        }
+        .glow-blue {
+            background: var(--primary); width: 500px; height: 500px;
+            top: -100px; left: -100px;
+            animation: floatBlue 25s infinite alternate ease-in-out;
+        }
+        .glow-orange {
+            background: var(--accent); width: 400px; height: 400px;
+            bottom: -50px; right: -50px;
+            animation: floatOrange 28s infinite alternate ease-in-out;
+        }
+
+        @keyframes floatBlue {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(40vw, 50vh) scale(1.2); }
+            66% { transform: translate(80vw, 10vh) scale(0.9); }
+            100% { transform: translate(20vw, 80vh) scale(1.1); }
+        }
+        @keyframes floatOrange {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-50vw, -40vh) scale(1.3); }
+            66% { transform: translate(-20vw, -80vh) scale(0.8); }
+            100% { transform: translate(-80vw, -20vh) scale(1.2); }
+        }
+
+        /* =========================================
+           4. TYPOGRAPHIE & COMPOSANTS UI
+           ========================================= */
+        h1, h2, h3, h4, h5 { font-weight: 700; letter-spacing: -0.5px; color: var(--text-main); }
+        
+        h2 { font-size: 2.5rem; margin-bottom: 50px; text-align: center; position: relative; }
+        h2::after {
+            content: ''; display: block; width: 80px; height: 5px; 
+            background: var(--primary); margin: 15px auto 0; border-radius: 10px;
+        }
+
+        /* Boutons */
+        .btn {
+            display: inline-flex; align-items: center; gap: 10px;
+            padding: 12px 30px; border-radius: 50px; font-weight: 600; 
+            transition: var(--transition); cursor: pointer; text-align: center; border: none;
+            font-size: 0.95rem;
+        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+        
+        .btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: #fff; }
+        .btn-outline { border: 2px solid var(--text-main); color: var(--text-main); background: transparent; }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); }
+        .btn-sm { padding: 8px 20px; font-size: 0.85rem; }
+
+        /* Tags et Badges */
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px; }
+        .tag { font-size: 0.75rem; padding: 5px 12px; border-radius: 20px; background: rgba(59, 130, 246, 0.1); color: var(--primary); font-weight: 700; }
+
+        /* =========================================
+           5. NAVIGATION
+           ========================================= */
+        header {
+            position: fixed; top: 0; width: 100%; z-index: 1000;
+            background: var(--nav-bg); backdrop-filter: blur(10px);
+            border-bottom: var(--glass-border); padding: 15px 0;
+            transition: background 0.3s ease;
+        }
+        .nav-container {
+            max-width: 1280px; margin: 0 auto; padding: 0 30px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text-main); }
+        .logo span { color: var(--primary); }
+        
+        .nav-right { display: flex; align-items: center; gap: 25px; }
+        .nav-links { display: flex; gap: 25px; }
+        
+        .nav-links a {
+            font-size: 0.95rem; color: var(--text-dim); font-weight: 500;
+            position: relative; padding-bottom: 5px; transition: color 0.3s ease;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 0%; height: 2px; background-color: var(--primary);
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Scroll Spy Active Class */
+        .nav-links a.active-link { color: var(--primary); }
+        .nav-links a.active-link::after { width: 100%; }
+
+        /* Boutons Navbar (Thème + Terminal) */
+        .theme-toggle, #term-btn-nav {
+            background: var(--bg-color); border: var(--glass-border); cursor: pointer; 
+            width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            box-shadow: var(--shadow); color: var(--text-main); transition: var(--transition);
+        }
+        #term-btn-nav { margin-left: 10px; }
+        #term-btn-nav:hover { color: #00ff00; border-color: #00ff00; background: #1e1e1e; transform: translateY(-2px); }
+        
+        .menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; color: var(--text-main); }
+
+        /* =========================================
+           6. SECTIONS (Hero, About, Portfolio, etc.)
+           ========================================= */
+        
+        /* --- Hero Section --- */
+        #home {
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            padding-top: 80px; position: relative;
+        }
+        .hero-container { display: flex; align-items: center; justify-content: center; gap: 100px; width: 100%; }
+        
+        .hero-visual { flex: 0 0 auto; position: relative; z-index: 1; }
+        .hero-visual::before {
+            content: ''; position: absolute; top: 30px; left: 30px; width: 100%; height: 100%;
+            border: 3px solid var(--primary); border-radius: 30px; z-index: -1;
+            transition: var(--transition); opacity: 0.6; transform: rotate(-5deg);
+        }
+        .hero-visual:hover::before { top: 15px; left: 15px; opacity: 1; border-color: var(--accent); }
+        .hero-avatar {
+            width: 350px; height: 450px; border-radius: 30px; object-fit: cover; object-position: center top;
+            box-shadow: var(--shadow); transition: var(--transition); background-color: var(--card-bg);
+        }
+
+        .hero-content { flex: 1; max-width: 600px; }
+        .welcome-badge {
+            display: inline-block; padding: 8px 16px; background: rgba(59, 130, 246, 0.1);
+            color: var(--primary); border-radius: 30px; font-weight: 600; font-size: 0.9rem;
+            margin-bottom: 15px; border: 1px solid rgba(59, 130, 246, 0.2);
+        }
+        .hero-title { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.1; }
+        .typewriter { color: var(--accent); font-weight: 600; border-right: 3px solid; animation: blink 0.8s infinite; padding-right: 5px; }
+        .hero-description { font-size: 1.05rem; color: var(--text-dim); margin-bottom: 30px; text-align: justify; max-width: 650px; }
+
+        /* Social Icons */
+        .social-row {
+            display: flex; align-items: center; gap: 20px; margin-top: 40px; padding-top: 30px;
+            border-top: 1px solid rgba(148, 163, 184, 0.15);
+        }
+        .social-text { font-size: 0.75rem; font-weight: 500; color: var(--text-dim); margin-right: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .social-btn {
+            width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;
+            background: transparent; border: none; color: var(--text-dim); font-size: 1.5rem;
+            transition: all 0.3s ease-out; text-decoration: none;
+        }
+        .social-btn:hover { color: var(--primary); transform: translateY(-3px) scale(1.1); }
+
+        /* --- About Section --- */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: stretch; }
+        .about-right-column { display: flex; flex-direction: column; gap: 25px; height: 100%; }
+        
+        .glass-card {
+            background: var(--card-bg); backdrop-filter: blur(12px);
+            border: var(--glass-border); border-radius: var(--radius); padding: 35px;
+            box-shadow: var(--shadow); transition: var(--transition);
+            height: 100%; display: flex; flex-direction: column; justify-content: center;
+        }
+        .glass-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        /* --- Portfolio Section --- */
+        .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+        .project-card {
+            background: var(--card-bg); border-radius: var(--radius); overflow: hidden;
+            border: var(--glass-border); transition: var(--transition); box-shadow: var(--shadow);
+            display: flex; flex-direction: column; height: 100%; position: relative; cursor: pointer;
+        }
+        .project-card:hover { transform: translateY(-10px); }
+        
+        .card-img-container { height: 220px; overflow: hidden; position: relative; }
+        .card-img-container img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+        .project-card:hover img { transform: scale(1.1); }
+        
+        .overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.4); opacity: 0; transition: 0.3s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .project-card:hover .overlay { opacity: 1; }
+        .overlay-text { color: white; font-weight: bold; background: rgba(0,0,0,0.6); padding: 10px 20px; border-radius: 30px; }
+        
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+
+        /* --- Parcours / Timeline --- */
+        #parcours { position: relative; overflow: hidden; }
+        .timeline { position: relative; max-width: 1000px; margin: 0 auto; padding: 40px 0; }
+        .timeline::after {
+            content: ''; position: absolute; width: 4px; background: var(--text-dim);
+            top: 0; bottom: 0; left: 50%; margin-left: -2px; border-radius: 2px; opacity: 0.3;
+        }
+        .timeline-item { padding: 10px 50px; position: relative; background: inherit; width: 50%; }
+        .timeline-item.left { left: 0; text-align: right; }
+        .timeline-item.right { left: 50%; text-align: left; }
+
+        .timeline-dot {
+            width: 20px; height: 20px; background: var(--primary);
+            border-radius: 50%; position: absolute; top: 30px; right: -10px; z-index: 1;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); transition: var(--transition);
+        }
+        .timeline-item.right .timeline-dot { left: -10px; }
+        .timeline-item:hover .timeline-dot { background: var(--accent); box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.3); transform: scale(1.2); }
+
+        .timeline-content {
+            padding: 25px; border-radius: var(--radius); position: relative;
+            background: var(--card-bg); backdrop-filter: blur(10px);
+            border: var(--glass-border); box-shadow: var(--shadow); transition: var(--transition);
+        }
+        .timeline-content:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .timeline-date {
+            display: inline-block; margin-bottom: 10px; font-weight: 700;
+            color: var(--primary); font-size: 0.9rem; background: rgba(59, 130, 246, 0.1);
+            padding: 5px 15px; border-radius: 20px;
+        }
+        .timeline-place { font-size: 0.95rem; font-style: italic; color: var(--text-dim); margin-bottom: 15px; }
+
+        /* --- Compétences --- */
+        .skills-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 25px; }
+        .skill-card {
+            background: var(--card-bg); border: var(--glass-border); border-radius: var(--radius);
+            padding: 30px 20px; text-align: center; transition: var(--transition);
+            box-shadow: var(--shadow); cursor: pointer; display: flex; flex-direction: column; align-items: center;
+        }
+        .skill-card:hover { transform: translateY(-8px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .skill-icon { width: 70px; height: 70px; margin-bottom: 15px; object-fit: contain; transition: transform 0.3s; }
+        .skill-card:hover .skill-icon { transform: scale(1.1) rotate(5deg); }
+        .skill-btn { margin-top: auto; opacity: 0.8; transition: 0.3s; }
+        .skill-card:hover .skill-btn { opacity: 1; background: var(--primary); color: white; border-color: transparent; }
+
+        /* --- Contact & Footer --- */
+        .contact-form { display: grid; gap: 20px; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-control { padding: 12px 15px; border-radius: 10px; border: 1px solid rgba(148, 163, 184, 0.3); background: var(--input-bg); color: var(--text-main); transition: var(--transition); }
+        .form-control:focus { outline: none; border-color: var(--primary); }
+
+        footer { text-align: center; padding: 50px; color: var(--text-dim); border-top: 1px solid rgba(0,0,0,0.05); }
+
+        /* =========================================
+           7. MODALES & CARROUSELS
+           ========================================= */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%;
+            background-color: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s;
+        }
+        .modal.show { opacity: 1; }
+        .modal-content {
+            background: var(--bg-color); width: 90%; max-width: 850px; max-height: 85vh;
+            border-radius: var(--radius); overflow: hidden; position: relative;
+            display: flex; flex-direction: column; border: var(--glass-border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); animation: slideUp 0.4s ease-out;
+        }
+
+        /* Header Modal */
+        .modal-header {
+            display: flex; justify-content: space-between; align-items: center;
+            border-bottom: 1px solid #eee; padding: 15px 25px; background: var(--nav-bg);
+        }
+/* Nouveau style pour le compteur de pages dans les modales */
+.page-counter {
+    font-family: 'Poppins', sans-serif; /* On abandonne le monospace pour la cohérence */
+    background: rgba(59, 130, 246, 0.1); /* Fond bleu très léger (votre var primaire) */
+    color: var(--primary); /* Texte bleu */
+    border: 1px solid rgba(59, 130, 246, 0.2); /* Bordure subtile */
+    padding: 6px 16px;
+    border-radius: 50px; /* Forme de pilule arrondie */
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-right: 15px;
+    letter-spacing: 1px; /* Espacement moderne */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Ombre très légère */
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Petit effet au survol (optionnel mais sympa) */
+.page-counter:hover {
+    background: var(--primary);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}        .badge-category { background-color: #e3f2fd; color: #1565c0; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; margin-left: 10px; }
+        .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
+
+        /* Layout Carrousel */
+        .carousel-container { flex: 1; position: relative; overflow: hidden; }
+        .carousel-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+        .carousel-slide { min-width: 100%; height: 100%; padding: 30px; overflow-y: auto; background: var(--bg-color); }
+        .carousel-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 10px; transform: translateY(-50%); pointer-events: none; }
+        .carousel-btn { pointer-events: auto; background: rgba(0,0,0,0.1); color: var(--text-main); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .carousel-btn:hover { background: var(--primary); color: white; }
+        
+        .carousel-dots { display: flex; justify-content: center; padding: 15px; gap: 10px; background: var(--nav-bg); }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text-dim); opacity: 0.3; cursor: pointer; }
+        .dot.active { opacity: 1; background: var(--primary); transform: scale(1.2); }
+
+        /* Contenu Slide */
+        .slide-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2rem; align-items: start; }
+        .reverse-layout { grid-template-columns: 0.8fr 1.2fr; }
+        .slide-img { width: 100%; border-radius: 10px; box-shadow: var(--shadow); }
+        
+        /* Boites infos dans slides */
+        .info-box {
+            background: var(--box-bg); border-left: 4px solid var(--primary);
+            padding: 15px; margin: 15px 0; border-radius: 0 4px 4px 0; color: var(--text-main);
+        }
+        .info-box h5 { margin-bottom: 10px; font-weight: 700; }
+        .check-list li { padding-left: 25px; position: relative; margin-bottom: 10px; color: var(--text-dim); }
+        .check-list li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary); }
+
+        /* Mini Cards (Grid interne slide) */
+        .cards-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 15px; }
+        .mini-card {
+            background: var(--mini-card-bg); border: 1px solid var(--mini-card-border);
+            padding: 15px; border-radius: 12px; text-align: center;
+            box-shadow: var(--shadow); display: flex; flex-direction: column; align-items: center;
+        }
+        .mini-card:hover { transform: translateY(-3px); border-color: var(--primary); }
+        .mini-card i { color: var(--primary); font-size: 1.8rem; margin-bottom: 10px; }
+        .mini-card strong { display: block; color: var(--text-main); margin-bottom: 5px; font-size: 0.95rem; }
+        .mini-card p { font-size: 0.85rem; margin: 0; color: var(--text-dim); }
+
+        /* Modal Compétences (Spécifique) */
+        .modal-body-skill { padding: 40px; overflow-y: auto; }
+        .skill-detail-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; }
+        .skill-detail-left { text-align: center; padding-right: 20px; border-right: 1px solid var(--glass-border); }
+        .skill-detail-icon { width: 100px; margin-bottom: 20px; }
+        .skill-level-badge { display: inline-block; padding: 5px 15px; background: var(--accent); color: white; border-radius: 20px; font-size: 0.9rem; font-weight: 600; margin-bottom: 20px; }
+        .tech-list { text-align: left; margin-top: 20px; }
+        .tech-item {
+            background: var(--card-bg); padding: 10px 15px; margin-bottom: 10px;
+            border-radius: 8px; border: var(--glass-border); display: flex; align-items: center; gap: 10px;
+        }
+        .tech-item i { color: var(--primary); }
+        .skill-bar { background: var(--skill-bar-bg); height: 8px; border-radius: 4px; overflow: hidden; margin-top: 5px; }
+        .skill-bar .fill { background: #4caf50; height: 100%; }
+
+        /* =========================================
+           8. TERMINAL WIDGET
+           ========================================= */
+        #term-window {
+            display: none;
+            position: fixed;
+            bottom: 30px; left: 30px; /* Positionné en bas à gauche */
+            width: 450px; height: 300px; max-width: 85vw;
+            
+            background-color: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            border: 1px solid #444;
+            z-index: 9999;
+            flex-direction: column;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow: hidden;
+            animation: slideUpTerm 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+        }
+
+        .term-header { background: #2d2d2d; padding: 10px; display: flex; align-items: center; border-bottom: 1px solid #333; }
+        .term-buttons { display: flex; gap: 8px; margin-right: 15px; }
+        .term-buttons span { width: 12px; height: 12px; border-radius: 50%; display: inline-block; }
+        .term-buttons .close { background: #ff5f56; cursor: pointer; }
+        .term-buttons .minimize { background: #ffbd2e; }
+        .term-buttons .maximize { background: #27c93f; }
+        .term-title { color: #ccc; font-size: 0.8rem; margin: 0 auto; opacity: 0.8; }
+        .term-body { padding: 15px; flex: 1; overflow-y: auto; color: #f0f0f0; font-size: 0.9rem; cursor: text; }
+        .term-body::-webkit-scrollbar { width: 8px; }
+        .term-body::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; }
+        .term-output p { margin: 5px 0; line-height: 1.4; }
+        .cmd-highlight { color: #00ff00; font-weight: bold; }
+        .error-msg { color: #ff5f56; }
+        .term-input-line { display: flex; align-items: center; margin-top: 5px; }
+        .prompt { color: #27c93f; margin-right: 10px; font-weight: bold; }
+        #term-input { background: transparent; border: none; color: #fff; font-family: inherit; font-size: inherit; flex: 1; outline: none; }
+
+        /* =========================================
+           9. ANIMATIONS
+           ========================================= */
+        @keyframes blink { 50% { border-color: transparent; } }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        @keyframes slideUpTerm { from { transform: translateY(30px) scale(0.9); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+
+        /* =========================================
+           10. MEDIA QUERIES (RESPONSIVE)
+           ========================================= */
+        @media (max-width: 900px) {
+            /* Layout général */
+            .hero-container { flex-direction: column; text-align: center; gap: 50px; }
+            .hero-avatar { width: 260px; height: 320px; }
+            .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--nav-bg); flex-direction: column; padding: 20px; }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            
+            /* Grids & Colonnes */
+            .about-grid, .form-row, .slide-grid, .skill-detail-grid { grid-template-columns: 1fr; }
+            .skill-detail-left { border-right: none; border-bottom: 1px solid var(--glass-border); padding-bottom: 20px; margin-bottom: 20px; padding-right: 0; }
+            
+            /* Timeline Mobile */
+            .timeline::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.left, .timeline-item.right { left: 0; text-align: left; }
+            .timeline-item.left .timeline-dot, .timeline-item.right .timeline-dot { left: 21px; }
+            
+            /* Fond */
+            .glow-blue { width: 250px; height: 250px; filter: blur(50px); }
+            .glow-orange { width: 200px; height: 200px; filter: blur(50px); }
+
+            /* --- Correctif Modales Mobile --- */
+            .modal-content {
+                width: 95%; max-height: 92vh; height: 92vh; /* Force hauteur pour scroll */
+            }
+            .carousel-slide {
+                overflow-y: auto !important; -webkit-overflow-scrolling: touch;
+                padding-bottom: 80px; /* Marge pour éviter coupure par les flèches */
+                height: 100%; display: block;
+            }
+            .slide-grid, .reverse-layout, .skill-detail-grid {
+                display: flex; flex-direction: column; gap: 20px;
+            }
+            .image-column { order: -1; width: 100%; } /* Remonte l'image */
+            
+            /* Navigation Carrousel en bas */
+            .carousel-nav {
+                top: auto; bottom: 10px; transform: none; padding: 0 20px; z-index: 100;
+            }
+            .carousel-btn {
+                background: var(--primary); color: white; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            }
+        }
+
+
+
+        /* --- NOUVEAU DESIGN FORMULAIRE --- */
+
+.contact-wrapper {
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 40px !important; /* Force le padding */
+}
+
+.contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--text-dim);
+}
+
+/* Groupe de champ (Conteneur relatif) */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+    width: 100%;
+}
+
+/* L'Input lui-même */
+.input-group .form-control {
+    width: 100%;
+    padding: 15px 15px 15px 45px; /* Padding gauche pour l'icône */
+    background: rgba(255, 255, 255, 0.5); /* Très transparent */
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+[data-theme="dark"] .input-group .form-control {
+    background: rgba(15, 23, 42, 0.4);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Effet Focus sur l'Input */
+.input-group .form-control:focus {
+    background: var(--input-bg);
+    border-color: var(--primary);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.15);
+}
+
+/* Le Label Flottant */
+.floating-label {
+    position: absolute;
+    left: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    pointer-events: none; /* Permet de cliquer à travers le label */
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+    background: transparent;
+    padding: 0 5px;
+}
+
+/* Label pour Textarea (position différente) */
+textarea ~ .floating-label {
+    top: 25px; 
+}
+
+/* Animation du Label (Quand focus OU quand il y a du texte) */
+.input-group .form-control:focus ~ .floating-label,
+.input-group .form-control:not(:placeholder-shown) ~ .floating-label,
+.static-label {
+    top: -10px !important;
+    left: 15px;
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: var(--card-bg); /* Masque la ligne derrière le label */
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+/* L'icône à gauche */
+.input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    transition: 0.3s;
+    font-size: 1.1rem;
+}
+
+.textarea-icon {
+    top: 25px; /* Pour le textarea, l'icône reste en haut */
+}
+
+.input-group .form-control:focus ~ .input-icon {
+    color: var(--primary);
+}
+
+/* Gestion du Select (Menu déroulant) */
+.select-wrapper {
+    position: relative;
+}
+.input-group select {
+    appearance: none; /* Cache la flèche par défaut moche */
+    cursor: pointer;
+}
+.select-arrow {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    pointer-events: none;
+    font-size: 0.8rem;
+}
+
+/* Bouton Envoyer Amélioré */
+.submit-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 15px;
+    font-size: 1rem;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 1px;
+}
+
+.submit-btn i {
+    transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+    transform: translateX(5px) translateY(-3px);
+}
+
+/* Responsive pour le formulaire */
+@media (max-width: 768px) {
+    .contact-wrapper { padding: 25px !important; }
+}
+    </style>
 </head>
 <body>
 
+    <div class="background-glows">
+        <div class="glow-blob glow-blue"></div>
+        <div class="glow-blob glow-orange"></div>
+    </div>
 
     <header>
-        <div id="HJ"></div>
-        <h1>Heurtebise Johan</h1>
-        <h2 style="font-size: 20px;">Etudiant BUT R&T à l'IUT de Blois - Alternant Chargé d'Études avant-vente chez Orange</h2>
+        <div class="nav-container">
+            <a href="#" class="logo">HJ<span>.</span></a>
+            <div class="nav-right">
+                <nav class="nav-links">
+                    <a href="#home">Accueil</a>
+                    <a href="#profil">À propos</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#parcours">Parcours</a> 
+                    <a href="#comp">Compétences</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+                
+                <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
 
+                <button onclick="toggleTerminal()" id="term-btn-nav" title="Ouvrir le Terminal">
+                    <i class="fas fa-terminal"></i>
+                </button>
+
+                <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+            </div>
+        </div>
     </header>
 
-
-    
-<div id="main-content" class=hidden>
-
-    <!-- Barre de navigation -->
-     
-        <!-- Bouton burger -->
-        <div class="menu-toggle">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-
-        <!-- Navigation -->
-        <nav class="nav-links">
-            <a href="#HJ"><strong>Heurtebise Johan</strong></a>
-            <br>
-            <a href="#profil">À propos</a>
-            <a href="#actu">Actualités</a>
-            <a href="#portfolio">Portfolio</a>
-            <a href="#comp">Compétences</a>
-            <a href="#exp">Expériences Professionnelles</a>
-            <a href="#cert">Certifications</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    
-        <script src="script.js"></script>
-
-    <!-- Fond animé -->
-    <div class="circle-background"></div>
-
-
-
-
-    <div class="pentagon-background"></div>
-
-    <section id="profil" class="section" data-aos="fade-right">
-
-        <div class="container grid-2">
-            <div class="profile-photo" data-aos="fade-left">
-                <img src="pp6.png" alt="Photo de Johan">
+    <section id="home">
+        <div class="hero-container" style="gap: 200px;"> 
+            <div class="hero-visual" data-aos="fade-right" data-aos-duration="1000">
+                <img src="pp6.png" alt="Johan Heurtebise" class="hero-avatar">
             </div>
-            <div class="profile-about">
-                <h2>À propos</h2>
-                <div class="separator-bar"></div> <!-- Séparateur -->
 
-                <p>Passionné par les réseaux et les nouvelles technologies, je suis toujours en quête d'innovation et d'amélioration continue.</p>
-                <p>Je cherche constamment à améliorer mes compétences et à relever de nouveaux défis dans le domaine des réseaux et des télécommunications.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/heurtebisejohan/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="mailto:heurtebise.johan.pro@gmail.com"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+33671299610"><i class="fas fa-phone"></i></a>
+            <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
+                <div class="welcome-badge"><i class="fas fa-hand-sparkles" ></i> Bienvenue sur mon portfolio</div>
+                
+                <h1 class="hero-title" style="margin-bottom: 40px;" >Heurtebise Johan</h1>
+                
+                <p class="hero-subtitle" style="margin-bottom: 30px;"><strong>Étudiant en BUT Réseaux & télécommunications, <span class="typewriter">Alternant chez Orange</strong></span></p>
+                
+                <div class="hero-description">
+                    <p style="margin-top: 10px;">
+                        Alternant en avant-vente chez Orange et étudiant en deuxième année de BUT Réseaux et Télécommunications à l’IUT de Blois, je me spécialise en cybersécurité. Passionné par les réseaux, la cybersécurité et les télécommunications, j’applique mes compétences à des projets concrets. Curieux et rigoureux, j’apprécie analyser, concevoir et optimiser des infrastructures de communication. Mon objectif : intégrer une école d’ingénieur pour approfondir mes connaissances en télécommunications et services numériques.
+                    </p>
                 </div>
-                <a href="CV 2025.pdf" class="btn" download>📄 Télécharger mon CV</a>
+
+                <div style="display:flex; gap:15px; flex-wrap:wrap;">
+                    <a href="#portfolio" class="btn btn-primary">Explorer mes projets <i class="fas fa-arrow-right"></i></a>
+                    <a href="CV 2025.pdf" class="btn btn-outline" download>Mon CV <i class="fas fa-download"></i></a>
+                </div>
+
+                <div class="social-row">
+                    <span class="social-text">Me suivre :</span>
+                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank" class="social-btn linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/ton_pseudo/" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="mailto:heurtebise.johan.pro@gmail.com" class="social-btn email" title="Envoyer un mail"><i class="fas fa-envelope"></i></a>
+                </div>
             </div>
         </div>
     </section>
-    
-    <div class="separator"></div>
-    <section id="actu" class="section" data-aos="fade-up" data-aos-duration="1000">
-<div class="container">
 
-    <h2>Actualités</h2>
-
-<div class="actualites-container">
-  <!-- Newsletter à gauche -->
-  <div class="newsletter-left">
-    <div class="newsletter-box">
-      <h3>Mon projet perso : Newsletter Tech & Cyber</h3>
-      <p>
-        J'ai lancé ce projet en septembre 2025 pour partager chaque mois l’actualité des réseaux, de la cybersécurité et du monde IT en général. Restez informé(e) facilement et directement dans votre boîte mail !
-      </p>
-      <a href="https://johanheurtebise.substack.com" target="_blank" class="newsletter-button">
-        S’abonner à ma newsletter
-      </a>
-    </div>
-  </div>
-
-  <!-- Slider à droite -->
-  <div class="news-right">
-    <div class="news-slider">
-      <div class="slider-wrapper">
-        <div class="slide">
-          <h3>
-            <img src="or.png" alt="Logo Orange" class="small-logo">
-            <span role="img" aria-label="briefcase">💼</span> Alternance chez Orange - Septembre 2025
-          </h3>
-          <div class="info-block">
-            <h4>Chargé d'Études avant-vente</h4>
-            <p>Je rejoins Orange à Orléans en septembre 2025 pour un contrat de 2 ans en tant qu'alternant chargé d'étude avant-vente. Cette expérience me permettra de développer mes compétences techniques et commerciales dans le secteur des télécommunications.</p>
-          </div>
-        </div>
-
-        <div class="slide">
-          <h3>
-            <img src="ct.png" alt="Logo Newsletter" class="small-logo">
-            <span role="img" aria-label="mailbox">📬</span> Lancement de ma newsletter - Septembre 2025
-          </h3>
-          <div class="info-block">
-            <h4>Restez informé</h4>
-            <p>Je lance ma newsletter mensuelle pour partager les dernières actualités et analyses dans le domaine de la tech, des réseaux et de la cybersécurité. Recevez chaque mois un résumé clair et pertinent directement dans votre boîte mail.</p>
-          </div>
-        </div>
-      </div>
-      <button class="prev">&#10094;</button>
-      <button class="next">&#10095;</button>
-    </div>
-  </div>
-</div>
-
-<style>
-/* Conteneur principal */
-.actualites-container {
-    display: flex;
-    gap: 30px; 
-    max-width: 1200px;
-    margin: 40px auto;
-    align-items: flex-start; /* aligne le haut des blocs */
-}
-
-/* Newsletter */
-.newsletter-left {
-    flex: 1;
-}
-
-.newsletter-box {
-    background-color:#f9f9f9; 
-    padding:20px; 
-    border-radius:12px; 
-    box-shadow:0 4px 12px rgba(0,0,0,0.1); 
-    text-align:center; 
-    font-family:Arial, sans-serif;
-}
-
-.newsletter-button {
-    padding:12px 25px; 
-    background-color:#3995f2a1; 
-    color:white; 
-    border-radius:8px; 
-    text-decoration:none; 
-    font-weight:bold; 
-    font-size:16px; 
-    transition: background-color 0.3s, transform 0.2s; 
-    display:inline-block;
-}
-
-.newsletter-button:hover {
-    background-color: #2799f6e2; 
-    transform: translateY(-2px);
-}
-
-/* Slider */
-.news-right {
-    flex: 2; 
-}
-
-.small-logo {
-    height: 24px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.news-slider {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
-
-.slider-wrapper {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.slide {
-    min-width: 100%;
-    padding: 20px;
-    background: #fff;
-}
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.4);
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 18px;
-}
-
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.prev:hover, .next:hover {
-    background: rgba(0,0,0,0.7);
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-    .actualites-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .news-right, .newsletter-left {
-        flex: unset;
-        width: 90%;
-    }
-
-    .newsletter-box {
-        text-align: center;
-    }
-}
-</style>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    const slides = document.querySelectorAll('.slide');
-    const wrapper = document.querySelector('.slider-wrapper');
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
-
-    let index = 0;
-
-    function showSlide(i) {
-        if(i < 0) index = slides.length - 1;
-        else if(i >= slides.length) index = 0;
-        else index = i;
-        wrapper.style.transform = `translateX(-${index * 100}%)`;
-    }
-
-    prev.addEventListener('click', () => showSlide(index - 1));
-    next.addEventListener('click', () => showSlide(index + 1));
-});
-</script>
-</div>
-    </section>
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-    <div id="portfolio" class="portfoliotestsection" data-aos="fade-up">
-        <div class="separator"></div>
-
-    </div>
-    <h2>Portfolio</h2>
-    <!-- DEBUT -->
- <section>
-    <!-- Portfolio -->
-<div class="projects-container">
-    <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="card-header">
-            <div class="tech-tags">
-                <span class="tag blue">Sécurité numérique</span>
-                <span class="tag blue">Bonnes pratiques</span>
-                <span class="tag blue">Présentation</span>
-            </div>
-            <h3 class="project-title">SAE101 : Hygiène Informatique</h3>
-            <p class="project-subtitle">Sensibilisation aux enjeux de sécurité numérique en entreprise</p>
-        </div>
-        
-        <div class="card-content">
-            <div class="project-image">
-                <img src="cyber1.png" alt="Présentation hygiène informatique" class="hover-zoom">
-                <div class="image-overlay">
-                    <span>Voir le projet</span>
+    <section id="profil">
+        <h2>À propos</h2>
+        <div class="about-grid">
+            <div class="glass-card" data-aos="fade-right">
+                <div style="margin-bottom: 20px;">
+                    <i class="fas fa-user-graduate" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;"></i>
+                    <h3 style="margin-bottom: 10px;">Mon Profil</h3>
                 </div>
-            </div>
-            
-            <div class="project-details">
-                <p class="project-description">
-                    Dans ce projet, nous avons joué le rôle de techniciens informatiques chargés de former les nouveaux employés aux bonnes pratiques de cybersécurité en environnement professionnel.
+                <p style="font-size: 1.05rem; margin-bottom: 20px;">
+                    Alternant en <strong>études avant-vente</strong> chez Orange et étudiant en <strong>BUT Réseaux & Télécommunications</strong> à l'IUT de Blois, avec une spécialisation en cybersécurité.
                 </p>
-                
-                <div class="skills-section">
-                    <h4>Compétences développées</h4>
-                    <div class="skill-chip">Sécurité informatique</div>
-                    <div class="skill-chip">Conception de support visuel</div>
-                    <div class="skill-chip">Analyse des risquess</div>
-                    <div class="skill-chip">Réflexes à adopter</div>
+                <p style="color: var(--text-dim); margin-bottom: 20px;">
+                    Passionné par les réseaux, les télécommunications et la cybersécurité, j’aime analyser, concevoir et optimiser des infrastructures de communication. Mon objectif est d’intégrer une école d’ingénieur pour approfondir mes compétences en télécommunications et services numériques.
+                </p>
+                <p style="font-style: italic; font-size: 0.9rem; color: var(--text-dim);">
+                    <i class="fas fa-map-marker-alt"></i> Basé à Blois / Le Mans
+                </p>
+            </div>
+
+            <div class="about-right-column">
+                <div class="glass-card" data-aos="fade-left" style="padding: 25px;">
+                    <div style="display: flex; align-items: start; gap: 15px;">
+                        <div style="background: rgba(249, 115, 22, 0.1); padding: 12px; border-radius: 10px;">
+                            <i class="fas fa-briefcase" style="color: var(--accent); font-size: 1.5rem;"></i>
+                        </div>
+                        <div>
+                            <h4 style="margin-bottom: 5px;">Alternance - Orange</h4>
+                            <p style="font-size: 0.95rem; color: var(--text-dim);">
+                                En tant que <strong style="color: var(--text-main);">Chargé d'Études Avant-Vente</strong>, je réponds aux appels d’offres, conçois des solutions techniques et financières, et j’accompagne les équipes commerciales sur les projets réseaux et télécoms, notamment pour les marchés publics.
+                            </p>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="additional-info">
-                    <h4>Concrètement dans ce projet :</h4>
-                    <ul class="info-list">
-                        <li><i class="fas fa-check-circle"></i> Formation basée sur le MOOC ANSSI</li>
-                        <li><i class="fas fa-check-circle"></i> Découvertes des menaces informatiques</li>
-                        <li><i class="fas fa-check-circle"></i> Mise en situation professionnelle</li>
-                    </ul>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 25px; border-color: var(--primary);">
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <h4 style="display: flex; align-items: center; gap: 10px;">
+                            <i class="fas fa-newspaper" style="color: var(--primary);"></i> CTRL Your World - Newsletter Mensuelle
+                        </h4>
+                        <p style="font-size: 0.95rem; color: var(--text-dim);">
+                            Chaque mois, je partage mes découvertes en Réseaux, Télécoms et Cybersécurité. Une façon de documenter mon apprentissage et de suivre mes progrès.
+                        </p>
+                        <a href="LIEN_VERS_TA_NEWSLETTER_ICI" target="_blank" class="btn btn-primary btn-sm" style="align-self: start; margin-top: 5px;">
+                            Lire la dernière édition <i class="fas fa-external-link-alt" style="margin-left: 8px; font-size: 0.8em;"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <div class="card-footer">
-            <a href="SAE101-Présentation.pdf" class="modern-btn download-btn" download>
-                Télécharger
-            </a>
-            <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-1')">
-                En savoir plus
+    </section>
+
+    <section id="portfolio">
+        <h2>Portfolio</h2>
+        <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim);">Cliquez sur un projet pour voir les étapes.</p>
+        <div class="portfolio-grid">
+            <div class="project-card" data-aos="fade-up" onclick="openModal('modal1')">
+                <div class="card-img-container"><img src="cyber1.png" alt="Hygiène Informatique"><div class="overlay"><span class="overlay-text">Voir le projet</span></div></div>
+                <div class="card-body"><div class="tags"><span class="tag">Cyber</span><span class="tag">Sensibilisation</span></div><h3 class="card-title">SAE101 : Hygiène Informatique</h3><p style="color: var(--text-dim);">Sensibilisation aux risques numériques.</p></div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal2')">
+                <div class="card-img-container"><img src="box2-1.png" alt="Packet Tracer"><div class="overlay"><span class="overlay-text">Voir le projet</span></div></div>
+                <div class="card-body"><div class="tags"><span class="tag">Réseaux</span><span class="tag">Cisco</span></div><h3 class="card-title">SAE201 : Conception d'un réseau d'entreprise</h3><p style="color: var(--text-dim);">Conception et déploiement de LAN.</p></div>
+            </div>
+            <div class="project-card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal3')">
+                <div class="card-img-container"><img src="box3-2.png" alt="Transmission"><div class="overlay"><span class="overlay-text">Voir le projet</span></div></div>
+                <div class="card-body"><div class="tags"><span class="tag">Télécoms</span><span class="tag">Signal</span></div><h3 class="card-title">SAE103 : Transmission</h3><p style="color: var(--text-dim);">Analyse physique des supports.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parcours">
+        <h2>Mon Parcours</h2>
+        <div class="timeline">
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2025 - Aujourd'hui</span>
+                    <h3 class="timeline-title">Chargé d'Études Avant-Vente</h3>
+                    <div class="timeline-place">Orange • Alternance</div>
+                    <p>Conception de solutions réseaux sur mesure pour les clients entreprises. Analyse des besoins, chiffrage et accompagnement technique.</p>
+                    <div class="tags" style="justify-content: flex-end; margin-top:10px;">
+                        <span class="tag">Relation Client</span>
+                        <span class="tag">Architecture Réseaux</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item right" data-aos="fade-left">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2024 - 2027</span>
+                    <h3 class="timeline-title">BUT Réseaux & Télécoms</h3>
+                    <div class="timeline-place">IUT de Blois • Étudiant</div>
+                    <p>Formation en administration réseaux, cybersécurité, télécommunications et développement. Spécialisation Cyber en cours.</p>
+                    <div class="tags" style="margin-top:10px;">
+                        <span class="tag">R&T</span>
+                        <span class="tag">Cyber</span>
+                        <span class="tag">Dev</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline-item left" data-aos="fade-right">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <span class="timeline-date">2024</span>
+                    <h3 class="timeline-title">Baccalauréat Général</h3>
+                    <div class="timeline-place">Lycée Polyvalent d'Estournelles de Constant, La Flèche • Mention Assez Bien</div>
+                    <p>Spécialités Mathématiques et Numérique et Sciences Informatiques (NSI). Premiers pas dans le code et les réseaux informatiques.</p>
+                    <div class="tags" style="justify-content: flex-end; margin-top:10px;">
+                        <span class="tag">Maths</span>
+                        <span class="tag">NSI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="comp">
+        <h2>Compétences</h2>
+        <div class="skills-container">
+            <div class="skill-card" data-aos="zoom-in" onclick="openModal('skill-modal-network')">
+                <img src="wireshark.png" alt="Logo Réseaux" class="skill-icon">
+                <h3 class="skill-title">Réseaux</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="50" onclick="openModal('skill-modal-web')">
+                <img src="htmllogo.png" alt="Logo Web" class="skill-icon">
+                <h3 class="skill-title">HTML/CSS</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="100" onclick="openModal('skill-modal-python')">
+                <img src="pythonlogo.png" alt="Logo Python" class="skill-icon">
+                <h3 class="skill-title">Python</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="150" onclick="openModal('skill-modal-linux')">
+                <img src="bashlogo2.png" alt="Logo Linux" class="skill-icon">
+                <h3 class="skill-title">Linux / Bash</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="200" onclick="openModal('skill-modal-sql')">
+                <img src="sqllogo.png" alt="Logo SQL" class="skill-icon">
+                <h3 class="skill-title">Base de Données</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="250" onclick="openModal('skill-modal-telecom')">
+                <img src="logotelecom2.png" alt="Logo Telecom" class="skill-icon">
+                <h3 class="skill-title">Télécoms</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="300" onclick="openModal('skill-modal-cyber')">
+                <img src="logotry.png" alt="Logo Cybersécurité" class="skill-icon">
+                <h3 class="skill-title">Cybersécurité</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+            <div class="skill-card" data-aos="zoom-in" data-aos-delay="350" onclick="openModal('skill-modal-fibre')">
+                <img src="fibreoptique.png" alt="Logo Fibre Optique" class="skill-icon">
+                <h3 class="skill-title">Technologie Fibre</h3>
+                <button class="btn btn-outline btn-sm skill-btn">En savoir +</button>
+            </div>
+        </div>
+    </section>
+
+<section id="contact">
+    <h2>Me Contacter</h2>
+    <div class="glass-card contact-wrapper" data-aos="zoom-in">
+        <div class="contact-header">
+            <p>Un projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
+        </div>
+
+        <form action="https://formspree.io/f/myzovgyn" method="POST" class="contact-form">
+            
+            <div class="form-row">
+                <div class="input-group">
+                    <input type="text" name="name" id="name" class="form-control" placeholder=" " required>
+                    <label for="name" class="floating-label">Nom Complet</label>
+                    <i class="fas fa-user input-icon"></i>
+                    <div class="focus-border"></div>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" name="email" id="email" class="form-control" placeholder=" " required>
+                    <label for="email" class="floating-label">Email</label>
+                    <i class="fas fa-envelope input-icon"></i>
+                    <div class="focus-border"></div>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="input-group">
+                    <input type="tel" name="phone" id="phone" class="form-control" placeholder=" ">
+                    <label for="phone" class="floating-label">Téléphone</label>
+                    <i class="fas fa-phone input-icon"></i>
+                    <div class="focus-border"></div>
+                </div>
+
+                <div class="input-group">
+                    <div class="select-wrapper">
+                        <select name="reason" id="reason" class="form-control">
+                            <option value="pro">Opportunité pro</option>
+                            <option value="info">Renseignement</option>
+                            <option value="autre">Autre</option>
+                        </select>
+                        <label for="reason" class="floating-label static-label">Motif</label>
+                        <i class="fas fa-briefcase input-icon"></i>
+                        <i class="fas fa-chevron-down select-arrow"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <input type="text" name="subject" id="subject" class="form-control" placeholder=" " required>
+                <label for="subject" class="floating-label">Sujet</label>
+                <i class="fas fa-tag input-icon"></i>
+                <div class="focus-border"></div>
+            </div>
+
+            <div class="input-group">
+                <textarea name="message" id="message" class="form-control" placeholder=" " required style="height: 150px; resize: none;"></textarea>
+                <label for="message" class="floating-label">Votre message</label>
+                <i class="fas fa-comment-alt input-icon textarea-icon"></i>
+                <div class="focus-border"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-btn">
+                <span>Envoyer le message</span>
+                <i class="fas fa-paper-plane"></i>
             </button>
-        </div>
-    </div>
-</div>
-
-
-    
-            <!-- Fenêtre modale améliorée -->
- <div id="info-window-1" class="modal">
-    <div class="modal-content">
-        <button class="close-btn" onclick="fermerFenetre('info-window-1')">X</button>
-        <h3>Hygiène Informatique & Cybersécurité</h3>
-        <div class="modal-text">
-            <div class="project-intro">
-                <h4>Mission : Sensibilisation en entreprise</h4>
-<p>Notre mission consistait à endosser le rôle de techniciens informatiques au sein d'une entreprise, en charge d'accueillir et de former de nouveaux employés. Ces collaborateurs, novices en cybersécurité, devaient acquérir les bases essentielles pour sécuriser leur environnement professionnel. Nous avons adopté une approche à la fois pédagogique et pratique, expliquant les risques cyber courants et les bonnes pratiques à appliquer au quotidien, le tout dans un langage clair et accessible.</p> <p>L'objectif était de les rendre autonomes face aux menaces informatiques tout en favorisant l'adoption de réflexes sécuritaires, comme la gestion des mots de passe, la vigilance face aux emails suspects ou la protection des données sensibles. Cette initiation visait à transformer les utilisateurs en acteurs de la sécurité de l'entreprise.</p>                
-                <h4>Approche méthodologique</h4>
-                <p>Pour préparer cette intervention, nous avons :</p>
-                <ul class="special-list">
-                    <li>Suivi intégralement le MOOC de l'ANSSI sur les fondamentaux de la cybersécurité</li>
-                    <li>Effectué des recherches documentaires sur les risques spécifiques en entreprise</li>
-                    <li>Analysé des cas concrets d'attaques informatiques</li>
-                    <li>Développé des supports adaptés à notre public cible</li>
-                </ul>
-            </div>
-
-            
-            <div class="content-block left fade-in">
-                <img src="box1-1.png" alt="Cybersécurité" class="modal-img">
-                <div class="text-content">
-                    <p>Dans un premier temps, nous avons suivi la <strong>certification MOOC de l'ANSSI</strong>, qui nous a permis de comprendre les enjeux globaux de la cybersécurité.  
-                    L'ANSSI (Agence Nationale de la Sécurité des Systèmes d'Information) fournit des formations essentielles pour maîtriser les bases de la sécurité des informations, de la gestion des incidents et de la protection des données.</p>
-                </div>
-            </div>
-            
-            <p>Voici quelques-uns des concepts fondamentaux abordés dans le cadre de ce projet et directement applicables à la sécurité des données :</p>
-
-            <ul class="special-list">
-                <li>🔒 <strong>Gestion sécurisée des mots de passe</strong> : Nous avons étudié l'importance de la diversité des mots de passe, l'utilisation de gestionnaires de mots de passe pour éviter la réutilisation, et les bonnes pratiques pour rendre un mot de passe robuste.</li>
-                <li>🛡️ <strong>Protection contre le phishing</strong> : L'une des menaces les plus courantes sur Internet. Nous avons appris à identifier les signes d'un email frauduleux, les pièges dans les liens suspects, et les méthodes de protection telles que l'authentification à deux facteurs.</li>
-                <li>📡 <strong>Sécurisation des réseaux</strong> : Des pratiques essentielles pour sécuriser un réseau, comme la configuration des pare-feu, l'utilisation des VPN (réseaux privés virtuels) et l'activation du cryptage des connexions sans fil (Wi-Fi). Nous avons également abordé la sécurité des connexions à distance dans un contexte professionnel.</li>
-                <li>📑 <strong>Gestion des incidents de sécurité</strong> : Nous avons appris à mettre en place des plans d'intervention pour répondre à une violation de données, à sécuriser les systèmes après une attaque, et à prévenir les risques d'escalade des cyberincidents.</li>
-            </ul>
-
-            <div class="professional-context">
-                <br>
-                <h4>Application en contexte professionnel</h4>
-                <p>Dans le cadre de notre simulation en entreprise, nous avons particulièrement insisté sur :</p>
-                <ul class="special-list">
-                    <li>Les risques spécifiques aux environnements professionnels (attaques ciblées, fuites de données sensibles)</li>
-                    <li>La responsabilité individuelle de chaque employé dans la sécurité collective</li>
-                    <li>Les procédures à suivre en cas de suspicion d'attaque ou de faille de sécurité</li>
-                </ul>
-            </div>
-
-            <div class="content-block right fade-in">
-                <div class="text-content">
-                    <p>Le projet a également mis l'accent sur <strong>l'éducation et la sensibilisation à la cybersécurité</strong> dans un environnement professionnel. En effet, les cybermenaces sont de plus en plus sophistiquées, allant des attaques de phishing aux ransomwares, en passant par les intrusions dans les systèmes d'information.</p>
-                    <p>Voici quelques exemples de menaces réelles qui rendent la cybersécurité essentielle dans la gestion des données personnelles et professionnelles :</p>
-                </div>
-                <img src="box1-2.png" alt="Sécurité des mots de passe" class="modal-img">
-            </div>
-
-            <ul class="special-list">
-                <li>💻 <strong>Ransomware</strong> : Un logiciel malveillant qui chiffre les fichiers de l'utilisateur et demande une rançon pour les déchiffrer. Les entreprises sont des cibles privilégiées, mais les particuliers peuvent également être touchés.</li>
-                <li>🔑 <strong>Fuites de données</strong> : En cas de mauvaise gestion des données, des informations sensibles peuvent être exposées. Nous avons étudié les stratégies pour sécuriser les bases de données et protéger les informations des utilisateurs.</li>
-                <li>🛠️ <strong>Exploitation des vulnérabilités</strong> : Les cyberattaquants exploitent les failles des logiciels non mis à jour. Ce projet a permis de souligner l'importance de maintenir une politique de mise à jour régulière des systèmes et des applications.</li>
-            </ul>
-
-            <div class="content-block left fade-in">
-                <img src="box1-3.png" alt="Sécurité en ligne" class="modal-img">
-                <div class="text-content">
-                    <p>Nous avons également approfondi la notion de <strong>comportement responsable en ligne</strong>. Chaque utilisateur joue un rôle clé dans la protection des données et des systèmes.  
-                    Par exemple, un simple clic sur un lien frauduleux peut compromettre la sécurité d'une organisation entière.</p>
-                </div>
-            </div>
-
-            <p>Ce projet nous a permis de sensibiliser notre entourage et nos collègues à l'importance de sécuriser leurs informations personnelles, mais aussi professionnelles, en ligne. Nous avons aussi abordé les bonnes pratiques liées à l'utilisation des outils numériques dans un cadre collaboratif.</p>
-
-            <div class="content-block right fade-in">
-                <div class="text-content">
-                    <p>Nous avons également étudié les <strong>meilleures pratiques de gestion des incidents de sécurité</strong>. En cas de violation de données, il est essentiel de réagir rapidement, de manière coordonnée, et de suivre un protocole clair pour minimiser les risques.  
-                    Cela inclut des actions comme l'alerte immédiate des parties prenantes, la gestion de la communication de crise et la récupération des données perdues ou compromises.</p>
-                </div>
-                <img src="box1-4.png" alt="Violation de données" class="modal-img">
-            </div>
-
-            <p>En termes de prévention, nous avons appris l'importance de la <strong>protection par couches</strong>, c'est-à-dire de déployer plusieurs niveaux de sécurité pour se protéger contre différents types d'attaques. Cela comprend des outils comme les antivirus, les firewalls, les systèmes de détection d'intrusion, ainsi que la formation continue des utilisateurs aux bonnes pratiques.</p>
-
-            <p>En somme, ce projet nous a non seulement permis d'acquérir des compétences techniques en matière de <strong>cybersécurité</strong>, mais aussi de développer des compétences en <strong>communication</strong>. Expliquer des concepts parfois complexes de manière simple et claire est essentiel pour rendre la cybersécurité accessible à tous.  
-            Grâce à ce projet, nous avons appris à sensibiliser les autres, à les former aux bonnes pratiques et à créer un environnement numérique plus sûr.</p>
-
-            <img src="box1-5.png" alt="Sensibilisation à la cybersécurité" class="modal-img">
-
-
-
-            <div class="project-summary">
-    <h4>Compétences développées</h4>
-    <ul class="special-list">
-        <li>✅ <strong>Pédagogie & vulgarisation</strong> : Adaptation de concepts techniques pour un public non expert</li>
-        <li>🛡️ <strong>Connaissances cybersécurité</strong> : Maîtrise des fondamentaux (ANSSI) et risques professionnels</li>
-        <li>💡 <strong>Création de supports</strong> : Conception de présentations claires et impactantes</li>
-    </ul>
-
-    <h4>Ce que j'ai appris</h4>
-    <ul class="special-list">
-        <li>🔍 L'importance des <strong>bonnes pratiques individuelles</strong> dans la sécurité collective</li>
-        <li>📈 Comment les cybermenaces évoluent et ciblent spécifiquement les entreprises</li>
-        <li>🚨 Les <strong>procédures d'urgence</strong> face à une attaque ou fuite de données</li>
-        <li>🌐 Les outils concrets pour sécuriser ses données (VPN, gestionnaires de mots de passe, etc.)</li>
-    </ul>
-
-    <h4>Mon retour sur le projet</h4>
-    <div class="project-reflection">
-        <p>Ce projet m'a ouvert les yeux sur l'<strong>aspect humain</strong> de la cybersécurité. Bien que les solutions techniques soient cruciales, la sensibilisation des utilisateurs reste le premier rempart contre les attaques.</p>
-        <p>J'ai particulièrement apprécié :</p>
-        <ul>
-            <li>Le côté <strong>concret</strong> des cas étudiés (ex: analyse de vrais emails de phishing)</li>
-            <li>La <strong>mise en situation professionnelle</strong> qui donnait du sens aux apprentissages</li>
-        </ul>
-        <p>Un défi stimulant : rendre accessible des concepts techniques sans les simplifier à outrance. Cette expérience a renforcé mon intérêt pour la <strong>cybersécurité </strong> et la formation des utilisateurs.</p>
-    </div>
-</div>
-
-            <!-- Ajout de la section Conseils pratiques -->
-            <h4>Conseils pratiques pour une cybersécurité renforcée</h4>
-            <ul class="special-list">
-                <li>🔑 Utilisez un gestionnaire de mots de passe pour stocker des mots de passe complexes et uniques.</li>
-                <li>🚫 Ne cliquez jamais sur des liens suspects dans les emails ou les messages instantanés.</li>
-                <li>💻 Activez l'authentification à deux facteurs sur vos comptes en ligne pour ajouter une couche de sécurité.</li>
-                <li>🔒 Effectuez régulièrement des mises à jour de vos logiciels et systèmes d'exploitation pour réduire les vulnérabilités.</li>
-                <li>🌐 Utilisez un VPN pour sécuriser vos connexions, surtout sur des réseaux Wi-Fi publics.</li>
-            </ul>
-            <br>
-            <!-- Ajout de la section Ressources externes -->
-            <h4>Ressources pour aller plus loin</h4>
-            <ul class="special-list">
-                <li>📘 <a href="https://cyber.gouv.fr" target="_blank">Site de l'ANSSI</a> : Formation et actualités sur la cybersécurité.</li>
-            </ul>
-        </div>
-    </div>
-</div>
-    </section>
-
-    
-    <!-- FIN -->
-
-
-
-    <!-- DEBUT -->
-<section>
-    <!-- Portfolio -->
-    <div class="projects-container">
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-header">
-                <div class="tech-tags">
-                    <span class="tag blue">Réseaux informatiques</span>
-                    <span class="tag blue">Simulation</span>
-                    <span class="tag blue">Cisco Packet Tracer</span>
-                </div>
-                <h3 class="project-title">SAE102 : Initiation aux réseaux</h3>
-                <p class="project-subtitle">Modélisation et configuration de réseaux</p>
-            </div>
-            
-            <div class="card-content reversed">
-                <div class="project-image">
-                    <img src="box2-1.png" alt="Simulation réseau Cisco Packet Tracer" class="hover-zoom">
-                    <div class="image-overlay">
-                        <span>Voir le projet</span>
-                    </div>
-                </div>
-                
-                <div class="project-details">
-                    <p class="project-description">
-                        Dans le cadre de notre projet en S1 de BUT R&T, nous avons modélisé des réseaux à l'aide du simulateur Cisco Packet Tracer. 
-                        Cette activité m'a permis de comprendre l'architecture des réseaux et de développer des compétences en configuration réseau.
-                    </p>
-                    
-                    <div class="skills-section">
-                        <h4>Compétences développées</h4>
-                        <div class="skill-chip">Administrer les réseaux</div>
-                        <div class="skill-chip">Configurer des équipements</div>
-                        <div class="skill-chip">Résolution de problèmes</div>
-                    </div>
-
-                    <div class="additional-info">
-                        <h4>Concrètement dans ce projet :</h4>
-                        <ul class="info-list">
-                            <li><i class="fas fa-check-circle"></i> Modélisation de réseaux domestiques et professionnels</li>
-                            <li><i class="fas fa-check-circle"></i> Configuration de routeurs et service DHCP</li>
-                            <li><i class="fas fa-check-circle"></i> Élaboration de plans d'adressage IP</li>
-                            <li><i class="fas fa-check-circle"></i> Analyse comparative de différentes architectures</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card-footer">
-                <a href="Reseau12_Heurtebise_Johan.zip" class="modern-btn download-btn" download>
-                    Télécharger
-                </a>
-                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-2')">
-                    Détails
-                </button>
-            </div>
-        </div>
-
-        <!-- Fenêtre modale améliorée -->
-        <div id="info-window-2" class="modal">
-            <div class="modal-content">
-                <button class="close-btn" onclick="fermerFenetre('info-window-2')">X</button>
-                <h3>Exploration des réseaux informatiques</h3>
-                <div class="modal-text">
-                    <p>Ce projet s'inscrit dans la SAÉ 1.02 : <strong>"S'initier aux réseaux informatiques"</strong>. Il avait pour objectif de nous familiariser avec les bases du fonctionnement des réseaux, en nous plaçant dans la peau d'un technicien R&T amené à comprendre et mettre en œuvre une architecture réseau aussi bien domestique qu'institutionnelle.</p>
-        
-                    <div class="content-block right fade-in">
-                        <div class="text-content">
-                            <p>Dans un premier temps, nous avons mené un travail d'enquête sur le terrain. En binômes, nous avons repéré et documenté la configuration de deux réseaux physiques différents : un <strong>réseau domestique</strong> et un <strong>réseau universitaire</strong>.</p>
-                        </div>
-                        <img src="box2-1.png" alt="Enquête réseau" class="modal-img">
-                    </div>
-        
-                    <p>Cela impliquait la collecte d'informations techniques telles que :</p>
-        
-                    <ul class="special-list">
-                        <li>📡 L'adresse IP et le masque de sous-réseau de plusieurs postes</li>
-                        <li>🖥️ L'adresse MAC des équipements connectés</li>
-                        <li>🔌 Le type de connexion utilisé (Ethernet, Wi-Fi)</li>
-                        <li>🧭 L'organisation logique et physique des équipements</li>
-                    </ul>
-        
-                    <p>Ces observations nous ont permis d'avoir une vision concrète de la manière dont sont structurés les réseaux dans la réalité, au-delà de la simple théorie.</p>
-        
-                    <div class="content-block left fade-in">
-                        <img src="box2-2.png" alt="Simulation Cisco Packet Tracer" class="modal-img">
-                        <div class="text-content">
-                            <p>Dans un second temps, nous avons reproduit ces architectures dans <strong>Cisco Packet Tracer</strong>. Ce logiciel nous a permis de concevoir des topologies réseau, de configurer des routeurs et d'établir la communication entre plusieurs machines virtuelles.</p>
-                        </div>
-                    </div>
-        
-                    <p>Le travail sur Packet Tracer a été divisé en plusieurs phases techniques :</p>
-        
-                    <ul class="special-list">
-                        <li>📑 <strong>Plan d'adressage IP</strong> : Conception de plans d'adressage cohérents avec adresses IP statiques et dynamiques</li>
-                        <li>📡 <strong>Serveur DHCP</strong> : Mise en place pour distribuer automatiquement les adresses IP</li>
-                        <li>🧭 <strong>Routage statique</strong> : Configuration manuelle des routeurs pour la communication entre sous-réseaux</li>
-                        <li>🗄️ <strong>Serveur DNS</strong> : Simulation pour traduire noms de domaine en adresses IP</li>
-                    </ul>
-        
-                    <div class="content-block right fade-in">
-                        <div class="text-content">
-                            <p>Nous avons également procédé à une comparaison entre les réseaux domestique et universitaire. Le réseau domestique est souvent <strong>simple et centralisé</strong>, tandis que le réseau universitaire repose sur une infrastructure <strong>complexe et segmentée</strong>.</p>
-                        </div>
-                        <img src="box2-3.png" alt="Comparaison réseau" class="modal-img">
-                    </div>
-        
-                    <p>En plus de la configuration technique, nous avons développé notre capacité à <strong>présenter et expliquer</strong> notre démarche lors d'une soutenance orale illustrée.</p>
-        
-                    <img src="box2-5.png" alt="Présentation technique" class="modal-img">
-        
-                    <h4>Compétences acquises</h4>
-                    <ul class="special-list">
-                        <li>🛠️ Configurer un routeur pour la communication entre sous-réseaux</li>
-                        <li>🌐 Maîtriser les bases du DHCP et du DNS</li>
-                        <li>📊 Concevoir un plan d'adressage structuré</li>
-                        <li>🗣️ Expliquer clairement une solution technique</li>
-                    </ul>
-        
-                    <h4>Ressources techniques</h4>
-                    <ul class="special-list">
-                        <li>📘 <a href="https://www.netacad.com/" target="_blank">Cisco Networking Academy</a> : Ressources pour Packet Tracer</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    
-    <!-- FIN -->
-    
-
-<section>
-    <div class="projects-container">
-        <div class="project-card" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-header">
-                <div class="tech-tags">
-                    <span class="tag blue">Supports transmission</span>
-                    <span class="tag teal">Mesures techniques</span>
-                    <span class="tag sky">Analyse de signal</span>
-                </div>
-                <h3 class="project-title">SAE103 : Supports de transmission</h3>
-                <p class="project-subtitle">Caractérisation des supports de transmission</p>
-            </div>
-            
-            <div class="card-content"> <!-- Suppression de la classe "reversed" -->
-                <div class="project-image">
-                    <img src="box3-2.png" alt="Mesures de supports de transmission" class="hover-zoom">
-                    <div class="image-overlay">
-                        <span>Voir le projet</span>
-                    </div>
-                </div>
-                
-                <div class="project-details">
-                    <p class="project-description">
-                        Dans le cadre de la SAE103, nous avons étudié différents supports de transmission (cuivre, fibre optique, hertzien),
-                        réalisé des mesures techniques et appris à analyser et présenter ces résultats dans un contexte professionnel.
-                    </p>
-                    
-                    <div class="skills-section">
-                        <h4>Compétences développées</h4>
-                        <div class="skill-chip">Connecter entreprises et usagers</div>
-                        <div class="skill-chip">Analyser des signaux</div>
-                        <div class="skill-chip">Présentation technique</div>
-                    </div>
-
-                    <div class="additional-info">
-                        <h4>Concrètement dans ce projet :</h4>
-                        <ul class="info-list">
-                            <li><i class="fas fa-check-circle"></i> Mesures sur câbles RJ45 de différentes longueurs</li>
-                            <li><i class="fas fa-check-circle"></i> Utilisation d'oscilloscope pour analyse de signal</li>
-                            <li><i class="fas fa-check-circle"></i> Simulation de câbles longue distance</li>
-                            <li><i class="fas fa-check-circle"></i> Comparaison de configurations de terminaison</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="card-footer">
-                <a href="SAE103P1P2.zip" class="modern-btn download-btn" download>
-                    Télécharger le rapport
-                </a>
-                <button class="modern-btn outline more-btn" onclick="ouvrirFenetre('info-window-3')">
-                    Détails
-                </button>
-            </div>
-        </div>
-
-
-
-        <!-- Fenêtre modale -->
-        <div id="info-window-3" class="modal">
-            <div class="modal-content">
-                <button class="close-btn" onclick="fermerFenetre('info-window-3')">X</button>
-                <h3>Étude des supports de transmission</h3>
-                <div class="modal-text">
-                    <p>Ce projet faisait partie de la SAÉ 1.03 : <strong>"Découvrir un dispositif de transmission"</strong>, visant à étudier les performances des différents supports de transmission, tels que le <strong>cuivre (RJ45)</strong>, en mesurant des paramètres de signal et en analysant les résultats obtenus.</p>
-        
-                    <div class="content-block left fade-in">
-                        <img src="box3-2.png" alt="Mesure à l'oscilloscope" class="modal-img">
-                        <div class="text-content">
-                            <h4>1. Découverte du système de transmission RJ45</h4>
-                            <p>Nous avons étudié la transmission de données à travers des câbles RJ45 de <strong>10m, 20m, et 30m</strong>. L'objectif était de mesurer l'impact de la distance sur la qualité du signal avec un <strong>oscilloscope</strong> :</p>
-                            <ul class="special-list">
-                                <li>⤵️ <strong>Atténuation (dB)</strong> : perte de signal causée par la longueur</li>
-                                <li>⏱️ <strong>Temps de vol</strong> : délai de propagation du signal</li>
-                                <li>📏 <strong>Longueur d'onde</strong> : variations du signal</li>
-                            </ul>
-                        </div>
-                    </div>
-        
-                    <div class="content-block right fade-in">
-                        <div class="text-content">
-                            <h4>2. Simulation d'un câble de 20 km</h4>
-                            <p>Utilisation d'une <strong>plaquette de simulation</strong> pour comparer trois types de terminaisons :</p>
-                            <ul class="special-list">
-                                <li>🔌 <strong>Terminaison adaptée</strong> : impédance correctement appariée</li>
-                                <li>🔓 <strong>Terminaison ouverte</strong> : réflexions du signal</li>
-                                <li>🚫 <strong>Court-circuitée</strong> : réflexions importantes</li>
-                            </ul>
-                        </div>
-                        <img src="plaquette.png" alt="Simulation avec plaquette" class="modal-img">
-                    </div>
-        
-                    <div class="content-block left fade-in">
-                        <img src="sgn.png" alt="Comparaison des signaux" class="modal-img">
-                        <div class="text-content">
-                            <h4>Résultats et observations</h4>
-                            <p>La <strong>terminaison adaptée</strong> s'est révélée la plus stable, avec une amplitude régulière et une faible atténuation. Les configurations ouvertes et court-circuitées ont produit des oscillations perturbant la transmission.</p>
-                            <p>Ce projet a renforcé mes compétences en <strong>mesures électroniques</strong> et <strong>analyse de signal</strong>, fondamentales pour évaluer les performances des réseaux de télécommunications.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    
-
-        
-
-        
-
-
-
-        
-        <!-- Fenêtre modale 1 -->
-        <!-- Fenêtre modale améliorée avec texte et images -->
-
-
-        
-        
-    
-
-          <div class="separator"></div>
-
-        <section>
-            <div id="comp" class="section-competences" data-aos="fade-up">
-                <br>
-              <h2 class="titre-competences">Compétences</h2>
-              <div class="grille-competences">
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="htmllogo.png" alt="Logo HTML" class="image-competence" />
-                    <h3 class="nom-competence">HTML</h3>
-                    <p class="description-competence">Création d’un site Web personnel.</p>
-                    <strong>Niveau : Intermédiaire</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="csslogo.png" alt="Logo CSS" class="image-competence" />
-                    <h3 class="nom-competence">CSS</h3>
-                    <p class="description-competence">Ajout de style sur un site Web personnel, avec responsive design.</p>
-                    <strong>Niveau : Intermédiaire</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="bashlogo2.png" alt="Logo Bash" class="image-competence" />
-                    <h3 class="nom-competence">Bash</h3>
-                    <p class="description-competence">Découverte de l'environnement Linux, script / commandes simples.</p>
-                    <strong>Niveau : Débutant</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="pythonlogo.png" alt="Logo Python" class="image-competence" />
-                    <h3 class="nom-competence">Python</h3>
-                    <p class="description-competence">Création de plusieurs algorithmes, d’un niveau modeste à intermédiaire.</p>
-                    <strong>Niveau : Intermédiaire confirmé</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="java.png" alt="Logo Java" class="image-competence" />
-                    <h3 class="nom-competence">Java</h3>
-                    <p class="description-competence">Initiation à la POO en Java.</p>
-                    <strong>Niveau : Débutant</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="sqllogo.png" alt="Logo SQL" class="image-competence" />
-                    <h3 class="nom-competence">SQL</h3>
-                    <p class="description-competence">Conception de tables avancées et création de requêtes complexes.</p>
-                    <strong>Niveau : Intermédiaire</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="reseaulogo.png" alt="Logo Réseaux" class="image-competence" />
-                    <h3 class="nom-competence">Architecture des Réseaux</h3>
-                    <p class="description-competence">Initiation aux Réseaux Informatiques, structure et équipements.</p>
-                    <strong>Niveau : Débutant</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="logotelecom2.png" alt="Logo Télécom" class="image-competence" />
-                    <h3 class="nom-competence">Télécommunications</h3>
-                    <p class="description-competence">Initiation aux Télécommunications, à la Téléphonie d'entreprise.</p>
-                    <strong>Niveau : Débutant</strong>
-                  </div>
-                </div>
-          
-                <div class="carte-competence" data-aos="flip-left">
-                  <div class="contenu-competence">
-                    <img src="cyberlogo2.png" alt="Logo Cybersécurité" class="image-competence" />
-                    <h3 class="nom-competence">Cybersécurité - Hygiène Informatique</h3>
-                    <p class="description-competence">Initiation à la cybersécurité et aux bonnes pratiques en ligne.</p>
-                    <strong>Niveau : Débutant</strong>
-                  </div>
-                </div>
-          
-              </div>
-            </div>
-          </section>
-
-        
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <div style="height: 50px;"></div> <!-- Crée un espace vertical de 50px -->
-
-
-    
-
-    <!-- Compétences -->
-    <div class="separator"></div>
-    <div id="exp" class="exp section" data-aos="fade-up">
-    <h2>Expériences Professionnelles / Formation suivies</h2>
-
-    <section>
-        <div class="cosmic-timeline" data-aos="fade-up">
-
-
-
-            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="150">
-                <h3>Alternant chargé d'Études avant-vente chez Orange - Orléans</h3>
-                <p class="space-time">2025-2027</p>
-                <p>Participation à des missions d'étude et d'analyse pour le département avant-vente. Développement de compétences commerciales et techniques en télécommunications et en solutions réseau pour les clients.</p>
-                <p><strong>Compétences acquises :</strong> Analyse technique, Rédaction de propositions commerciales, Communication client, Gestion de projets, etc.</p>
-            </div>
-
-            <!-- Premier événement -->
-            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="100">
-                <h3>Étudiant en BUT R&T à l'IUT de Blois</h3>
-                <p class="space-time">2024-2027</p>
-                <p>Développement de mes compétences techniques en réseaux, cybersécurité, et systèmes de communication, avec une forte volonté de contribuer à l'innovation dans ce domaine.</p>
-                <p><strong>Compétences techniques :</strong> Développement Web, Configuration de réseaux, Analyse de systèmes de transmission, etc.</p>
-            </div>
-
-            <!-- Deuxième événement -->
-
-
-            <!-- Troisième événement -->
-            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="200">
-                <h3>Expérience d'Ouvrier Agricole</h3>
-                <p class="space-time">Juillet 2024</p>
-                <p>Participation à la production de maïs en réalisant la castration manuelle des plants. Travail exigeant nécessitant rigueur et respect des consignes de sécurité.</p>
-                <p><strong>Compétences acquises :</strong> Autonomie, Rigueur, Respect des délais, etc.</p>
-            </div>
-
-            <!-- Quatrième événement -->
-            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="300">
-                <h3>Lycéen au Lycée Polyvalent d'Estournelle de Constant</h3>
-                <p class="space-time">2021-2024</p>
-                <p>Baccalauréat général en 3 ans, avec les spécialités Mathématiques et NSI.</p>
-                <p><strong>Compétences acquises :</strong> Rigueur, Autonomie.</p>
-            </div>
-
-            <!-- Cinquième événement -->
-            <div class="spaghetti-event" data-aos="fade-up" data-aos-delay="400">
-                <h3>Stage d'observation de 3ème - Infographiste</h3>
-                <p class="space-time">Janvier 2021</p>
-                <p>Découverte du métier d'infographiste et de la création de designs (maquettes, images d'illustration, etc.). Ce stage m'a permis d'apprendre à utiliser divers logiciels tels qu'Illustrator et Photoshop.</p>
-                <p><strong>Compétences acquises :</strong> Utilisation de logiciels Adobe, Conception de maquettes, etc.</p>
-            </div>
-
-        </div>
-    </section>
-</div>
-
-    
-    
-    
-    
-          
-          
-    
-    <script>
-        // Fonction pour dupliquer les boîtes et créer un carrousel infini
-        const skillContainer = document.querySelector('.skills-inner');
-        const skills = document.querySelectorAll('.skill-box');
-    
-        // Dupliquer les boîtes pour donner l'effet d'infini
-        skills.forEach(skill => {
-            const clone = skill.cloneNode(true);
-            skillContainer.appendChild(clone);
-        });
-    </script>
-
-    <script src="script.js"></script>
-    
-
-
-    
-    
-    
-    
-    
-    
-
-    <div class="separator"></div>
-
-    <div id="contact" class="contact section" data-aos="fade-up">
-        <h2 data-aos="fade-right" data-aos-delay="100">Contact</h2>
-    
-        <p data-aos="fade-left" data-aos-delay="50">
-            Pour me contacter, envoyez-moi un e-mail à :
-            <a href="mailto:heurtebise.johan.pro@gmail.com">heurtebise.johan.pro@gmail.com</a>
-        </p>
-    
-        <p data-aos="zoom-in" data-aos-delay="300">Ou remplissez ce formulaire :</p>
-    
-        <form action="https://formspree.io/f/xldjrynw" method="POST" class="contact-form" id="contactForm" enctype="multipart/form-data">
-            
-            <div class="form-group" data-aos="fade-right" data-aos-delay="50">
-                <label for="name">Nom <span class="required">*</span></label>
-                <input type="text" name="name" id="name" placeholder="Ton Nom" required>
-            </div>
-    
-            <div class="form-group" data-aos="fade-left" data-aos-delay="50">
-                <label for="email">E-mail <span class="required">*</span></label>
-                <input type="email" name="email" id="email" placeholder="Ton E-mail" required>
-            </div>
-    
-            <div class="form-group" data-aos="fade-right" data-aos-delay="50">
-                <label for="phone">Numéro de téléphone</label>
-                <input type="tel" name="phone" id="phone" placeholder="Ton Numéro de téléphone (optionnel)">
-            </div>
-    
-            <div class="form-group" data-aos="fade-left" data-aos-delay="50">
-                <label for="reason">Pourquoi me contacter ? <span class="required">*</span></label>
-                <select name="reason" id="reason" required>
-                    <option value="" disabled selected>Choisissez une option</option>
-                    <option value="collaboration">Collaboration</option>
-                    <option value="question">Question</option>
-                    <option value="autre">Autre</option>
-                </select>
-            </div>
-    
-            <div class="form-group" data-aos="zoom-in" data-aos-delay="50">
-                <label for="subject">Objet <span class="required">*</span></label>
-                <input type="text" name="subject" id="subject" placeholder="Objet" required>
-            </div>
-    
-            <div class="form-group" data-aos="flip-left" data-aos-delay="50">
-                <label for="message">Message <span class="required">*</span></label>
-                <textarea name="message" id="message" placeholder="Votre message..." rows="5" required></textarea>
-            </div>
-    
-            <div class="form-group">
-                <input type="submit" value="Envoyer" id="submitBtn">
-            </div>
         </form>
-    
     </div>
-    
-    </div>
-    </body>
-    </html>
+</section>
 
-    <!-- Ajout de AOS (Animate On Scroll) -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <footer>
+        <p>&copy; 2025 Johan Heurtebise. Tous droits réservés.</p>
+    </footer>
 
-    
-    <script src="script.js"></script>
+    <div id="modal1" class="modal">
+        <div class="modal-content modal-lg"> 
+            <div class="modal-header">
+                <div class="header-title">
+                    <h3>SAE101 : Hygiène Informatique</h3>
+                    <span class="badge-category">Cybersécurité</span>
+                </div>
+                <div class="header-controls">
+                    <span class="page-counter" id="counter1">1 / 5</span>
+                    <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track1">
+                    <div class="carousel-slide">
+                        <div class="slide-grid">
+                            <div class="text-content">
+                                <h4><i class="fas fa-flag"></i> Mission : Sensibilisation</h4>
+                                <p class="intro-text">
+                                    Dans un contexte où <strong>90% des cyberattaques</strong> commencent par une erreur humaine, ce projet visait à transformer l'utilisateur en premier rempart de défense.
+                                </p>
+                                <div class="info-box">
+                                    <h5>Objectifs du projet :</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Comprendre les vecteurs d'attaques classiques.</li>
+                                        <li>Vulgariser des concepts techniques pour des néophytes.</li>
+                                        <li>Produire des supports visuels impactants.</li>
+                                    </ul>
+                                </div>
+                                <div class="tags-container">
+                                    <span class="tag">Pédagogie</span><span class="tag">ANSSI</span><span class="tag">Prévention</span>
+                                </div>
+                            </div>
+                            <div class="image-column">
+                                <figure>
+                                    <img src="box1-5.png" class="slide-img shadow-effect" alt="Illustration Cybersécurité">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid reverse-layout"> 
+                            <div class="image-column">
+                                <img src="ansi.svg" class="slide-img" alt="Certificat MOOC ANSSI" style="width: 70%; height: auto;">                                
 
+                            </div>
+                            <div class="text-content">
+                                <h4><i class="fas fa-search"></i> Méthodologie d'Analyse</h4>
+                                <p>Pour construire notre intervention, nous avons suivi une démarche rigoureuse :</p>
+                                <ul class="step-list">
+                                    <li><strong>1. Auto-formation :</strong> Validation du MOOC de l'ANSSI pour maîtriser le sujet.</li>
+                                    <li><strong>2. Identification des menaces :</strong>
+                                        <ul>
+                                            <li><em>Social Engineering</em> (Phishing, Vishing)</li>
+                                            <li><em>Malwares</em> (Ransomware, Trojan)</li>
+                                        </ul>
+                                    </li>
+                                    <li><strong>3. Scénarisation :</strong> Création de mises en situation réelles pour marquer les esprits.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid">
+                            <div class="text-content">
+                                <h4><i class="fas fa-shield-alt"></i> Les Piliers de l'Hygiène</h4>
+                                <p>Nous avons structuré nos recommandations autour de 4 axes techniques majeurs :</p>
+                                <div class="cards-grid">
+                                    <div class="mini-card"><i class="fas fa-key"></i><strong>Authentification</strong><p>Mots de passe complexes + 2FA (Double facteur).</p></div>
+                                    <div class="mini-card"><i class="fas fa-hdd"></i><strong>Sauvegardes</strong><p>Règle du 3-2-1 pour garantir la résilience.</p></div>
+                                    <div class="mini-card"><i class="fas fa-wifi"></i><strong>Mobilité</strong><p>Usage exclusif des VPN sur Wi-Fi public.</p></div>
+                                    <div class="mini-card"><i class="fas fa-envelope"></i><strong>Vigilance</strong><p>Analyse des URLs et des expéditeurs.</p></div>
+                                </div>
+                            </div>
+                            <div class="image-column vertical-center">
+                                <img src="sae1.jpg" class="slide-img small-img" alt="Logo Keepass">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-chart-line"></i> Bilan de Compétences</h4>
+                            <p>Ce projet m'a permis de valider les compétences suivantes du référentiel :</p>
+                            <div class="skills-wrapper">
+                                <div class="skill-item"><div class="skill-title">Administrer</div><div class="skill-bar"><div class="fill" style="width: 70%"></div></div></div>
+                                <div class="skill-item"><div class="skill-title">Communiquer</div><div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-file-download"></i> Ressources Projet</h4>
+                            <p style="margin-bottom: 30px;">Retrouvez ci-dessous le support complet de la présentation.</p>
+                            <div class="download-section">
+                                <div class="btn-group">
+                                    <a href="SAE101-Presentation.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger la Présentation</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveSlide('track1', -1, 'dots1')"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" onclick="moveSlide('track1', 1, 'dots1')"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
 
-    
-
-    
-
-
-        
-        
-        
-    <div id="modal-coord" class="modal-coord">
-        <div class="modal-coord-content">
-          <span class="modal-coord-close">&times;</span>
-          <h2>Mes coordonnées</h2>
-          <p><strong>Email :</strong> <a href="mailto:heurtebise.johan.pro@gmail.com">heurtebise.johan.pro@gmail.com</a></p>
-          <p><strong>Téléphone :</strong> <a href="tel:+33671299610">+33 6 71 29 96 10</a></p>
-          <p><strong>LinkedIn :</strong> <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank">Mon profil</a></p>
-          <p><strong>Instagram :</strong> <a href="https://www.instagram.com/heurtebisejohan/" target="_blank">@heurtebisejohan</a></p>
+            <div class="carousel-dots" id="dots1">
+                <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')"></span>
+                <span class="dot" onclick="goToSlide('track1', 1, 'dots1')"></span>
+                <span class="dot" onclick="goToSlide('track1', 2, 'dots1')"></span>
+                <span class="dot" onclick="goToSlide('track1', 3, 'dots1')"></span>
+                <span class="dot" onclick="goToSlide('track1', 4, 'dots1')"></span>
+            </div>
         </div>
-      </div>
-      <script>
-        const modalCoord = document.getElementById("modal-coord");
-        const photoCoord = document.querySelector(".photo");
-        const closeCoordBtn = document.querySelector(".modal-coord-close");
-        const modalContent = document.querySelector(".modal-coord-content");
-      
-        photoCoord.addEventListener("click", () => {
-          modalCoord.style.display = "flex";
-          document.body.classList.add("no-scroll");
-      
-          // Reset & joue l'animation d'ouverture
-          modalContent.style.animation = "none";
-          void modalContent.offsetWidth;
-          modalContent.style.animation = "scaleIn 0.3s ease forwards";
-        });
-      
-        closeCoordBtn.addEventListener("click", () => {
-          // Joue l'animation de fermeture avant de cacher
-          modalContent.style.animation = "scaleOut 0.2s ease forwards";
-          setTimeout(() => {
-            modalCoord.style.display = "none";
-            document.body.classList.remove("no-scroll");
-          }, 100); // délai = durée animation scaleOut
-        });
-      
-        window.addEventListener("click", (event) => {
-          if (event.target === modalCoord) {
-            modalContent.style.animation = "scaleOut 0.2s ease forwards";
-            setTimeout(() => {
-              modalCoord.style.display = "none";
-              document.body.classList.remove("no-scroll");
-            }, 200);
-          }
-        });
-      </script>
-    <button id="scrollToTop" title="Retour en haut">↑</button>
-    <script>
-        const btn = document.getElementById("scrollToTop");
-      
-        window.onscroll = () => {
-          if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-            btn.style.opacity = "1";
-          } else {
-            btn.style.opacity = "0";
-          }
-        };
-      
-        btn.onclick = () => {
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        };
-      </script>
-      <!-- JavaScript pour faire avancer la barre de progression -->
     </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <div class="header-title">
+                    <h3>SAÉ 2.01 : Réseau Petite Structure & FAI</h3>
+                    <span class="badge-category">Administration & Sécurité</span>
+                </div>
+                <div class="header-controls">
+                    <span class="page-counter" id="counter2">1 / 6</span>
+                    <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track2">
+                    <div class="carousel-slide">
+                        <div class="slide-grid">
+                            <div class="text-content">
+                                <h4><i class="fas fa-briefcase"></i> Contexte du Projet</h4>
+                                <p class="intro-text"><strong>La mission :</strong> Refonte de l'infrastructure d'une PME en pleine expansion, incluant la mise en place d'une zone démilitarisée (DMZ) et l'interconnexion complète avec un FAI simulé.</p>
+                                <div class="info-box">
+                                    <h5>Problématique Professionnelle :</h5>
+                                    <p>Comment architecturer un réseau sécurisé intégrant des services publics et privés, tout en assurant la transition vers IPv6 via un réseau backbone ?</p>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Segmentation stricte (1 VLAN = 1 Activité).</li>
+                                        <li>Architecture sécurisée (LAN vs DMZ).</li>
+                                        <li>Simulation de l'environnement FAI & Backbone.</li>
+                                    </ul>
+                                </div>
+                                <div class="tags-container"><span class="tag">IPv6</span><span class="tag">DMZ</span><span class="tag">Architecture FAI</span></div>
+                            </div>
+                            <div class="image-column">
+                                <img src="cisco201.png" alt="Contexte Entreprise et FAI" width="400" height="300">                           
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid reverse-layout">
+                            <div class="image-column"><img src="ciscoSite.png" class="slide-img shadow-effect" alt="Topologie Complète"></div>
+                            <div class="text-content">
+                                <h4><i class="fas fa-sitemap"></i> Architecture Réseau</h4>
+                                <p>L'architecture dépasse le simple LAN pour simuler un internet complet. Elle se décompose en trois zones distinctes interconnectées par un <strong>Réseau Backbone</strong>.</p>
+                                <div class="info-box">
+                                    <h5>Zones & Structure :</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li><strong>Réseau Entreprise :</strong> LAN (Utilisateurs) + DMZ (Services Publics).</li>
+                                        <li><strong>Réseau FAI :</strong> Infrastructure du Fournisseur (Serveurs Web/DNS FAI).</li>
+                                        <li><strong>Client FAI :</strong> Simulation d'un client externe accédant aux services.</li>
+                                        <li><strong>Adressage :</strong> Double pile IPv4 et déploiement IPv6 global.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid"> 
+                            <div class="text-content">
+                                <h4><i class="fas fa-network-wired"></i> Commutation & Routage</h4>
+                                <p>Le cœur du réseau assure le transit entre les VLANs internes et le routage vers le monde extérieur via le backbone.</p>
+                                <ul class="step-list">
+                                    <li><strong>1. Gestion des VLANs :</strong><p>Segmentation granulaire : 1 VLAN dédié par activité métier pour isoler les flux de broadcast et améliorer la sécurité.</p></li>
+                                    <li><strong>2. Routage Dynamique OSPFv3 :</strong><p>Mise en place du protocole OSPFv3 pour gérer le routage des paquets IPv6 à travers le backbone et les routeurs de bordure.</p></li>
+                                    <li><strong>3. Interconnexion FAI :</strong><p>Routage statique et par défaut pour l'interconnexion entre la passerelle de l'entreprise et l'infrastructure du FAI.</p></li>
+                                </ul>
+                            </div>
+                             <div class="image-column">
+                                <img src="vlan1.png" class="slide-img" alt="Configuration OSPFv3">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid reverse-layout">
+                            <div class="image-column">
+                                <figure><img src="DMZ.png" class="slide-img shadow-effect" alt="Services DNS et Mail"></figure>
+                            </div>
+                            <div class="text-content">
+                                <h4><i class="fas fa-server"></i> Services Réseau & DMZ</h4>
+                                <p>Déploiement de services critiques répartis entre la zone interne, la DMZ et le FAI.</p>
+                                <div class="info-box">
+                                    <h5>Implémentation Technique :</h5>
+                                    <ul class="tech-list">
+                                        <li><strong>DNS (Split-Horizon) :</strong> Serveur DNS Intranet (interne) vs Serveur DNS Public (DMZ) pour la résolution externe.</li>
+                                        <li><strong>Messagerie :</strong> Serveur MAIL interne pour la communication d'entreprise.</li>
+                                        <li><strong>Services FAI :</strong> Serveurs Web et DNS du FAI pour simuler l'internet.</li>
+                                        <li><strong>Sécurité (NAT & DMZ) :</strong> Translation d'adresses (NAT) pour l'accès internet et isolation de la DMZ.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-chart-line"></i> Compétences Acquises</h4>
+                            <p>Ce projet a validé ma maîtrise des architectures réseaux complexes incluant l'IPv6 et les services internet :</p>
+                            <div class="skills-wrapper">
+                                <div class="skill-item"><div class="skill-title">Routage Avancé (OSPFv3, IPv6)</div><div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
+                                <div class="skill-item"><div class="skill-title">Architecture DNS & Mail</div><div class="skill-bar"><div class="fill" style="width: 85%"></div></div></div>
+                                <div class="skill-item"><div class="skill-title">Sécurité (DMZ, NAT, ACL)</div><div class="skill-bar"><div class="fill" style="width: 85%"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-folder-open"></i> Livrables Techniques</h4>
+                            <p style="margin-bottom: 30px;">L'infrastructure simule un écosystème complet : de la PME avec sa DMZ jusqu'au client FAI, en passant par le Backbone IPv6.</p>
+                            <div class="download-section">
+                                <div class="btn-group">
+                                    <a href="SAE201_Projet_Complet.zip" class="btn btn-primary" download><i class="fas fa-file-archive"></i> Télécharger le Packet Tracer (.pkt)</a>
+                                    <a href="Rapport_SAE201.pdf" class="btn btn-secondary" target="_blank"><i class="fas fa-file-pdf"></i> Consulter le Rapport</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveSlide('track2', -1, 'dots2')"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" onclick="moveSlide('track2', 1, 'dots2')"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="dots2">
+                <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <div class="header-title">
+                    <h3>SAE103 : Supports de Transmission</h3>
+                    <span class="badge-category">Télécoms</span>
+                </div>
+                <div class="header-controls">
+                    <span class="page-counter" id="counter3">1 / 4</span>
+                    <button class="close-btn" onclick="closeModal('modal3')">&times;</button>
+                </div>
+            </div>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="track3">
+                    <div class="carousel-slide">
+                        <div class="slide-grid">
+                            <div class="text-content">
+                                <h4><i class="fas fa-wave-square"></i> Analyse du Signal</h4>
+                                <p class="intro-text">Étude approfondie de la propagation d'un signal électrique sur un câble RJ45 à l'aide d'un <strong>oscilloscope numérique</strong>.</p>
+                                <div class="info-box">
+                                    <h5>Métriques analysées :</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Mesure de l'atténuation (en dB).</li>
+                                        <li>Calcul de la vitesse de propagation.</li>
+                                        <li>Impact de la longueur (Comparatif 10m vs 30m).</li>
+                                    </ul>
+                                </div>
+                                <div class="tags-container"><span class="tag">Physique</span><span class="tag">Cuivre</span><span class="tag">Mesures</span></div>
+                            </div>
+                            <div class="image-column">
+                                <figure><img src="box3-2.png" class="slide-img shadow-effect" alt="Oscilloscope"><figcaption>Relevé de signal à l'oscilloscope</figcaption></figure>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide">
+                        <div class="slide-grid reverse-layout">
+                            <div class="image-column">
+                                <img src="plaquette.png" class="slide-img" alt="Plaquette test">
+                                <div class="stat-card"><span class="stat-number">20</span><span class="stat-label">km (Distance simulée)</span></div>
+                            </div>
+                            <div class="text-content">
+                                <h4><i class="fas fa-bolt"></i> Adaptation d'Impédance</h4>
+                                <p>Simulation d'une ligne longue distance pour observer les phénomènes de réflexion du signal (échos).</p>
+                                <ul class="step-list">
+                                    <li><strong>Cas 1 : Ligne Adaptée</strong><p>Le signal est transmis parfaitement, aucune réflexion.</p></li>
+                                    <li><strong>Cas 2 : Circuit Ouvert</strong><p>Réflexion totale positive (le signal "rebondit").</p></li>
+                                    <li><strong>Cas 3 : Court-Circuit</strong><p>Réflexion inversée (changement de phase).</p></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-microscope"></i> Compétences Techniques</h4>
+                            <p>Maîtrise des outils de mesure et compréhension de la couche physique (OSI 1) :</p>
+                            <div class="skills-wrapper">
+                                <div class="skill-item"><div class="skill-title">Mesurer (Oscilloscope)</div><div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
+                                <div class="skill-item"><div class="skill-title">Interpréter (Signal)</div><div class="skill-bar"><div class="fill" style="width: 75%"></div></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4><i class="fas fa-file-alt"></i> Rapport d'Expertise</h4>
+                            <p style="margin-bottom: 30px;">Consultez l'analyse détaillée des mesures et les conclusions sur la qualité de service (QoS).</p>
+                            <div class="download-section">
+                                <div class="btn-group">
+                                    <a href="SAE103P1P2.zip" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger le Rapport Complet</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-nav">
+                    <button class="carousel-btn" onclick="moveSlide('track3', -1, 'dots3')"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn" onclick="moveSlide('track3', 1, 'dots3')"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="dots3">
+                <span class="dot active" onclick="goToSlide('track3', 0, 'dots3')"></span>
+                <span class="dot" onclick="goToSlide('track3', 1, 'dots3')"></span>
+                <span class="dot" onclick="goToSlide('track3', 2, 'dots3')"></span>
+                <span class="dot" onclick="goToSlide('track3', 3, 'dots3')"></span>
+            </div>
+        </div> 
+    </div>
+
+    <div id="skill-modal-network" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Réseaux</h3><button class="close-btn" onclick="closeModal('skill-modal-network')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="wireshark.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Compréhension approfondie des architectures LAN/WAN et des protocoles de communication.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Technologies maîtrisées</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-check"></i> Cisco Packet Tracer & IOS</div>
+                            <div class="tech-item"><i class="fas fa-check"></i> Modèle OSI & TCP/IP</div>
+                            <div class="tech-item"><i class="fas fa-check"></i> Adressage IP (VLSM, CIDR)</div>
+                            <div class="tech-item"><i class="fas fa-check"></i> Routage (RIP, OSPF, Statique)</div>
+                            <div class="tech-item"><i class="fas fa-check"></i> Services (DHCP, DNS, NAT)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-web" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Développement Web</h3><button class="close-btn" onclick="closeModal('skill-modal-web')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="htmllogo.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Création d'interfaces modernes, responsives et ergonomiques pour le web.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Technologies maîtrisées</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fab fa-html5"></i> HTML </div>
+                            <div class="tech-item"><i class="fab fa-css3-alt"></i> CSS (Flexbox, Grid, Animations)</div>
+                            <div class="tech-item"><i class="fas fa-mobile-alt"></i> Responsive Design</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-python" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Python</h3><button class="close-btn" onclick="closeModal('skill-modal-python')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="pythonlogo.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Développement de scripts d'automatisation et traitement de données.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Savoir-faire</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fab fa-python"></i> Algorithmique avancée</div>
+                            <div class="tech-item"><i class="fas fa-cogs"></i> Automatisation de tâches</div>
+                            <div class="tech-item"><i class="fas fa-project-diagram"></i> Algorithmique d'analyse de fichier Log</div>
+                            <div class="tech-item"><i class="fas fa-database"></i> Manipulation de données</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-linux" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Linux / Bash</h3><button class="close-btn" onclick="closeModal('skill-modal-linux')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="bashlogo2.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Débutant</span></div>
+                        <p>Administration système de base et utilisation de la ligne de commande.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Savoir-faire</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-terminal"></i> Commandes shell (ls, grep, chmod...)</div>
+                            <div class="tech-item"><i class="fas fa-user-shield"></i> Gestion des droits et utilisateurs</div>
+                            <div class="tech-item"><i class="fas fa-file-code"></i> Scripting Bash simple</div>
+                            <div class="tech-item"><i class="fas fa-server"></i> Virtualisation / Conteneur</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-sql" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Bases de Données</h3><button class="close-btn" onclick="closeModal('skill-modal-sql')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="sqllogo.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Conception et interrogation de bases de données relationnelles.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Savoir-faire</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-table"></i> Modélisation (MCD/MLD)</div>
+                            <div class="tech-item"><i class="fas fa-search"></i> Requêtes SQL complexes</div>
+                            <div class="tech-item"><i class="fas fa-database"></i> Gestion de tables (SGBD)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-telecom" class="modal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Compétence : Télécoms</h3><button class="close-btn" onclick="closeModal('skill-modal-telecom')">&times;</button></div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="logotelecom2.png" class="skill-detail-icon">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Compréhension des supports physiques de transmission de l'information.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Savoir-faire</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-wave-square"></i> Analyse de signaux (Oscilloscope)</div>
+                            <div class="tech-item"><i class="fas fa-network-wired"></i> Câblage Cuivre & Fibre Optique</div>
+                            <div class="tech-item"><i class="fas fa-broadcast-tower"></i> Notions de Téléphonie IP (Équipements, PABX/IPBX)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-cyber" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compétence : Cybersécurité</h3>
+                <button class="close-btn" onclick="closeModal('skill-modal-cyber')">&times;</button>
+            </div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="logotry.png" class="skill-detail-icon" alt="Icone Cyber">
+                    <div><span class="skill-level-badge">Niveau : Débutant</span></div>
+                        <p>Compréhension des **fondamentaux de la sécurité des systèmes d'information** et de la **méthodologie des tests d'intrusion (pentesting)**.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Notions et Outils Maîtrisés</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-search-plus"></i> Méthodologie Pentest (Reconnaissance, Scanning)</div>
+                            <div class="tech-item"><i class="fas fa-wrench"></i> Outils de Sécurité (Kali Linux, Nmap, Metasploit)</div>
+                            <div class="tech-item"><i class="fas fa-network-wired"></i> Concepts Réseau et Pare-feu</div>
+                            <div class="tech-item"><i class="fas fa-lock"></i> Vulnérabilités Web (Injection SQL, XSS, OWASP Top 10)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="skill-modal-fibre" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Compétence : Technologie Fibre</h3>
+                <button class="close-btn" onclick="closeModal('skill-modal-fibre')">&times;</button>
+            </div>
+            <div class="modal-body-skill">
+                <div class="skill-detail-grid">
+                    <div class="skill-detail-left">
+                        <img src="fibreoptique.png" class="skill-detail-icon" alt="Icone Fibre">
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
+                        <p>Architecture Très Haut Débit (THD) et ingénierie des réseaux optiques.</p>
+                    </div>
+                    <div class="skill-detail-right">
+                        <h4>Savoir-faire</h4>
+                        <div class="tech-list">
+                            <div class="tech-item"><i class="fas fa-project-diagram"></i> Architectures FTTH & FTTO (GPON/XGS-PON)</div>
+                            <div class="tech-item"><i class="fas fa-wave-square"></i> Réflectométrie (OTDR) & Bilan optique</div>
+                            <div class="tech-item"><i class="fas fa-building"></i> Infrastructures Opérateur (NRO, PM, PBO)</div>
+                            <div class="tech-item"><i class="fas fa-route"></i> Étude de raccordement & Soudure</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="term-window">
+        <div class="term-header">
+            <div class="term-buttons">
+                <span class="close" onclick="toggleTerminal()"></span>
+                <span class="minimize"></span>
+                <span class="maximize"></span>
+            </div>
+            <div class="term-title">guest@heurtebise-portfolio:~</div>
+        </div>
+
+        <div class="term-body" id="term-body">
+            <div class="term-output" id="term-output">
+                <p>Bienvenue sur le terminal v1.0.2 <i class="fas fa-shield-alt"></i></p>
+                <p>Connecté en tant qu'invité.</p>
+                <p>Tapez <span class="cmd-highlight">'help'</span> pour voir les commandes disponibles.</p>
+                <br>
+            </div>
+            <div class="term-input-line">
+                <span class="prompt">➜  ~</span>
+                <input type="text" id="term-input" autocomplete="off" spellcheck="false">
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        // ------------------------------------------------
+        // 1. INITIALISATION AOS (Animations on Scroll)
+        // ------------------------------------------------
+        AOS.init({ once: true, offset: 120 });
+
+        // ------------------------------------------------
+        // 2. GESTION DU THÈME (Dark/Light)
+        // ------------------------------------------------
+        const toggleBtn = document.getElementById('theme-toggle');
+        const icon = toggleBtn.querySelector('i');
+        const html = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        
+        // Appliquer le thème sauvegardé
+        html.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+
+        toggleBtn.addEventListener('click', () => {
+            const current = html.getAttribute('data-theme');
+            const newTheme = current === 'light' ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateIcon(newTheme);
+        });
+
+        function updateIcon(theme) {
+            if(theme === 'dark') { icon.classList.remove('fa-moon'); icon.classList.add('fa-sun'); } 
+            else { icon.classList.remove('fa-sun'); icon.classList.add('fa-moon'); }
+        }
+
+        // ------------------------------------------------
+        // 3. MENU MOBILE
+        // ------------------------------------------------
+        document.querySelector('.menu-toggle').addEventListener('click', () => {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // ------------------------------------------------
+        // 4. MODALES & CARROUSEL (Logique)
+        // ------------------------------------------------
+
+        // Configuration : index actuel, nombre total de slides, ID du compteur
+        const trackStates = {
+            'track1': { index: 0, total: 5, counterId: 'counter1' },
+            'track2': { index: 0, total: 6, counterId: 'counter2' },
+            'track3': { index: 0, total: 4, counterId: 'counter3' }
+        };
+
+        // Ouvrir une modale
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+            
+            modal.style.display = 'flex';
+            setTimeout(() => modal.classList.add('show'), 10);
+            document.body.style.overflow = 'hidden';
+            
+            // Reset du carrousel à 0 si présent
+            const track = modal.querySelector('.carousel-track');
+            if(track) {
+                const trackId = track.id;
+                if (trackStates[trackId]) {
+                    trackStates[trackId].index = 0;
+                    updateCarouselUI(trackId, 'dots' + trackId.slice(-1));
+                }
+            }
+        }
+
+        // Fermer une modale
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if (!modal) return;
+
+            modal.classList.remove('show');
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }, 300);
+        }
+
+        // Fermer au clic extérieur
+        window.onclick = function(e) {
+            if (e.target.classList.contains('modal')) { closeModal(e.target.id); }
+        }
+
+        // Navigation Slide (Précédent/Suivant)
+        function moveSlide(trackId, direction, dotsContainerId) {
+            const state = trackStates[trackId];
+            if (!state) return;
+
+            state.index += direction;
+
+            // Boucle infinie
+            if (state.index < 0) { state.index = state.total - 1; } 
+            else if (state.index >= state.total) { state.index = 0; }
+
+            updateCarouselUI(trackId, dotsContainerId);
+        }
+
+        // Navigation par Points
+        function goToSlide(trackId, slideIndex, dotsContainerId) {
+            if (!trackStates[trackId]) return;
+            trackStates[trackId].index = slideIndex;
+            updateCarouselUI(trackId, dotsContainerId);
+        }
+
+        // Mise à jour de l'interface (Image, Points, Compteur)
+        function updateCarouselUI(trackId, dotsContainerId) {
+            const state = trackStates[trackId];
+            const track = document.getElementById(trackId);
+            const dotsContainer = document.getElementById(dotsContainerId);
+            const counter = document.getElementById(state.counterId);
+
+            // A. Déplacer le track
+            if (track) {
+                const amountToMove = -100 * state.index;
+                track.style.transform = `translateX(${amountToMove}%)`;
+            }
+
+            // B. Mettre à jour les points actifs
+            if (dotsContainer) {
+                const dots = dotsContainer.children;
+                for (let i = 0; i < dots.length; i++) {
+                    dots[i].classList.remove('active');
+                }
+                if (dots[state.index]) {
+                    dots[state.index].classList.add('active');
+                }
+            }
+
+            // C. Mettre à jour le compteur
+            if (counter) {
+                counter.innerText = `${state.index + 1} / ${state.total}`;
+            }
+        }
+
+        // ------------------------------------------------
+        // 5. SCROLL SPY (Menu actif au défilement)
+        // ------------------------------------------------
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.3 // Déclenche quand 30% de la section est visible
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.remove('active-link'));
+                    const id = entry.target.getAttribute('id');
+                    const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active-link');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => observer.observe(section));
+
+        // ------------------------------------------------
+        // 6. LOGIQUE TERMINAL
+        // ------------------------------------------------
+        const termWindow = document.getElementById('term-window');
+        const termInput = document.getElementById('term-input');
+        const termOutput = document.getElementById('term-output');
+        const termBody = document.getElementById('term-body');
+
+        function toggleTerminal() {
+            if (termWindow.style.display === 'flex') {
+                termWindow.style.display = 'none';
+            } else {
+                termWindow.style.display = 'flex';
+                termInput.focus();
+            }
+        }
+
+        termBody.addEventListener('click', () => termInput.focus());
+
+        termInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        // 1. On récupère la ligne complète et on la découpe
+        const fullInput = this.value.trim();
+        const args = fullInput.split(' '); // Sépare par les espaces
+        const command = args[0].toLowerCase(); // Le premier mot est la commande (ex: ping)
+        const param = args[1]; // Le deuxième mot est le paramètre (ex: google.com)
+
+        // Affiche la ligne saisie par l'utilisateur
+        termOutput.innerHTML += `<div class="term-input-line"><span class="prompt">➜  ~</span> ${fullInput}</div>`;
+
+        let response = '';
+
+        // Fonction utilitaire pour ajouter du texte et scroller
+        const print = (text, style = '') => {
+            termOutput.innerHTML += `<p class="${style}">${text}</p>`;
+            termBody.scrollTop = termBody.scrollHeight;
+        };
+
+        switch(command) {
+            case 'help':
+                response = `
+                    <div style="margin-left: 20px; color: #ccc;">
+                        <span class="cmd-highlight">about</span>    - Qui suis-je ?<br>
+                        <span class="cmd-highlight">skills</span>   - Mes compétences<br>
+                        <span class="cmd-highlight">projects</span> - Mes projets<br>
+                        <span class="cmd-highlight">ping</span>     - Tester la latence (Simulé)<br>
+                        <span class="cmd-highlight">contact</span>  - Me contacter<br>
+                        <span class="cmd-highlight">clear</span>    - Effacer l'écran<br>
+                    </div>`;
+                print(response);
+                break;
+
+            case 'about':
+                print("Johan Heurtebise. Étudiant en BUT R&T et Alternant chez Orange.");
+                break;
+
+            case 'skills':
+                print("['Cisco', 'Python', 'Linux', 'Wireshark', 'SQL', 'HTML/CSS', 'Fibre Optique']");
+                break;
+
+            case 'projects':
+                print("Redirection vers la section Portfolio...");
+                setTimeout(() => { window.location.href = '#portfolio'; }, 1000);
+                break;
+
+            case 'contact':
+                print("Email: heurtebise.johan.pro@gmail.com<br>LinkedIn: Johan Heurtebise");
+                break;
+
+            case 'clear':
+                termOutput.innerHTML = '';
+                break;
+
+            // --- NOUVELLE COMMANDE PING ---
+            case 'ping':
+                const target = param || '8.8.8.8'; // Cible par défaut si vide
+                // On simule une fausse IP pour le réalisme
+                const fakeIP = target === 'localhost' ? '127.0.0.1' : `142.250.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
+                
+                print(`PING ${target} (${fakeIP}): 56 data bytes`);
+                
+                let count = 0;
+                const maxPings = 4;
+
+                // On utilise setInterval pour l'effet "temps réel"
+                const pingInterval = setInterval(() => {
+                    count++;
+                    // Génère un temps aléatoire entre 10ms et 40ms pour faire réaliste
+                    const time = (Math.random() * 30 + 10).toFixed(1); 
+                    
+                    print(`64 bytes from ${fakeIP}: icmp_seq=${count} ttl=115 time=${time} ms`);
+
+                    if (count >= maxPings) {
+                        clearInterval(pingInterval);
+                        print(`--- ${target} ping statistics ---`);
+                        print(`${maxPings} packets transmitted, ${maxPings} packets received, 0.0% packet loss`);
+                    }
+                }, 600); // Délai de 600ms entre chaque ligne
+                break;
+            // ------------------------------
+
+            case 'sudo':
+                print("Permission denied: Vous n'êtes pas root ici ! 🚫", 'error-msg');
+                break;
+                
+            case '':
+                break;
+
+            default:
+                print(`Command not found: ${command}. Tapez 'help'.`, 'error-msg');
+        }
+
+        // Reset de l'input
+        this.value = '';
+        termBody.scrollTop = termBody.scrollHeight;
+    }
+});
+    </script>
 </body>
-<footer id="footer">
-    <p>&copy; 2025 Heurtebise Johan. Tous droits réservés.</p>
-</footer>
 </html>
- 
