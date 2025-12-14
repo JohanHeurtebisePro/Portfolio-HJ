@@ -199,23 +199,84 @@
            6. SECTIONS (Hero, About, Portfolio, etc.)
            ========================================= */
         
-        /* --- Hero Section --- */
+        /* --- Hero Section & VISUAL --- */
         #home {
             min-height: 100vh; display: flex; align-items: center; justify-content: center;
             padding-top: 80px; position: relative;
         }
-        .hero-container { display: flex; align-items: center; justify-content: center; gap: 100px; width: 100%; }
+        .hero-container { display: flex; align-items: center; justify-content: center; gap: 80px; width: 100%; }
         
-        .hero-visual { flex: 0 0 auto; position: relative; z-index: 1; }
-        .hero-visual::before {
-            content: ''; position: absolute; top: 30px; left: 30px; width: 100%; height: 100%;
-            border: 3px solid var(--primary); border-radius: 30px; z-index: -1;
-            transition: var(--transition); opacity: 0.6; transform: rotate(-5deg);
+        .hero-visual { 
+            flex: 0 0 auto; 
+            position: relative; 
+            z-index: 1; 
+            width: 400px;
+            height: 500px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        .hero-visual:hover::before { top: 15px; left: 15px; opacity: 1; border-color: var(--accent); }
+
+        .tech-shape-bg {
+            position: absolute;
+            width: 90%; height: 90%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
+            border-radius: 40px;
+            transform: rotate(-6deg);
+            z-index: -2;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            transition: var(--transition);
+        }
+
+        .tech-ring {
+            position: absolute;
+            width: 110%; height: 88%;
+            border-radius: 50%;
+            border: 2px dashed rgba(59, 130, 246, 0.3);
+            z-index: -1;
+            animation: spinRing 30s linear infinite;
+        }
+
+        .tech-ring-inner {
+            position: absolute;
+            width: 100%; height: 80%;
+            border-radius: 50%;
+            border: 1px solid rgba(249, 115, 22, 0.3); /* Orange fin */
+            z-index: -1;
+            animation: spinRing 20s linear infinite reverse; 
+        }
+
+        .tech-decor-points {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: -2; pointer-events: none;
+        }
+        .tech-decor-points::before, .tech-decor-points::after {
+            content: '+'; position: absolute; font-weight: bold; font-family: monospace;
+        }
+        .tech-decor-points::before { top: 20%; left: 10%; font-size: 1.2rem; color: rgba(59, 130, 246, 0.3); }
+        .tech-decor-points::after { bottom: 15%; right: 10%; font-size: 0.9rem; color: rgba(249, 115, 22, 0.3); }
+
         .hero-avatar {
-            width: 350px; height: 450px; border-radius: 30px; object-fit: cover; object-position: center top;
-            box-shadow: var(--shadow); transition: var(--transition); background-color: var(--card-bg);
+            width: 350px; height: 450px; 
+            border-radius: 30px; 
+            object-fit: cover; object-position: center top;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
+            transition: var(--transition); 
+            background-color: var(--card-bg);
+            z-index: 2; position: relative;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        @keyframes spinRing {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .hero-visual:hover .tech-shape-bg {
+            transform: rotate(-3deg) scale(1.02);
+            border-color: var(--accent);
+        }
+        .hero-visual:hover .hero-avatar {
+            transform: scale(1.02);
         }
 
         .hero-content { flex: 1; max-width: 600px; }
@@ -321,6 +382,114 @@
         .skill-btn { margin-top: auto; opacity: 0.8; transition: 0.3s; }
         .skill-card:hover .skill-btn { opacity: 1; background: var(--primary); color: white; border-color: transparent; }
 
+        /* --- SECTION CERTIFICATIONS (DESIGN IMMERSIF PHOTO) --- */
+        .certif-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(240px, auto);
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .certif-card {
+            position: relative;
+            border-radius: var(--radius);
+            padding: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: #000; /* Fallback */
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            color: #fff; /* Texte blanc forcé */
+            border: none; /* Pas de bordure visible, l'image fait tout */
+        }
+
+        .certif-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+        }
+
+        /* Image de fond */
+        .certif-bg-img {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            transition: transform 0.6s ease;
+            filter: brightness(0.9); /* Légèrement sombre pour le texte */
+        }
+
+        .certif-card:hover .certif-bg-img {
+            transform: scale(1.1); /* Zoom au survol */
+        }
+
+        /* Overlay dégradé pour lisibilité texte */
+        .certif-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
+            z-index: 1;
+        }
+
+        /* Contenu Texte */
+        .certif-content {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end; /* Texte en bas */
+        }
+
+        .certif-year {
+            display: inline-block;
+            background: var(--primary); /* Fond plein pour lisibilité */
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            align-self: flex-start;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        .certif-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .certif-card p {
+            font-size: 0.95rem;
+            color: #e2e8f0; /* Blanc cassé */
+            line-height: 1.5;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+
+        /* Petite icône en haut à droite (Optionnel, pour le style) */
+        .certif-icon-corner {
+            position: absolute; top: 20px; right: 20px;
+            font-size: 1.5rem; color: rgba(255,255,255,0.8);
+            z-index: 2;
+        }
+
+        /* Grid Spans */
+        .grid-col-2-row-2 { grid-column: span 2; grid-row: span 2; }
+        .grid-col-2-row-1 { grid-column: span 2; grid-row: span 1; }
+        .grid-col-1-row-1 { grid-column: span 1; grid-row: span 1; }
+
+        /* Ajustement tailles texte pour les grandes cartes */
+        .grid-col-2-row-2 h3 { font-size: 2rem; }
+        .grid-col-2-row-2 p { font-size: 1.05rem; max-width: 90%; }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 900px) {
+            .certif-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
+            .grid-col-2-row-2, .grid-col-2-row-1, .grid-col-1-row-1 { grid-column: span 1; grid-row: span 1; }
+        }
+
         /* --- Contact & Footer --- */
         .contact-form { display: grid; gap: 20px; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -351,32 +520,31 @@
             display: flex; justify-content: space-between; align-items: center;
             border-bottom: 1px solid #eee; padding: 15px 25px; background: var(--nav-bg);
         }
-/* Nouveau style pour le compteur de pages dans les modales */
-.page-counter {
-    font-family: 'Poppins', sans-serif; /* On abandonne le monospace pour la cohérence */
-    background: rgba(59, 130, 246, 0.1); /* Fond bleu très léger (votre var primaire) */
-    color: var(--primary); /* Texte bleu */
-    border: 1px solid rgba(59, 130, 246, 0.2); /* Bordure subtile */
-    padding: 6px 16px;
-    border-radius: 50px; /* Forme de pilule arrondie */
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-right: 15px;
-    letter-spacing: 1px; /* Espacement moderne */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03); /* Ombre très légère */
-    transition: var(--transition);
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-}
+        .page-counter {
+            font-family: 'Poppins', sans-serif;
+            background: rgba(59, 130, 246, 0.1); 
+            color: var(--primary);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 15px;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-/* Petit effet au survol (optionnel mais sympa) */
-.page-counter:hover {
-    background: var(--primary);
-    color: #fff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-}        .badge-category { background-color: #e3f2fd; color: #1565c0; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; margin-left: 10px; }
+        .page-counter:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+        .badge-category { background-color: #e3f2fd; color: #1565c0; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; text-transform: uppercase; font-weight: bold; margin-left: 10px; }
         .close-btn { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
 
         /* Layout Carrousel */
@@ -438,7 +606,7 @@
         #term-window {
             display: none;
             position: fixed;
-            bottom: 30px; left: 30px; /* Positionné en bas à gauche */
+            bottom: 30px; left: 30px;
             width: 450px; height: 300px; max-width: 85vw;
             
             background-color: rgba(15, 23, 42, 0.98);
@@ -483,7 +651,12 @@
         @media (max-width: 900px) {
             /* Layout général */
             .hero-container { flex-direction: column; text-align: center; gap: 50px; }
+            
+            /* Ajustement taille Hero Mobile */
+            .hero-visual { width: 300px; height: 380px; }
             .hero-avatar { width: 260px; height: 320px; }
+            .tech-ring, .tech-ring-inner { width: 100%; height: 95%; }
+
             .nav-links { display: none; position: absolute; top: 70px; left: 0; width: 100%; background: var(--nav-bg); flex-direction: column; padding: 20px; }
             .nav-links.active { display: flex; }
             .menu-toggle { display: block; }
@@ -525,148 +698,73 @@
             }
         }
 
-
-
         /* --- NOUVEAU DESIGN FORMULAIRE --- */
+        .contact-wrapper {
+            max-width: 850px; margin: 0 auto; padding: 40px !important;
+        }
 
-.contact-wrapper {
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 40px !important; /* Force le padding */
-}
+        .contact-header { text-align: center; margin-bottom: 40px; color: var(--text-dim); }
 
-.contact-header {
-    text-align: center;
-    margin-bottom: 40px;
-    color: var(--text-dim);
-}
+        .input-group { position: relative; margin-bottom: 25px; width: 100%; }
 
-/* Groupe de champ (Conteneur relatif) */
-.input-group {
-    position: relative;
-    margin-bottom: 25px;
-    width: 100%;
-}
+        .input-group .form-control {
+            width: 100%; padding: 15px 15px 15px 45px; 
+            background: rgba(255, 255, 255, 0.5); 
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            border-radius: 12px; font-size: 1rem; color: var(--text-main);
+            outline: none; transition: all 0.3s ease; font-family: inherit;
+        }
 
-/* L'Input lui-même */
-.input-group .form-control {
-    width: 100%;
-    padding: 15px 15px 15px 45px; /* Padding gauche pour l'icône */
-    background: rgba(255, 255, 255, 0.5); /* Très transparent */
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 12px;
-    font-size: 1rem;
-    color: var(--text-main);
-    outline: none;
-    transition: all 0.3s ease;
-    font-family: inherit;
-}
+        [data-theme="dark"] .input-group .form-control {
+            background: rgba(15, 23, 42, 0.4); border-color: rgba(255, 255, 255, 0.1);
+        }
 
-[data-theme="dark"] .input-group .form-control {
-    background: rgba(15, 23, 42, 0.4);
-    border-color: rgba(255, 255, 255, 0.1);
-}
+        .input-group .form-control:focus {
+            background: var(--input-bg); border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(59, 130, 246, 0.15);
+        }
 
-/* Effet Focus sur l'Input */
-.input-group .form-control:focus {
-    background: var(--input-bg);
-    border-color: var(--primary);
-    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.15);
-}
+        .floating-label {
+            position: absolute; left: 45px; top: 50%; transform: translateY(-50%);
+            color: var(--text-dim); pointer-events: none; transition: all 0.3s ease;
+            font-size: 0.95rem; background: transparent; padding: 0 5px;
+        }
 
-/* Le Label Flottant */
-.floating-label {
-    position: absolute;
-    left: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-dim);
-    pointer-events: none; /* Permet de cliquer à travers le label */
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    background: transparent;
-    padding: 0 5px;
-}
+        textarea ~ .floating-label { top: 25px; }
 
-/* Label pour Textarea (position différente) */
-textarea ~ .floating-label {
-    top: 25px; 
-}
+        .input-group .form-control:focus ~ .floating-label,
+        .input-group .form-control:not(:placeholder-shown) ~ .floating-label,
+        .static-label {
+            top: -10px !important; left: 15px; font-size: 0.8rem;
+            color: var(--primary); background: var(--card-bg); 
+            font-weight: 600; border-radius: 5px;
+        }
 
-/* Animation du Label (Quand focus OU quand il y a du texte) */
-.input-group .form-control:focus ~ .floating-label,
-.input-group .form-control:not(:placeholder-shown) ~ .floating-label,
-.static-label {
-    top: -10px !important;
-    left: 15px;
-    font-size: 0.8rem;
-    color: var(--primary);
-    background: var(--card-bg); /* Masque la ligne derrière le label */
-    font-weight: 600;
-    border-radius: 5px;
-}
+        .input-icon {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            color: var(--text-dim); transition: 0.3s; font-size: 1.1rem;
+        }
 
-/* L'icône à gauche */
-.input-icon {
-    position: absolute;
-    left: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-dim);
-    transition: 0.3s;
-    font-size: 1.1rem;
-}
+        .textarea-icon { top: 25px; }
+        .input-group .form-control:focus ~ .input-icon { color: var(--primary); }
 
-.textarea-icon {
-    top: 25px; /* Pour le textarea, l'icône reste en haut */
-}
+        .select-wrapper { position: relative; }
+        .input-group select { appearance: none; cursor: pointer; }
+        .select-arrow {
+            position: absolute; right: 15px; top: 50%; transform: translateY(-50%);
+            color: var(--text-dim); pointer-events: none; font-size: 0.8rem;
+        }
 
-.input-group .form-control:focus ~ .input-icon {
-    color: var(--primary);
-}
+        .submit-btn {
+            width: 100%; justify-content: center; padding: 15px; font-size: 1rem;
+            margin-top: 10px; position: relative; overflow: hidden; letter-spacing: 1px;
+        }
+        .submit-btn i { transition: transform 0.3s ease; }
+        .submit-btn:hover i { transform: translateX(5px) translateY(-3px); }
 
-/* Gestion du Select (Menu déroulant) */
-.select-wrapper {
-    position: relative;
-}
-.input-group select {
-    appearance: none; /* Cache la flèche par défaut moche */
-    cursor: pointer;
-}
-.select-arrow {
-    position: absolute;
-    right: 15px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-dim);
-    pointer-events: none;
-    font-size: 0.8rem;
-}
-
-/* Bouton Envoyer Amélioré */
-.submit-btn {
-    width: 100%;
-    justify-content: center;
-    padding: 15px;
-    font-size: 1rem;
-    margin-top: 10px;
-    position: relative;
-    overflow: hidden;
-    letter-spacing: 1px;
-}
-
-.submit-btn i {
-    transition: transform 0.3s ease;
-}
-
-.submit-btn:hover i {
-    transform: translateX(5px) translateY(-3px);
-}
-
-/* Responsive pour le formulaire */
-@media (max-width: 768px) {
-    .contact-wrapper { padding: 25px !important; }
-}
+        @media (max-width: 768px) {
+            .contact-wrapper { padding: 25px !important; }
+        }
     </style>
 </head>
 <body>
@@ -686,6 +784,7 @@ textarea ~ .floating-label {
                     <a href="#portfolio">Portfolio</a>
                     <a href="#parcours">Parcours</a> 
                     <a href="#comp">Compétences</a>
+                    <a href="#certifications">Certifications</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 
@@ -701,11 +800,19 @@ textarea ~ .floating-label {
     </header>
 
     <section id="home">
-        <div class="hero-container" style="gap: 200px;"> 
+        <div class="hero-container"> 
+            
             <div class="hero-visual" data-aos="fade-right" data-aos-duration="1000">
+                <div class="tech-shape-bg"></div>
+                
+                <div class="tech-ring"></div>
+
+                <div class="tech-ring-inner"></div>
+
+                <div class="tech-decor-points"></div>
+                
                 <img src="pp6.png" alt="Johan Heurtebise" class="hero-avatar">
             </div>
-
             <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
                 <div class="welcome-badge"><i class="fas fa-hand-sparkles" ></i> Bienvenue sur mon portfolio</div>
                 
@@ -730,6 +837,7 @@ textarea ~ .floating-label {
                     <a href="https://www.instagram.com/ton_pseudo/" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
                     <a href="mailto:heurtebise.johan.pro@gmail.com" class="social-btn email" title="Envoyer un mail"><i class="fas fa-envelope"></i></a>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -898,74 +1006,139 @@ textarea ~ .floating-label {
         </div>
     </section>
 
-<section id="contact">
-    <h2>Me Contacter</h2>
-    <div class="glass-card contact-wrapper" data-aos="zoom-in">
-        <div class="contact-header">
-            <p>Un projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
-        </div>
+    <section id="certifications">
+        <h2>Certifications & Badges</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">
+            Diplômes et validations de compétences techniques.
+        </p>
 
-        <form action="https://formspree.io/f/myzovgyn" method="POST" class="contact-form">
+        <div class="certif-grid">
             
-            <div class="form-row">
-                <div class="input-group">
-                    <input type="text" name="name" id="name" class="form-control" placeholder=" " required>
-                    <label for="name" class="floating-label">Nom Complet</label>
-                    <i class="fas fa-user input-icon"></i>
-                    <div class="focus-border"></div>
-                </div>
+            <div class="certif-card grid-col-2-row-2" data-aos="fade-up">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" class="certif-bg-img" alt="Fond Réseau">
+                <div class="certif-overlay"></div>
+                
+                <i class="fas fa-network-wired certif-icon-corner"></i>
 
-                <div class="input-group">
-                    <input type="email" name="email" id="email" class="form-control" placeholder=" " required>
-                    <label for="email" class="floating-label">Email</label>
-                    <i class="fas fa-envelope input-icon"></i>
-                    <div class="focus-border"></div>
+                <div class="certif-content">
+                    <span class="certif-year">2025</span>
+                    <h3>Bases du réseautages</h3>
+                    <p style="margin-top: 10px;">
+                        Maîtrise des architectures réseaux, adressage IPv4/IPv6, et configuration des routeurs/switchs Cisco. Certification Networking Academy.
+                    </p>
                 </div>
             </div>
 
-            <div class="form-row">
-                <div class="input-group">
-                    <input type="tel" name="phone" id="phone" class="form-control" placeholder=" ">
-                    <label for="phone" class="floating-label">Téléphone</label>
-                    <i class="fas fa-phone input-icon"></i>
-                    <div class="focus-border"></div>
-                </div>
+            <div class="certif-card grid-col-2-row-1" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="certif-bg-img" alt="Fond Cybersécurité">
+                <div class="certif-overlay"></div>
+                
+                <i class="fas fa-shield-alt certif-icon-corner"></i>
 
-                <div class="input-group">
-                    <div class="select-wrapper">
-                        <select name="reason" id="reason" class="form-control">
-                            <option value="pro">Opportunité pro</option>
-                            <option value="info">Renseignement</option>
-                            <option value="autre">Autre</option>
-                        </select>
-                        <label for="reason" class="floating-label static-label">Motif</label>
-                        <i class="fas fa-briefcase input-icon"></i>
-                        <i class="fas fa-chevron-down select-arrow"></i>
+                <div class="certif-content">
+                    <span class="certif-year" style="background: #f97316;">2023</span>
+                    <h3>SecNum Académie</h3>
+                    <p>MOOC certifiant de l'ANSSI. Sécurité des SI, authentification et gestion des risques numériques.</p>
+                </div>
+            </div>
+
+            <div class="certif-card grid-col-1-row-1" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=400" class="certif-bg-img" alt="Fond Data">
+                <div class="certif-overlay"></div>
+                
+                <i class="fas fa-user-lock certif-icon-corner"></i>
+
+                <div class="certif-content">
+                    <span class="certif-year">2025</span>
+                    <h3>MOOC de la CNIL</h3>
+                    <p>Protection des données & conformité. Règlement général sur la protection des données (RGPD)</p>
+                </div>
+            </div>
+
+            <div class="certif-card grid-col-1-row-1" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&q=80&w=400" class="certif-bg-img" alt="Fond Digital">
+                <div class="certif-overlay"></div>
+
+                <i class="fas fa-laptop-code certif-icon-corner"></i>
+
+                <div class="certif-content">
+                    <span class="certif-year">550 pts</span>
+                    <h3>Certification PIX</h3>
+                    <p>Compétences numériques transversales.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Me Contacter</h2>
+        <div class="glass-card contact-wrapper" data-aos="zoom-in">
+            <div class="contact-header">
+                <p>Un projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
+            </div>
+
+            <form action="https://formspree.io/f/myzovgyn" method="POST" class="contact-form">
+                
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="text" name="name" id="name" class="form-control" placeholder=" " required>
+                        <label for="name" class="floating-label">Nom Complet</label>
+                        <i class="fas fa-user input-icon"></i>
+                        <div class="focus-border"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <input type="email" name="email" id="email" class="form-control" placeholder=" " required>
+                        <label for="email" class="floating-label">Email</label>
+                        <i class="fas fa-envelope input-icon"></i>
+                        <div class="focus-border"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="input-group">
-                <input type="text" name="subject" id="subject" class="form-control" placeholder=" " required>
-                <label for="subject" class="floating-label">Sujet</label>
-                <i class="fas fa-tag input-icon"></i>
-                <div class="focus-border"></div>
-            </div>
+                <div class="form-row">
+                    <div class="input-group">
+                        <input type="tel" name="phone" id="phone" class="form-control" placeholder=" ">
+                        <label for="phone" class="floating-label">Téléphone</label>
+                        <i class="fas fa-phone input-icon"></i>
+                        <div class="focus-border"></div>
+                    </div>
 
-            <div class="input-group">
-                <textarea name="message" id="message" class="form-control" placeholder=" " required style="height: 150px; resize: none;"></textarea>
-                <label for="message" class="floating-label">Votre message</label>
-                <i class="fas fa-comment-alt input-icon textarea-icon"></i>
-                <div class="focus-border"></div>
-            </div>
+                    <div class="input-group">
+                        <div class="select-wrapper">
+                            <select name="reason" id="reason" class="form-control">
+                                <option value="pro">Opportunité pro</option>
+                                <option value="info">Renseignement</option>
+                                <option value="autre">Autre</option>
+                            </select>
+                            <label for="reason" class="floating-label static-label">Motif</label>
+                            <i class="fas fa-briefcase input-icon"></i>
+                            <i class="fas fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+                </div>
 
-            <button type="submit" class="btn btn-primary submit-btn">
-                <span>Envoyer le message</span>
-                <i class="fas fa-paper-plane"></i>
-            </button>
-        </form>
-    </div>
-</section>
+                <div class="input-group">
+                    <input type="text" name="subject" id="subject" class="form-control" placeholder=" " required>
+                    <label for="subject" class="floating-label">Sujet</label>
+                    <i class="fas fa-tag input-icon"></i>
+                    <div class="focus-border"></div>
+                </div>
+
+                <div class="input-group">
+                    <textarea name="message" id="message" class="form-control" placeholder=" " required style="height: 150px; resize: none;"></textarea>
+                    <label for="message" class="floating-label">Votre message</label>
+                    <i class="fas fa-comment-alt input-icon textarea-icon"></i>
+                    <div class="focus-border"></div>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-btn">
+                    <span>Envoyer le message</span>
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </form>
+        </div>
+    </section>
 
     <footer>
         <p>&copy; 2025 Johan Heurtebise. Tous droits réservés.</p>
@@ -1121,7 +1294,7 @@ textarea ~ .floating-label {
                                 <div class="tags-container"><span class="tag">IPv6</span><span class="tag">DMZ</span><span class="tag">Architecture FAI</span></div>
                             </div>
                             <div class="image-column">
-                                <img src="cisco201.png" alt="Contexte Entreprise et FAI" width="400" height="300">                           
+                                <img src="cisco201.png" alt="Contexte Entreprise et FAI" width="400" height="300">                            
                             </div>
                         </div>
                     </div>
@@ -1528,7 +1701,16 @@ textarea ~ .floating-label {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script>
+        // INIT VANILLA TILT SUR HERO VISUAL
+        VanillaTilt.init(document.querySelector(".hero-visual"), {
+            max: 10, // Angle max
+            speed: 400, // Vitesse
+            glare: true, // Effet reflet
+            "max-glare": 0.2,
+        });
+
         // ------------------------------------------------
         // 1. INITIALISATION AOS (Animations on Scroll)
         // ------------------------------------------------
@@ -1710,103 +1892,103 @@ textarea ~ .floating-label {
         termBody.addEventListener('click', () => termInput.focus());
 
         termInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-        // 1. On récupère la ligne complète et on la découpe
-        const fullInput = this.value.trim();
-        const args = fullInput.split(' '); // Sépare par les espaces
-        const command = args[0].toLowerCase(); // Le premier mot est la commande (ex: ping)
-        const param = args[1]; // Le deuxième mot est le paramètre (ex: google.com)
+            if (e.key === 'Enter') {
+                // 1. On récupère la ligne complète et on la découpe
+                const fullInput = this.value.trim();
+                const args = fullInput.split(' '); // Sépare par les espaces
+                const command = args[0].toLowerCase(); // Le premier mot est la commande (ex: ping)
+                const param = args[1]; // Le deuxième mot est le paramètre (ex: google.com)
 
-        // Affiche la ligne saisie par l'utilisateur
-        termOutput.innerHTML += `<div class="term-input-line"><span class="prompt">➜  ~</span> ${fullInput}</div>`;
+                // Affiche la ligne saisie par l'utilisateur
+                termOutput.innerHTML += `<div class="term-input-line"><span class="prompt">➜  ~</span> ${fullInput}</div>`;
 
-        let response = '';
+                let response = '';
 
-        // Fonction utilitaire pour ajouter du texte et scroller
-        const print = (text, style = '') => {
-            termOutput.innerHTML += `<p class="${style}">${text}</p>`;
-            termBody.scrollTop = termBody.scrollHeight;
-        };
+                // Fonction utilitaire pour ajouter du texte et scroller
+                const print = (text, style = '') => {
+                    termOutput.innerHTML += `<p class="${style}">${text}</p>`;
+                    termBody.scrollTop = termBody.scrollHeight;
+                };
 
-        switch(command) {
-            case 'help':
-                response = `
-                    <div style="margin-left: 20px; color: #ccc;">
-                        <span class="cmd-highlight">about</span>    - Qui suis-je ?<br>
-                        <span class="cmd-highlight">skills</span>   - Mes compétences<br>
-                        <span class="cmd-highlight">projects</span> - Mes projets<br>
-                        <span class="cmd-highlight">ping</span>     - Tester la latence (Simulé)<br>
-                        <span class="cmd-highlight">contact</span>  - Me contacter<br>
-                        <span class="cmd-highlight">clear</span>    - Effacer l'écran<br>
-                    </div>`;
-                print(response);
-                break;
+                switch(command) {
+                    case 'help':
+                        response = `
+                            <div style="margin-left: 20px; color: #ccc;">
+                                <span class="cmd-highlight">about</span>    - Qui suis-je ?<br>
+                                <span class="cmd-highlight">skills</span>   - Mes compétences<br>
+                                <span class="cmd-highlight">projects</span> - Mes projets<br>
+                                <span class="cmd-highlight">ping</span>     - Tester la latence (Simulé)<br>
+                                <span class="cmd-highlight">contact</span>  - Me contacter<br>
+                                <span class="cmd-highlight">clear</span>    - Effacer l'écran<br>
+                            </div>`;
+                        print(response);
+                        break;
 
-            case 'about':
-                print("Johan Heurtebise. Étudiant en BUT R&T et Alternant chez Orange.");
-                break;
+                    case 'about':
+                        print("Johan Heurtebise. Étudiant en BUT R&T et Alternant chez Orange.");
+                        break;
 
-            case 'skills':
-                print("['Cisco', 'Python', 'Linux', 'Wireshark', 'SQL', 'HTML/CSS', 'Fibre Optique']");
-                break;
+                    case 'skills':
+                        print("['Cisco', 'Python', 'Linux', 'Wireshark', 'SQL', 'HTML/CSS', 'Fibre Optique']");
+                        break;
 
-            case 'projects':
-                print("Redirection vers la section Portfolio...");
-                setTimeout(() => { window.location.href = '#portfolio'; }, 1000);
-                break;
+                    case 'projects':
+                        print("Redirection vers la section Portfolio...");
+                        setTimeout(() => { window.location.href = '#portfolio'; }, 1000);
+                        break;
 
-            case 'contact':
-                print("Email: heurtebise.johan.pro@gmail.com<br>LinkedIn: Johan Heurtebise");
-                break;
+                    case 'contact':
+                        print("Email: heurtebise.johan.pro@gmail.com<br>LinkedIn: Johan Heurtebise");
+                        break;
 
-            case 'clear':
-                termOutput.innerHTML = '';
-                break;
+                    case 'clear':
+                        termOutput.innerHTML = '';
+                        break;
 
-            // --- NOUVELLE COMMANDE PING ---
-            case 'ping':
-                const target = param || '8.8.8.8'; // Cible par défaut si vide
-                // On simule une fausse IP pour le réalisme
-                const fakeIP = target === 'localhost' ? '127.0.0.1' : `142.250.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
-                
-                print(`PING ${target} (${fakeIP}): 56 data bytes`);
-                
-                let count = 0;
-                const maxPings = 4;
+                    // --- NOUVELLE COMMANDE PING ---
+                    case 'ping':
+                        const target = param || '8.8.8.8'; // Cible par défaut si vide
+                        // On simule une fausse IP pour le réalisme
+                        const fakeIP = target === 'localhost' ? '127.0.0.1' : `142.250.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
+                        
+                        print(`PING ${target} (${fakeIP}): 56 data bytes`);
+                        
+                        let count = 0;
+                        const maxPings = 4;
 
-                // On utilise setInterval pour l'effet "temps réel"
-                const pingInterval = setInterval(() => {
-                    count++;
-                    // Génère un temps aléatoire entre 10ms et 40ms pour faire réaliste
-                    const time = (Math.random() * 30 + 10).toFixed(1); 
-                    
-                    print(`64 bytes from ${fakeIP}: icmp_seq=${count} ttl=115 time=${time} ms`);
+                        // On utilise setInterval pour l'effet "temps réel"
+                        const pingInterval = setInterval(() => {
+                            count++;
+                            // Génère un temps aléatoire entre 10ms et 40ms pour faire réaliste
+                            const time = (Math.random() * 30 + 10).toFixed(1); 
+                            
+                            print(`64 bytes from ${fakeIP}: icmp_seq=${count} ttl=115 time=${time} ms`);
 
-                    if (count >= maxPings) {
-                        clearInterval(pingInterval);
-                        print(`--- ${target} ping statistics ---`);
-                        print(`${maxPings} packets transmitted, ${maxPings} packets received, 0.0% packet loss`);
-                    }
-                }, 600); // Délai de 600ms entre chaque ligne
-                break;
-            // ------------------------------
+                            if (count >= maxPings) {
+                                clearInterval(pingInterval);
+                                print(`--- ${target} ping statistics ---`);
+                                print(`${maxPings} packets transmitted, ${maxPings} packets received, 0.0% packet loss`);
+                            }
+                        }, 600); // Délai de 600ms entre chaque ligne
+                        break;
+                    // ------------------------------
 
-            case 'sudo':
-                print("Permission denied: Vous n'êtes pas root ici ! 🚫", 'error-msg');
-                break;
-                
-            case '':
-                break;
+                    case 'sudo':
+                        print("Permission denied: Vous n'êtes pas root ici ! 🚫", 'error-msg');
+                        break;
+                        
+                    case '':
+                        break;
 
-            default:
-                print(`Command not found: ${command}. Tapez 'help'.`, 'error-msg');
-        }
+                    default:
+                        print(`Command not found: ${command}. Tapez 'help'.`, 'error-msg');
+                }
 
-        // Reset de l'input
-        this.value = '';
-        termBody.scrollTop = termBody.scrollHeight;
-    }
-});
+                // Reset de l'input
+                this.value = '';
+                termBody.scrollTop = termBody.scrollHeight;
+            }
+        });
     </script>
 </body>
 </html>
