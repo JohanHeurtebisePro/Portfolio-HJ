@@ -468,7 +468,7 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
 
-        /* Petite icône en haut à droite (Optionnel, pour le style) */
+        /* Petite icône en haut à droite */
         .certif-icon-corner {
             position: absolute; top: 20px; right: 20px;
             font-size: 1.5rem; color: rgba(255,255,255,0.8);
@@ -484,10 +484,159 @@
         .grid-col-2-row-2 h3 { font-size: 2rem; }
         .grid-col-2-row-2 p { font-size: 1.05rem; max-width: 90%; }
 
+        /* =========================================
+           SECTION SERVICES (NOUVEAU)
+           ========================================= */
+        .service-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 50px !important;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-content {
+            flex: 1;
+        }
+
+        .service-visual {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .service-badge {
+            display: inline-block;
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--accent);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .service-description {
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            font-size: 1.05rem;
+        }
+
+        /* Grille des fonctionnalités */
+        .service-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .feature-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .feat-icon {
+            background: rgba(59, 130, 246, 0.1);
+            color: var(--primary);
+            width: 45px;
+            height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: var(--transition);
+        }
+
+        .feature-item:hover .feat-icon {
+            background: var(--primary);
+            color: white;
+            transform: rotate(10deg);
+        }
+
+        .feature-item strong {
+            display: block;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .feature-item p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.4;
+        }
+
+        /* Mockup Visuel */
+        .mockup-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.2);
+            background: var(--bg-color); /* Fallback si pas d'image */
+        }
+
+        .mockup-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .mockup-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .code-overlay {
+            position: absolute;
+            bottom: 20px;
+            right: -20px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 15px 25px;
+            border-radius: 10px;
+            color: #00ff00;
+            font-family: monospace;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            transform: rotate(-5deg);
+            backdrop-filter: blur(4px);
+        }
+
+        .code-overlay span {
+            display: block;
+        }
+
         /* --- RESPONSIVE --- */
         @media (max-width: 900px) {
             .certif-grid { grid-template-columns: 1fr; grid-auto-rows: 250px; }
             .grid-col-2-row-2, .grid-col-2-row-1, .grid-col-1-row-1 { grid-column: span 1; grid-row: span 1; }
+            
+            /* Responsive Services */
+            .service-wrapper {
+                flex-direction: column;
+                padding: 30px !important;
+                gap: 40px;
+            }
+            .service-features-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-visual {
+                width: 100%;
+                order: -1; /* Image au dessus sur mobile */
+            }
+            .code-overlay {
+                display: none; /* Masquer le code flottant sur mobile pour pas gêner */
+            }
         }
 
         /* --- Contact & Footer --- */
@@ -785,7 +934,7 @@
                     <a href="#parcours">Parcours</a> 
                     <a href="#comp">Compétences</a>
                     <a href="#certifications">Certifications</a>
-                    <a href="#contact">Contact</a>
+                    <a href="#services">Services</a> <a href="#contact">Contact</a>
                 </nav>
                 
                 <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
@@ -833,9 +982,26 @@
 
                 <div class="social-row">
                     <span class="social-text">Me suivre :</span>
-                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank" class="social-btn linkedin" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/ton_pseudo/" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="mailto:heurtebise.johan.pro@gmail.com" class="social-btn email" title="Envoyer un mail"><i class="fas fa-envelope"></i></a>
+                    
+                    <a href="https://www.linkedin.com/in/johan-heurtebise" target="_blank" class="social-btn linkedin" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    
+                    <a href="https://github.com/JohanHeurtebisePro" target="_blank" class="social-btn github" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/ton_pseudo/" target="_blank" class="social-btn instagram" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    
+                    <a href="mailto:heurtebise.johan.pro@gmail.com" class="social-btn email" title="Envoyer un mail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="tel:+33671299610" class="social-btn phone" title="Appeler">
+                        <i class="fas fa-phone"></i>
+                    </a>
                 </div>
                 
             </div>
@@ -1071,6 +1237,70 @@
         </div>
     </section>
 
+    <section id="services">
+        <h2>Création Web</h2>
+        
+        <div class="glass-card service-wrapper" data-aos="fade-up">
+            <div class="service-content">
+                <div class="service-badge"><i class="fas fa-laptop-code"></i> Side-Project</div>
+                
+                <h3>Besoin d'une page web simple & efficace ?</h3>
+                <p class="service-description">
+                    Sur mon temps personnel, je réalise le <strong>développement technique</strong> de sites vitrines simples (Portfolio, CV en ligne, page de présentation). 
+                    <br><br>
+                    Je ne vends pas d'hébergement : je vous <strong>livre le code source complet</strong> et je vous guide pas à pas pour mettre votre site en ligne vous-même (via Hostinger, OVH, ou GitHub Pages).
+                </p>
+
+                <div class="service-features-grid">
+                    <div class="feature-item">
+                        <div class="feat-icon"><i class="fas fa-code"></i></div>
+                        <div>
+                            <strong>Code Source Fourni</strong>
+                            <p>Vous êtes propriétaire à 100% de vos fichiers (HTML/CSS).</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feat-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <div>
+                            <strong>100% Responsive</strong>
+                            <p>Adapté aux mobiles et tablettes.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feat-icon"><i class="fas fa-bolt"></i></div>
+                        <div>
+                            <strong>Site Vitrine</strong>
+                            <p>Idéal pour présenter une activité ou un profil.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feat-icon"><i class="fas fa-hands-helping"></i></div>
+                        <div>
+                            <strong>Aide au déploiement</strong>
+                            <p>Je vous conseille pour choisir votre hébergeur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="service-cta">
+                    <p style="margin-bottom: 10px; font-weight: 500;">Vous avez une idée en tête ?</p>
+                    <a href="#contact" class="btn btn-primary">En discuter simplement <i class="fas fa-comment-dots"></i></a>
+                </div>
+            </div>
+
+            <div class="service-visual">
+                <div class="mockup-container">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Exemple Site Web" style="width: 100%; border-radius: 20px;">
+                    <div class="code-overlay">
+                        <span>&lt;!-- Code livré --&gt;</span>
+                        <span>&lt;h1&gt;Votre Projet&lt;/h1&gt;</span>
+                        <span>&lt;p&gt;En ligne !&lt;/p&gt;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact">
         <h2>Me Contacter</h2>
         <div class="glass-card contact-wrapper" data-aos="zoom-in">
@@ -1107,8 +1337,8 @@
                     <div class="input-group">
                         <div class="select-wrapper">
                             <select name="reason" id="reason" class="form-control">
-                                <option value="pro">Opportunité pro</option>
-                                <option value="info">Renseignement</option>
+                                <option value="pro">Opportunité pro (Alternance/Job)</option>
+                                <option value="site">Projet Web (Perso)</option> <option value="info">Renseignement / Échange</option>
                                 <option value="autre">Autre</option>
                             </select>
                             <label for="reason" class="floating-label static-label">Motif</label>
@@ -1917,9 +2147,9 @@
                                 <span class="cmd-highlight">about</span>    - Qui suis-je ?<br>
                                 <span class="cmd-highlight">skills</span>   - Mes compétences<br>
                                 <span class="cmd-highlight">projects</span> - Mes projets<br>
-                                <span class="cmd-highlight">ping</span>     - Tester la latence (Simulé)<br>
-                                <span class="cmd-highlight">contact</span>  - Me contacter<br>
-                                <span class="cmd-highlight">clear</span>    - Effacer l'écran<br>
+                                <span class="cmd-highlight">ping</span>       - Tester la latence (Simulé)<br>
+                                <span class="cmd-highlight">contact</span>    - Me contacter<br>
+                                <span class="cmd-highlight">clear</span>     - Effacer l'écran<br>
                             </div>`;
                         print(response);
                         break;
