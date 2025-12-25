@@ -700,11 +700,7 @@
         .carousel-container { flex: 1; position: relative; overflow: hidden; }
         .carousel-track { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
         .carousel-slide { min-width: 100%; height: 100%; padding: 30px; overflow-y: auto; background: var(--bg-color); }
-        .carousel-nav { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; padding: 0 10px; transform: translateY(-50%); pointer-events: none; }
-        .carousel-btn { pointer-events: auto; background: rgba(0,0,0,0.1); color: var(--text-main); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .carousel-btn:hover { background: var(--primary); color: white; }
         
-        .carousel-dots { display: flex; justify-content: center; padding: 15px; gap: 10px; background: var(--nav-bg); }
         .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--text-dim); opacity: 0.3; cursor: pointer; }
         .dot.active { opacity: 1; background: var(--primary); transform: scale(1.2); }
 
@@ -914,6 +910,272 @@
         @media (max-width: 768px) {
             .contact-wrapper { padding: 25px !important; }
         }
+
+
+
+
+
+        /* =========================================
+   NOUVEAUX STYLES POUR LES MODALES AMÉLIORÉES
+   ========================================= */
+
+/* 1. Bloc de Code (Style Terminal Cisco/Linux) */
+.tech-terminal {
+    background: #1e1e1e;
+    border-radius: 8px;
+    border: 1px solid #333;
+    padding: 15px;
+    font-family: 'Consolas', monospace;
+    color: #d4d4d4;
+    font-size: 0.85rem;
+    overflow-x: auto;
+    margin: 15px 0;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+}
+.tech-terminal::before {
+    content: 'bash / cisco ios';
+    position: absolute;
+    top: 5px; right: 10px;
+    font-size: 0.7rem; color: #666;
+    text-transform: uppercase;
+}
+.cmd { color: #569cd6; font-weight: bold; } /* Bleu commande */
+.arg { color: #9cdcfe; } /* Bleu clair argument */
+.comment { color: #6a9955; font-style: italic; } /* Vert commentaire */
+
+/* 2. Accordéon (Pour détailler les étapes sans surcharger) */
+.accordion-item {
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+.accordion-header {
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    background: rgba(59, 130, 246, 0.05);
+    transition: background 0.3s;
+}
+.accordion-header:hover { background: rgba(59, 130, 246, 0.1); }
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding: 0 15px;
+    font-size: 0.95rem;
+    color: var(--text-dim);
+}
+.accordion-content.active {
+    padding: 15px;
+    border-top: 1px solid var(--border-light);
+}
+
+/* 3. Zoom Image au survol (Pour les topologies réseaux) */
+.zoom-container {
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: zoom-in;
+    position: relative;
+}
+.zoom-img {
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+.zoom-container:hover .zoom-img {
+    transform: scale(1.5); /* Zoom fort */
+}
+.zoom-hint {
+    position: absolute; bottom: 10px; right: 10px;
+    background: rgba(0,0,0,0.7); color: white;
+    padding: 5px 10px; border-radius: 20px; font-size: 0.7rem;
+    pointer-events: none;
+}
+
+
+/* --- AMÉLIORATION NAVIGATION MODALE --- */
+.carousel-container {
+    position: relative;
+    padding: 0; /* On retire le padding pour que les flèches collent aux bords */
+}
+
+/* Flèches flottantes */
+/* --- NAVIGATION MODALE (POSITION BASSE) --- */
+/* --- ZONE DE NAVIGATION BASSE (Flèches + Points) --- */
+
+/* Conteneur des flèches */
+.carousel-nav {
+    display: flex;
+    justify-content: space-between; /* Ecarte les flèches au max */
+    align-items: center;
+    padding: 10px 30px 20px 30px; /* Marge interne */
+    position: absolute; /* On les superpose à la zone des points */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    pointer-events: none; /* Permet de cliquer sur les points au milieu */
+}
+
+/* Les boutons eux-mêmes */
+.carousel-btn {
+    pointer-events: auto; /* Réactive le clic sur les boutons */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: transparent; /* Fond transparent pour plus de légèreté */
+    border: 2px solid var(--border-light); /* Cercle fin */
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    background: var(--card-bg); /* Petit fond si jamais ça passe sur du texte */
+}
+
+.carousel-btn:hover {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Ajustement des points pour qu'ils soient bien centrés entre les flèches */
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    padding: 25px 0; /* Hauteur pour caler avec les flèches */
+    gap: 12px;
+    background: transparent; /* Enlève le fond gris si présent */
+    position: relative;
+    z-index: 15;
+}
+
+/* Nouveau Compteur */
+.header-controls .page-counter {
+    background: #f3f3f3;  /* Gris foncé */    
+color: #3b88ec;       /* Texte Blanc */   
+font-family: monospace;
+    border-radius: 4px;
+    border: none;
+    font-weight: 700;
+}
+
+/* --- SLIDE "BRIEF PROJET" (Intro) --- */
+.project-brief-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+.brief-details {
+    background: var(--box-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+}
+.detail-row {
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding-bottom: 10px;
+}
+.detail-row strong { display: block; color: var(--primary); font-size: 0.85rem; text-transform: uppercase; margin-bottom: 5px; }
+.detail-row span { color: var(--text-main); font-weight: 500; }
+
+/* --- FLIP CARDS (Cartes Retournables) --- */
+.flip-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+.flip-card {
+    background-color: transparent;
+    height: 200px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow);
+    border-radius: 12px;
+}
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.flip-card-front {
+    background-color: var(--card-bg);
+    border: 1px solid var(--primary);
+    color: var(--text-main);
+}
+.flip-card-back {
+    background-color: var(--primary);
+    color: white;
+    transform: rotateY(180deg);
+}
+.flip-card-front i { font-size: 2.5rem; margin-bottom: 15px; color: var(--primary); }
+.flip-card-back p { font-size: 0.9rem; line-height: 1.4; }
+
+/* --- SYSTÈME D'ONGLETS (TABS) pour le code --- */
+.code-tabs {
+    background: #1e1e1e;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-top: 15px;
+    border: 1px solid #333;
+}
+.tab-header {
+    display: flex;
+    background: #252526;
+    border-bottom: 1px solid #333;
+}
+.tab-btn {
+    background: none;
+    border: none;
+    color: #888;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-family: monospace;
+    transition: 0.3s;
+}
+.tab-btn:hover { color: #fff; background: #333; }
+.tab-btn.active { color: #fff; background: #1e1e1e; border-top: 2px solid var(--primary); }
+.tab-content {
+    display: none;
+    padding: 15px;
+    color: #d4d4d4;
+    font-family: 'Consolas', monospace;
+    font-size: 0.85rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.tab-content.active { display: block; }
     </style>
 </head>
 <body>
@@ -1374,253 +1636,605 @@
         <p>&copy; 2025 Johan Heurtebise. Tous droits réservés.</p>
     </footer>
 
-    <div id="modal1" class="modal">
-        <div class="modal-content modal-lg"> 
-            <div class="modal-header">
-                <div class="header-title">
-                    <h3>SAE101 : Hygiène Informatique</h3>
-                    <span class="badge-category">Cybersécurité</span>
-                </div>
-                <div class="header-controls">
-                    <span class="page-counter" id="counter1">1 / 5</span>
-                    <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
-                </div>
+   <div id="modal1" class="modal">
+    <div class="modal-content modal-lg"> 
+        <div class="modal-header">
+            <div class="header-title">
+                <h3>SAE101 : Hygiène Informatique</h3>
+                <span class="badge-category">Cybersécurité</span>
             </div>
-            
-            <div class="carousel-container">
-                <div class="carousel-track" id="track1">
-                    <div class="carousel-slide">
-                        <div class="slide-grid">
-                            <div class="text-content">
-                                <h4><i class="fas fa-flag"></i> Mission : Sensibilisation</h4>
-                                <p class="intro-text">
-                                    Dans un contexte où <strong>90% des cyberattaques</strong> commencent par une erreur humaine, ce projet visait à transformer l'utilisateur en premier rempart de défense.
-                                </p>
-                                <div class="info-box">
-                                    <h5>Objectifs du projet :</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Comprendre les vecteurs d'attaques classiques.</li>
-                                        <li>Vulgariser des concepts techniques pour des néophytes.</li>
-                                        <li>Produire des supports visuels impactants.</li>
-                                    </ul>
-                                </div>
-                                <div class="tags-container">
-                                    <span class="tag">Pédagogie</span><span class="tag">ANSSI</span><span class="tag">Prévention</span>
-                                </div>
-                            </div>
-                            <div class="image-column">
-                                <figure>
-                                    <img src="box1-5.png" class="slide-img shadow-effect" alt="Illustration Cybersécurité">
-                                </figure>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-grid reverse-layout"> 
-                            <div class="image-column">
-                                <img src="ansi.svg" class="slide-img" alt="Certificat MOOC ANSSI" style="width: 70%; height: auto;">                                
-
-                            </div>
-                            <div class="text-content">
-                                <h4><i class="fas fa-search"></i> Méthodologie d'Analyse</h4>
-                                <p>Pour construire notre intervention, nous avons suivi une démarche rigoureuse :</p>
-                                <ul class="step-list">
-                                    <li><strong>1. Auto-formation :</strong> Validation du MOOC de l'ANSSI pour maîtriser le sujet.</li>
-                                    <li><strong>2. Identification des menaces :</strong>
-                                        <ul>
-                                            <li><em>Social Engineering</em> (Phishing, Vishing)</li>
-                                            <li><em>Malwares</em> (Ransomware, Trojan)</li>
-                                        </ul>
-                                    </li>
-                                    <li><strong>3. Scénarisation :</strong> Création de mises en situation réelles pour marquer les esprits.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-grid">
-                            <div class="text-content">
-                                <h4><i class="fas fa-shield-alt"></i> Les Piliers de l'Hygiène</h4>
-                                <p>Nous avons structuré nos recommandations autour de 4 axes techniques majeurs :</p>
-                                <div class="cards-grid">
-                                    <div class="mini-card"><i class="fas fa-key"></i><strong>Authentification</strong><p>Mots de passe complexes + 2FA (Double facteur).</p></div>
-                                    <div class="mini-card"><i class="fas fa-hdd"></i><strong>Sauvegardes</strong><p>Règle du 3-2-1 pour garantir la résilience.</p></div>
-                                    <div class="mini-card"><i class="fas fa-wifi"></i><strong>Mobilité</strong><p>Usage exclusif des VPN sur Wi-Fi public.</p></div>
-                                    <div class="mini-card"><i class="fas fa-envelope"></i><strong>Vigilance</strong><p>Analyse des URLs et des expéditeurs.</p></div>
-                                </div>
-                            </div>
-                            <div class="image-column vertical-center">
-                                <img src="sae1.jpg" class="slide-img small-img" alt="Logo Keepass">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide text-center-slide">
-                        <div class="final-content">
-                            <h4><i class="fas fa-chart-line"></i> Bilan de Compétences</h4>
-                            <p>Ce projet m'a permis de valider les compétences suivantes du référentiel :</p>
-                            <div class="skills-wrapper">
-                                <div class="skill-item"><div class="skill-title">Administrer</div><div class="skill-bar"><div class="fill" style="width: 70%"></div></div></div>
-                                <div class="skill-item"><div class="skill-title">Communiquer</div><div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide text-center-slide">
-                        <div class="final-content">
-                            <h4><i class="fas fa-file-download"></i> Ressources Projet</h4>
-                            <p style="margin-bottom: 30px;">Retrouvez ci-dessous le support complet de la présentation.</p>
-                            <div class="download-section">
-                                <div class="btn-group">
-                                    <a href="SAE101-Presentation.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger la Présentation</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn" onclick="moveSlide('track1', -1, 'dots1')"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-btn" onclick="moveSlide('track1', 1, 'dots1')"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-
-            <div class="carousel-dots" id="dots1">
-                <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')"></span>
-                <span class="dot" onclick="goToSlide('track1', 1, 'dots1')"></span>
-                <span class="dot" onclick="goToSlide('track1', 2, 'dots1')"></span>
-                <span class="dot" onclick="goToSlide('track1', 3, 'dots1')"></span>
-                <span class="dot" onclick="goToSlide('track1', 4, 'dots1')"></span>
+            <div class="header-controls">
+                <span class="page-counter" id="counter1">1 / 5</span>
+                <button class="close-btn" onclick="closeModal('modal1')">&times;</button>
             </div>
         </div>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="track1">
+                
+                <div class="carousel-slide">
+                    <div class="text-content">
+                        <h4><i class="fas fa-file-contract"></i> Contexte & Enjeux</h4>
+                        <p class="intro-text">
+                            Dans le cadre de ma formation, j'ai réalisé un audit et une campagne de sensibilisation fictive. L'objectif : transformer l'utilisateur, souvent maillon faible, en première ligne de défense.
+                        </p>
+                        
+                        <div class="project-brief-grid">
+                            <div class="info-box">
+                                <h5><i class="fas fa-bullseye"></i> Objectifs Pédagogiques</h5>
+                                <ul class="check-list custom-bullet">
+                                    <li>Analyser les vecteurs d'attaques (Social Engineering, Malware).</li>
+                                    <li>Vulgariser des concepts techniques (Chiffrement, 2FA).</li>
+                                    <li>Concevoir des supports visuels impactants.</li>
+                                </ul>
+                            </div>
+                            <div class="brief-details">
+                                <div class="detail-row">
+                                    <strong>Cadre</strong>
+                                    <span>SAE 1.01 - IUT Blois</span>
+                                </div>
+                                <div class="detail-row">
+                                    <strong>Rôle</strong>
+                                    <span>Responsable Sensibilisation</span>
+                                </div>
+                                <div class="detail-row">
+                                    <strong>Outils</strong>
+                                    <span>Canva, PowerPoint, Veille ANSSI</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-grid">
+                        <div class="text-content">
+                            <h4><i class="fas fa-user-secret"></i> Scénarios d'Attaque Étudiés</h4>
+                            <p>Nous avons déconstruit 3 attaques majeures pour expliquer leur fonctionnement aux utilisateurs :</p>
+                            
+                            <div class="accordion-group">
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>1. L'attaque au Président (Fraude au virement)</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p><strong>Vecteur :</strong> Ingénierie Sociale (Email urgent du PDG).<br>
+                                        <strong>Technique :</strong> Spoofing d'adresse mail & Pression psychologique.<br>
+                                        <strong>Parade :</strong> Procédure de validation financière stricte et contre-appel.</p>
+                                    </div>
+                                </div>
+
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>2. Ransomware via USB (Rubber Ducky)</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p><strong>Vecteur :</strong> Clé USB "perdue" sur le parking.<br>
+                                        <strong>Action :</strong> La clé se comporte comme un clavier et tape un script malveillant.<br>
+                                        <strong>Parade :</strong> Désactivation des ports USB & interdiction de brancher des périphériques inconnus.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>3. Phishing ciblé (Spear Phishing)</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p><strong>Vecteur :</strong> Faux mail Microsoft 365.<br>
+                                        <strong>Indicateur :</strong> Typosquatting (ex: micosoft.com) et sentiment d'urgence.<br>
+                                        <strong>Parade :</strong> MFA (Double facteur) obligatoire.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="image-column">
+                            <img src="cyber1.png" class="slide-img shadow-effect" alt="Schéma Attaque">
+                            <p style="font-size:0.8rem; color:#888; text-align:center; margin-top:5px;">Cycle d'une attaque par ingénierie sociale</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="text-content">
+                        <h4><i class="fas fa-shield-alt"></i> Bonnes Pratiques : Nos Recommandations</h4>
+                        <p>Pour contrer ces menaces, nous avons établi 4 règles d'or (Cliquez sur les cartes pour voir les détails techniques) :</p>
+                        
+                        <div class="flip-card-container">
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-key"></i>
+                                        <strong>Robustesse</strong>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Mots de passe > 12 caractères + Utilisation d'un gestionnaire (Keepass) pour éviter la réutilisation.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-mobile-alt"></i>
+                                        <strong>Double Facteur</strong>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Activation systématique du 2FA (TOTP ou Clé FIDO) sur tous les comptes critiques (Email, VPN, Admin).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-wifi"></i>
+                                        <strong>Mobilité</strong>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Interdiction des Wi-Fi publics sans VPN. Chiffrement du disque dur (BitLocker) en cas de vol.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <i class="fas fa-hdd"></i>
+                                        <strong>Résilience</strong>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <p>Stratégie de sauvegarde 3-2-1 : 3 copies, 2 supports différents, 1 copie hors ligne (Air-gapped).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-grid reverse-layout">
+                        <div class="image-column">
+                            <figure>
+                                <img src="sae1.jpg" class="slide-img" alt="Affiche de prévention">
+                                <figcaption>Exemple d'affiche réalisée pour la campagne</figcaption>
+                            </figure>
+                        </div>
+                        <div class="text-content">
+                            <h4><i class="fas fa-palette"></i> Supports de Communication</h4>
+                            <p>La technique ne suffit pas : il faut savoir communiquer. J'ai conçu des visuels accrocheurs pour les salles de pause.</p>
+                            <div class="info-box">
+                                <h5>Stratégie de Com' :</h5>
+                                <p>Utilisation de l'humour et de messages courts pour capter l'attention.</p>
+                                <br>
+                                <strong>Message clé :</strong> "Le pirate ne hacke pas l'ordinateur, il hacke la personne devant."
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide text-center-slide">
+                    <div class="final-content">
+                        <h4><i class="fas fa-clipboard-check"></i> Rétrospective du Projet</h4>
+                        
+                        <div class="project-brief-grid" style="text-align: left; margin-bottom: 30px;">
+                            <div class="brief-details">
+                                <strong><i class="fas fa-check-circle"></i> Ce que j'ai appris (Hard Skills)</strong>
+                                <p>Fonctionnement technique des ransomwares, cryptographie asymétrique (PGP), normes de l'ANSSI.</p>
+                            </div>
+                            <div class="brief-details">
+                                <strong><i class="fas fa-users"></i> Soft Skills</strong>
+                                <p>Vulgarisation technique, prise de parole en public, design graphique.</p>
+                            </div>
+                        </div>
+
+                        <p style="margin-bottom: 20px;">Vous pouvez télécharger le support complet de la présentation ci-dessous.</p>
+                        <div class="download-section">
+                            <div class="btn-group">
+                                <a href="SAE101-Presentation.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger la Présentation (PDF)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="carousel-nav">
+            <button class="carousel-btn" onclick="moveSlide('track1', -1, 'dots1')"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn" onclick="moveSlide('track1', 1, 'dots1')"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="carousel-dots" id="dots1">
+            <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')"></span>
+            <span class="dot" onclick="goToSlide('track1', 1, 'dots1')"></span>
+            <span class="dot" onclick="goToSlide('track1', 2, 'dots1')"></span>
+            <span class="dot" onclick="goToSlide('track1', 3, 'dots1')"></span>
+            <span class="dot" onclick="goToSlide('track1', 4, 'dots1')"></span>
+        </div>
     </div>
+</div>
 
     <div id="modal2" class="modal">
-        <div class="modal-content modal-lg">
-            <div class="modal-header">
-                <div class="header-title">
-                    <h3>SAÉ 2.01 : Réseau Petite Structure & FAI</h3>
-                    <span class="badge-category">Administration & Sécurité</span>
-                </div>
-                <div class="header-controls">
-                    <span class="page-counter" id="counter2">1 / 6</span>
-                    <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
-                </div>
+    <div class="modal-content modal-lg">
+        <div class="modal-header">
+            <div class="header-title">
+                <h3>SAÉ 2.01 : Architecture Réseau & Services</h3>
+                <span class="badge-category">CisCorporation Network</span>
             </div>
-            
-            <div class="carousel-container">
-                <div class="carousel-track" id="track2">
-                    <div class="carousel-slide">
-                        <div class="slide-grid">
-                            <div class="text-content">
-                                <h4><i class="fas fa-briefcase"></i> Contexte du Projet</h4>
-                                <p class="intro-text"><strong>La mission :</strong> Refonte de l'infrastructure d'une PME en pleine expansion, incluant la mise en place d'une zone démilitarisée (DMZ) et l'interconnexion complète avec un FAI simulé.</p>
-                                <div class="info-box">
-                                    <h5>Problématique Professionnelle :</h5>
-                                    <p>Comment architecturer un réseau sécurisé intégrant des services publics et privés, tout en assurant la transition vers IPv6 via un réseau backbone ?</p>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Segmentation stricte (1 VLAN = 1 Activité).</li>
-                                        <li>Architecture sécurisée (LAN vs DMZ).</li>
-                                        <li>Simulation de l'environnement FAI & Backbone.</li>
-                                    </ul>
-                                </div>
-                                <div class="tags-container"><span class="tag">IPv6</span><span class="tag">DMZ</span><span class="tag">Architecture FAI</span></div>
-                            </div>
-                            <div class="image-column">
-                                <img src="cisco201.png" alt="Contexte Entreprise et FAI" width="400" height="300">                            
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-grid reverse-layout">
-                            <div class="image-column"><img src="ciscoSite.png" class="slide-img shadow-effect" alt="Topologie Complète"></div>
-                            <div class="text-content">
-                                <h4><i class="fas fa-sitemap"></i> Architecture Réseau</h4>
-                                <p>L'architecture dépasse le simple LAN pour simuler un internet complet. Elle se décompose en trois zones distinctes interconnectées par un <strong>Réseau Backbone</strong>.</p>
-                                <div class="info-box">
-                                    <h5>Zones & Structure :</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li><strong>Réseau Entreprise :</strong> LAN (Utilisateurs) + DMZ (Services Publics).</li>
-                                        <li><strong>Réseau FAI :</strong> Infrastructure du Fournisseur (Serveurs Web/DNS FAI).</li>
-                                        <li><strong>Client FAI :</strong> Simulation d'un client externe accédant aux services.</li>
-                                        <li><strong>Adressage :</strong> Double pile IPv4 et déploiement IPv6 global.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-grid"> 
-                            <div class="text-content">
-                                <h4><i class="fas fa-network-wired"></i> Commutation & Routage</h4>
-                                <p>Le cœur du réseau assure le transit entre les VLANs internes et le routage vers le monde extérieur via le backbone.</p>
-                                <ul class="step-list">
-                                    <li><strong>1. Gestion des VLANs :</strong><p>Segmentation granulaire : 1 VLAN dédié par activité métier pour isoler les flux de broadcast et améliorer la sécurité.</p></li>
-                                    <li><strong>2. Routage Dynamique OSPFv3 :</strong><p>Mise en place du protocole OSPFv3 pour gérer le routage des paquets IPv6 à travers le backbone et les routeurs de bordure.</p></li>
-                                    <li><strong>3. Interconnexion FAI :</strong><p>Routage statique et par défaut pour l'interconnexion entre la passerelle de l'entreprise et l'infrastructure du FAI.</p></li>
-                                </ul>
-                            </div>
-                             <div class="image-column">
-                                <img src="vlan1.png" class="slide-img" alt="Configuration OSPFv3">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide">
-                        <div class="slide-grid reverse-layout">
-                            <div class="image-column">
-                                <figure><img src="DMZ.png" class="slide-img shadow-effect" alt="Services DNS et Mail"></figure>
-                            </div>
-                            <div class="text-content">
-                                <h4><i class="fas fa-server"></i> Services Réseau & DMZ</h4>
-                                <p>Déploiement de services critiques répartis entre la zone interne, la DMZ et le FAI.</p>
-                                <div class="info-box">
-                                    <h5>Implémentation Technique :</h5>
-                                    <ul class="tech-list">
-                                        <li><strong>DNS (Split-Horizon) :</strong> Serveur DNS Intranet (interne) vs Serveur DNS Public (DMZ) pour la résolution externe.</li>
-                                        <li><strong>Messagerie :</strong> Serveur MAIL interne pour la communication d'entreprise.</li>
-                                        <li><strong>Services FAI :</strong> Serveurs Web et DNS du FAI pour simuler l'internet.</li>
-                                        <li><strong>Sécurité (NAT & DMZ) :</strong> Translation d'adresses (NAT) pour l'accès internet et isolation de la DMZ.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide text-center-slide">
-                        <div class="final-content">
-                            <h4><i class="fas fa-chart-line"></i> Compétences Acquises</h4>
-                            <p>Ce projet a validé ma maîtrise des architectures réseaux complexes incluant l'IPv6 et les services internet :</p>
-                            <div class="skills-wrapper">
-                                <div class="skill-item"><div class="skill-title">Routage Avancé (OSPFv3, IPv6)</div><div class="skill-bar"><div class="fill" style="width: 90%"></div></div></div>
-                                <div class="skill-item"><div class="skill-title">Architecture DNS & Mail</div><div class="skill-bar"><div class="fill" style="width: 85%"></div></div></div>
-                                <div class="skill-item"><div class="skill-title">Sécurité (DMZ, NAT, ACL)</div><div class="skill-bar"><div class="fill" style="width: 85%"></div></div></div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-slide text-center-slide">
-                        <div class="final-content">
-                            <h4><i class="fas fa-folder-open"></i> Livrables Techniques</h4>
-                            <p style="margin-bottom: 30px;">L'infrastructure simule un écosystème complet : de la PME avec sa DMZ jusqu'au client FAI, en passant par le Backbone IPv6.</p>
-                            <div class="download-section">
-                                <div class="btn-group">
-                                    <a href="SAE201_Projet_Complet.zip" class="btn btn-primary" download><i class="fas fa-file-archive"></i> Télécharger le Packet Tracer (.pkt)</a>
-                                    <a href="Rapport_SAE201.pdf" class="btn btn-secondary" target="_blank"><i class="fas fa-file-pdf"></i> Consulter le Rapport</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn" onclick="moveSlide('track2', -1, 'dots2')"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-btn" onclick="moveSlide('track2', 1, 'dots2')"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-            <div class="carousel-dots" id="dots2">
-                <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
+            <div class="header-controls">
+                <span class="page-counter" id="counter2">1 / 7</span>
+                <button class="close-btn" onclick="closeModal('modal2')">&times;</button>
             </div>
         </div>
+        
+        <div class="carousel-container">
+            <div class="carousel-track" id="track2">
+                
+                <div class="carousel-slide">
+                    <div class="text-content">
+                        <h4><i class="fas fa-building"></i> Contexte : CisCorporation</h4>
+                        <p class="intro-text">
+                            Conception de l'architecture réseau complète pour l'entreprise <strong>CisCorporation</strong>. Le projet simule un environnement de production incluant le LAN, une DMZ publique, et l'interconnexion via un Backbone OSPF à deux FAI (Orange & SFR).
+                        </p>
+                        
+                        <div class="project-brief-grid">
+                            <div class="info-box">
+                                <h5><i class="fas fa-bullseye"></i> Objectifs Critiques</h5>
+                                <ul class="check-list custom-bullet">
+                                    <li>Architecture <strong>Dual Stack (IPv4 & IPv6)</strong> intégrale.</li>
+                                    <li>Services : DNS Split-Horizon, Web Intranet/Extranet, Mail.</li>
+                                    <li>Administration sécurisée des équipements (SSHv2).</li>
+                                    <li>Redondance des liens FAI (Backbone maillé).</li>
+                                </ul>
+                            </div>
+                            <div class="brief-details">
+                                <div class="detail-row">
+                                    <strong>Matériel</strong>
+                                    <span>Routeurs Cisco 2911, Switchs 2960</span>
+                                </div>
+                                <div class="detail-row">
+                                    <strong>Routage</strong>
+                                    <span>OSPFv3 Multi-Area</span>
+                                </div>
+                                <div class="detail-row">
+                                    <strong>Sécurité</strong>
+                                    <span>ACL Étendues, PAT, Port-Security</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-grid">
+                        <div class="image-column">
+                            <div class="zoom-container">
+                                <img src="cisco201.png" class="zoom-img" alt="Topologie LAN">
+                                <div class="zoom-hint"><i class="fas fa-search-plus"></i> Topologie Packet Tracer</div>
+                            </div>
+                        </div>
+                        <div class="text-content">
+                            <h4><i class="fas fa-network-wired"></i> Segmentation & Adressage</h4>
+                            <p>Optimisation de l'espace d'adressage via <strong>VLSM</strong> pour les sous-réseaux LAN (10.1.0.0/16) et DMZ.</p>
+                            
+                            <div class="accordion-group">
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>Plan des VLANs (Métiers)</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <ul style="font-size: 0.85rem; list-style: none; padding-left: 5px;">
+                                            <li><strong>VLAN 10</strong> : Bureau 1 (10.1.0.0/28)</li>
+                                            <li><strong>VLAN 30</strong> : Ingénieurs (10.1.0.32/28)</li>
+                                            <li><strong>VLAN 100</strong> : Serveurs Internes (10.1.0.72/29)</li>
+                                            <li><strong>VLAN 210-230</strong> : RH, SAV, Cadres</li>
+                                            <li><strong>VLAN 240</strong> : Wi-Fi Invité (DHCP dédié)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>Architecture DMZ</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Zone isolée (192.168.1.0/24) hébergeant les services accessibles depuis l'extérieur :</p>
+                                        <ul>
+                                            <li>Serveur Web Public (192.168.1.100)</li>
+                                            <li>Serveur DNS Public (192.168.1.53)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="text-content">
+                        <h4><i class="fas fa-globe-europe"></i> Architecture Backbone & FAI</h4>
+                        <p>Le cœur du réseau repose sur un routage dynamique <strong>OSPFv3 Multi-Aires</strong> pour simuler un véritable Internet.</p>
+                        
+                        <div class="project-brief-grid">
+                            <div class="brief-details" style="background: rgba(59, 130, 246, 0.05);">
+                                <strong><i class="fas fa-project-diagram"></i> Topologie OSPF</strong>
+                                <ul class="check-list custom-bullet" style="margin-top: 10px;">
+                                    <li><strong>Area 0 (Backbone) :</strong> Assure le transit haute vitesse entre les routeurs de cœur.</li>
+                                    <li><strong>Area 5 (FAI Orange) :</strong> Simule le réseau 150.0.0.0/16.</li>
+                                    <li><strong>Area 15 (FAI SFR) :</strong> Simule le réseau 160.0.0.0/16.</li>
+                                    <li><strong>Area 10 (CisCorporation) :</strong> Réseau interne de l'entreprise.</li>
+                                </ul>
+                            </div>
+                            <div class="info-box">
+                                <h5><i class="fas fa-exchange-alt"></i> Interconnexion</h5>
+                                <p style="font-size: 0.9rem;">
+                                    Les routeurs de bordure utilisent une <strong>route par défaut</strong> redistribuée dans OSPF pour permettre aux employés d'accéder à Internet, tandis que le NAT assure la translation d'adresses privées/publiques.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="text-content" style="width: 100%;">
+                        <h4><i class="fas fa-terminal"></i> Configurations Techniques (IOS)</h4>
+                        <p>Extraits clés des configurations de routage et de commutation.</p>
+
+                        <div class="code-tabs">
+                            <div class="tab-header">
+                                <button class="tab-btn active" onclick="openTab(event, 'code-ospf')">Routeur (OSPFv3)</button>
+                                <button class="tab-btn" onclick="openTab(event, 'code-vlan')">Switch (Trunk/Access)</button>
+                                <button class="tab-btn" onclick="openTab(event, 'code-nat')">NAT & PAT</button>
+                            </div>
+
+                            <div id="code-ospf" class="tab-content active">
+<span class="comment">! Configuration OSPFv3 sur l'interface WAN</span>
+interface GigabitEthernet0/0
+ ip address 203.0.113.2 255.255.255.252
+ ipv6 address 2001:DB8:ACAD:A::2/64
+ ipv6 ospf 1 area 0
+ no shutdown
+
+<span class="comment">! Processus de routage Global</span>
+router ospf 1
+ router-id 1.1.1.1
+ passive-interface GigabitEthernet0/1 <span class="comment">! Pas de Hello vers le LAN</span>
+ default-information originate <span class="comment">! Propager la route par défaut</span>
+                            </div>
+
+                            <div id="code-vlan" class="tab-content">
+<span class="comment">! Configuration Switch d'Accès</span>
+vlan 10
+ name BUREAU_1
+vlan 100
+ name SERVEURS
+
+interface GigabitEthernet0/1
+ description UPLINK_VERS_ROUTER
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,100,210,240
+
+interface FastEthernet0/1
+ description PC_EMPLOYE
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+                            </div>
+
+                            <div id="code-nat" class="tab-content">
+<span class="comment">! NAT Statique (Serveur Web DMZ)</span>
+ip nat inside source static tcp 192.168.1.100 80 205.0.113.1 80
+
+<span class="comment">! NAT Dynamique (PAT) pour les employés</span>
+ip nat pool INTERNET 205.0.113.10 205.0.113.20 netmask 255.255.255.0
+ip nat inside source list NAT_LIST pool INTERNET overload
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="text-content" style="width: 100%;">
+                        <h4><i class="fas fa-server"></i> Architecture DNS Split-Horizon</h4>
+                        <p>Pour garantir la sécurité et la résolution correcte des noms, nous avons déployé une architecture DNS scindée (Split-Horizon) avec des fichiers de zones distincts.</p>
+
+                        <div class="code-tabs">
+                            <div class="tab-header">
+                                <button class="tab-btn active" onclick="openTab(event, 'dns-internal')">DNS Interne (LAN)</button>
+                                <button class="tab-btn" onclick="openTab(event, 'dns-public')">DNS Public (DMZ)</button>
+                                <button class="tab-btn" onclick="openTab(event, 'dns-root')">DNS Root/FAI</button>
+                            </div>
+
+                            <div id="dns-internal" class="tab-content active">
+                                <p style="margin-bottom: 10px; color: #888;">Serveur : <strong>SRV-INT (10.1.0.75)</strong> - Accessible uniquement depuis le LAN.</p>
+                                <table style="width: 100%; border-collapse: collapse; color: #d4d4d4;">
+                                    <tr style="border-bottom: 1px solid #444; text-align: left;">
+                                        <th style="padding: 5px;">Type</th>
+                                        <th style="padding: 5px;">Nom (FQDN)</th>
+                                        <th style="padding: 5px;">Valeur (IP Privée)</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">A</span></td>
+                                        <td style="padding: 5px;">intranet.ciscorp.local</td>
+                                        <td style="padding: 5px;" class="arg">10.1.0.100</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">A</span></td>
+                                        <td style="padding: 5px;">mail.ciscorp.local</td>
+                                        <td style="padding: 5px;" class="arg">10.1.0.78</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">A</span></td>
+                                        <td style="padding: 5px;">dns-int.ciscorp.local</td>
+                                        <td style="padding: 5px;" class="arg">10.1.0.75</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">CNAME</span></td>
+                                        <td style="padding: 5px;">smtp.ciscorp.local</td>
+                                        <td style="padding: 5px;" class="arg">mail.ciscorp.local</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="dns-public" class="tab-content">
+                                <p style="margin-bottom: 10px; color: #888;">Serveur : <strong>SRV-PUB (192.168.1.53)</strong> - Visible depuis Internet.</p>
+                                <table style="width: 100%; border-collapse: collapse; color: #d4d4d4;">
+                                    <tr style="border-bottom: 1px solid #444; text-align: left;">
+                                        <th style="padding: 5px;">Type</th>
+                                        <th style="padding: 5px;">Nom (FQDN)</th>
+                                        <th style="padding: 5px;">Valeur (IP Publique/NAT)</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">SOA</span></td>
+                                        <td style="padding: 5px;">ciscorp.com</td>
+                                        <td style="padding: 5px;" class="arg">ns1.ciscorp.com</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">A</span></td>
+                                        <td style="padding: 5px;">www.ciscorp.com</td>
+                                        <td style="padding: 5px;" class="arg">205.0.113.1 (NAT Static)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">MX</span></td>
+                                        <td style="padding: 5px;">ciscorp.com</td>
+                                        <td style="padding: 5px;" class="arg">mail.ciscorp.com (Priorité 10)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">AAAA</span></td>
+                                        <td style="padding: 5px;">www.ciscorp.com</td>
+                                        <td style="padding: 5px;" class="arg">2001:DB8:ACAD:B::100</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="dns-root" class="tab-content">
+                                <p style="margin-bottom: 10px; color: #888;">Serveur : <strong>ROOT-DNS (.com)</strong> - Simule la délégation Internet.</p>
+                                <table style="width: 100%; border-collapse: collapse; color: #d4d4d4;">
+                                    <tr style="border-bottom: 1px solid #444; text-align: left;">
+                                        <th style="padding: 5px;">Type</th>
+                                        <th style="padding: 5px;">Domaine</th>
+                                        <th style="padding: 5px;">Serveur de Noms (NS)</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">NS</span></td>
+                                        <td style="padding: 5px;">ciscorp.com</td>
+                                        <td style="padding: 5px;" class="arg">ns1.ciscorp.com (205.0.113.1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">NS</span></td>
+                                        <td style="padding: 5px;">orange.com</td>
+                                        <td style="padding: 5px;" class="arg">ns.orange.com (150.0.0.5)</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 5px;"><span class="cmd">NS</span></td>
+                                        <td style="padding: 5px;">sfr.com</td>
+                                        <td style="padding: 5px;" class="arg">ns.sfr.com (160.0.0.5)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-grid reverse-layout">
+                        <div class="text-content">
+                            <h4><i class="fas fa-user-shield"></i> Administration & Sécurité</h4>
+                            <p>La sécurité du réseau repose sur le contrôle d'accès strict (ACL) et la gestion chiffrée des équipements.</p>
+                            
+                            <div class="accordion-group">
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>Accès Distant SSHv2</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content active">
+                                        <p>Abandon de Telnet pour <strong>SSH version 2</strong>. Génération de clés RSA 1024 bits pour chiffrer les sessions d'administration.</p>
+                                        <div class="tech-terminal" style="margin: 10px 0; padding: 10px;">
+                                            <span class="cmd">crypto key generate rsa</span><br>
+                                            <span class="cmd">ip ssh version 2</span><br>
+                                            <span class="cmd">line vty 0 4</span><br>
+                                            <span class="arg"> transport input ssh</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item">
+                                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                                        <span>Filtrage ACL (Pare-feu)</span>
+                                        <i class="fas fa-chevron-down"></i>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p><strong>ACL Étendue "PROTECT_DMZ" :</strong><br>
+                                        - Autorise le trafic Web (80/443) et DNS (53) entrant.<br>
+                                        - Bloque tout le reste (ICMP, Telnet) provenant de l'extérieur.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="image-column">
+                             <img src="sae1.jpg" class="slide-img shadow-effect" alt="Cadenas Sécurité">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-slide text-center-slide">
+                    <div class="final-content">
+                        <h4><i class="fas fa-flag-checkered"></i> Bilan Technique</h4>
+                        
+                         <div class="project-brief-grid" style="text-align: left; margin-bottom: 20px;">
+                            <div class="brief-details">
+                                <strong><i class="fas fa-check"></i> Objectifs Atteints</strong>
+                                <p>Le LAN accède à Internet (Orange/SFR), le site public est visible mondialement, et l'intranet reste sécurisé et invisible de l'extérieur.</p>
+                            </div>
+                            <div class="brief-details">
+                                <strong><i class="fas fa-wrench"></i> Compétences Clés</strong>
+                                <p>Adressage VLSM, OSPF Multi-Area, DNS Split, Sécurisation SSH/ACL, Troubleshooting.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-box" style="margin-bottom: 25px; text-align: center; border-left: 4px solid #22c55e; background: rgba(34, 197, 94, 0.05);">
+                            <h5 style="color: #16a34a; margin-bottom: 10px;"><i class="fas fa-medal"></i> Résultats Académiques</h5>
+                            <div style="display: flex; justify-content: center; gap: 40px;">
+                                <div>
+                                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-main);">18<small style="font-size: 0.6em; color: var(--text-dim);">/20</small></span>
+                                    <span style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-top: 2px;">Livrable Cisco (.pkt)</span>
+                                </div>
+                                <div>
+                                    <span style="font-size: 1.4rem; font-weight: 700; color: var(--text-main);">18<small style="font-size: 0.6em; color: var(--text-dim);">/20</small></span>
+                                    <span style="display: block; font-size: 0.8rem; color: var(--text-dim); margin-top: 2px;">Rapport de Projet</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="download-section">
+                            <p>Ressources complètes du projet :</p>
+                            <div class="btn-group">
+                                <a href="SAE201_Projet_Complet.zip" class="btn btn-primary" download><i class="fas fa-file-archive"></i> Télécharger le Lab Packet Tracer (.pkt)</a>
+                                <a href="SAE 2.01 - Rapport.pdf" class="btn btn-secondary" target="_blank"><i class="fas fa-file-pdf"></i> Consulter le Rapport (PDF)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-nav">
+            <button class="carousel-btn" onclick="moveSlide('track2', -1, 'dots2')"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-btn" onclick="moveSlide('track2', 1, 'dots2')"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <div class="carousel-dots" id="dots2">
+            <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
+            <span class="dot" onclick="goToSlide('track2', 6, 'dots2')"></span>
+        </div>
     </div>
+</div>
 
     <div id="modal3" class="modal">
         <div class="modal-content modal-lg">
@@ -1985,7 +2599,7 @@
         // Configuration : index actuel, nombre total de slides, ID du compteur
         const trackStates = {
             'track1': { index: 0, total: 5, counterId: 'counter1' },
-            'track2': { index: 0, total: 6, counterId: 'counter2' },
+            'track2': { index: 0, total: 7, counterId: 'counter2' },
             'track3': { index: 0, total: 4, counterId: 'counter3' }
         };
 
@@ -2219,6 +2833,45 @@
                 termBody.scrollTop = termBody.scrollHeight;
             }
         });
+
+
+
+        // Fonction pour gérer les accordéons dans les modales
+function toggleAccordion(element) {
+    const content = element.nextElementSibling;
+    const icon = element.querySelector('i.fa-chevron-down');
+    
+    if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.classList.remove('active');
+        if(icon) icon.style.transform = "rotate(0deg)";
+    } else {
+        // Ferme les autres (optionnel)
+        // document.querySelectorAll('.accordion-content').forEach(el => el.style.maxHeight = null); 
+        
+        content.classList.add('active');
+        content.style.maxHeight = content.scrollHeight + "px";
+        if(icon) icon.style.transform = "rotate(180deg)";
+    }
+}
+
+
+
+function openTab(evt, tabId) {
+    // 1. Cacher tous les contenus de cet ensemble d'onglets
+    // On remonte au parent .code-tabs pour ne pas affecter d'autres tabs sur la page
+    const parent = evt.currentTarget.closest('.code-tabs');
+    const contents = parent.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // 2. Désactiver tous les boutons
+    const buttons = parent.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // 3. Activer l'élément courant
+    document.getElementById(tabId).classList.add('active');
+    evt.currentTarget.classList.add('active');
+}
     </script>
 </body>
 </html>
