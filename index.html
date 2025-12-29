@@ -1176,6 +1176,131 @@ font-family: monospace;
     overflow-y: auto;
 }
 .tab-content.active { display: block; }
+
+
+
+/* =========================================
+   STYLE SECTION ACTUALITÉS
+   ========================================= */
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.news-card {
+    background: var(--card-bg);
+    border: var(--glass-border);
+    border-radius: var(--radius);
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+/* En-tête de la carte (Tags & Date) */
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.news-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 50px;
+    letter-spacing: 0.5px;
+}
+
+/* Couleurs spécifiques des tags */
+.news-tag.dev { background: rgba(59, 130, 246, 0.1); color: var(--primary); border: 1px solid rgba(59, 130, 246, 0.2); }
+.news-tag.veille { background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2); } /* Vert */
+.news-tag.event { background: rgba(249, 115, 22, 0.1); color: var(--accent); border: 1px solid rgba(249, 115, 22, 0.2); }
+
+.news-date {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* Contenu */
+.news-content h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.news-content p {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+/* Liste de fonctionnalités (Projet Python) */
+.news-features {
+    list-style: none;
+    margin-bottom: 20px;
+    background: var(--box-bg);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.news-features li {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.news-features li i {
+    color: var(--primary);
+    font-size: 0.8rem;
+}
+
+/* Boite mise en avant (Newsletter) */
+.news-highlight-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), transparent);
+    border-left: 3px solid var(--primary);
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 0 10px 10px 0;
+}
+
+.news-highlight-box strong {
+    display: block;
+    color: var(--text-main);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.news-highlight-box span {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 3px;
+}
+
+.news-actions {
+    margin-top: auto; /* Pousse le bouton vers le bas */
+    padding-top: 10px;
+}
     </style>
 </head>
 <body>
@@ -1192,6 +1317,7 @@ font-family: monospace;
                 <nav class="nav-links">
                     <a href="#home">Accueil</a>
                     <a href="#profil">À propos</a>
+                    <a href="#actu">Actu</a>
                     <a href="#portfolio">Portfolio</a>
                     <a href="#parcours">Parcours</a> 
                     <a href="#comp">Compétences</a>
@@ -1201,9 +1327,7 @@ font-family: monospace;
                 
                 <button id="theme-toggle" class="theme-toggle"><i class="fas fa-moon"></i></button>
 
-                <button onclick="toggleTerminal()" id="term-btn-nav" title="Ouvrir le Terminal">
-                    <i class="fas fa-terminal"></i>
-                </button>
+                
 
                 <div class="menu-toggle"><i class="fas fa-bars"></i></div>
             </div>
@@ -1318,6 +1442,44 @@ font-family: monospace;
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
+
+    <section id="actu">
+        <h2>Actualités & Veille</h2>
+        <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px;">
+            Mes derniers projets personnels, publications et mises à jour techniques.
+        </p>
+
+        <div class="news-grid">
+
+            <article class="news-card" data-aos="fade-up">
+                <div class="news-header">
+                    <span class="news-tag dev">Projet Open-Source</span>
+                    <span class="news-date">Dec 2025</span>
+                </div>
+                
+                <div class="news-content">
+                    <h3><i class="fab fa-python" style="color: #3776ab;"></i> Salle Dispo</h3>
+                    <p>
+                        Développement d'une solution Python permettant de centraliser et d'afficher la <strong>disponibilité des salles</strong> (Universités, Écoles) en temps réel.
+                    </p>
+                    
+                    <ul class="news-features">
+                        <li><i class="fas fa-check"></i> Parsing de fichiers calendriers <strong>.ICS</strong></li>
+                        <li><i class="fas fa-check"></i> Interface Web de visualisation.</li>
+                        <li><i class="fas fa-check"></i> Détection automatique des créneaux libres</li>
+                        <li><i class="fas fa-check"></i> Affichage des informations pour grands écrans (TV)</li>
+                    </ul>
+
+                    <div class="news-actions">
+                        <a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" class="btn btn-outline btn-sm">
+                            Voir sur GitHub <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+
         </div>
     </section>
 
@@ -2724,115 +2886,7 @@ ip nat inside source list NAT_LIST pool INTERNET overload
         const termOutput = document.getElementById('term-output');
         const termBody = document.getElementById('term-body');
 
-        function toggleTerminal() {
-            if (termWindow.style.display === 'flex') {
-                termWindow.style.display = 'none';
-            } else {
-                termWindow.style.display = 'flex';
-                termInput.focus();
-            }
-        }
-
-        termBody.addEventListener('click', () => termInput.focus());
-
-        termInput.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                // 1. On récupère la ligne complète et on la découpe
-                const fullInput = this.value.trim();
-                const args = fullInput.split(' '); // Sépare par les espaces
-                const command = args[0].toLowerCase(); // Le premier mot est la commande (ex: ping)
-                const param = args[1]; // Le deuxième mot est le paramètre (ex: google.com)
-
-                // Affiche la ligne saisie par l'utilisateur
-                termOutput.innerHTML += `<div class="term-input-line"><span class="prompt">➜  ~</span> ${fullInput}</div>`;
-
-                let response = '';
-
-                // Fonction utilitaire pour ajouter du texte et scroller
-                const print = (text, style = '') => {
-                    termOutput.innerHTML += `<p class="${style}">${text}</p>`;
-                    termBody.scrollTop = termBody.scrollHeight;
-                };
-
-                switch(command) {
-                    case 'help':
-                        response = `
-                            <div style="margin-left: 20px; color: #ccc;">
-                                <span class="cmd-highlight">about</span>    - Qui suis-je ?<br>
-                                <span class="cmd-highlight">skills</span>   - Mes compétences<br>
-                                <span class="cmd-highlight">projects</span> - Mes projets<br>
-                                <span class="cmd-highlight">ping</span>       - Tester la latence (Simulé)<br>
-                                <span class="cmd-highlight">contact</span>    - Me contacter<br>
-                                <span class="cmd-highlight">clear</span>     - Effacer l'écran<br>
-                            </div>`;
-                        print(response);
-                        break;
-
-                    case 'about':
-                        print("Johan Heurtebise. Étudiant en BUT R&T et Alternant chez Orange.");
-                        break;
-
-                    case 'skills':
-                        print("['Cisco', 'Python', 'Linux', 'Wireshark', 'SQL', 'HTML/CSS', 'Fibre Optique']");
-                        break;
-
-                    case 'projects':
-                        print("Redirection vers la section Portfolio...");
-                        setTimeout(() => { window.location.href = '#portfolio'; }, 1000);
-                        break;
-
-                    case 'contact':
-                        print("Email: heurtebise.johan.pro@gmail.com<br>LinkedIn: Johan Heurtebise");
-                        break;
-
-                    case 'clear':
-                        termOutput.innerHTML = '';
-                        break;
-
-                    // --- NOUVELLE COMMANDE PING ---
-                    case 'ping':
-                        const target = param || '8.8.8.8'; // Cible par défaut si vide
-                        // On simule une fausse IP pour le réalisme
-                        const fakeIP = target === 'localhost' ? '127.0.0.1' : `142.250.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`;
-                        
-                        print(`PING ${target} (${fakeIP}): 56 data bytes`);
-                        
-                        let count = 0;
-                        const maxPings = 4;
-
-                        // On utilise setInterval pour l'effet "temps réel"
-                        const pingInterval = setInterval(() => {
-                            count++;
-                            // Génère un temps aléatoire entre 10ms et 40ms pour faire réaliste
-                            const time = (Math.random() * 30 + 10).toFixed(1); 
-                            
-                            print(`64 bytes from ${fakeIP}: icmp_seq=${count} ttl=115 time=${time} ms`);
-
-                            if (count >= maxPings) {
-                                clearInterval(pingInterval);
-                                print(`--- ${target} ping statistics ---`);
-                                print(`${maxPings} packets transmitted, ${maxPings} packets received, 0.0% packet loss`);
-                            }
-                        }, 600); // Délai de 600ms entre chaque ligne
-                        break;
-                    // ------------------------------
-
-                    case 'sudo':
-                        print("Permission denied: Vous n'êtes pas root ici ! 🚫", 'error-msg');
-                        break;
-                        
-                    case '':
-                        break;
-
-                    default:
-                        print(`Command not found: ${command}. Tapez 'help'.`, 'error-msg');
-                }
-
-                // Reset de l'input
-                this.value = '';
-                termBody.scrollTop = termBody.scrollHeight;
-            }
-        });
+        
 
 
 
