@@ -267,18 +267,36 @@ h2::after {
 }
 
 /* =========================================
-   6. NAVIGATION
+   6. NAVIGATION (VERSION TRANSPARENTE MINIMALISTE)
    ========================================= */
 header {
     position: fixed; 
     top: 0; 
     width: 100%; 
     z-index: 1000;
-    background: var(--nav-bg); 
-    backdrop-filter: blur(10px);
-    border-bottom: var(--glass-border); 
+    background: transparent;
+    backdrop-filter: none;
+    border-bottom: none;
     padding: 15px 0;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+/* Header avec fond semi-transparent au scroll */
+header.scrolled {
+    background: rgba(255, 255, 255, 0.7); /* Plus transparent (était 0.95) */
+    backdrop-filter: blur(20px); /* Flou plus fort pour compenser */
+    -webkit-backdrop-filter: blur(20px); /* Support Safari */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 12px 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05); /* Ombre douce */
+}
+
+[data-theme="dark"] header.scrolled {
+    background: rgba(15, 23, 42, 0.7); /* Plus transparent en dark mode */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .nav-container {
@@ -290,14 +308,20 @@ header {
     align-items: center;
 }
 
+/* Logo (police d'origine restaurée) */
 .logo { 
     font-size: 1.4rem; 
     font-weight: 700; 
     color: var(--text-main); 
+    transition: var(--transition);
 }
 
 .logo span { 
     color: var(--primary); 
+}
+
+.logo:hover {
+    opacity: 0.8;
 }
 
 .nav-right { 
@@ -306,6 +330,7 @@ header {
     gap: 25px; 
 }
 
+/* Links (police d'origine restaurée) */
 .nav-links { 
     display: flex; 
     gap: 25px; 
@@ -320,6 +345,7 @@ header {
     transition: color 0.3s ease;
 }
 
+/* Indicateur minimaliste au hover */
 .nav-links a::after {
     content: ''; 
     position: absolute; 
@@ -339,7 +365,7 @@ header {
     width: 100%; 
 }
 
-/* Scroll Spy Active Class */
+/* Lien actif */
 .nav-links a.active-link { 
     color: var(--primary); 
 }
@@ -348,7 +374,7 @@ header {
     width: 100%; 
 }
 
-/* Boutons Navbar (Thème + Terminal) */
+/* Bouton thème */
 .theme-toggle {
     background: var(--bg-color); 
     border: var(--glass-border); 
@@ -369,47 +395,56 @@ header {
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-#term-btn-nav:hover { 
-    color: #00ff00; 
-    border-color: #00ff00; 
-    background: #1e1e1e; 
-    transform: translateY(-2px); 
-}
-
+/* Menu hamburger */
 .menu-toggle { 
     display: none; 
     font-size: 1.5rem; 
     cursor: pointer; 
-    color: var(--text-main); 
+    color: var(--text-main);
 }
 
-/* Floating CV Button */
-.floating-cv-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    color: white;
-    padding: 15px 25px;
-    border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
-    z-index: 999;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-weight: 600;
-    transition: var(--transition);
-}
+/* =========================================
+   RESPONSIVE NAVBAR
+   ========================================= */
 
-.floating-cv-btn:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.6);
-}
+@media (max-width: 900px) {
+    .nav-container {
+        padding: 0 30px;
+    }
 
-.floating-cv-btn i {
-    font-size: 1.2rem;
-}
+    .nav-links { 
+        display: none; 
+        position: absolute; 
+        top: 70px; 
+        left: 0; 
+        width: 100%; 
+        background: var(--nav-bg); 
+        flex-direction: column; 
+        padding: 20px; 
+        box-shadow: var(--shadow);
+    }
+    
+    .nav-links.active { 
+        display: flex; 
+    }
+    
+    .menu-toggle { 
+        display: block; 
+    }
 
+    /* Header avec fond permanent sur mobile pour lisibilité */
+    header {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(15px);
+        -webkit-backdrop-filter: blur(15px);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] header {
+        background: rgba(15, 23, 42, 0.85);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+}
 /* =========================================
    7. HERO SECTION
    ========================================= */
@@ -942,109 +977,154 @@ header {
 }
 
 /* =========================================
-   11. SECTION PARCOURS (TIMELINE)
+   11. SECTION PARCOURS (TIMELINE MINIMALISTE)
    ========================================= */
-#parcours { 
-    position: relative; 
-    overflow: hidden; 
-}
 
-.timeline { 
-    position: relative; 
-    max-width: 1000px; 
-    margin: 0 auto; 
-    padding: 40px 0; 
-}
-
-.timeline::after {
-    content: ''; 
-    position: absolute; 
-    width: 4px; 
-    background: var(--text-dim);
-    top: 0; 
-    bottom: 0; 
-    left: 50%; 
-    margin-left: -2px; 
-    border-radius: 2px; 
-    opacity: 0.3;
-}
-
-.timeline-item { 
-    padding: 10px 50px; 
-    position: relative; 
-    background: inherit; 
-    width: 50%; 
-}
-
-.timeline-item.left { 
-    left: 0; 
-    text-align: right; 
-}
-
-.timeline-item.right { 
-    left: 50%; 
-    text-align: left; 
-}
-
-.timeline-dot {
-    width: 20px; 
-    height: 20px; 
-    background: var(--primary);
-    border-radius: 50%; 
-    position: absolute; 
-    top: 30px; 
-    right: -10px; 
-    z-index: 1;
-    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.3); 
-    transition: var(--transition);
-}
-
-.timeline-item.right .timeline-dot { 
-    left: -10px; 
-}
-
-.timeline-item:hover .timeline-dot { 
-    background: var(--accent); 
-    box-shadow: 0 0 0 6px rgba(249, 115, 22, 0.3); 
-    transform: scale(1.2); 
-}
-
-.timeline-content {
-    padding: 25px; 
-    border-radius: var(--radius); 
+#parcours {
     position: relative;
-    background: var(--card-bg); 
-    backdrop-filter: blur(10px);
-    border: var(--glass-border); 
-    box-shadow: var(--shadow); 
+}
+
+.timeline-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* Chaque entrée */
+.timeline-entry {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 60px;
+    margin-bottom: 60px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.15);
+    position: relative;
+}
+
+.timeline-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Date (colonne gauche) */
+.timeline-date {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-dim);
+    letter-spacing: 0.3px;
+    padding-top: 2px;
+    line-height: 1.6;
+}
+
+/* Contenu (colonne droite) */
+.timeline-content h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 8px;
+    line-height: 1.3;
+    transition: color 0.3s ease;
+}
+
+.timeline-entry:hover .timeline-content h3 {
+    color: var(--primary);
+}
+
+.timeline-location {
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    margin-bottom: 15px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-location::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: var(--primary);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    margin: 0;
+}
+
+/* Effet hover subtil */
+.timeline-entry {
     transition: var(--transition);
 }
 
-.timeline-content:hover { 
-    transform: translateY(-5px); 
-    border-color: var(--primary); 
+.timeline-entry:hover {
+    transform: translateX(5px);
 }
 
-.timeline-date {
-    display: inline-block; 
-    margin-bottom: 10px; 
-    font-weight: 700;
-    color: var(--primary); 
-    font-size: 0.9rem; 
-    background: rgba(59, 130, 246, 0.1);
-    padding: 5px 15px; 
-    border-radius: 20px;
+/* =========================================
+   RESPONSIVE TIMELINE
+   ========================================= */
+
+@media (max-width: 768px) {
+    .timeline-entry {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-bottom: 50px;
+        padding-bottom: 50px;
+    }
+
+    .timeline-date {
+        font-size: 0.85rem;
+        color: var(--primary);
+        font-weight: 700;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .timeline-location {
+        font-size: 0.85rem;
+    }
+
+    .timeline-content p {
+        font-size: 0.95rem;
+    }
 }
 
-.timeline-title {
-    margin-bottom: 5px;
-}
+@media (max-width: 480px) {
+    .timeline-wrapper {
+        padding: 20px 0;
+    }
 
-.timeline-place { 
-    font-size: 0.95rem; 
-    font-style: italic; 
-    color: var(--text-dim); 
-    margin-bottom: 15px; 
+    .timeline-entry {
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+    }
+
+    .timeline-date {
+        font-size: 0.8rem;
+    }
+
+    .timeline-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 6px;
+    }
+
+    .timeline-location {
+        font-size: 0.8rem;
+        margin-bottom: 12px;
+    }
+
+    .timeline-content p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
 }
 
 /* =========================================
@@ -2848,4 +2928,3 @@ footer {
         page-break-inside: avoid;
     }
 }
-
