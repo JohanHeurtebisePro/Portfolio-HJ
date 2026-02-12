@@ -89,6 +89,23 @@ window.addEventListener('scroll', () => {
         scrollProgress.style.width = scrollPercentage + '%';
     }
 });
+// ------------------------------------------------
+// NAVBAR TRANSPARENTE AU SCROLL
+// ------------------------------------------------
+const header = document.querySelector('header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
+
+// Forcer l'état initial
+if (window.scrollY > 50) {
+    header.classList.add('scrolled');
+}
 
 // ------------------------------------------------
 // 6. SCROLL SPY (Menu actif au défilement)
@@ -622,24 +639,3 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ------------------------------------------------
-// 17. CONSOLE MESSAGE (Pour les curieux)
-// ------------------------------------------------
-console.log(`
-%c👋 Salut toi ! 
-
-%cTu fouilles dans la console ? Respect ! 🤓
-
-%cSi tu veux discuter tech, réseaux ou cyber :
-📧 heurtebise.johan.pro@gmail.com
-💼 LinkedIn: /in/johan-heurtebise
-
-%cPs: Essaye le code Konami... 😉
-`, 
-'font-size: 20px; font-weight: bold; color: #3b82f6;',
-'font-size: 14px; color: #10b981;',
-'font-size: 12px; color: #64748b;',
-'font-size: 11px; font-style: italic; color: #f97316;'
-);
-
-console.log('%c⚡ Portfolio built with ❤️ by Johan Heurtebise', 'background: #3b82f6; color: white; padding: 5px 10px; border-radius: 5px;');
