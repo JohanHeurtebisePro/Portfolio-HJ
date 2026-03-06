@@ -205,7 +205,8 @@ const trackStates = {
     'track1': { index: 0, total: 5, counterId: 'counter1' },
     'track2': { index: 0, total: 7, counterId: 'counter2' },
     'track3': { index: 0, total: 4, counterId: 'counter3' },
-    'track-salle': { index: 0, total: 3, counterId: 'counter-salle' }
+    'track-salle': { index: 0, total: 3, counterId: 'counter-salle' },
+    'track-marque': { index: 0, total: 3, counterId: 'counter-marque' }
 };
 
 // Ouvrir une modale
@@ -232,7 +233,10 @@ function openModal(id, event) {
         const trackId = track.id;
         if (trackStates[trackId]) {
             trackStates[trackId].index = 0;
-            const dotsId = 'dots' + (trackId === 'track-salle' ? '-salle' : trackId.slice(-1));
+            let dotsId;
+            if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
+            else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
+            else { dotsId = 'dots' + trackId.slice(-1); }
             updateCarouselUI(trackId, dotsId);
         }
     }
@@ -342,7 +346,10 @@ document.addEventListener('keydown', (e) => {
     if (!track) return;
 
     const trackId = track.id;
-    const dotsId = 'dots' + (trackId === 'track-salle' ? '-salle' : trackId.slice(-1));
+    let dotsId;
+    if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
+    else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
+    else { dotsId = 'dots' + trackId.slice(-1); }
 
     if (e.key === 'ArrowLeft') {
         moveSlide(trackId, -1, dotsId);
@@ -638,4 +645,3 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-

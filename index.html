@@ -164,7 +164,7 @@
                         <i class="fab fa-instagram"></i>
                     </a>
                     
-                    <a href="mailto:heurtebise.johan.pro@gmail.com" class="social-btn email" aria-label="Envoyer un email">
+                    <a href="/cdn-cgi/l/email-protection#771f1202050312151e0412591d181f16195907051837101a161e1b5914181a" class="social-btn email" aria-label="Envoyer un email">
                         <i class="fas fa-envelope"></i>
                     </a>
 
@@ -407,8 +407,32 @@
                 </div>
             </article>
 
+            <!-- Projet Site Marque Indé -->
+            <article class="project-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal-marque-inde')">
+                <div class="card-img-container">
+                    <img src="image/gus&co-menu.png" alt="Projet Site Web — Gus&Co" loading="lazy">
+                    <div class="overlay">
+                        <span class="overlay-text">Voir le projet</span>
+                    </div>
+                    <div class="project-badge">CLIENT RÉEL</div>
+                </div>
+                <div class="card-body">
+                    <div class="tags">
+                        <span class="tag">Web</span>
+                        <span class="tag">Hébergement</span>
+                        <span class="tag">DNS</span>
+                    </div>
+                    <h3 class="card-title">Site Marque Indépendante</h3>
+                    <p style="color: var(--text-dim);">Création complète du site vitrine, gestion de l'hébergement et configuration DNS.</p>
+                    <div class="project-meta">
+                        <span><i class="fas fa-calendar"></i> 2025</span>
+                        <span><i class="fas fa-globe"></i> En ligne</span>
+                    </div>
+                </div>
+            </article>
+
             <!-- NOUVEAU - Projet Python Salle Dispo -->
-            <article class="project-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal-salle-dispo')">
+            <article class="project-card" data-aos="fade-up" data-aos-delay="400" onclick="openModal('modal-salle-dispo')">
                 <div class="card-img-container">
                     <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600" alt="Projet Python - Application Salle Dispo" loading="lazy">
                     <div class="overlay">
@@ -644,18 +668,20 @@
                     <p style="margin-bottom: 10px; font-weight: 500;">Vous avez une idée en tête ?</p>
                     <a href="#contact" class="btn btn-primary">En discuter simplement <i class="fas fa-comment-dots"></i></a>
                 </div>
+
+                <!-- Section "Ils m'ont fait confiance" -->
+                <div class="trusted-section">
+                    <p class="trusted-label"><i class="fas fa-handshake"></i> Ils m'ont fait confiance</p>
+                    <div class="trusted-logos">
+                        <a href="https://www.gus-and-co.com" target="_blank" rel="noopener noreferrer" class="trusted-logo-item" title="Visiter le site Gus&Co">
+                            <img src="image/logo.svg" alt="Logo Gus&Co" class="trusted-logo-img">
+                        </a>
+                        <!-- Futurs clients ici -->
+                    </div>
+                </div>
             </div>
 
             <div class="service-visual">
-                <div class="mockup-container">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=600" alt="Exemple Site Web Développé" style="width: 100%; border-radius: 20px;" loading="lazy">
-                    <div class="code-overlay">
-                        <span>&lt;!-- Code livré --&gt;</span>
-                        <span>&lt;h1&gt;Votre Projet&lt;/h1&gt;</span>
-                        <span>&lt;p&gt;En ligne !&lt;/p&gt;</span>
-                    </div>
-                </div>
-                
                 
             </div>
         </div>
@@ -745,7 +771,7 @@
                 <a href="https://github.com/JohanHeurtebisePro" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:heurtebise.johan.pro@gmail.com" aria-label="Email">
+                <a href="/cdn-cgi/l/email-protection#244c4151565041464d57410a4e4b4c454a0a54564b644349454d480a474b49" aria-label="Email">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -1788,6 +1814,154 @@ def get_available_rooms(ics_url):
 
     <!-- SUITE DANS LE PROCHAIN FICHIER (Modales Compétences + Terminal + Scripts)... -->
 
+    <!-- MODALE : Site Marque Indépendante -->
+    <div id="modal-marque-inde" class="modal" role="dialog" aria-labelledby="modal-marque-title" aria-hidden="true">
+        <div class="modal-content modal-lg">
+            <div class="modal-header">
+                <div class="header-title">
+                    <h3 id="modal-marque-title"><i class="fas fa-globe"></i> Site Web — Gus&amp;Co</h3>
+                    <span class="badge-category">Projet Client Réel</span>
+                </div>
+                <div class="header-controls">
+                    <span class="page-counter" id="counter-marque" aria-live="polite">1 / 3</span>
+                    <button class="close-btn" onclick="closeModal('modal-marque-inde')" aria-label="Fermer la modale">&times;</button>
+                </div>
+            </div>
+
+            <div class="carousel-container">
+                <div class="carousel-track" id="track-marque">
+
+                    <!-- Slide 1 : Contexte -->
+                    <div class="carousel-slide">
+                        <div class="text-content">
+                            <h4><i class="fas fa-store"></i> Contexte & Objectif</h4>
+                            <p class="intro-text">
+                                <strong>Gus&amp;Co</strong> est une marque de vêtements indépendante qui avait besoin d'une présence en ligne professionnelle. J'ai pris en charge <strong>l'intégralité du projet</strong> : développement du site, hébergement et configuration DNS.
+                            </p>
+
+                            <div class="project-brief-grid">
+                                <div class="info-box">
+                                    <h5><i class="fas fa-tasks"></i> Ce que j'ai géré</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li><strong>Développement web</strong> — HTML / CSS / JavaScript</li>
+                                        <li><strong>Hébergement</strong> — Configuration serveur & déploiement</li>
+                                        <li><strong>DNS</strong> — Enregistrements A, CNAME, MX, TTL</li>
+                                        <li><strong>SSL</strong> — Certificat HTTPS (Let's Encrypt)</li>
+                                    </ul>
+                                </div>
+                                <div class="brief-details">
+                                    <div class="detail-row">
+                                        <strong>Type</strong>
+                                        <span>Site vitrine & boutique</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>URL</strong>
+                                        <span><a href="https://www.gus-and-co.com" target="_blank" rel="noopener noreferrer">gus-and-co.com</a></span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>Année</strong>
+                                        <span>2025</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>Statut</strong>
+                                        <span style="color: #22c55e;">● En ligne</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 : Stack technique -->
+                    <div class="carousel-slide">
+                        <div class="text-content">
+                            <h4><i class="fas fa-server"></i> Stack Technique & Infrastructure</h4>
+                            <p style="margin-bottom: 20px; color: var(--text-dim);">Un projet de A à Z : du code jusqu'à la mise en production, tout a été géré de façon autonome.</p>
+
+                            <div class="cards-grid">
+                                <div class="mini-card">
+                                    <i class="fas fa-code"></i>
+                                    <strong>Développement Web</strong>
+                                    <p>HTML / CSS / JS — site responsive, optimisé mobile & desktop</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <strong>Hébergement</strong>
+                                    <p>Configuration du serveur, déploiement des fichiers, gestion des accès</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-sitemap"></i>
+                                    <strong>Serveur DNS</strong>
+                                    <p>Zone DNS complète : enregistrements A, CNAME, MX, propagation & TTL</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-lock"></i>
+                                    <strong>SSL / HTTPS</strong>
+                                    <p>Certificat Let's Encrypt — connexion sécurisée en production</p>
+                                </div>
+                            </div>
+
+                            <div class="info-box" style="margin-top: 20px;">
+                                <h5><i class="fas fa-graduation-cap"></i> Ce que ce projet m'a apporté</h5>
+                                <ul class="check-list custom-bullet">
+                                    <li>Première expérience complète <strong>avec un vrai client</strong></li>
+                                    <li>Maîtrise de la chaîne complète : code → serveur → DNS → production</li>
+                                    <li>Gestion de projet en conditions réelles (délais, communication)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 3 : Screenshots -->
+                    <div class="carousel-slide">
+                        <div class="text-content">
+                            <h4><i class="fas fa-desktop"></i> Aperçu du Site</h4>
+                            <p style="margin-bottom: 20px; color: var(--text-dim);">Quelques captures du site livré et actuellement en ligne sur <a href="https://www.gus-and-co.com" target="_blank" rel="noopener noreferrer">gus-and-co.com</a>.</p>
+
+                            <div class="gusco-screenshots">
+                                <div class="gusco-screen-item">
+                                    <div class="zoom-container">
+                                        <img src="image/menu.png" class="zoom-img" alt="Menu du site Gus&Co" loading="lazy">
+                                        <div class="zoom-hint"><i class="fas fa-search-plus"></i> Menu de navigation</div>
+                                    </div>
+                                    <p class="screen-caption"><i class="fas fa-bars"></i> Menu</p>
+                                </div>
+                                <div class="gusco-screen-item">
+                                    <div class="zoom-container">
+                                        <img src="image/achat.png" class="zoom-img" alt="Zone d'achat du site Gus&Co" loading="lazy">
+                                        <div class="zoom-hint"><i class="fas fa-search-plus"></i> Zone d'achat</div>
+                                    </div>
+                                    <p class="screen-caption"><i class="fas fa-shopping-bag"></i> Zone d'achat</p>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 24px;">
+                                <a href="https://www.gus-and-co.com" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                                    Visiter le site <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="moveSlide('track-marque', -1, 'dots-marque')" aria-label="Slide précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn" onclick="moveSlide('track-marque', 1, 'dots-marque')" aria-label="Slide suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="carousel-dots" id="dots-marque">
+                <span class="dot active" onclick="goToSlide('track-marque', 0, 'dots-marque')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
+                <span class="dot" onclick="goToSlide('track-marque', 1, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+                <span class="dot" onclick="goToSlide('track-marque', 2, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+            </div>
+        </div>
+    </div>
+
     <!-- ============================================
          MODALES DES COMPÉTENCES
          ============================================ -->
@@ -2022,22 +2196,12 @@ def get_available_rooms(ics_url):
     <!-- ============================================
          SCRIPTS
          ============================================ -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
     <script src="script.js"></script>
 
     <!-- Google Analytics (Remplacer par ton ID) -->
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-XXXXXXXXXX'); // Remplace par ton ID
-    </script>
+    
 </body>
 </html>
     <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
