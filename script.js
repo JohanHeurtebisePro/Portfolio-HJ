@@ -261,11 +261,11 @@ function closeModal(id) {
 }
 
 // Fermer au clic extérieur
-window.onclick = function(e) {
+window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) { 
         closeModal(e.target.id); 
     }
-}
+});
 
 // Fermer avec la touche Escape
 document.addEventListener('keydown', (e) => {
@@ -487,57 +487,166 @@ function addToTerminal(text) {
 }
 
 // ------------------------------------------------
-// 13. FORMULAIRE DE CONTACT (Gestion)
+// 13. FORMULAIRE DE CONTACT (Gestion + Validation)
 // ------------------------------------------------
 const contactForm = document.getElementById('contact-form');
 const formNotification = document.getElementById('form-notification');
 
+// Validation en temps réel des champs
+function validateField(input) {
+    const group = input.closest('.input-group');
+    if (!group) return true;
+
+    group.classList.remove('field-error', 'field-ok');
+
+    if (input.required && !input.value.trim()) {
+        group.classList.add('field-error');
+        return false;
+    }
+    if (input.type === 'email' && input.value.trim()) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(input.value.trim())) {
+            group.classList.add('field-error');
+            return false;
+        }
+    }
+    if (input.value.trim()) {
+        group.classList.add('field-ok');
+    }
+    return true;
+}
+
+// Attacher la validation en temps réel sur les champs required
+document.querySelectorAll('#contact-form .form-control[required]').forEach(input => {
+    input.addEventListener('blur', () => validateField(input));
+    input.addEventListener('input', () => {
+        const group = input.closest('.input-group');
+        if (group && group.classList.contains('field-error')) {
+            validateField(input);
+        }
+    });
+});
+
 contactForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
+
+    // Valider tous les champs required avant envoi
+    const requiredFields = contactForm.querySelectorAll('.form-control[required]');
+    let isValid = true;
+    requiredFields.forEach(input => {
+        if (!validateField(input)) isValid = false;
+    });
+
+    if (!isValid) {
+        showNotification('Veuillez remplir correctement tous les champs obligatoires.', 'error');
+        return;
+    }
+
     const formData = new FormData(contactForm);
     const submitBtn = contactForm.querySelector('.submit-btn');
-    const originalText = submitBtn.innerHTML;
-    
+    const originalHTML = submitBtn.innerHTML;
+
     // Désactiver le bouton pendant l'envoi
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
-    
+
     try {
         const response = await fetch(contactForm.action, {
             method: 'POST',
             body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
         });
-        
+
         if (response.ok) {
             showNotification('Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
             contactForm.reset();
+            // Retirer les états de validation après reset
+            document.querySelectorAll('#contact-form .input-group').forEach(g => {
+                g.classList.remove('field-error', 'field-ok');
+            });
         } else {
             throw new Error('Erreur serveur');
         }
     } catch (error) {
-        showNotification('Erreur lors de l\'envoi. Veuillez réessayer ou m\'écrire directement.', 'error');
+        showNotification("Erreur lors de l'envoi. Veuillez réessayer ou m'écrire directement.", 'error');
     } finally {
         submitBtn.disabled = false;
-        submitBtn.innerHTML = originalText;
+        submitBtn.innerHTML = originalHTML;
     }
 });
 
 function showNotification(message, type) {
     if (!formNotification) return;
-    
+
     formNotification.textContent = message;
     formNotification.className = `notification ${type}`;
-    formNotification.style.display = 'flex';
-    
-    // Masquer après 5 secondes
+    // Utiliser classList au lieu de style inline
+    formNotification.classList.remove('notification--hidden');
+
+    // Scroll vers la notification pour la rendre visible
+    formNotification.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Masquer après 6 secondes
     setTimeout(() => {
-        formNotification.style.display = 'none';
-    }, 5000);
+        formNotification.classList.add('notification--hidden');
+    }, 6000);
 }
+
+// ------------------------------------------------
+// 14. FILTRE & RECHERCHE PORTFOLIO
+// ------------------------------------------------
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+const portfolioSearch = document.getElementById('portfolioSearch');
+const noResultsMsg = document.getElementById('noResultsMsg');
+const portfolioCountNum = document.getElementById('portfolioCountNum');
+
+let currentFilter = 'all';
+let currentSearch = '';
+
+function applyPortfolioFilters() {
+    let visibleCount = 0;
+
+    projectCards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const keywords = (card.getAttribute('data-title') || '') + ' ' + (card.querySelector('.card-title')?.textContent || '');
+
+        const matchesFilter = currentFilter === 'all' || category === currentFilter;
+        const matchesSearch = currentSearch === '' || keywords.toLowerCase().includes(currentSearch.toLowerCase());
+
+        if (matchesFilter && matchesSearch) {
+            card.classList.remove('hidden-card');
+            card.classList.remove('filter-animate');
+            void card.offsetWidth; // force reflow pour déclencher l'animation
+            card.classList.add('filter-animate');
+            visibleCount++;
+        } else {
+            card.classList.add('hidden-card');
+            card.classList.remove('filter-animate');
+        }
+    });
+
+    if (portfolioCountNum) portfolioCountNum.textContent = visibleCount;
+    if (noResultsMsg) noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentFilter = btn.getAttribute('data-filter');
+        applyPortfolioFilters();
+    });
+});
+
+let searchTimeout;
+portfolioSearch?.addEventListener('input', () => {
+    clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        currentSearch = portfolioSearch.value.trim();
+        applyPortfolioFilters();
+    }, 250);
+});
 
 // ------------------------------------------------
 // 14. SMOOTH SCROLL (au clic sur les liens)
@@ -645,3 +754,87 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+// ------------------------------------------------
+// CISCO BADGES — Génération dynamique
+// ------------------------------------------------
+const ciscoBadges = [
+    {
+        title: "Networking Basics",
+        year: "2025",
+        yearClass: "",
+        description: "Architectures réseaux, adressage IPv4/IPv6, modèle OSI et configuration des équipements Cisco.",
+        badgeImg: "https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png",
+        bgImg: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600",
+        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
+        featured: false
+    },
+    {
+        title: "Network Addressing & Basic Troubleshooting",
+        year: "2025",
+        yearClass: "",
+        description: "Adressage réseau avancé, sous-réseaux VLSM et dépannage des infrastructures.",
+        badgeImg: "https://images.credly.com/images/b2a56bda-da6c-4c33-b3ae-d67f8b0fda9b/image.png",
+        bgImg: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400",
+        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
+        featured: false
+    },
+    {
+        title: "Network Support and Security",
+        year: "2025",
+        yearClass: "",
+        description: "Sécurisation des réseaux, ACL, pare-feu et surveillance du trafic réseau.",
+        badgeImg: "https://images.credly.com/images/2e1f2bfb-d5d0-4c4c-967d-f8b7a1ccab49/image.png",
+        bgImg: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400",
+        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
+        featured: false
+    },
+    {
+        title: "Network Technician Career Path",
+        year: "2025 — Parcours complet",
+        yearClass: "certif-year--green",
+        description: "Parcours complet de technicien réseau : installation, configuration et dépannage d'infrastructures.",
+        badgeImg: "https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png",
+        bgImg: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600",
+        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
+        featured: true
+    },
+    {
+        title: "Digital Safety & Security Awareness",
+        year: "2025",
+        yearClass: "certif-year--orange",
+        description: "Bonnes pratiques de sécurité numérique, menaces courantes et protection des données personnelles.",
+        badgeImg: "https://images.credly.com/images/458a4693-d3c3-45dc-8544-94f4fb77e0e7/image.png",
+        bgImg: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&q=80&w=400",
+        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
+        featured: false
+    }
+];
+
+function renderCiscoBadges() {
+    const container = document.getElementById('cisco-badges-container');
+    if (!container) return;
+
+    container.innerHTML = ciscoBadges.map((badge, index) => {
+        const badgeImgClass = 'certif-badge-img' + (badge.featured ? ' certif-badge-img--featured' : '');
+        const delay = index * 100;
+        return `
+        <div class="certif-card certif-card--has-badge" data-aos="fade-up" data-aos-delay="${delay}">
+            <img src="${badge.bgImg}" class="certif-bg-img" alt="Fond certification" loading="lazy">
+            <div class="certif-overlay"></div>
+            <a href="${badge.credly}" target="_blank" rel="noopener noreferrer" class="certif-badge-link" aria-label="Voir la certification ${badge.title} sur Credly">
+                <img src="${badge.badgeImg}"
+                     alt="Badge ${badge.title} - Cisco"
+                     class="${badgeImgClass}"
+                     loading="lazy">
+            </a>
+            <div class="certif-content">
+                <span class="certif-year ${badge.yearClass}">${badge.year}</span>
+                <h3>${badge.title}</h3>
+                <p>${badge.description}</p>
+                <span class="certif-issuer"><i class="fas fa-building"></i> Cisco Networking Academy</span>
+            </div>
+        </div>`;
+    }).join('');
+}
+
+renderCiscoBadges();

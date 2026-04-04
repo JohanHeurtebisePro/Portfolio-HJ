@@ -38,7 +38,7 @@
     
     <script type="application/ld+json">
     {
-      
+      "@context": "https://schema.org",
       "@type": "Person",
       "name": "Johan Heurtebise",
       "jobTitle": "Étudiant en BUT Réseaux & Télécommunications",
@@ -73,12 +73,12 @@
                 <nav class="nav-links" role="navigation" aria-label="Navigation principale">
                     <a href="#home">Accueil</a>
                     <a href="#profil">À propos</a>
-                    <a href="#actu">Actu</a>
                     <a href="#portfolio">Portfolio</a>
+                    <a href="#actu">Projets</a>
                     <a href="#parcours">Parcours</a> 
                     <a href="#comp">Compétences</a>
                     <a href="#certifications">Certifications</a>
-                    <a href="#services">Services</a>
+                    <a href="#services">Web</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 
@@ -95,9 +95,6 @@
         </div>
     </header>
 
-    <!-- Floating CV Download Button -->
-    
-
     <!-- Hero Section -->
     <section id="home">
         <div class="hero-container"> 
@@ -112,7 +109,7 @@
             <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
                 
                 
-                <h1 class="hero-title">Heurtebise Johan</h1>
+                <h1 class="hero-title">Johan Heurtebise</h1>
                 
                 <p class="hero-subtitle">
                     <strong>Étudiant en BUT Réseaux & télécommunications, <span class="typewriter" id="typewriter">Alternant chez Orange</span></strong>
@@ -120,7 +117,7 @@
                 
                 <div class="hero-description">
                     <p>
-                        Alternant en avant-vente chez Orange et étudiant en deuxième année de BUT Réseaux et Télécommunications à l'IUT de Blois, je me spécialise en cybersécurité. Passionné par les réseaux, la cybersécurité et les télécommunications, j'applique mes compétences à des projets concrets. Curieux et rigoureux, j'apprécie analyser, concevoir et optimiser des infrastructures de communication. Mon objectif : intégrer une école d'ingénieur pour approfondir mes connaissances en télécommunications et services numériques.
+                        Fasciné par les infrastructures qui font tenir le monde numérique, je construis des ponts entre la théorie des réseaux et la réalité du terrain. Mon alternance chez Orange m'expose chaque jour à des projets d'envergure : des marchés publics aux architectures fibre, je transforme des besoins clients en solutions techniques concrètes.
                     </p>
                 </div>
 
@@ -135,12 +132,12 @@
                         <span class="stat-label">Projets réalisés</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-number" data-target="4">0</span>
+                        <span class="stat-number" data-target="8">0</span>
                         <span class="stat-label">Certifications</span>
                     </div>
                 </div>
 
-                <div style="display:flex; gap:15px; flex-wrap:wrap; margin-top: 20px;">
+                <div class="hero-cta-row">
                     <a href="#portfolio" class="btn btn-primary">
                         Explorer mes projets <i class="fas fa-arrow-right"></i>
                     </a>
@@ -160,7 +157,7 @@
                         <i class="fab fa-github"></i>
                     </a>
 
-                    <a href="https://www.instagram.com/ton_pseudo/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+                    <a href="https://www.instagram.com/johanheurtebise/" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
                         <i class="fab fa-instagram"></i>
                     </a>
                     
@@ -168,8 +165,8 @@
                         <i class="fas fa-envelope"></i>
                     </a>
 
-                    <a href="tel:+33671299610" class="social-btn phone" aria-label="Appeler">
-                        <i class="fas fa-phone"></i>
+                    <a href="#contact" class="social-btn contact-scroll" aria-label="Me contacter">
+                        <i class="fas fa-paper-plane"></i>
                     </a>
                 </div>
             </div>
@@ -181,46 +178,46 @@
         <h2>À propos</h2>
         <div class="about-grid">
             <div class="glass-card" data-aos="fade-right">
-                <div style="margin-bottom: 20px;">
-                    <i class="fas fa-user-graduate" style="font-size: 2rem; color: var(--primary); margin-bottom: 15px;" aria-hidden="true"></i>
-                    <h3 style="margin-bottom: 10px;">Mon Profil</h3>
+                <div class="about-card-header">
+                    <i class="fas fa-user-graduate about-icon" aria-hidden="true"></i>
+                    <h3 class="about-title">Mon Profil</h3>
                 </div>
-                <p style="font-size: 1.05rem; margin-bottom: 20px;">
-                    Alternant en <strong>études avant-vente</strong> chez Orange et étudiant en <strong>BUT Réseaux & Télécommunications</strong> à l'IUT de Blois, avec une spécialisation en cybersécurité.
+                <p class="about-lead">
+                    Alternant en <strong>Ingénieur Avant-Vente au Pôle Mutualisé (PMUT)</strong> chez Orange et étudiant en <strong>BUT Réseaux & Télécommunications</strong> à l'IUT de Blois, avec une spécialisation en cybersécurité.
                 </p>
-                <p style="color: var(--text-dim); margin-bottom: 20px;">
-                    Passionné par les réseaux, les télécommunications et la cybersécurité, j'aime analyser, concevoir et optimiser des infrastructures de communication. Mon objectif est d'intégrer une école d'ingénieur pour approfondir mes compétences en télécommunications et services numériques.
+                <p class="about-body">
+                    Mon moteur ? La curiosité technique. Que ce soit en analysant des trames réseau, en lisant les specs d'un protocole ou en explorant les vulnérabilités OWASP, j'apprends mieux en faisant. Mon objectif à court terme : intégrer une école d'ingénieur pour approfondir mes compétences en télécommunications et sécurité des systèmes.
                 </p>
-                <p style="font-style: italic; font-size: 0.9rem; color: var(--text-dim);">
+                <p class="about-location">
                     <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Basé à Blois / Le Mans
                 </p>
             </div>
 
             <div class="about-right-column">
-                <div class="glass-card" data-aos="fade-left" style="padding: 25px;">
-                    <div style="display: flex; align-items: start; gap: 15px;">
-                        <div style="background: rgba(249, 115, 22, 0.1); padding: 12px; border-radius: 10px;">
-                            <i class="fas fa-briefcase" style="color: var(--accent); font-size: 1.5rem;" aria-hidden="true"></i>
+                <div class="glass-card about-card-pad" data-aos="fade-left">
+                    <div class="about-alt-inner">
+                        <div class="about-icon-accent">
+                            <i class="fas fa-briefcase" aria-hidden="true"></i>
                         </div>
                         <div>
-                            <h4 style="margin-bottom: 5px;">Alternance - Orange</h4>
-                            <p style="font-size: 0.95rem; color: var(--text-dim);">
-                                En tant que <strong style="color: var(--text-main);">Chargé d'Études Avant-Vente</strong>, je réponds aux appels d'offres, conçois des solutions techniques et financières, et j'accompagne les équipes commerciales sur les projets réseaux et télécoms, notamment pour les marchés publics.
+                            <h4 class="about-alt-title">Alternance - Orange</h4>
+                            <p class="about-alt-desc">
+                                En tant que <strong class="text-main">Ingénieur Avant-Vente au Pôle Mutualisé (PMUT)</strong>, je réponds aux appels d'offres, conçois des solutions techniques et financières, et j'accompagne les équipes commerciales sur les projets réseaux et télécoms, notamment pour les marchés publics.
                             </p>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass-card" data-aos="fade-up" data-aos-delay="100" style="padding: 25px; border-color: var(--primary);">
-                    <div style="display: flex; flex-direction: column; gap: 10px;">
-                        <h4 style="display: flex; align-items: center; gap: 10px;">
-                            <i class="fas fa-newspaper" style="color: var(--primary);" aria-hidden="true"></i> CTRL Your World - Newsletter Mensuelle
+                <div class="glass-card about-card-pad about-card-alt" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-newsletter">
+                        <h4 class="about-newsletter-head">
+                            <i class="fas fa-newspaper" aria-hidden="true"></i> CTRL Your World - Newsletter Mensuelle
                         </h4>
-                        <p style="font-size: 0.95rem; color: var(--text-dim);">
+                        <p class="about-alt-desc">
                             Chaque mois, je partage mes découvertes en Réseaux, Télécoms et Cybersécurité. Une façon de documenter mon apprentissage et de suivre mes progrès.
                         </p>
-                        <a href="#actu" class="btn btn-primary btn-sm" style="align-self: start; margin-top: 5px;">
-                            Lire la dernière édition <i class="fas fa-arrow-right" style="margin-left: 8px; font-size: 0.8em;"></i>
+                        <a href="#actu" class="btn btn-primary btn-sm about-newsletter-btn">
+                            Lire la dernière édition <i class="fas fa-arrow-right about-newsletter-arrow"></i>
                         </a>
                     </div>
                 </div>
@@ -231,7 +228,7 @@
     
     <section id="actu">
         <h2>Actualités & Veille</h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 40px;">
+        <p class="text-center text-dim mb-40">
             Mes derniers projets personnels, publications et mises à jour techniques.
         </p>
 
@@ -319,8 +316,6 @@
                         <a href="https://github.com/JohanHeurtebisePro/DartVoice" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
                             Voir sur GitHub <i class="fab fa-github"></i>
                         </a>
-                    </div>
-                    <div class="news-actions">
                         <a href="https://johanheurtebisepro.github.io/DartVoice/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
                             Projet <i class="fas fa-external-link-alt"></i>
                         </a>
@@ -335,13 +330,29 @@
     <!-- Portfolio Section - ENRICHIE -->
     <section id="portfolio">
         <h2>Portfolio</h2>
-        <p style="text-align: center; margin-bottom: 40px; color: var(--text-dim);">
+        <p class="text-center text-dim mb-30">
             Cliquez sur un projet pour voir les détails techniques et les étapes de réalisation.
         </p>
-        
+
+        <!-- Contrôles : Recherche + Filtres -->
+        <div class="portfolio-controls">
+            <div class="portfolio-search-wrapper">
+                <i class="fas fa-search"></i>
+                <input type="text" class="portfolio-search" id="portfolioSearch" placeholder="Rechercher un projet...">
+            </div>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="reseaux">Réseaux</button>
+                <button class="filter-btn" data-filter="cyber">Cyber</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="telecoms">Télécoms</button>
+            </div>
+        </div>
+        <p class="portfolio-count" id="portfolioCount"><span id="portfolioCountNum">5</span> projet(s) affiché(s)</p>
+
         <div class="portfolio-grid">
             <!-- SAE101 - Hygiène Informatique -->
-            <article class="project-card" data-aos="fade-up" onclick="openModal('modal1')">
+            <article class="project-card" data-aos="fade-up" data-category="cyber" data-title="hygiène informatique cybersécurité sensibilisation" onclick="openModal('modal1')">
                 <div class="card-img-container">
                     <img src="image/cyber1.png" alt="Projet Hygiène Informatique - Sensibilisation Cybersécurité" loading="lazy">
                     <div class="overlay">
@@ -354,7 +365,7 @@
                         <span class="tag">Sensibilisation</span>
                     </div>
                     <h3 class="card-title">SAE101 : Hygiène Informatique</h3>
-                    <p style="color: var(--text-dim);">Sensibilisation aux risques numériques et bonnes pratiques de sécurité.</p>
+                    <p class="text-dim">Sensibilisation aux risques numériques et bonnes pratiques de sécurité.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
                         <span><i class="fas fa-user"></i> Travail Indiv.</span>
@@ -363,7 +374,7 @@
             </article>
 
             <!-- SAE201 - Réseau Entreprise -->
-            <article class="project-card" data-aos="fade-up" data-aos-delay="100" onclick="openModal('modal2')">
+            <article class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="reseaux" data-title="réseau entreprise cisco ospf lan wan" onclick="openModal('modal2')">
                 <div class="card-img-container">
                     <img src="image/cisco201.png" alt="Projet Cisco - Architecture réseau d'entreprise" loading="lazy">
                     <div class="overlay">
@@ -377,7 +388,7 @@
                         <span class="tag">OSPF</span>
                     </div>
                     <h3 class="card-title">SAE201 : Réseau d'Entreprise</h3>
-                    <p style="color: var(--text-dim);">Conception et déploiement d'une architecture LAN/WAN complète.</p>
+                    <p class="text-dim">Conception et déploiement d'une architecture LAN/WAN complète.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
                         <span><i class="fas fa-star"></i> 18/20</span>
@@ -386,7 +397,7 @@
             </article>
 
             <!-- SAE103 - Transmission -->
-            <article class="project-card" data-aos="fade-up" data-aos-delay="200" onclick="openModal('modal3')">
+            <article class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="telecoms" data-title="transmission signal télécoms oscilloscope" onclick="openModal('modal3')">
                 <div class="card-img-container">
                     <img src="image/box3-2.png" alt="Projet Transmission - Analyse supports physiques" loading="lazy">
                     <div class="overlay">
@@ -399,7 +410,7 @@
                         <span class="tag">Signal</span>
                     </div>
                     <h3 class="card-title">SAE103 : Supports de Transmission</h3>
-                    <p style="color: var(--text-dim);">Analyse physique des supports et mesures à l'oscilloscope.</p>
+                    <p class="text-dim">Analyse physique des supports et mesures à l'oscilloscope.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
                         <span><i class="fa-solid fa-ethernet"></i> Lab</span>
@@ -408,7 +419,7 @@
             </article>
 
             <!-- Projet Site Marque Indé -->
-            <article class="project-card" data-aos="fade-up" data-aos-delay="300" onclick="openModal('modal-marque-inde')">
+            <article class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="web" data-title="site web vitrine hébergement dns" onclick="openModal('modal-marque-inde')">
                 <div class="card-img-container">
                     <img src="image/gus&co-menu.png" alt="Projet Site Web — Gus&Co" loading="lazy">
                     <div class="overlay">
@@ -423,7 +434,7 @@
                         <span class="tag">DNS</span>
                     </div>
                     <h3 class="card-title">Site Marque Indépendante</h3>
-                    <p style="color: var(--text-dim);">Création complète du site vitrine, gestion de l'hébergement et configuration DNS.</p>
+                    <p class="text-dim">Création complète du site vitrine, gestion de l'hébergement et configuration DNS.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
                         <span><i class="fas fa-globe"></i> En ligne</span>
@@ -432,7 +443,7 @@
             </article>
 
             <!-- NOUVEAU - Projet Python Salle Dispo -->
-            <article class="project-card" data-aos="fade-up" data-aos-delay="400" onclick="openModal('modal-salle-dispo')">
+            <article class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="web" data-title="python salle dispo application web open source" onclick="openModal('modal-salle-dispo')">
                 <div class="card-img-container">
                     <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600" alt="Projet Python - Application Salle Dispo" loading="lazy">
                     <div class="overlay">
@@ -447,7 +458,7 @@
                         <span class="tag">Dev</span>
                     </div>
                     <h3 class="card-title">Salle Dispo - Projet Personnel</h3>
-                    <p style="color: var(--text-dim);">Application web Python pour gérer la disponibilité des salles en temps réel.</p>
+                    <p class="text-dim">Application web Python pour gérer la disponibilité des salles en temps réel.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
                         <span><i class="fab fa-github"></i> Open Source</span>
@@ -455,6 +466,10 @@
                 </div>
             </article>
 
+        </div>
+        <div class="no-results-msg" id="noResultsMsg" style="display:none;">
+            <i class="fas fa-search"></i>
+            <p>Aucun projet ne correspond à votre recherche.</p>
         </div>
     </section>
 
@@ -467,9 +482,9 @@
         <div class="timeline-entry" data-aos="fade-up">
             <div class="timeline-date">2025 — Aujourd'hui</div>
             <div class="timeline-content">
-                <h3>Chargé d'Études Avant-Vente</h3>
-                <div class="timeline-location">Orange · Alternance</div>
-                <p>Conception de solutions réseaux sur mesure pour les clients entreprises. Analyse des besoins, chiffrage technique et accompagnement commercial sur les projets d'infrastructures télécoms.</p>
+                <h3>Ingénieur Avant-Vente</h3>
+                <div class="timeline-location">Orange · Pôle Mutualisé (PMUT) · Alternance</div>
+                <p>Au sein du Pôle Mutualisé (PMUT), structure regroupant les expertises techniques au service de plusieurs agences Orange, je conçois des solutions réseaux sur mesure pour les clients entreprises. Analyse des besoins, chiffrage technique et accompagnement commercial sur les projets d'infrastructures télécoms et marchés publics.</p>
             </div>
         </div>
 
@@ -496,128 +511,323 @@
     </div>
 </section>
 
-    <!-- SUITE DANS LE PROCHAIN FICHIER (Compétences, Certifications, Services, Contact)... -->
-     <!-- Compétences Section -->
+    <!-- Compétences Section -->
     <section id="comp">
         <h2>Compétences</h2>
-        <div class="skills-container">
-            <div class="skill-card" data-aos="zoom-in" onclick="openModal('skill-modal-network')">
-                <img src="image/wireshark.png" alt="Logo Wireshark - Compétence Réseaux" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Réseaux</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences réseaux">En savoir +</button>
+        <p class="text-center text-dim mb-40">Cliquez sur une compétence pour en savoir plus.</p>
+
+        <div class="skills-glass-layout">
+
+            <!-- Colonne Réseaux & Infra -->
+            <div class="sg-column" data-aos="fade-up">
+                <div class="sg-label sg-label--blue">
+                    <span class="sg-label-dot"></span>
+                    Réseaux & Infrastructures
+                </div>
+                <div class="sg-cards">
+
+                    <div class="sg-card sg-card--blue sg-card--lg" onclick="openModal('skill-modal-network')" role="button" tabindex="0">
+                        <div class="sg-card-glow"></div>
+                        <div class="sg-card-top">
+                            <img src="image/wireshark.png" alt="Réseaux" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--blue">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Réseaux</h3>
+                            <p class="sg-sub">TCP/IP · Cisco · Wireshark</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sg-card sg-card--blue" onclick="openModal('skill-modal-telecom')" role="button" tabindex="0">
+                        <div class="sg-card-glow"></div>
+                        <div class="sg-card-top">
+                            <img src="image/logotelecom2.png" alt="Télécoms" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--blue">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Télécoms</h3>
+                            <p class="sg-sub">VoIP · PABX · Signaux</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sg-card sg-card--blue" onclick="openModal('skill-modal-fibre')" role="button" tabindex="0">
+                        <div class="sg-card-glow"></div>
+                        <div class="sg-card-top">
+                            <img src="image/fibreoptique.png" alt="Fibre" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--blue">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Fibre Optique</h3>
+                            <p class="sg-sub">FTTH · OTDR · GPON</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                </div>
             </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="50" onclick="openModal('skill-modal-web')">
-                <img src="image/htmllogo.png" alt="Logo HTML - Compétence Web" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">HTML/CSS</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences web">En savoir +</button>
+
+            <!-- Colonne Dev & Scripting -->
+            <div class="sg-column" data-aos="fade-up" data-aos-delay="80">
+                <div class="sg-label sg-label--orange">
+                    <span class="sg-label-dot sg-label-dot--orange"></span>
+                    Développement & Scripting
+                </div>
+                <div class="sg-cards">
+
+                    <div class="sg-card sg-card--orange sg-card--lg" onclick="openModal('skill-modal-python')" role="button" tabindex="0">
+                        <div class="sg-card-glow sg-card-glow--orange"></div>
+                        <div class="sg-card-top">
+                            <img src="image/pythonlogo.png" alt="Python" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--orange">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Python</h3>
+                            <p class="sg-sub">Scripts · APIs · Parsing</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sg-card sg-card--orange" onclick="openModal('skill-modal-web')" role="button" tabindex="0">
+                        <div class="sg-card-glow sg-card-glow--orange"></div>
+                        <div class="sg-card-top">
+                            <img src="image/htmllogo.png" alt="HTML/CSS" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--orange">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">HTML / CSS</h3>
+                            <p class="sg-sub">Responsive · Animations</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sg-card sg-card--orange" onclick="openModal('skill-modal-linux')" role="button" tabindex="0">
+                        <div class="sg-card-glow sg-card-glow--orange"></div>
+                        <div class="sg-card-top">
+                            <img src="image/linux.png" alt="Linux" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--orange">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Linux / Bash</h3>
+                            <p class="sg-sub">CLI · Shell · Docker</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="sg-card sg-card--orange" onclick="openModal('skill-modal-sql')" role="button" tabindex="0">
+                        <div class="sg-card-glow sg-card-glow--orange"></div>
+                        <div class="sg-card-top">
+                            <img src="image/sqllogo.png" alt="SQL" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--orange">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Bases de Données</h3>
+                            <p class="sg-sub">SQL · MySQL · PostgreSQL</p>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                </div>
             </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="100" onclick="openModal('skill-modal-python')">
-                <img src="image/pythonlogo.png" alt="Logo Python - Compétence Programmation" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Python</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences Python">En savoir +</button>
+
+            <!-- Colonne Cybersécurité -->
+            <div class="sg-column sg-column--narrow" data-aos="fade-up" data-aos-delay="160">
+                <div class="sg-label sg-label--red">
+                    <span class="sg-label-dot sg-label-dot--red"></span>
+                    Cybersécurité
+                </div>
+                <div class="sg-cards">
+
+                    <div class="sg-card sg-card--red sg-card--full" onclick="openModal('skill-modal-cyber')" role="button" tabindex="0">
+                        <div class="sg-card-glow sg-card-glow--red"></div>
+                        <div class="sg-card-top">
+                            <img src="image/logotry.png" alt="Cybersécurité" class="sg-icon" loading="lazy">
+                            <span class="sg-badge sg-badge--red">Intermédiaire</span>
+                        </div>
+                        <div class="sg-card-bottom">
+                            <h3 class="sg-title">Cybersécurité</h3>
+                            <p class="sg-sub">Kali · Nmap · OWASP</p>
+                        </div>
+                        <div class="sg-progression">
+                            <span class="sg-prog-label">En progression <i class="fas fa-arrow-trend-up"></i></span>
+                        </div>
+                        <i class="fas fa-arrow-up-right-from-square sg-link-icon" aria-hidden="true"></i>
+                    </div>
+
+                </div>
             </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="150" onclick="openModal('skill-modal-linux')">
-                <img src="image/linux.png" alt="Logo Bash - Compétence Linux" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Linux / Bash</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences Linux">En savoir +</button>
-            </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="200" onclick="openModal('skill-modal-sql')">
-                <img src="image/sqllogo.png" alt="Logo SQL - Compétence Base de Données" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Base de Données</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences SQL">En savoir +</button>
-            </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="250" onclick="openModal('skill-modal-telecom')">
-                <img src="image/logotelecom2.png" alt="Logo Télécoms - Compétence Télécommunications" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Télécoms</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences télécoms">En savoir +</button>
-            </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="300" onclick="openModal('skill-modal-cyber')">
-                <img src="image/logotry.png" alt="Logo Cybersécurité - Compétence Sécurité" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Cybersécurité</h3>
-                <div class="skill-level">Débutant</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences cybersécurité">En savoir +</button>
-            </div>
-            
-            <div class="skill-card" data-aos="zoom-in" data-aos-delay="350" onclick="openModal('skill-modal-fibre')">
-                <img src="image/fibreoptique.png" alt="Logo Fibre Optique - Compétence Technologie" class="skill-icon" loading="lazy">
-                <h3 class="skill-title">Technologie Fibre</h3>
-                <div class="skill-level">Intermédiaire</div>
-                <button class="btn btn-outline btn-sm skill-btn" aria-label="En savoir plus sur mes compétences fibre optique">En savoir +</button>
-            </div>
+
         </div>
     </section>
 
     <!-- Certifications Section -->
     <section id="certifications">
         <h2>Certifications & Badges</h2>
-        <p style="text-align: center; color: var(--text-dim); margin-bottom: 20px;">
+        <p class="text-center text-dim mb-40">
             Diplômes et validations de compétences techniques.
         </p>
 
-        <div class="certif-grid">
-            <div class="certif-card grid-col-2-row-2" data-aos="fade-up">
-                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600" class="certif-bg-img" alt="Fond Réseau" loading="lazy">
+        <!-- Label Cisco -->
+        <div class="certif-section-label" data-aos="fade-up">
+            <i class="fas fa-award" style="color:var(--primary);"></i>
+            Cisco Networking Academy
+        </div>
+
+        <!-- Grille Cisco : 4 cartes avec photo -->
+        <div class="certif-grid certif-grid--cisco" data-aos="fade-up" data-aos-delay="50">
+
+            <!-- CCNA1 -->
+            <a href="https://www.credly.com/badges/d1480594-da24-4283-b22a-6c8e4da57217"
+               target="_blank" rel="noopener noreferrer"
+               class="certif-card certif-card--cisco"
+               aria-label="Voir le badge CCNA1 sur Credly">
+                <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
                 <div class="certif-overlay"></div>
-                <i class="fas fa-network-wired certif-icon-corner" aria-hidden="true"></i>
+                <!-- Badge Credly : zone fixe, ne chevauche pas le contenu -->
+                <div class="certif-cisco-badge-zone">
+                    <img src="https://images.credly.com/images/70d71df5-f3dc-4380-9b9d-f22513a70417/CCNAITN__1_.png"
+                         alt="Badge CCNA1 Cisco" class="certif-cisco-badge" loading="lazy">
+                </div>
+                <div class="certif-content">
+                    <span class="certif-year">2025</span>
+                    <h3>CCNA1 : Introduction to Networks</h3>
+                    <p>Fondamentaux des réseaux, modèle OSI, adressage IP et protocoles de communication.</p>
+                    <span class="certif-credly-hint"><i class="fas fa-external-link-alt"></i> Voir sur Credly</span>
+                </div>
+            </a>
+
+            <!-- Bases du réseautage -->
+            <div class="certif-card certif-card--cisco">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
+                <div class="certif-overlay"></div>
+                <div class="certif-cisco-badge-zone">
+                    <img src="https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png"
+                         alt="Badge Bases du réseautage Cisco" class="certif-cisco-badge" loading="lazy">
+                </div>
                 <div class="certif-content">
                     <span class="certif-year">2025</span>
                     <h3>Bases du réseautage</h3>
-                    <p style="margin-top: 10px;">
-                        Maîtrise des architectures réseaux, adressage IPv4/IPv6, et configuration des routeurs/switchs Cisco. Certification Networking Academy.
-                    </p>
+                    <p>Architectures réseaux, adressage IPv4/IPv6, configuration des routeurs et switchs Cisco.</p>
                 </div>
             </div>
 
-            <div class="certif-card grid-col-2-row-1" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600" class="certif-bg-img" alt="Fond Cybersécurité" loading="lazy">
+            <!-- Digital Safety & Security Awareness -->
+            <a href="https://www.credly.com/badges/7076d3b9-7169-4b0b-b090-9b75247bd4cd"
+               target="_blank" rel="noopener noreferrer"
+               class="certif-card certif-card--cisco"
+               aria-label="Voir le badge Digital Safety sur Credly">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
+                <div class="certif-overlay"></div>
+                <div class="certif-cisco-badge-zone">
+                    <img src="https://images.credly.com/images/92d90000-9c96-4dbd-a37d-8c47bf338bca/blob"
+                         alt="Badge Digital Safety Cisco" class="certif-cisco-badge" loading="lazy">
+                </div>
+                <div class="certif-content">
+                    <span class="certif-year certif-year--orange">2025</span>
+                    <h3>Digital Safety & Security Awareness</h3>
+                    <p>Bonnes pratiques de sécurité numérique, protection des données et menaces courantes.</p>
+                    <span class="certif-credly-hint"><i class="fas fa-external-link-alt"></i> Voir sur Credly</span>
+                </div>
+            </a>
+
+            <!-- Network Technician Career Path -->
+            <a href="https://www.credly.com/badges/978f88dc-c247-4093-9d39-6efac3651297"
+               target="_blank" rel="noopener noreferrer"
+               class="certif-card certif-card--cisco certif-card--featured"
+               aria-label="Voir le badge Network Technician sur Credly">
+                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
+                <div class="certif-overlay"></div>
+                <div class="certif-cisco-badge-zone">
+                    <img src="https://images.credly.com/images/978f88dc-c247-4093-9d39-6efac3651297/image.png"
+                         alt="Badge Network Technician Cisco" class="certif-cisco-badge" loading="lazy">
+                </div>
+                <div class="certif-content">
+                    <span class="certif-year certif-year--green">2025</span>
+                    <h3>Network Technician Career Path</h3>
+                    <p>Parcours complet : installation, configuration et dépannage d'infrastructures réseau.</p>
+                    <span class="certif-credly-hint"><i class="fas fa-external-link-alt"></i> Voir sur Credly</span>
+                </div>
+            </a>
+
+            <!-- Introduction to Cybersecurity -->
+            <a href="https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51"
+               target="_blank" rel="noopener noreferrer"
+               class="certif-card certif-card--cisco"
+               aria-label="Voir le badge Introduction to Cybersecurity sur Credly">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
+                <div class="certif-overlay"></div>
+                <div class="certif-cisco-badge-zone">
+                    <img src="https://images.credly.com/images/af8c6b4e-fc31-47c4-8dcb-eb7a2065dc5b/I2CS__1_.png"
+                         alt="Badge Introduction to Cybersecurity Cisco" class="certif-cisco-badge" loading="lazy">
+                </div>
+                <div class="certif-content">
+                    <span class="certif-year certif-year--orange">2025</span>
+                    <h3>Introduction to Cybersecurity</h3>
+                    <p>Initiation aux fondamentaux de la cybersécurité, menaces, attaques et bonnes pratiques de défense.</p>
+                    <span class="certif-credly-hint"><i class="fas fa-external-link-alt"></i> Voir sur Credly</span>
+                </div>
+            </a>
+
+        </div>
+
+        <!-- Label Autres -->
+        <div class="certif-section-label" data-aos="fade-up" style="margin-top: 50px;">
+            <i class="fas fa-certificate" style="color:var(--primary);"></i>
+            Autres certifications
+        </div>
+
+        <!-- Grille Autres : 3 cartes photo -->
+        <div class="certif-grid certif-grid--others" data-aos="fade-up" data-aos-delay="50">
+
+            <div class="certif-card">
+                <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
                 <div class="certif-overlay"></div>
                 <i class="fas fa-shield-alt certif-icon-corner" aria-hidden="true"></i>
                 <div class="certif-content">
-                    <span class="certif-year" style="background: #f97316;">2023</span>
+                    <span class="certif-year certif-year--orange">2023</span>
                     <h3>SecNum Académie</h3>
                     <p>MOOC certifiant de l'ANSSI. Sécurité des SI, authentification et gestion des risques numériques.</p>
                 </div>
             </div>
 
-            <div class="certif-card grid-col-1-row-1" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=400" class="certif-bg-img" alt="Fond Data" loading="lazy">
+            <div class="certif-card">
+                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
                 <div class="certif-overlay"></div>
                 <i class="fas fa-user-lock certif-icon-corner" aria-hidden="true"></i>
                 <div class="certif-content">
                     <span class="certif-year">2025</span>
                     <h3>MOOC de la CNIL</h3>
-                    <p>Protection des données & conformité. Règlement général sur la protection des données (RGPD)</p>
+                    <p>Protection des données personnelles et conformité RGPD.</p>
                 </div>
             </div>
 
-            <div class="certif-card grid-col-1-row-1" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&q=80&w=400" class="certif-bg-img" alt="Fond Digital" loading="lazy">
+            <div class="certif-card">
+                <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&q=80&w=600"
+                     class="certif-bg-img" alt="" aria-hidden="true" loading="lazy">
                 <div class="certif-overlay"></div>
                 <i class="fas fa-laptop-code certif-icon-corner" aria-hidden="true"></i>
                 <div class="certif-content">
                     <span class="certif-year">550 pts</span>
                     <h3>Certification PIX</h3>
-                    <p>Compétences numériques transversales.</p>
+                    <p>Compétences numériques transversales. Score 550 / 896.</p>
                 </div>
             </div>
+
         </div>
     </section>
 
+
     <!-- Services Section - AMÉLIORÉE -->
     <section id="services">
-        <h2>Création Web</h2>
+        <h2>Side-Projects Web</h2>
         
         <div class="glass-card service-wrapper" data-aos="fade-up">
             <div class="service-content">
@@ -665,7 +875,7 @@
                 
 
                 <div class="service-cta">
-                    <p style="margin-bottom: 10px; font-weight: 500;">Vous avez une idée en tête ?</p>
+                    <p class="service-cta-label">Vous avez une idée en tête ?</p>
                     <a href="#contact" class="btn btn-primary">En discuter simplement <i class="fas fa-comment-dots"></i></a>
                 </div>
 
@@ -681,9 +891,6 @@
                 </div>
             </div>
 
-            <div class="service-visual">
-                
-            </div>
         </div>
     </section>
 
@@ -696,7 +903,7 @@
             </div>
 
             <!-- Notification de succès/erreur (cachée par défaut) -->
-            <div id="form-notification" class="notification" style="display: none;" role="alert"></div>
+            <div id="form-notification" class="notification notification--hidden" role="alert"></div>
 
             <form id="contact-form" action="https://formspree.io/f/myzovgyn" method="POST" class="contact-form">
                 <div class="form-row">
@@ -746,7 +953,7 @@
                 </div>
 
                 <div class="input-group">
-                    <textarea name="message" id="message" class="form-control" placeholder=" " required style="height: 150px; resize: none;"></textarea>
+                    <textarea name="message" id="message" class="form-control textarea-msg" placeholder=" " required></textarea>
                     <label for="message" class="floating-label">Votre message</label>
                     <i class="fas fa-comment-alt input-icon textarea-icon" aria-hidden="true"></i>
                     <div class="focus-border"></div>
@@ -775,12 +982,10 @@
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
-            <p>&copy; 2025 Johan Heurtebise. Tous droits réservés.</p>
+            <p>&copy; 2026 Johan Heurtebise. Tous droits réservés.</p>
             
         </div>
     </footer>
-
-    <!-- SUITE DANS LE PROCHAIN FICHIER (Modales projets)... -->
 
     <!-- ============================================
          MODALES DES PROJETS (avec carrousels)
@@ -2146,7 +2351,7 @@ def get_available_rooms(ics_url):
                 <div class="skill-detail-grid">
                     <div class="skill-detail-left">
                         <img src="image/logotry.png" class="skill-detail-icon" alt="Logo Cybersécurité" loading="lazy">
-                        <div><span class="skill-level-badge">Niveau : Débutant</span></div>
+                        <div><span class="skill-level-badge">Niveau : Intermédiaire</span></div>
                         <p>Fondamentaux de la sécurité des systèmes d'information et méthodologie pentesting.</p>
                     </div>
                     <div class="skill-detail-right">
@@ -2192,7 +2397,7 @@ def get_available_rooms(ics_url):
     </div>
 
    
-
+    
     <!-- ============================================
          SCRIPTS
          ============================================ -->
@@ -2204,4 +2409,3 @@ def get_available_rooms(ics_url):
     
 </body>
 </html>
-    <!-- Scripts -->

@@ -83,7 +83,7 @@ body {
     color: var(--text-main);
     line-height: 1.7;
     overflow-x: hidden;
-    transition: var(--transition);
+    transition: background-color 0.4s ease, color 0.3s ease;
 }
 
 a { 
@@ -475,10 +475,13 @@ header.scrolled {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* AJOUTE CES DEUX LIGNES */
-    margin-top: -40px;  /* Ajuste la valeur (plus c'est négatif, plus ça monte) */
-    margin-left: -60px; /* Ajuste la valeur (plus c'est négatif, plus ça va à gauche) */
+}
+
+@media (min-width: 901px) {
+    .hero-visual {
+        margin-top: -40px;
+        margin-left: -60px;
+    }
 }
 
 
@@ -867,6 +870,126 @@ header.scrolled {
 /* =========================================
    10. SECTION PORTFOLIO
    ========================================= */
+
+/* Barre de recherche + filtres */
+.portfolio-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.portfolio-search-wrapper {
+    position: relative;
+    flex: 1;
+    min-width: 200px;
+    max-width: 320px;
+}
+
+.portfolio-search-wrapper i {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    pointer-events: none;
+}
+
+.portfolio-search {
+    width: 100%;
+    padding: 10px 16px 10px 38px;
+    border-radius: 50px;
+    border: var(--glass-border);
+    background: var(--card-bg);
+    color: var(--text-main);
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.portfolio-search:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.portfolio-search::placeholder {
+    color: var(--text-dim);
+}
+
+.portfolio-filters {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--border-light);
+    background: transparent;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filter-btn.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+}
+
+.portfolio-count {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.portfolio-count span {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.no-results-msg {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-dim);
+}
+
+.no-results-msg i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: block;
+    opacity: 0.4;
+}
+
+.project-card.hidden-card {
+    display: none;
+}
+
+.project-card.filter-animate {
+    animation: filterIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes filterIn {
+    from { opacity: 0; transform: scale(0.96) translateY(8px); }
+    to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
 .portfolio-grid { 
     display: grid; 
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
@@ -1128,195 +1251,562 @@ header.scrolled {
 }
 
 /* =========================================
-   12. SECTION COMPÉTENCES
+   12. SECTION COMPÉTENCES — Glassmorphism flottant
    ========================================= */
-.skills-container { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
-    gap: 25px; 
+
+.skills-glass-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr 0.6fr;
+    gap: 28px;
+    align-items: start;
 }
 
-.skill-card {
-    background: var(--card-bg); 
-    border: var(--glass-border); 
-    border-radius: var(--radius);
-    padding: 30px 20px; 
-    text-align: center; 
-    transition: var(--transition);
-    box-shadow: var(--shadow); 
-    cursor: pointer; 
-    display: flex; 
-    flex-direction: column; 
+/* Colonne */
+.sg-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.sg-column--narrow .sg-cards {
+    height: 100%;
+}
+
+/* Label catégorie */
+.sg-label {
+    display: inline-flex;
     align-items: center;
-}
-
-.skill-card:hover { 
-    transform: translateY(-8px); 
-    border-color: var(--primary); 
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
-}
-
-.skill-icon { 
-    width: 70px; 
-    height: 70px; 
-    margin-bottom: 15px; 
-    object-fit: contain; 
-    transition: transform 0.3s; 
-}
-
-.skill-card:hover .skill-icon { 
-    transform: scale(1.1) rotate(5deg); 
-}
-
-.skill-title {
-    margin-bottom: 10px;
-}
-
-.skill-level {
-    font-size: 0.8rem;
+    gap: 8px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     color: var(--text-dim);
-    margin-bottom: 15px;
+    margin-bottom: 4px;
+}
+
+.sg-label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(59,130,246,0.6);
+    flex-shrink: 0;
+}
+
+.sg-label-dot--orange {
+    background: var(--accent);
+    box-shadow: 0 0 8px rgba(249,115,22,0.6);
+}
+
+.sg-label-dot--red {
+    background: #ef4444;
+    box-shadow: 0 0 8px rgba(239,68,68,0.6);
+}
+
+/* Stack de cartes */
+.sg-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* === Carte glassmorphism === */
+.sg-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+    padding: 20px 22px;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.06),
+        0 1px 4px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    overflow: hidden;
+}
+
+/* Glow au hover */
+.sg-card-glow {
+    position: absolute;
+    inset: -40px;
+    background: radial-gradient(circle at 50% 50%, rgba(59,130,246,0.18), transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.sg-card-glow--orange {
+    background: radial-gradient(circle at 50% 50%, rgba(249,115,22,0.18), transparent 70%);
+}
+
+.sg-card-glow--red {
+    background: radial-gradient(circle at 50% 50%, rgba(239,68,68,0.18), transparent 70%);
+}
+
+.sg-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow:
+        0 20px 50px rgba(59,130,246,0.14),
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    border-color: rgba(59,130,246,0.35);
+}
+
+.sg-card--orange:hover {
+    box-shadow:
+        0 20px 50px rgba(249,115,22,0.14),
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    border-color: rgba(249,115,22,0.35);
+}
+
+.sg-card--red:hover {
+    box-shadow:
+        0 20px 50px rgba(239,68,68,0.14),
+        0 8px 20px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+    border-color: rgba(239,68,68,0.35);
+}
+
+.sg-card:hover .sg-card-glow {
+    opacity: 1;
+}
+
+/* Première carte plus haute */
+.sg-card--lg {
+    padding: 26px 22px;
+}
+
+/* Carte pleine hauteur (cyber) */
+.sg-card--full {
+    flex: 1;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top de la carte */
+.sg-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+}
+
+/* Icone */
+.sg-icon {
+    width: 46px;
+    height: 46px;
+    object-fit: contain;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.12));
+}
+
+.sg-card:hover .sg-icon {
+    transform: scale(1.15) rotate(-4deg);
+}
+
+/* Badge niveau */
+.sg-badge {
+    font-size: 0.68rem;
+    font-weight: 700;
     padding: 3px 10px;
-    background: var(--box-bg);
-    border-radius: 12px;
+    border-radius: 20px;
+    letter-spacing: 0.02em;
 }
 
-.skill-btn { 
-    margin-top: auto; 
-    opacity: 0.8; 
-    transition: 0.3s; 
+.sg-badge--blue {
+    background: rgba(59,130,246,0.12);
+    color: var(--primary);
+    border: 1px solid rgba(59,130,246,0.2);
 }
 
-.skill-card:hover .skill-btn { 
-    opacity: 1; 
-    background: var(--primary); 
-    color: white; 
-    border-color: transparent; 
+.sg-badge--orange {
+    background: rgba(249,115,22,0.12);
+    color: var(--accent);
+    border: 1px solid rgba(249,115,22,0.2);
+}
+
+.sg-badge--red {
+    background: rgba(239,68,68,0.12);
+    color: #ef4444;
+    border: 1px solid rgba(239,68,68,0.2);
+}
+
+/* Bas de la carte */
+.sg-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 3px;
+    line-height: 1.2;
+}
+
+.sg-sub {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 500;
+}
+
+/* Icône lien */
+.sg-link-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    opacity: 0;
+    transition: opacity 0.3s ease, color 0.3s ease;
+}
+
+.sg-card:hover .sg-link-icon {
+    opacity: 1;
+    color: var(--primary);
+}
+
+/* Mention "En progression" */
+.sg-progression {
+    margin-top: auto;
+    padding-top: 14px;
+}
+
+.sg-prog-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ef4444;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Dark mode */
+[data-theme="dark"] .sg-card {
+    background: rgba(30, 41, 59, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.3),
+        0 1px 4px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .sg-card:hover {
+    border-color: rgba(59,130,246,0.4);
+    box-shadow:
+        0 20px 50px rgba(59,130,246,0.15),
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.08);
+}
+
+[data-theme="dark"] .sg-card--orange:hover {
+    border-color: rgba(249,115,22,0.4);
+    box-shadow:
+        0 20px 50px rgba(249,115,22,0.12),
+        0 8px 20px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255,255,255,0.06);
+}
+
+[data-theme="dark"] .sg-card--red:hover {
+    border-color: rgba(239,68,68,0.4);
+}
+
+/* =========================================
+   Responsive compétences
+   ========================================= */
+@media (max-width: 900px) {
+    .skills-glass-layout {
+        grid-template-columns: 1fr 1fr;
+    }
+    .sg-column--narrow {
+        grid-column: span 2;
+    }
+    .sg-card--full {
+        min-height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .skills-glass-layout {
+        grid-template-columns: 1fr;
+    }
+    .sg-column--narrow {
+        grid-column: span 1;
+    }
 }
 
 /* =========================================
    13. SECTION CERTIFICATIONS
    ========================================= */
-.certif-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: minmax(240px, auto);
-    gap: 25px;
-    margin-top: 40px;
+
+/* Label de section */
+.certif-section-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    margin-bottom: 20px;
 }
 
+/* Grille Cisco : 4 cartes sur 1 rangée */
+.certif-grid--cisco {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 0;
+}
+
+/* Grille autres : 3 cartes */
+.certif-grid--others {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+/* Carte de base */
 .certif-card {
     position: relative;
     border-radius: var(--radius);
-    padding: 25px;
     overflow: hidden;
     box-shadow: var(--shadow);
-    background: #000;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    background: #111;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.4s ease;
     color: #fff;
-    border: none;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+    text-decoration: none;
 }
 
 .certif-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0,0,0,0.4);
+    transform: translateY(-7px);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.35);
 }
 
+/* Cartes Cisco légèrement moins hautes */
+.certif-card--cisco {
+    min-height: 260px;
+}
+
+/* Carte en vedette (Network Technician) */
+.certif-card--featured {
+    border: 2px solid rgba(22,163,74,0.5);
+}
+
+.certif-card--featured:hover {
+    border-color: #16a34a;
+    box-shadow: 0 24px 48px rgba(22,163,74,0.2);
+}
+
+/* Photo de fond */
 .certif-bg-img {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
+    inset: 0;
+    width: 100%;
     height: 100%;
     object-fit: cover;
     z-index: 0;
     transition: transform 0.6s ease;
-    filter: brightness(0.9);
+    filter: brightness(0.85) saturate(1.1);
 }
 
 .certif-card:hover .certif-bg-img {
-    transform: scale(1.1);
+    transform: scale(1.07);
 }
 
+/* Dégradé overlay */
 .certif-overlay {
     position: absolute;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, rgba(0,0,0,0.1) 100%);
+    inset: 0;
+    /* Dégradé plus fort → meilleure lisibilité du texte en bas */
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.08) 0%,
+        rgba(0,0,0,0.35) 40%,
+        rgba(0,0,0,0.90) 100%
+    );
     z-index: 1;
 }
 
+/* Zone badge Cisco — en haut à gauche, taille fixe, ne déborde jamais sur le texte */
+.certif-cisco-badge-zone {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 3;
+    width: 58px;
+    height: 58px;
+    background: rgba(255,255,255,0.92);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+                box-shadow 0.3s ease;
+    padding: 2px;
+}
+
+.certif-card:hover .certif-cisco-badge-zone {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+}
+
+/* Badge image dans la zone */
+.certif-cisco-badge {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 50%;
+    display: block;
+}
+
+/* Zone icône FontAwesome (non-Credly) */
+.certif-cisco-badge-zone--icon {
+    background: rgba(59,130,246,0.15);
+    border: 1px solid rgba(59,130,246,0.3);
+}
+
+.certif-cisco-badge-zone--icon i {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+/* Icône corner (cartes non-Cisco) */
+.certif-icon-corner {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 1.3rem;
+    color: rgba(255,255,255,0.7);
+    z-index: 2;
+}
+
+/* Contenu textuel — toujours en bas de carte */
 .certif-content {
     position: relative;
     z-index: 2;
-    height: 100%;
+    margin-top: auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    gap: 6px;
 }
 
+/* Année / tag */
 .certif-year {
     display: inline-block;
     background: var(--primary);
     color: #fff;
-    padding: 4px 12px;
+    padding: 3px 11px;
     border-radius: 20px;
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     font-weight: 700;
-    margin-bottom: 10px;
     align-self: flex-start;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
+.certif-year--orange { background: var(--accent); }
+.certif-year--green  { background: #16a34a; }
+
+/* Titre */
 .certif-card h3 {
-    font-size: 1.4rem;
-    margin-bottom: 8px;
+    font-size: 1rem;
+    font-weight: 700;
     line-height: 1.3;
     color: #fff;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    margin: 0;
 }
 
+/* Description */
 .certif-card p {
-    font-size: 0.95rem;
-    color: #e2e8f0;
-    line-height: 1.5;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
-}
-
-.certif-icon-corner {
-    position: absolute; 
-    top: 20px; 
-    right: 20px;
-    font-size: 1.5rem; 
+    font-size: 0.78rem;
     color: rgba(255,255,255,0.8);
-    z-index: 2;
+    line-height: 1.5;
+    margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
 }
 
-/* Grid Spans */
-.grid-col-2-row-2 { 
-    grid-column: span 2; 
-    grid-row: span 2; 
+/* Lien Credly */
+.certif-credly-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.55);
+    letter-spacing: 0.02em;
+    margin-top: 4px;
+    transition: color 0.3s ease;
 }
 
-.grid-col-2-row-1 { 
-    grid-column: span 2; 
-    grid-row: span 1; 
+.certif-card:hover .certif-credly-hint {
+    color: rgba(255,255,255,0.9);
 }
 
-.grid-col-1-row-1 { 
-    grid-column: span 1; 
-    grid-row: span 1; 
+/* =========================================
+   Responsive certifications
+   ========================================= */
+@media (max-width: 1024px) {
+    .certif-grid--cisco {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.grid-col-2-row-2 h3 { 
-    font-size: 2rem; 
+@media (max-width: 900px) {
+    .certif-grid--cisco {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+    }
+    .certif-grid--others {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+    .certif-card--cisco {
+        min-height: 230px;
+    }
 }
 
-.grid-col-2-row-2 p { 
-    font-size: 1.05rem; 
-    max-width: 90%; 
+@media (max-width: 600px) {
+    .certif-grid--cisco,
+    .certif-grid--others {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+    }
+    .certif-card {
+        min-height: 200px;
+    }
+    .certif-card--cisco {
+        min-height: 190px;
+    }
+    .certif-content {
+        padding: 14px;
+    }
+    .certif-card h3 {
+        font-size: 0.85rem;
+    }
+    .certif-cisco-badge-zone {
+        width: 46px;
+        height: 46px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 420px) {
+    .certif-grid--cisco,
+    .certif-grid--others {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* =========================================
@@ -2604,17 +3094,32 @@ footer {
     .hero-container { 
         flex-direction: column; 
         text-align: center; 
-        gap: 50px; 
+        gap: 40px; 
+        padding: 0 20px;
     }
     
     .hero-visual { 
-        width: 300px; 
-        height: 380px; 
+        width: 260px; 
+        height: 320px;
+        margin-top: 0;
+        margin-left: 0;
     }
     
     .hero-avatar { 
-        width: 260px; 
-        height: 320px; 
+        width: 230px; 
+        height: 290px; 
+    }
+    
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-cta-row {
+        justify-content: center;
+    }
+
+    .social-row {
+        justify-content: center;
     }
     
     .tech-ring, .tech-ring-inner { 
@@ -2627,8 +3132,10 @@ footer {
     }
 
     .stats-row {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         gap: 15px;
+        justify-content: center;
     }
 
     /* Navigation */
@@ -2642,10 +3149,23 @@ footer {
         flex-direction: column; 
         padding: 20px; 
         box-shadow: var(--shadow);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        gap: 5px;
     }
     
     .nav-links.active { 
         display: flex; 
+    }
+    
+    .nav-links a {
+        padding: 10px 15px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+    }
+
+    .nav-links a:hover {
+        background: rgba(59,130,246,0.08);
     }
     
     .menu-toggle { 
@@ -2699,19 +3219,12 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    /* Certifications */
-    .certif-grid { 
-        grid-template-columns: 1fr; 
-        grid-auto-rows: 250px; 
-    }
-    
-    .grid-col-2-row-2, 
-    .grid-col-2-row-1, 
-    .grid-col-1-row-1 { 
-        grid-column: span 1; 
-        grid-row: span 1; 
-    }
-    
+    /* === COMPÉTENCES MOBILE === */
+    /* Handled by sg-column media query inside section 12 */
+
+    /* === CERTIFICATIONS MOBILE === */
+    /* Handled by certif-grid media queries inside section 13 */
+
     /* Timeline Mobile */
     .timeline::after { 
         left: 31px; 
@@ -2810,7 +3323,7 @@ footer {
 
     /* Sections Padding */
     section {
-        padding: 60px 20px;
+        padding: 70px 16px;
     }
 
     h2 {
@@ -2820,11 +3333,36 @@ footer {
 
 @media (max-width: 600px) {
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.9rem;
+    }
+
+    .hero-visual {
+        width: 220px;
+        height: 270px;
+    }
+
+    .hero-avatar {
+        width: 195px;
+        height: 245px;
     }
 
     .stat-number {
         font-size: 2rem;
+    }
+
+    .stats-row {
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-cta-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hero-cta-row .btn {
+        width: 100%;
+        justify-content: center;
     }
 
     .contact-wrapper {
@@ -2843,10 +3381,11 @@ footer {
     }
 
     .news-grid,
-    .portfolio-grid,
-    .skills-container {
+    .portfolio-grid {
         grid-template-columns: 1fr;
     }
+
+    /* Compétences : géré par section 12 */
 
     .pricing-grid {
         grid-template-columns: 1fr;
@@ -2880,12 +3419,28 @@ footer {
     text-align: center;
 }
 
+.text-dim {
+    color: var(--text-dim);
+}
+
+.text-main {
+    color: var(--text-main);
+}
+
 .mt-20 {
     margin-top: 20px;
 }
 
 .mb-20 {
     margin-bottom: 20px;
+}
+
+.mb-30 {
+    margin-bottom: 30px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
 }
 
 /* Focus Visible (Accessibilité) */
@@ -3100,4 +3655,244 @@ footer {
     .gusco-screenshots {
         grid-template-columns: 1fr;
     }
+}
+
+/* =========================================
+   27. VALIDATION FORMULAIRE — feedback visuel
+   ========================================= */
+
+/* Champ en erreur */
+.input-group.field-error .form-control {
+    border-color: var(--error) !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+}
+
+.input-group.field-error .floating-label {
+    color: var(--error);
+}
+
+/* Champ valide */
+.input-group.field-ok .form-control {
+    border-color: var(--success) !important;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+/* Message d'erreur sous un champ */
+.field-msg {
+    font-size: 0.78rem;
+    margin-top: 4px;
+    padding-left: 4px;
+    color: var(--error);
+    display: none;
+}
+
+.input-group.field-error .field-msg {
+    display: block;
+}
+
+
+/* Hero CTA row */
+.hero-cta-row {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* =========================================
+   480px — Très petits téléphones
+   ========================================= */
+@media (max-width: 480px) {
+    section {
+        padding: 60px 14px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    .hero-title {
+        font-size: 1.7rem;
+    }
+
+    .hero-visual {
+        width: 190px;
+        height: 240px;
+    }
+
+    .hero-avatar {
+        width: 170px;
+        height: 215px;
+    }
+
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .certif-section-label {
+        font-size: 0.68rem;
+    }
+
+    .about-grid {
+        gap: 20px;
+    }
+
+    .glass-card {
+        padding: 24px 18px !important;
+    }
+
+    .contact-wrapper {
+        padding: 20px !important;
+    }
+}
+
+/* Textarea du formulaire */
+.textarea-msg {
+    height: 150px;
+    resize: none;
+}
+
+/* Notification cachée par défaut (remplace style="display:none") */
+.notification--hidden {
+    display: none;
+}
+
+/* =========================================
+   24. SECTION À PROPOS — Classes utilitaires
+   ========================================= */
+
+.about-card-header {
+    margin-bottom: 20px;
+}
+
+.about-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.about-title {
+    margin-bottom: 10px;
+}
+
+.about-lead {
+    font-size: 1.05rem;
+    margin-bottom: 20px;
+}
+
+.about-body {
+    color: var(--text-dim);
+    margin-bottom: 20px;
+}
+
+.about-location {
+    font-style: italic;
+    font-size: 0.9rem;
+    color: var(--text-dim);
+}
+
+/* Carte avec padding réduit */
+.about-card-pad {
+    padding: 25px !important;
+}
+
+/* Carte newsletter avec bordure primaire */
+.about-card-alt {
+    border-color: var(--primary) !important;
+}
+
+/* Inner flex de la carte Orange */
+.about-alt-inner {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+/* Icône orange */
+.about-icon-accent {
+    background: rgba(249, 115, 22, 0.1);
+    padding: 12px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    color: var(--accent);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-alt-title {
+    margin-bottom: 5px;
+}
+
+.about-alt-desc {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+}
+
+/* Newsletter block */
+.about-newsletter {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.about-newsletter-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--text-main);
+}
+
+.about-newsletter-head i {
+    color: var(--primary);
+}
+
+.about-newsletter-btn {
+    align-self: flex-start;
+    margin-top: 5px;
+}
+
+.about-newsletter-arrow {
+    margin-left: 8px;
+    font-size: 0.8em;
+}
+
+/* =========================================
+   25. SERVICES — CTA label
+   ========================================= */
+.service-cta-label {
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+/* =========================================
+   26. DARK MODE — Amélioration contrastes glass cards
+   ========================================= */
+[data-theme="dark"] .glass-card {
+    background: rgba(30, 41, 59, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .news-card {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+[data-theme="dark"] .project-card {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+[data-theme="dark"] .skill-card {
+    background: rgba(30, 41, 59, 0.85);
+}
+
+/* Transition douce sur le changement de thème pour tous les éléments colorés */
+.glass-card,
+.news-card,
+.project-card,
+.skill-card,
+header,
+.background-glows {
+    transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease;
 }
