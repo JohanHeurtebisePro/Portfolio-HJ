@@ -73,12 +73,11 @@
                 <nav class="nav-links" role="navigation" aria-label="Navigation principale">
                     <a href="#home">Accueil</a>
                     <a href="#profil">À propos</a>
-                    <a href="#portfolio">Portfolio</a>
-                    <a href="#actu">Projets</a>
-                    <a href="#parcours">Parcours</a> 
+                    <a href="#portfolio">Projets</a>
+                    <a href="#parcours">Parcours</a>
                     <a href="#comp">Compétences</a>
                     <a href="#certifications">Certifications</a>
-                    <a href="#services">Web</a>
+                    <a href="#services">Services</a>
                     <a href="#contact">Contact</a>
                 </nav>
                 
@@ -173,7 +172,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (fusionnée avec Veille) -->
     <section id="profil">
         <h2>À propos</h2>
         <div class="about-grid">
@@ -216,120 +215,69 @@
                         <p class="about-alt-desc">
                             Chaque mois, je partage mes découvertes en Réseaux, Télécoms et Cybersécurité. Une façon de documenter mon apprentissage et de suivre mes progrès.
                         </p>
-                        <a href="#actu" class="btn btn-primary btn-sm about-newsletter-btn">
+                        <a href="https://johanheurtebise.substack.com/p/ctrl-your-world-voici-les-actus-tech?r=6dlzsy&utm_campaign=post&utm_medium=web&triedRedirect=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm about-newsletter-btn">
                             Lire la dernière édition <i class="fas fa-arrow-right about-newsletter-arrow"></i>
                         </a>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
 
-    
-    <section id="actu">
-        <h2>Actualités & Veille</h2>
-        <p class="text-center text-dim mb-40">
-            Mes derniers projets personnels, publications et mises à jour techniques.
-        </p>
-
-        <div class="news-grid">
-            <!-- Projet Open Source Python -->
-            <article class="news-card" data-aos="fade-up">
-                <div class="news-header">
-                    <span class="news-tag dev">Projet Open-Source</span>
-                    <span class="news-date">Déc 2025</span>
-                </div>
-                
-                <div class="news-content">
-                    <h3><i class="fab fa-python" style="color: #3776ab;"></i> Salle Dispo</h3>
-                    <p>
-                        Développement d'une solution Python permettant de centraliser et d'afficher la <strong>disponibilité des salles</strong> (Universités, Écoles) en temps réel.
-                    </p>
-                    
-                    <ul class="news-features">
-                        <li><i class="fas fa-check"></i> Parsing de fichiers calendriers <strong>.ICS</strong></li>
-                        <li><i class="fas fa-check"></i> Interface Web de visualisation</li>
-                        <li><i class="fas fa-check"></i> Détection automatique des créneaux libres</li>
-                        <li><i class="fas fa-check"></i> Affichage pour grands écrans (TV)</li>
-                    </ul>
-
-                    <div class="news-actions">
-                        <a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                            Voir sur GitHub <i class="fab fa-github"></i>
-                        </a>
-                        <button onclick="openModal('modal-salle-dispo')" class="btn btn-primary btn-sm">
-                            Détails du projet <i class="fas fa-arrow-right"></i>
-                        </button>
+        <!-- Veille intégrée -->
+        <div class="about-veille-section" data-aos="fade-up" data-aos-delay="100">
+            <div class="about-veille-header">
+                <i class="fas fa-rss about-veille-icon" aria-hidden="true"></i>
+                <h3>Veille & Actualités</h3>
+                <span class="about-veille-sub">Mes derniers projets personnels, publications et mises à jour techniques</span>
+            </div>
+            <div class="about-veille-grid">
+                <!-- Projet Open Source Python -->
+                <article class="about-veille-card" data-aos="fade-up">
+                    <div class="about-veille-card-top">
+                        <span class="news-tag dev">Projet Open-Source</span>
+                        <span class="news-date">Déc 2025</span>
                     </div>
-                </div>
-            </article>
-
-            <!-- Newsletter CTRL Your World -->
-            <article class="news-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="news-header">
-                    <span class="news-tag veille">Newsletter</span>
-                    <span class="news-date">Octobre 2025</span>
-                </div>
-                
-                <div class="news-content">
-                    <h3><i class="fas fa-newspaper" style="color: #10b981;"></i> CTRL Your World #2</h3>
-                    <p>
-                        Dernière édition de ma newsletter mensuelle dédiée aux <strong>Réseaux, Télécoms et Cybersécurité</strong>.
-                    </p>
-                    
-                    <div class="news-highlight-box">
-                        <strong>Au sommaire :</strong>
-                        <span>Thalès innove dans le Quantique</span>
-                        <span>Rachat de SFR</span>
-                        <span>Arret des MAJ de Windows 10</span>
+                    <h4><i class="fab fa-python" style="color:#3776ab;"></i> Salle Dispo</h4>
+                    <p>Application Python centralisant la <strong>disponibilité des salles</strong> en temps réel via parsing de fichiers .ICS.</p>
+                    <div class="about-veille-actions">
+                        <a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub <i class="fab fa-github"></i></a>
+                        <button onclick="openModal('modal-salle-dispo')" class="btn btn-primary btn-sm">Détails <i class="fas fa-arrow-right"></i></button>
                     </div>
+                </article>
 
-                    <div class="news-actions">
-                        <a href="https://johanheurtebise.substack.com/p/ctrl-your-world-voici-les-actus-tech?r=6dlzsy&utm_campaign=post&utm_medium=web&triedRedirect=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                            Lire l'édition <i class="fas fa-external-link-alt"></i>
-                        </a>
+                <!-- Newsletter -->
+                <article class="about-veille-card" data-aos="fade-up" data-aos-delay="80">
+                    <div class="about-veille-card-top">
+                        <span class="news-tag veille">Newsletter</span>
+                        <span class="news-date">Oct 2025</span>
                     </div>
-                </div>
-            </article>
-
-
-            <article class="news-card" data-aos="fade-up">
-                <div class="news-header">
-                    <span class="news-tag dev">Projet Open-Source</span>
-                    <span class="news-date">Jan 2026</span>
-                </div>
-                
-                <div class="news-content">
-                    <h3><i class="fab fa-js" style="color: #f7df1e;"></i> DartVoice</h3>
-                    <p>
-                        Application de scoring fléchettes <strong>mains-libres</strong> avec reconnaissance vocale, gestion multi-joueurs et prédictions de fin de partie.
-                    </p>
-                    
-                    <ul class="news-features">
-                        <li><i class="fas fa-check"></i> Saisie vocale des scores en temps réel</li>
-                        <li><i class="fas fa-check"></i> Algorithme de prédiction de coup (Checkout)</li>
-                        <li><i class="fas fa-check"></i> Statistiques détaillées et suivi des sets</li>
-                        <li><i class="fas fa-check"></i> Modes de jeu : 301, 501 et Cricket</li>
-                    </ul>
-
-                    <div class="news-actions">
-                        <a href="https://github.com/JohanHeurtebisePro/DartVoice" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">
-                            Voir sur GitHub <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://johanheurtebisepro.github.io/DartVoice/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
-                            Projet <i class="fas fa-external-link-alt"></i>
-                        </a>
+                    <h4><i class="fas fa-newspaper" style="color:#10b981;"></i> CTRL Your World #2</h4>
+                    <p>Thalès &amp; Quantique · Rachat de SFR · Fin des MAJ Windows 10 — et plus encore.</p>
+                    <div class="about-veille-actions">
+                        <a href="https://johanheurtebise.substack.com/p/ctrl-your-world-voici-les-actus-tech?r=6dlzsy&utm_campaign=post&utm_medium=web&triedRedirect=true" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Lire <i class="fas fa-external-link-alt"></i></a>
                     </div>
-                </div>
-            </article>
+                </article>
 
-           
+                <!-- DartVoice -->
+                <article class="about-veille-card" data-aos="fade-up" data-aos-delay="160">
+                    <div class="about-veille-card-top">
+                        <span class="news-tag dev">Projet Open-Source</span>
+                        <span class="news-date">Jan 2026</span>
+                    </div>
+                    <h4><i class="fab fa-js" style="color:#f7df1e;"></i> DartVoice</h4>
+                    <p>Scoring fléchettes <strong>mains-libres</strong> avec reconnaissance vocale, multi-joueurs et prédictions de fin de partie.</p>
+                    <div class="about-veille-actions">
+                        <a href="https://github.com/JohanHeurtebisePro/DartVoice" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">GitHub <i class="fab fa-github"></i></a>
+                        <a href="https://johanheurtebisepro.github.io/DartVoice/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">Voir <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </article>
+            </div>
         </div>
     </section>
 
-    <!-- Portfolio Section - ENRICHIE -->
+    
     <section id="portfolio">
-        <h2>Portfolio</h2>
+        <h2>Projets</h2>
         <p class="text-center text-dim mb-30">
             Cliquez sur un projet pour voir les détails techniques et les étapes de réalisation.
         </p>
@@ -349,7 +297,7 @@
             </div>
         </div>
         <p class="portfolio-count" id="portfolioCount"><span id="portfolioCountNum">5</span> projet(s) affiché(s)</p>
-
+        
         <div class="portfolio-grid">
             <!-- SAE101 - Hygiène Informatique -->
             <article class="project-card" data-aos="fade-up" data-category="cyber" data-title="hygiène informatique cybersécurité sensibilisation" onclick="openModal('modal1')">
@@ -364,7 +312,7 @@
                         <span class="tag">Cyber</span>
                         <span class="tag">Sensibilisation</span>
                     </div>
-                    <h3 class="card-title">SAE101 : Hygiène Informatique</h3>
+                    <h3 class="card-title">Découvrir l'Hygiène Informatique</h3>
                     <p class="text-dim">Sensibilisation aux risques numériques et bonnes pratiques de sécurité.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
@@ -387,7 +335,7 @@
                         <span class="tag">Cisco</span>
                         <span class="tag">OSPF</span>
                     </div>
-                    <h3 class="card-title">SAE201 : Réseau d'Entreprise</h3>
+                    <h3 class="card-title">Concevoir un Réseau d'Entreprise</h3>
                     <p class="text-dim">Conception et déploiement d'une architecture LAN/WAN complète.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
@@ -409,7 +357,7 @@
                         <span class="tag">Télécoms</span>
                         <span class="tag">Signal</span>
                     </div>
-                    <h3 class="card-title">SAE103 : Supports de Transmission</h3>
+                    <h3 class="card-title">Etude d'un Supports de Transmission</h3>
                     <p class="text-dim">Analyse physique des supports et mesures à l'oscilloscope.</p>
                     <div class="project-meta">
                         <span><i class="fas fa-calendar"></i> 2025</span>
@@ -475,7 +423,7 @@
 
     <!-- Parcours Section -->
     <section id="parcours">
-    <h2>Mon Parcours</h2>
+    <h2>Parcours</h2>
     <div class="timeline-wrapper">
         
         <!-- Expérience 1 -->
@@ -735,7 +683,7 @@
             </a>
 
             <!-- Network Technician Career Path -->
-            <a href="https://www.credly.com/badges/978f88dc-c247-4093-9d39-6efac3651297"
+            <a href="https://www.credly.com/earner/earned/badge/eb3e40cc-39ef-425e-9a48-db0d1ae42504"
                target="_blank" rel="noopener noreferrer"
                class="certif-card certif-card--cisco certif-card--featured"
                aria-label="Voir le badge Network Technician sur Credly">
@@ -827,7 +775,7 @@
 
     <!-- Services Section - AMÉLIORÉE -->
     <section id="services">
-        <h2>Side-Projects Web</h2>
+        <h2>Services</h2>
         
         <div class="glass-card service-wrapper" data-aos="fade-up">
             <div class="service-content">
@@ -894,9 +842,12 @@
         </div>
     </section>
 
-    <!-- Contact Section - AMÉLIORÉE -->
+    <!-- Anchor de compatibilité : #actu redirige vers #profil -->
+    <div id="actu"></div>
+
+    <!-- Portfolio Section - ENRICHIE -->
     <section id="contact">
-        <h2>Me Contacter</h2>
+        <h2>Contact</h2>
         <div class="glass-card contact-wrapper" data-aos="zoom-in">
             <div class="contact-header">
                 <p>Un projet ? Une question ? N'hésitez pas à m'envoyer un message.</p>
@@ -996,7 +947,7 @@
         <div class="modal-content modal-lg"> 
             <div class="modal-header">
                 <div class="header-title">
-                    <h3 id="modal1-title">SAE101 : Hygiène Informatique</h3>
+                    <h3 id="modal1-title">Découvrir l'Hygiène Informatique</h3>
                     <span class="badge-category">Cybersécurité</span>
                 </div>
                 <div class="header-controls">
@@ -1626,7 +1577,7 @@
     <div class="modal-content modal-lg">
         <div class="modal-header">
             <div class="header-title">
-                <h3 id="modal3-title">SAE103 : Supports de Transmission</h3>
+                <h3 id="modal3-title">Etude d'un Supports de Transmission</h3>
                 <span class="badge-category">Télécoms</span>
             </div>
             <div class="header-controls">
@@ -2361,6 +2312,7 @@ def get_available_rooms(ics_url):
                             <div class="tech-item"><i class="fas fa-wrench"></i> Outils (Kali Linux, Nmap, Metasploit)</div>
                             <div class="tech-item"><i class="fas fa-network-wired"></i> Pare-feu & ACL</div>
                             <div class="tech-item"><i class="fas fa-lock"></i> Vulnérabilités Web (OWASP Top 10)</div>
+                            <div class="tech-item"><i class="fas fa-skull-crossbones"></i> Attaques réseau : MAC flooding, ARP spoofing, SYN flood, DNS poisoning, HTTP flood, IP spoofing — et leurs contre-mesures (Port Security, DAI, rate-limiting, DNSSEC, IDS/IPS)</div>
                         </div>
                     </div>
                 </div>

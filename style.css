@@ -3260,33 +3260,169 @@ footer {
         filter: blur(50px); 
     }
 
-    /* Modales Mobile */
-    .modal-content {
-        width: 95%; 
-        max-height: 92vh; 
-        height: 92vh;
+    /* Modales Mobile — redesign complet */
+    .modal {
+        align-items: flex-end;
+        padding: 0;
     }
-    
+
+    .modal-content {
+        width: 100%;
+        max-width: 100%;
+        max-height: 92dvh;
+        height: auto;
+        border-radius: 24px 24px 0 0;
+        animation: slideUpMobile 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+    }
+
+    @keyframes slideUpMobile {
+        from { transform: translateY(100%); opacity: 0.6; }
+        to   { transform: translateY(0);    opacity: 1; }
+    }
+
+    .modal-header {
+        padding: 14px 18px 12px;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background: var(--nav-bg);
+        border-radius: 24px 24px 0 0;
+        /* drag handle */
+    }
+
+    .modal-header::before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 4px;
+        background: var(--border-light);
+        border-radius: 2px;
+        margin: 0 auto 12px;
+    }
+
+    .header-title {
+        gap: 8px;
+    }
+
+    .header-title h3 {
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+
+    .header-controls {
+        gap: 10px;
+    }
+
+    .page-counter {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .close-btn {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--tag-bg);
+        border-radius: 50%;
+        font-size: 1.1rem;
+    }
+
+    .carousel-container {
+        overflow: hidden;
+        flex: 1;
+    }
+
     .carousel-slide {
-        overflow-y: auto !important; 
+        overflow-y: auto !important;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 80px;
-        height: 100%; 
+        padding: 16px 16px 90px;
+        height: 100%;
         display: block;
     }
-    
-    .carousel-nav {
-        top: auto; 
-        bottom: 10px; 
-        transform: none; 
-        padding: 0 20px; 
-        z-index: 100;
+
+    .slide-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
     }
-    
+
+    .image-column {
+        order: -1;
+    }
+
+    .slide-img {
+        max-height: 200px;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    .carousel-nav {
+        position: sticky;
+        bottom: 0;
+        top: auto;
+        transform: none;
+        padding: 10px 20px 14px;
+        background: var(--nav-bg);
+        border-top: 1px solid var(--border-light);
+        z-index: 100;
+        justify-content: center;
+        gap: 16px;
+    }
+
     .carousel-btn {
-        background: var(--primary); 
-        color: white; 
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 12px rgba(59,130,246,0.35);
+        width: 44px;
+        height: 44px;
+        font-size: 1rem;
+        border-radius: 50%;
+    }
+
+    .carousel-dots {
+        margin: 6px 0 0;
+    }
+
+    /* Modale compétences mobile */
+    .modal-body-skill {
+        padding: 16px;
+        overflow-y: auto;
+    }
+
+    .skill-detail-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px;
+    }
+
+    .skill-detail-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+    }
+
+    .skill-detail-icon {
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    .tech-list {
+        gap: 8px;
+    }
+
+    .tech-item {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    /* info-box & project-brief mobile */
+    .project-brief-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
     }
 
     .cards-grid {
@@ -3895,4 +4031,109 @@ footer {
 header,
 .background-glows {
     transition: background-color 0.4s ease, border-color 0.3s ease, color 0.3s ease;
+}
+/* =========================================
+   27. ABOUT — Section Veille intégrée
+   ========================================= */
+.about-veille-section {
+    margin-top: 50px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-light);
+}
+
+.about-veille-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    flex-wrap: wrap;
+}
+
+.about-veille-icon {
+    font-size: 1.4rem;
+    color: var(--primary);
+}
+
+.about-veille-header h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.about-veille-sub {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    margin-left: auto;
+}
+
+.about-veille-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.about-veille-card {
+    background: var(--card-bg);
+    border: var(--glass-border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.about-veille-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.15);
+    border-color: var(--primary);
+}
+
+.about-veille-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.about-veille-card h4 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin: 0;
+}
+
+.about-veille-card p {
+    color: var(--text-dim);
+    font-size: 0.88rem;
+    flex: 1;
+}
+
+.about-veille-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: auto;
+    padding-top: 6px;
+}
+
+@media (max-width: 900px) {
+    .about-veille-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .about-veille-sub {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-veille-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-veille-header {
+        gap: 10px;
+    }
 }
