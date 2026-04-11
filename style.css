@@ -64,6 +64,171 @@
 }
 
 /* =========================================
+   INTRO ANIMATION SCREEN — v3
+   ========================================= */
+
+/* Cooper Black via Adobe / cdnfonts fallback */
+@import url('https://fonts.cdnfonts.com/css/cooper-black');
+
+#intro-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    /* Fond clair harmonisé avec le thème bleu-gris du portfolio */
+    background: #e8eef6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    pointer-events: all;
+    transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                filter 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Particule lumineuse en fond d'intro */
+#intro-screen::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 60% 40% at 30% 50%, rgba(59, 130, 246, 0.12) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 50% at 75% 55%, rgba(249, 115, 22, 0.08) 0%, transparent 65%);
+    pointer-events: none;
+}
+
+
+
+#intro-screen.hidden {
+    display: none;
+}
+
+/* Wrapper incliné — haut à gauche */
+.intro-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;   /* aligne le texte à gauche */
+    gap: 0.05em;
+    position: relative;
+    z-index: 1;
+    line-height: 1.0;
+
+}
+
+/* Prénom — couleur initiale : sombre */
+.intro-firstname {
+    font-family: 'Cooper Black', 'Poppins', serif;
+    font-size: clamp(3.2rem, 10vw, 8.5rem);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    color: #1e293b;
+    opacity: 0;
+    transform: translateX(-60px);
+    animation: introSlideIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.15s forwards;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+/* Nom de famille — couleur initiale : bleu */
+.intro-lastname {
+    font-family: 'Cooper Black', 'Poppins', serif;
+    font-size: clamp(3.8rem, 12vw, 10rem);
+    font-weight: 900;
+    letter-spacing: -0.01em;
+    color: #3b82f6;
+    opacity: 0;
+    transform: translateX(60px);
+    animation: introSlideInRight 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.4s forwards;
+    position: relative;
+    display: block;
+    overflow: hidden;
+}
+
+/*
+ * Couche "après vague" via ::after :
+ * même texte (data-text), couleur inversée,
+ * révélée par un clip-path qui s'ouvre de gauche à droite
+ * en suivant exactement la vague.
+ */
+.intro-firstname::after,
+.intro-lastname::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    clip-path: inset(0 100% 0 0);
+    animation: waveReveal 0.85s cubic-bezier(0.76, 0, 0.24, 1) 1.2s forwards;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+}
+
+/* Johan → bleu après la vague */
+.intro-firstname::after { color: #3b82f6; }
+
+/* Heurtebise → sombre après la vague */
+.intro-lastname::after  { color: #1e293b; }
+
+/* Barre de lumière qui traverse l'écran (le "front" de vague visible) */
+#intro-screen .wave-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.45) 35%,
+        rgba(255, 255, 255, 0.9)  50%,
+        rgba(255, 255, 255, 0.45) 65%,
+        transparent 100%
+    );
+    transform: translateX(-120px);
+    animation: waveSweep 0.85s cubic-bezier(0.76, 0, 0.24, 1) 1.2s forwards;
+    pointer-events: none;
+    z-index: 20;
+    filter: blur(3px);
+}
+
+/* La barre file de gauche à droite sur toute la largeur */
+@keyframes waveSweep {
+    0%   { transform: translateX(-120px); }
+    100% { transform: translateX(calc(100vw + 120px)); }
+}
+
+/* Le clip-path suit exactement la même courbe */
+@keyframes waveReveal {
+    0%   { clip-path: inset(0 100% 0 0); }
+    100% { clip-path: inset(0 0%   0 0); }
+}
+
+@keyframes introSlideIn {
+    0%   { opacity: 0; transform: translateX(-60px); filter: blur(6px); }
+    100% { opacity: 1; transform: translateX(0);     filter: blur(0);   }
+}
+
+@keyframes introSlideInRight {
+    0%   { opacity: 0; transform: translateX(60px); filter: blur(6px); }
+    100% { opacity: 1; transform: translateX(0);    filter: blur(0);   }
+}
+
+/* Fade-out du fond vers la couleur du site */
+#intro-screen.fade-out {
+    opacity: 0;
+    transform: scale(1.08);
+    filter: blur(4px);
+    pointer-events: none;
+}
+
+body.intro-active {
+    overflow: hidden;
+}
+
+/* =========================================
    2. RESET & BASE
    ========================================= */
 * { 

@@ -4,8 +4,27 @@
    ========================================= */
 
 // ------------------------------------------------
-// 1. INITIALISATION AOS (Animations on Scroll)
+// 0. INTRO ANIMATION
 // ------------------------------------------------
+(function () {
+    const screen = document.getElementById('intro-screen');
+
+    if (!screen) return;
+
+    document.body.classList.add('intro-active');
+
+    // Slide arrive à ~1.05s, wave dure 0.85s → tout fini à ~2.05s
+    // On tient 0.5s de plus pour profiter du résultat final
+    const DISPLAY_DURATION = 2200;
+
+    setTimeout(() => {
+        screen.classList.add('fade-out');
+        document.body.classList.remove('intro-active');
+        setTimeout(() => screen.classList.add('hidden'), 1200);
+    }, DISPLAY_DURATION);
+})();
+
+
 AOS.init({ 
     once: true, 
     offset: 120,
