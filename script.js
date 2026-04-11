@@ -228,13 +228,37 @@ const trackStates = {
     'track-marque': { index: 0, total: 3, counterId: 'counter-marque' }
 };
 
+// Bloquer le scroll tactile iOS derrière la modale (sans position:fixed)
+function _preventTouchMove(e) {
+    const scrollable = e.target.closest('.carousel-slide, .modal-body-skill, .modal-single-page');
+
+    if (scrollable) {
+        const touch = e.touches[0];
+        const lastY = scrollable._lastTouchY ?? touch.clientY;
+        const deltaY = touch.clientY - lastY;
+        scrollable._lastTouchY = touch.clientY;
+
+        const atTop    = scrollable.scrollTop <= 0;
+        const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
+
+        // Bloquer si on dépasse les extrémités
+        if ((atTop && deltaY > 0) || (atBottom && deltaY < 0)) {
+            e.preventDefault();
+        }
+        // Sinon scroll normal à l'intérieur
+        return;
+    }
+
+    // Hors zone scrollable → toujours bloquer
+    e.preventDefault();
+}
+
 // Ouvrir une modale
 // Méthode 1 : Passer l'event en paramètre
 function openModal(id, event) {
     if (event) {
-        event.preventDefault(); // Empêche le jump
-        event.stopPropagation(); // Empêche la propagation
-        
+        event.preventDefault();
+        event.stopPropagation();
     }
     
     const modal = document.getElementById(id);
@@ -245,6 +269,9 @@ function openModal(id, event) {
     
     document.body.classList.add('modal-open');
     modal.setAttribute('aria-hidden', 'false');
+
+    // iOS Safari : bloquer le touchmove sur le fond sans toucher à la position
+    document.addEventListener('touchmove', _preventTouchMove, { passive: false });
     
     // Reset du carrousel
     const track = modal.querySelector('.carousel-track');
@@ -273,9 +300,12 @@ function closeModal(id) {
     
     setTimeout(() => {
         modal.style.display = 'none';
-        
-        // Réactiver le scroll du body
         document.body.classList.remove('modal-open');
+        // Retirer le blocage tactile iOS
+        document.removeEventListener('touchmove', _preventTouchMove);
+        // Nettoyer les valeurs de touch mémorisées
+        modal.querySelectorAll('.carousel-slide, .modal-body-skill, .modal-single-page')
+            .forEach(el => delete el._lastTouchY);
     }, 300);
 }
 
@@ -285,6 +315,31 @@ window.addEventListener('click', (e) => {
         closeModal(e.target.id); 
     }
 });
+
+// Bloquer le scroll du fond pendant qu'une modale est ouverte (desktop + mobile)
+// Empêche le "scroll bleed" : quand on atteint le bas/haut d'une zone scrollable,
+// le scroll ne se propage pas au body derrière.
+document.addEventListener('wheel', (e) => {
+    const activeModal = document.querySelector('.modal.show');
+    if (!activeModal) return;
+
+    const scrollable = e.target.closest('.carousel-slide, .modal-body-skill, .modal-single-page');
+
+    if (scrollable) {
+        const scrollingDown = e.deltaY > 0;
+        const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
+        const atTop    = scrollable.scrollTop <= 0;
+
+        // Si on est à la limite ET qu'on essaie de dépasser → bloquer
+        if ((scrollingDown && atBottom) || (!scrollingDown && atTop)) {
+            e.preventDefault();
+        }
+        // Sinon laisser le scroll se faire normalement dans la zone
+    } else {
+        // Hors zone scrollable (fond, header, nav) → toujours bloquer
+        e.preventDefault();
+    }
+}, { passive: false });
 
 // Fermer avec la touche Escape
 document.addEventListener('keydown', (e) => {
@@ -376,6 +431,59 @@ document.addEventListener('keydown', (e) => {
         moveSlide(trackId, 1, dotsId);
     }
 });
+
+// ------------------------------------------------
+// SWIPE TACTILE sur les carrousels (mobile)
+// ------------------------------------------------
+(function initCarouselSwipe() {
+    let touchStartX = 0;
+    let touchStartY = 0;
+    let isSwiping = false;
+
+    document.addEventListener('touchstart', (e) => {
+        const activeModal = document.querySelector('.modal.show');
+        if (!activeModal) return;
+        const container = activeModal.querySelector('.carousel-container');
+        if (!container || !container.contains(e.target)) return;
+
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+        isSwiping = true;
+    }, { passive: true });
+
+    document.addEventListener('touchend', (e) => {
+        if (!isSwiping) return;
+        isSwiping = false;
+
+        const activeModal = document.querySelector('.modal.show');
+        if (!activeModal) return;
+        const container = activeModal.querySelector('.carousel-container');
+        if (!container) return;
+
+        const track = activeModal.querySelector('.carousel-track');
+        if (!track) return;
+
+        const deltaX = e.changedTouches[0].clientX - touchStartX;
+        const deltaY = e.changedTouches[0].clientY - touchStartY;
+
+        // Ignorer si le mouvement est principalement vertical (scroll)
+        if (Math.abs(deltaY) > Math.abs(deltaX)) return;
+        // Seuil minimum de 50px
+        if (Math.abs(deltaX) < 50) return;
+
+        const trackId = track.id;
+        let dotsId;
+        if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
+        else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
+        else { dotsId = 'dots' + trackId.slice(-1); }
+
+        if (deltaX < 0) {
+            moveSlide(trackId, 1, dotsId);   // swipe gauche → slide suivant
+        } else {
+            moveSlide(trackId, -1, dotsId);  // swipe droite → slide précédent
+        }
+    }, { passive: true });
+})();
 
 // ------------------------------------------------
 // 10. ACCORDÉON (Modales)
@@ -857,3 +965,18 @@ function renderCiscoBadges() {
 }
 
 renderCiscoBadges();
+
+// ------------------------------------------------
+// FLIP CARDS — Toggle au tap (mobile)
+// ------------------------------------------------
+document.addEventListener('click', (e) => {
+    const card = e.target.closest('.flip-card');
+    if (!card) return;
+
+    // Sur mobile (pas de hover), on toggle la classe flipped
+    // Sur desktop avec hover natif, on ne fait rien
+    const hasHover = window.matchMedia('(hover: hover)').matches;
+    if (!hasHover) {
+        card.classList.toggle('flipped');
+    }
+});

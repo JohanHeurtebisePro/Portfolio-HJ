@@ -114,7 +114,9 @@
                 <div class="tech-ring"></div>
                 <div class="tech-ring-inner"></div>
                 <div class="tech-decor-points"></div>
-                <img src="image/PP.jpeg" alt="Photo de profil de Johan Heurtebise" class="hero-avatar" loading="eager">
+                <div class="hero-avatar-wrapper">
+                    <img src="image/PP.jpeg" alt="Photo de profil de Johan Heurtebise" class="hero-avatar" loading="eager">
+                </div>
             </div>
             
             <div class="hero-content" data-aos="fade-left" data-aos-duration="1000">
@@ -1165,17 +1167,16 @@
                 <button class="carousel-btn" onclick="moveSlide('track1', -1, 'dots1')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+                <div class="carousel-dots" id="dots1" role="tablist" aria-label="Navigation slides">
+                    <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
+                    <span class="dot" onclick="goToSlide('track1', 1, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+                    <span class="dot" onclick="goToSlide('track1', 2, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+                    <span class="dot" onclick="goToSlide('track1', 3, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
+                    <span class="dot" onclick="goToSlide('track1', 4, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 5"></span>
+                </div>
                 <button class="carousel-btn" onclick="moveSlide('track1', 1, 'dots1')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-            </div>
-
-            <div class="carousel-dots" id="dots1" role="tablist" aria-label="Navigation slides">
-                <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-                <span class="dot" onclick="goToSlide('track1', 1, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-                <span class="dot" onclick="goToSlide('track1', 2, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
-                <span class="dot" onclick="goToSlide('track1', 3, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
-                <span class="dot" onclick="goToSlide('track1', 4, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 5"></span>
             </div>
         </div>
     </div>
@@ -1566,19 +1567,18 @@
             <button class="carousel-btn" onclick="moveSlide('track2', -1, 'dots2')" aria-label="Slide précédent">
                 <i class="fas fa-chevron-left"></i>
             </button>
+            <div class="carousel-dots" id="dots2">
+                <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
+                <span class="dot" onclick="goToSlide('track2', 6, 'dots2')"></span>
+            </div>
             <button class="carousel-btn" onclick="moveSlide('track2', 1, 'dots2')" aria-label="Slide suivant">
                 <i class="fas fa-chevron-right"></i>
             </button>
-        </div>
-
-        <div class="carousel-dots" id="dots2">
-            <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
-            <span class="dot" onclick="goToSlide('track2', 6, 'dots2')"></span>
         </div>
     </div>
 </div>
@@ -1802,16 +1802,15 @@
             <button class="carousel-btn" onclick="moveSlide('track3', -1, 'dots3')" aria-label="Slide précédent">
                 <i class="fas fa-chevron-left"></i>
             </button>
+            <div class="carousel-dots" id="dots3">
+                <span class="dot active" onclick="goToSlide('track3', 0, 'dots3')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
+                <span class="dot" onclick="goToSlide('track3', 1, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+                <span class="dot" onclick="goToSlide('track3', 2, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+                <span class="dot" onclick="goToSlide('track3', 3, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
+            </div>
             <button class="carousel-btn" onclick="moveSlide('track3', 1, 'dots3')" aria-label="Slide suivant">
                 <i class="fas fa-chevron-right"></i>
             </button>
-        </div>
-
-        <div class="carousel-dots" id="dots3">
-            <span class="dot active" onclick="goToSlide('track3', 0, 'dots3')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-            <span class="dot" onclick="goToSlide('track3', 1, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-            <span class="dot" onclick="goToSlide('track3', 2, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
-            <span class="dot" onclick="goToSlide('track3', 3, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
         </div>
     </div>
 </div>
@@ -1967,15 +1966,14 @@ def get_available_rooms(ics_url):
                 <button class="carousel-btn" onclick="moveSlide('track-salle', -1, 'dots-salle')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+                <div class="carousel-dots" id="dots-salle">
+                    <span class="dot active" onclick="goToSlide('track-salle', 0, 'dots-salle')"></span>
+                    <span class="dot" onclick="goToSlide('track-salle', 1, 'dots-salle')"></span>
+                    <span class="dot" onclick="goToSlide('track-salle', 2, 'dots-salle')"></span>
+                </div>
                 <button class="carousel-btn" onclick="moveSlide('track-salle', 1, 'dots-salle')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-            </div>
-
-            <div class="carousel-dots" id="dots-salle">
-                <span class="dot active" onclick="goToSlide('track-salle', 0, 'dots-salle')"></span>
-                <span class="dot" onclick="goToSlide('track-salle', 1, 'dots-salle')"></span>
-                <span class="dot" onclick="goToSlide('track-salle', 2, 'dots-salle')"></span>
             </div>
         </div>
     </div>
@@ -2117,15 +2115,14 @@ def get_available_rooms(ics_url):
                 <button class="carousel-btn" onclick="moveSlide('track-marque', -1, 'dots-marque')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
+                <div class="carousel-dots" id="dots-marque">
+                    <span class="dot active" onclick="goToSlide('track-marque', 0, 'dots-marque')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
+                    <span class="dot" onclick="goToSlide('track-marque', 1, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
+                    <span class="dot" onclick="goToSlide('track-marque', 2, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
+                </div>
                 <button class="carousel-btn" onclick="moveSlide('track-marque', 1, 'dots-marque')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
-            </div>
-
-            <div class="carousel-dots" id="dots-marque">
-                <span class="dot active" onclick="goToSlide('track-marque', 0, 'dots-marque')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-                <span class="dot" onclick="goToSlide('track-marque', 1, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-                <span class="dot" onclick="goToSlide('track-marque', 2, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
             </div>
         </div>
     </div>

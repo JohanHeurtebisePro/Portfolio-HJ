@@ -251,6 +251,11 @@ body {
     transition: background-color 0.4s ease, color 0.3s ease;
 }
 
+/* Blocage du scroll derrière la modale — compatible iOS Safari */
+body.modal-open {
+    overflow: hidden;
+}
+
 a { 
     text-decoration: none; 
     color: inherit; 
@@ -651,96 +656,71 @@ header.scrolled {
 
 
 
+/* Fond décoratif — forme bleue très claire et discrète */
 .tech-shape-bg {
     position: absolute;
-    width: 90%; 
-    height: 90%;
-    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(37, 99, 235, 0.05));
-    border-radius: 40px;
-    transform: rotate(-6deg);
+    width: 92%;
+    height: 92%;
+    background: rgba(59, 130, 246, 0.07);
+    border-radius: 34px;
+    transform: rotate(-4deg);
     z-index: -2;
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: none;
     transition: var(--transition);
 }
 
-.tech-ring {
-    position: absolute;
-    width: 110%; 
-    height: 88%;
-    border-radius: 50%;
-    border: 2px dashed rgba(59, 130, 246, 0.3);
-    z-index: -1;
-    animation: spinRing 30s linear infinite;
-}
-
+/* Anneaux rotatifs supprimés */
+.tech-ring,
 .tech-ring-inner {
-    position: absolute;
-    width: 100%; 
-    height: 80%;
-    border-radius: 50%;
-    border: 1px solid rgba(249, 115, 22, 0.3);
-    z-index: -1;
-    animation: spinRing 20s linear infinite reverse; 
+    display: none;
 }
 
+/* Points décoratifs désactivés */
 .tech-decor-points {
-    position: absolute; 
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%; 
-    z-index: -2; 
-    pointer-events: none;
+    display: none;
 }
 
-.tech-decor-points::before, 
-.tech-decor-points::after {
-    content: '+'; 
-    position: absolute; 
-    font-weight: bold; 
-    font-family: monospace;
+/* Wrapper simple — pas de bordure colorée */
+.hero-avatar-wrapper {
+    position: relative;
+    z-index: 2;
+    border-radius: 33px;
+    background: transparent;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+    transition: var(--transition);
 }
 
-.tech-decor-points::before { 
-    top: 20%; 
-    left: 10%; 
-    font-size: 1.2rem; 
-    color: rgba(59, 130, 246, 0.3); 
-}
-
-.tech-decor-points::after { 
-    bottom: 15%; 
-    right: 10%; 
-    font-size: 0.9rem; 
-    color: rgba(249, 115, 22, 0.3); 
+/* Pas de pseudo-élément */
+.hero-avatar-wrapper::before {
+    display: none;
 }
 
 .hero-avatar {
-    width: 350px; 
-    height: 450px; 
-    border-radius: 30px; 
-    object-fit: cover; 
+    width: 350px;
+    height: 450px;
+    border-radius: 30px;
+    object-fit: cover;
     object-position: center top;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.15); 
-    transition: var(--transition); 
+    transition: var(--transition);
     background-color: var(--card-bg);
-    z-index: 2; 
     position: relative;
-    border: 1px solid rgba(255,255,255,0.5);
+    z-index: 1;
+    display: block;
+    border: none;
 }
 
-@keyframes spinRing {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
+/* Hover : légère montée */
 .hero-visual:hover .tech-shape-bg {
-    transform: rotate(-3deg) scale(1.02);
-    border-color: var(--accent);
+    transform: rotate(-2deg) scale(1.01);
+}
+
+.hero-visual:hover .hero-avatar-wrapper {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.16);
+    transform: scale(1.02);
 }
 
 .hero-visual:hover .hero-avatar {
-    transform: scale(1.02);
+    transform: none;
 }
 
 .hero-content { 
@@ -2458,12 +2438,17 @@ footer {
     top: 0; 
     width: 100%; 
     height: 100%;
+    /* dvh pour tenir compte des barres de navigation mobiles */
+    height: 100dvh;
     background-color: rgba(0,0,0,0.8); 
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     justify-content: center; 
     align-items: center; 
     opacity: 0; 
     transition: opacity 0.3s;
+    /* Empêche le scroll derrière la modale sur iOS */
+    overscroll-behavior: contain;
 }
 
 .modal.show { 
@@ -2474,7 +2459,9 @@ footer {
     background: var(--bg-color); 
     width: 90%; 
     max-width: 850px; 
-    max-height: 85vh;
+    /* height fixe (pas juste max-height) pour que flex-children puissent scroller */
+    height: 85dvh;
+    max-height: 85dvh;
     border-radius: var(--radius); 
     overflow: hidden; 
     position: relative;
@@ -2556,6 +2543,14 @@ footer {
     cursor: pointer; 
     color: var(--text-dim); 
     transition: var(--transition);
+    /* Zone de toucher suffisante (44px minimum recommandé) */
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .close-btn:hover {
@@ -2565,22 +2560,31 @@ footer {
 
 /* Layout Carrousel */
 .carousel-container { 
-    flex: 1; 
+    flex: 1;
+    min-height: 0; /* CRUCIAL : sans ça, flex-child ignore overflow et déborde */
     position: relative; 
-    overflow: hidden; 
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 .carousel-track { 
-    display: flex; 
-    height: 100%; 
-    transition: transform 0.5s ease-in-out; 
+    display: flex;
+    /* Pas de flex:1 ni height:100% ici — il prend la hauteur de ses enfants */
+    transition: transform 0.5s ease-in-out;
+    /* Hauteur héritée du container via align-items stretch */
+    align-self: stretch;
+    height: 100%;
 }
 
 .carousel-slide { 
-    min-width: 100%; 
-    height: 100%; 
+    min-width: 100%;
+    /* overflow-y ici, pas sur le container */
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
     padding: 30px; 
-    overflow-y: auto; 
     background: var(--bg-color); 
 }
 
@@ -2606,17 +2610,17 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 30px 20px 30px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    padding: 14px 24px;
+    position: relative;
     width: 100%;
     z-index: 20;
-    pointer-events: none;
+    background: var(--bg-color);
+    border-top: 1px solid var(--border-light);
+    flex-shrink: 0;
+    overflow: visible;
 }
 
 .carousel-btn {
-    pointer-events: auto;
     width: 45px;
     height: 45px;
     border-radius: 50%;
@@ -2630,6 +2634,9 @@ footer {
     justify-content: center;
     transition: all 0.3s ease;
     background: var(--card-bg);
+    /* Zone de toucher suffisante sur mobile */
+    min-width: 45px;
+    min-height: 45px;
 }
 
 .carousel-btn:hover {
@@ -2643,27 +2650,27 @@ footer {
 .carousel-dots {
     display: flex;
     justify-content: center;
-    padding: 25px 0;
-    gap: 12px;
-    background: transparent;
-    position: relative;
-    z-index: 15;
+    align-items: center;
+    gap: 10px;
 }
 
 .dot { 
-    width: 10px; 
-    height: 10px; 
-    border-radius: 50%; 
+    width: 8px; 
+    height: 8px; 
+    border-radius: 999px; 
     background: var(--text-dim); 
-    opacity: 0.3; 
+    opacity: 0.35; 
     cursor: pointer; 
-    transition: var(--transition);
+    transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease,
+                background 0.35s ease;
+    flex-shrink: 0;
 }
 
 .dot.active { 
+    width: 28px;
     opacity: 1; 
-    background: var(--primary); 
-    transform: scale(1.2); 
+    background: var(--primary);
 }
 
 /* Contenu Slide */
@@ -2885,7 +2892,15 @@ footer {
     border-radius: 12px;
 }
 
-.flip-card:hover .flip-card-inner {
+/* Hover sur desktop uniquement */
+@media (hover: hover) {
+    .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+    }
+}
+
+/* Toggle tap sur mobile */
+.flip-card.flipped .flip-card-inner {
     transform: rotateY(180deg);
 }
 
@@ -3046,8 +3061,18 @@ footer {
 
 /* Modal Compétences */
 .modal-body-skill { 
-    padding: 40px; 
-    overflow-y: auto; 
+    padding: 36px 40px; 
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    /* Pas de flex:1 ici — on laisse le contenu définir la hauteur */
+}
+
+/* Les modales de compétences n'ont pas de carousel :
+   on les laisse s'adapter à leur contenu */
+.modal-content:has(.modal-body-skill) {
+    height: auto;
+    max-height: 85dvh;
 }
 
 .skill-detail-grid { 
@@ -3272,7 +3297,16 @@ footer {
     
     .hero-avatar { 
         width: 230px; 
-        height: 290px; 
+        height: 290px;
+        border-radius: 25px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 28px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 25px;
     }
     
     .hero-content {
@@ -3285,11 +3319,6 @@ footer {
 
     .social-row {
         justify-content: center;
-    }
-    
-    .tech-ring, .tech-ring-inner { 
-        width: 100%; 
-        height: 95%; 
     }
 
     .hero-title {
@@ -3425,7 +3454,7 @@ footer {
         filter: blur(50px); 
     }
 
-    /* Modales Mobile — redesign complet */
+    /* Modales Mobile — bottom sheet */
     .modal {
         align-items: flex-end;
         padding: 0;
@@ -3434,10 +3463,11 @@ footer {
     .modal-content {
         width: 100%;
         max-width: 100%;
-        max-height: 92dvh;
-        height: auto;
+        height: 95dvh;
+        max-height: 95dvh;
         border-radius: 24px 24px 0 0;
         animation: slideUpMobile 0.35s cubic-bezier(0.32, 0.72, 0, 1);
+        overscroll-behavior: contain;
     }
 
     @keyframes slideUpMobile {
@@ -3446,15 +3476,17 @@ footer {
     }
 
     .modal-header {
-        padding: 14px 18px 12px;
+        padding: 8px 16px 12px;
         position: sticky;
         top: 0;
         z-index: 10;
         background: var(--nav-bg);
         border-radius: 24px 24px 0 0;
-        /* drag handle */
+        flex-wrap: nowrap;
+        gap: 8px;
     }
 
+    /* Drag handle */
     .modal-header::before {
         content: '';
         display: block;
@@ -3462,49 +3494,67 @@ footer {
         height: 4px;
         background: var(--border-light);
         border-radius: 2px;
-        margin: 0 auto 12px;
+        margin: 0 auto 10px;
+        flex-shrink: 0;
     }
 
     .header-title {
-        gap: 8px;
+        gap: 6px;
+        flex: 1;
+        min-width: 0;
     }
 
     .header-title h3 {
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.3;
+        /* Evite le texte débordant */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
     }
 
     .header-controls {
-        gap: 10px;
+        gap: 8px;
+        flex-shrink: 0;
     }
 
     .page-counter {
         font-size: 0.75rem;
         padding: 4px 10px;
+        white-space: nowrap;
     }
 
     .close-btn {
-        width: 32px;
-        height: 32px;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
         display: flex;
         align-items: center;
         justify-content: center;
         background: var(--tag-bg);
         border-radius: 50%;
-        font-size: 1.1rem;
+        font-size: 1rem;
+        flex-shrink: 0;
     }
 
+    /* Carousel container doit remplir l'espace restant */
     .carousel-container {
-        overflow: hidden;
         flex: 1;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .carousel-track {
+        height: 100%;
     }
 
     .carousel-slide {
-        overflow-y: auto !important;
+        overflow-y: auto;
+        overflow-x: hidden;
         -webkit-overflow-scrolling: touch;
-        padding: 16px 16px 90px;
+        padding: 16px 16px 20px;
         height: 100%;
-        display: block;
     }
 
     .slide-grid {
@@ -3512,47 +3562,58 @@ footer {
         gap: 16px;
     }
 
+    .reverse-layout {
+        grid-template-columns: 1fr !important;
+    }
+
     .image-column {
         order: -1;
     }
 
     .slide-img {
-        max-height: 200px;
+        max-height: 220px;
         width: 100%;
         object-fit: contain;
     }
 
+    /* Nav du carousel : sticky en bas, visible, jamais superposé */
     .carousel-nav {
         position: sticky;
         bottom: 0;
-        top: auto;
-        transform: none;
-        padding: 10px 20px 14px;
+        padding: 12px 20px;
         background: var(--nav-bg);
         border-top: 1px solid var(--border-light);
         z-index: 100;
-        justify-content: center;
-        gap: 16px;
+        justify-content: space-between;
+        gap: 12px;
+        flex-shrink: 0;
+        overflow: visible;
     }
 
     .carousel-btn {
         background: var(--primary);
         color: white;
+        border-color: var(--primary);
         box-shadow: 0 4px 12px rgba(59,130,246,0.35);
         width: 44px;
         height: 44px;
+        min-width: 44px;
+        min-height: 44px;
         font-size: 1rem;
         border-radius: 50%;
     }
 
     .carousel-dots {
-        margin: 6px 0 0;
+        margin: 0;
+        gap: 10px;
     }
 
-    /* Modale compétences mobile */
+    /* Modale compétences mobile — s'adapte au contenu */
     .modal-body-skill {
-        padding: 16px;
+        padding: 20px 16px;
         overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        overscroll-behavior: contain;
     }
 
     .skill-detail-grid {
@@ -3563,25 +3624,36 @@ footer {
     .skill-detail-left {
         display: flex;
         align-items: center;
-        gap: 14px;
+        gap: 16px;
         flex-wrap: wrap;
+        text-align: left;
+        padding-right: 0;
+        border-right: none;
+        padding-bottom: 16px;
+        border-bottom: 1px solid var(--border-light);
     }
 
     .skill-detail-icon {
-        width: 52px !important;
-        height: 52px !important;
+        width: 56px !important;
+        height: 56px !important;
+        margin-bottom: 0;
+    }
+
+    .skill-level-badge {
+        margin-bottom: 0;
     }
 
     .tech-list {
         gap: 8px;
+        margin-top: 12px;
     }
 
     .tech-item {
-        padding: 8px 12px;
+        padding: 10px 12px;
         font-size: 0.85rem;
     }
 
-    /* info-box & project-brief mobile */
+    /* Grilles dans les slides */
     .project-brief-grid {
         grid-template-columns: 1fr !important;
     }
@@ -3590,12 +3662,16 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .cards-grid {
-        grid-template-columns: 1fr;
+    .flip-card-container {
+        grid-template-columns: 1fr 1fr;
     }
 
-    .flip-card-container {
-        grid-template-columns: 1fr;
+    /* Terminal Mobile */
+    #term-window {
+        width: calc(100vw - 40px);
+        left: 20px;
+        bottom: 20px;
+        height: 250px;
     }
 
     /* Floating CV Button Mobile */
@@ -3612,14 +3688,6 @@ footer {
 
     .floating-cv-btn i {
         margin: 0;
-    }
-
-    /* Terminal Mobile */
-    #term-window {
-        width: calc(100vw - 40px);
-        left: 20px;
-        bottom: 20px;
-        height: 250px;
     }
 
     /* Sections Padding */
@@ -3645,6 +3713,15 @@ footer {
     .hero-avatar {
         width: 195px;
         height: 245px;
+        border-radius: 22px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 25px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 22px;
     }
 
     .stat-number {
@@ -3670,23 +3747,22 @@ footer {
         padding: 25px !important;
     }
 
+    /* Sur 600px, le header modal reste en ligne (flex-row) */
     .modal-header {
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
         align-items: flex-start;
+        gap: 8px;
     }
 
     .header-controls {
-        width: 100%;
-        justify-content: space-between;
+        width: auto;
+        justify-content: flex-end;
     }
 
     .news-grid,
     .portfolio-grid {
         grid-template-columns: 1fr;
     }
-
-    /* Compétences : géré par section 12 */
 
     .pricing-grid {
         grid-template-columns: 1fr;
@@ -3838,6 +3914,11 @@ footer {
 /* ===== MODALE SINGLE PAGE — GUSCO ===== */
 .modal-single-page {
     padding: 10px 5px 5px;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+    flex: 1;
+    min-height: 0;
 }
 
 .marque-meta-row {
@@ -4024,6 +4105,15 @@ footer {
     .hero-avatar {
         width: 170px;
         height: 215px;
+        border-radius: 20px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 23px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 20px;
     }
 
     .nav-container {
