@@ -15,12 +15,12 @@
 
     // Slide arrive à ~1.05s, wave dure 0.85s → tout fini à ~2.05s
     // On tient 0.5s de plus pour profiter du résultat final
-    const DISPLAY_DURATION = 2200;
+    const DISPLAY_DURATION = 1500;
 
     setTimeout(() => {
         screen.classList.add('fade-out');
         document.body.classList.remove('intro-active');
-        setTimeout(() => screen.classList.add('hidden'), 1200);
+        setTimeout(() => screen.classList.add('hidden'), 800);
     }, DISPLAY_DURATION);
 })();
 
@@ -221,11 +221,11 @@ if (typewriterElement) {
 
 // Configuration : index actuel, nombre total de slides, ID du compteur
 const trackStates = {
-    'track1': { index: 0, total: 5, counterId: 'counter1' },
-    'track2': { index: 0, total: 7, counterId: 'counter2' },
-    'track3': { index: 0, total: 4, counterId: 'counter3' },
-    'track-salle': { index: 0, total: 3, counterId: 'counter-salle' },
-    'track-marque': { index: 0, total: 3, counterId: 'counter-marque' }
+    'track1': { index: 0, total: 6, counterId: 'counter1' },
+    'track2': { index: 0, total: 8, counterId: 'counter2' },
+    'track3': { index: 0, total: 6, counterId: 'counter3' },
+    'track-salle': { index: 0, total: 4, counterId: 'counter-salle' },
+    'track-marque': { index: 0, total: 4, counterId: 'counter-marque' }
 };
 
 // Bloquer le scroll tactile iOS derrière la modale (sans position:fixed)
@@ -237,6 +237,11 @@ function _preventTouchMove(e) {
         const lastY = scrollable._lastTouchY ?? touch.clientY;
         const deltaY = touch.clientY - lastY;
         scrollable._lastTouchY = touch.clientY;
+
+        const noOverflow = scrollable.scrollHeight <= scrollable.clientHeight;
+
+        // Si le contenu ne dépasse pas, ne rien bloquer
+        if (noOverflow) return;
 
         const atTop    = scrollable.scrollTop <= 0;
         const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
@@ -271,6 +276,8 @@ function openModal(id, event) {
     modal.setAttribute('aria-hidden', 'false');
 
     // iOS Safari : bloquer le touchmove sur le fond sans toucher à la position
+    // On retire d'abord pour éviter les doublons si openModal est appelé plusieurs fois
+    document.removeEventListener('touchmove', _preventTouchMove);
     document.addEventListener('touchmove', _preventTouchMove, { passive: false });
     
     // Reset du carrousel
@@ -329,6 +336,10 @@ document.addEventListener('wheel', (e) => {
         const scrollingDown = e.deltaY > 0;
         const atBottom = scrollable.scrollTop + scrollable.clientHeight >= scrollable.scrollHeight - 1;
         const atTop    = scrollable.scrollTop <= 0;
+        const noOverflow = scrollable.scrollHeight <= scrollable.clientHeight;
+
+        // Si le contenu ne dépasse pas (pas de scroll possible), ne rien bloquer
+        if (noOverflow) return;
 
         // Si on est à la limite ET qu'on essaie de dépasser → bloquer
         if ((scrollingDown && atBottom) || (!scrollingDown && atTop)) {
@@ -881,90 +892,6 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
-// ------------------------------------------------
-// CISCO BADGES — Génération dynamique
-// ------------------------------------------------
-const ciscoBadges = [
-    {
-        title: "Networking Basics",
-        year: "2025",
-        yearClass: "",
-        description: "Architectures réseaux, adressage IPv4/IPv6, modèle OSI et configuration des équipements Cisco.",
-        badgeImg: "https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png",
-        bgImg: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=600",
-        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
-        featured: false
-    },
-    {
-        title: "Network Addressing & Basic Troubleshooting",
-        year: "2025",
-        yearClass: "",
-        description: "Adressage réseau avancé, sous-réseaux VLSM et dépannage des infrastructures.",
-        badgeImg: "https://images.credly.com/images/b2a56bda-da6c-4c33-b3ae-d67f8b0fda9b/image.png",
-        bgImg: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=400",
-        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
-        featured: false
-    },
-    {
-        title: "Network Support and Security",
-        year: "2025",
-        yearClass: "",
-        description: "Sécurisation des réseaux, ACL, pare-feu et surveillance du trafic réseau.",
-        badgeImg: "https://images.credly.com/images/2e1f2bfb-d5d0-4c4c-967d-f8b7a1ccab49/image.png",
-        bgImg: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&q=80&w=400",
-        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
-        featured: false
-    },
-    {
-        title: "Network Technician Career Path",
-        year: "2025 — Parcours complet",
-        yearClass: "certif-year--green",
-        description: "Parcours complet de technicien réseau : installation, configuration et dépannage d'infrastructures.",
-        badgeImg: "https://images.credly.com/images/5bdd6a39-3e03-4444-9510-ecff80c9ce79/image.png",
-        bgImg: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&q=80&w=600",
-        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
-        featured: true
-    },
-    {
-        title: "Digital Safety & Security Awareness",
-        year: "2025",
-        yearClass: "certif-year--orange",
-        description: "Bonnes pratiques de sécurité numérique, menaces courantes et protection des données personnelles.",
-        badgeImg: "https://images.credly.com/images/458a4693-d3c3-45dc-8544-94f4fb77e0e7/image.png",
-        bgImg: "https://images.unsplash.com/photo-1587614382346-4ec70e388b28?auto=format&fit=crop&q=80&w=400",
-        credly: "https://www.credly.com/badges/c983f815-e738-48d4-809e-5fe63ef49c51",
-        featured: false
-    }
-];
-
-function renderCiscoBadges() {
-    const container = document.getElementById('cisco-badges-container');
-    if (!container) return;
-
-    container.innerHTML = ciscoBadges.map((badge, index) => {
-        const badgeImgClass = 'certif-badge-img' + (badge.featured ? ' certif-badge-img--featured' : '');
-        const delay = index * 100;
-        return `
-        <div class="certif-card certif-card--has-badge" data-aos="fade-up" data-aos-delay="${delay}">
-            <img src="${badge.bgImg}" class="certif-bg-img" alt="Fond certification" loading="lazy">
-            <div class="certif-overlay"></div>
-            <a href="${badge.credly}" target="_blank" rel="noopener noreferrer" class="certif-badge-link" aria-label="Voir la certification ${badge.title} sur Credly">
-                <img src="${badge.badgeImg}"
-                     alt="Badge ${badge.title} - Cisco"
-                     class="${badgeImgClass}"
-                     loading="lazy">
-            </a>
-            <div class="certif-content">
-                <span class="certif-year ${badge.yearClass}">${badge.year}</span>
-                <h3>${badge.title}</h3>
-                <p>${badge.description}</p>
-                <span class="certif-issuer"><i class="fas fa-building"></i> Cisco Networking Academy</span>
-            </div>
-        </div>`;
-    }).join('');
-}
-
-renderCiscoBadges();
 
 // ------------------------------------------------
 // FLIP CARDS — Toggle au tap (mobile)
