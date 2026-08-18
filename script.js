@@ -224,8 +224,8 @@ const trackStates = {
     'track1': { index: 0, total: 6, counterId: 'counter1' },
     'track2': { index: 0, total: 8, counterId: 'counter2' },
     'track3': { index: 0, total: 6, counterId: 'counter3' },
-    'track-salle': { index: 0, total: 4, counterId: 'counter-salle' },
-    'track-marque': { index: 0, total: 4, counterId: 'counter-marque' }
+    'track-salle': { index: 0, total: 6, counterId: 'counter-salle' },
+    'track-marque': { index: 0, total: 6, counterId: 'counter-marque' }
 };
 
 // Bloquer le scroll tactile iOS derrière la modale (sans position:fixed)
@@ -767,6 +767,9 @@ function applyPortfolioFilters() {
     if (portfolioCountNum) portfolioCountNum.textContent = visibleCount;
     if (noResultsMsg) noResultsMsg.style.display = visibleCount === 0 ? 'block' : 'none';
 }
+
+// Initialisation au chargement (nombre de projets, filtre "Tous")
+applyPortfolioFilters();
 
 filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
