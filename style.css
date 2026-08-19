@@ -179,7 +179,7 @@ h2::after {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
-    margin-bottom: 55px;
+    margin-bottom: 65px;
     position: relative;
 }
 
@@ -187,7 +187,7 @@ h2::after {
     position: absolute;
     top: -0.4em;
     left: -0.04em;
-    font-size: 10rem;
+    font-size: 13rem;
     font-weight: 800;
     line-height: 1;
     letter-spacing: -5px;
@@ -204,7 +204,7 @@ h2::after {
 
 .section-kicker {
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8rem;
+    font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -218,7 +218,7 @@ h2::after {
 .section-header h2 {
     text-align: left;
     margin-bottom: 0;
-    font-size: 4.4rem;
+    font-size: 5.7rem;
     line-height: 1.02;
     letter-spacing: -1px;
     position: relative;
@@ -242,12 +242,12 @@ h2::after {
 
 @media (max-width: 768px) {
     .section-watermark {
-        font-size: 5.5rem;
+        font-size: 7.2rem;
         top: -0.3em;
     }
 
     .section-header h2 {
-        font-size: 2.6rem;
+        font-size: 3.4rem;
         letter-spacing: -0.5px;
     }
 }
