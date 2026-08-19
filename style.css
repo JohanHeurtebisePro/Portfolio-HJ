@@ -35,6 +35,11 @@
     --success: #1c7c54;
     --error: #b3261e;
 
+    /* Accent chaud — touches ponctuelles pour réchauffer l'ensemble */
+    --accent: #ff7900;
+    --accent-rgb: 255, 121, 0;
+    --accent-dark: #db6800;
+
     /* Layout */
     --radius: 10px;
     --radius-sm: 6px;
@@ -67,6 +72,11 @@
     --primary: #3d5a80;
     --primary-rgb: 61, 90, 128;
     --primary-dark: #4d6d97;
+
+    /* Accent chaud légèrement éclairci pour le thème sombre */
+    --accent: #ff8f2e;
+    --accent-rgb: 255, 143, 46;
+    --accent-dark: #ff7900;
 }
 
 /* =========================================
@@ -124,7 +134,7 @@ img {
     top: 0;
     left: 0;
     height: 3px;
-    background: var(--primary);
+    background: linear-gradient(90deg, var(--primary), var(--accent));
     z-index: 10000;
     width: 0%;
     transition: width 0.2s ease-out;
@@ -159,6 +169,87 @@ h2::after {
     background: var(--primary);
     margin: 14px auto 0;
     border-radius: 2px;
+}
+
+/* =========================================
+   5bis. SECTION HEADER — Titre latéral
+   ========================================= */
+.section-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 55px;
+    position: relative;
+}
+
+.section-watermark {
+    position: absolute;
+    top: -0.4em;
+    left: -0.04em;
+    font-size: 10rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -5px;
+    color: rgba(120, 120, 120, 0.1);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+}
+
+[data-theme="dark"] .section-watermark {
+    color: rgba(180, 180, 180, 0.12);
+}
+
+.section-kicker {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    opacity: 0.9;
+    line-height: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header h2 {
+    text-align: left;
+    margin-bottom: 0;
+    font-size: 4.4rem;
+    line-height: 1.02;
+    letter-spacing: -1px;
+    position: relative;
+    z-index: 1;
+}
+
+.section-header h2::after {
+    display: block;
+    margin: 18px 0 0;
+}
+
+.section-subtitle {
+    color: var(--text-dim);
+    font-size: 0.98rem;
+    line-height: 1.55;
+    margin: 4px 0 0;
+    max-width: 520px;
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 768px) {
+    .section-watermark {
+        font-size: 5.5rem;
+        top: -0.3em;
+    }
+
+    .section-header h2 {
+        font-size: 2.6rem;
+        letter-spacing: -0.5px;
+    }
 }
 
 /* Boutons */
@@ -215,6 +306,55 @@ h2::after {
     z-index: -1; /* S'assure que ça reste derrière tout le reste */
     overflow: hidden;
     pointer-events: none; /* Évite de bloquer les clics sur les liens en dessous */
+}
+
+.glow-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(110px);
+}
+
+.glow-blue {
+    top: -8%;
+    left: -6%;
+    width: 560px;
+    height: 560px;
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.75) 0%, rgba(var(--primary-rgb), 0) 70%);
+    animation: glowFloatBlue 22s ease-in-out infinite;
+}
+
+.glow-orange {
+    bottom: -10%;
+    right: -8%;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.4) 0%, rgba(var(--accent-rgb), 0) 70%);
+    animation: glowFloatOrange 26s ease-in-out infinite;
+}
+
+[data-theme="dark"] .glow-blue {
+    background: radial-gradient(circle, rgba(var(--primary-rgb), 0.55) 0%, rgba(var(--primary-rgb), 0) 70%);
+}
+
+[data-theme="dark"] .glow-orange {
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.3) 0%, rgba(var(--accent-rgb), 0) 70%);
+}
+
+@keyframes glowFloatBlue {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(35px, 28px); }
+}
+
+@keyframes glowFloatOrange {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-28px, -22px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .glow-blue,
+    .glow-orange {
+        animation: none;
+    }
 }
 
 /* Groupement de boutons */
@@ -902,6 +1042,8 @@ header.scrolled {
 
 .project-card:hover { 
     transform: translateY(-10px); 
+    border-color: rgba(var(--accent-rgb), 0.35);
+    box-shadow: 0 16px 32px rgba(var(--accent-rgb), 0.16);
 }
 
 .card-img-container { 
