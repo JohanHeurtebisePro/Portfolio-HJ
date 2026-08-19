@@ -1410,49 +1410,46 @@
 
                 <!-- Slide 6 : Sécurité -->
                 <div class="carousel-slide">
-                    <div class="slide-grid reverse-layout">
-                        <div class="text-content">
-                            <h4>Administration & Sécurité</h4>
-                            <p>La sécurité du réseau repose sur le contrôle d'accès strict (ACL) et la gestion chiffrée des équipements.</p>
-                            
-                            <div class="accordion-group">
-                                <div class="accordion-item">
-                                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                                        <span>Accès Distant SSHv2</span>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                    <div class="accordion-content active">
-                                        <p>Abandon de Telnet pour <strong>SSH version 2</strong>. Génération de clés RSA 1024 bits pour chiffrer les sessions d'administration.</p>
-                                        <div style="background: #1e1e1e; padding: 10px; border-radius: 5px; margin: 10px 0;">
-<pre style="margin: 0; color: #d4d4d4; font-family: monospace; font-size: 0.85rem;">
+    <div class="slide-grid center-layout" style="display: flex; flex-direction: column; align-items: center; justify-content: center; max-width: 850px; margin: 0 auto; text-align: center; width: 100%;">
+        <div class="text-content" style="width: 100%;">
+            <h4>Administration &amp; Sécurité</h4>
+            <p style="margin-bottom: 25px;">La sécurité du réseau repose sur le contrôle d'accès strict (ACL) et la gestion chiffrée des équipements.</p>
+            
+            <div class="accordion-group" style="text-align: left; width: 100%;">
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Accès Distant SSHv2</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content active">
+                        <p>Abandon de Telnet pour <strong>SSH version 2</strong>. Génération de clés RSA 1024 bits pour chiffrer les sessions d'administration.</p>
+                        <div style="background: #1e1e1e; padding: 10px; border-radius: 5px; margin: 10px 0;">
+                            <pre style="margin: 0; color: #d4d4d4; font-family: monospace; font-size: 0.85rem;">
 <span style="color: #569cd6;">crypto key generate rsa</span>
 <span style="color: #569cd6;">ip ssh version 2</span>
 <span style="color: #569cd6;">line vty 0 4</span>
  <span style="color: #9cdcfe;">transport input ssh</span>
 </pre>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="accordion-item">
-                                    <div class="accordion-header" onclick="toggleAccordion(this)">
-                                        <span>Filtrage ACL (Pare-feu)</span>
-                                        <i class="fas fa-chevron-down"></i>
-                                    </div>
-                                    <div class="accordion-content">
-                                        <p><strong>ACL Étendue "PROTECT_DMZ" :</strong><br>
-                                        - Autorise le trafic Web (80/443) et DNS (53) entrant.<br>
-                                        - Bloque tout le reste (ICMP, Telnet) provenant de l'extérieur.</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                         <div class="image-column">
-                             <img src="image/sae1.jpg" class="slide-img shadow-effect" alt="Cadenas Sécurité" loading="lazy">
                         </div>
                     </div>
                 </div>
+                <div class="accordion-item">
+                    <div class="accordion-header" onclick="toggleAccordion(this)">
+                        <span>Filtrage ACL (Pare-feu)</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="accordion-content">
+                        <p><strong>ACL Étendue "PROTECT_DMZ" :</strong><br>
+                        - Autorise le trafic Web (80/443) et DNS (53) entrant.<br>
+                        - Bloque tout le reste (ICMP, Telnet) provenant de l'extérieur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                <!-- Slide 7 : Apprentissages Critiques BUT R&T -->
+ <!-- Slide 7 : Apprentissages Critiques BUT R&T -->
                 <div class="carousel-slide">
                     <div class="text-content" style="width:100%;">
                         <h4>Apprentissages Critiques BUT R&T validés</h4>
