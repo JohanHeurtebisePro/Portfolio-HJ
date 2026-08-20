@@ -222,10 +222,10 @@ if (typewriterElement) {
 // Configuration : index actuel, nombre total de slides, ID du compteur
 const trackStates = {
     'track1': { index: 0, total: 6, counterId: 'counter1' },
-    'track2': { index: 0, total: 8, counterId: 'counter2' },
-    'track3': { index: 0, total: 6, counterId: 'counter3' },
-    'track-salle': { index: 0, total: 6, counterId: 'counter-salle' },
-    'track-marque': { index: 0, total: 6, counterId: 'counter-marque' }
+    'track2': { index: 0, total: 9, counterId: 'counter2' },
+    'track3': { index: 0, total: 7, counterId: 'counter3' },
+    'track-salle': { index: 0, total: 11, counterId: 'counter-salle' },
+    'track-marque': { index: 0, total: 7, counterId: 'counter-marque' }
 };
 
 // Bloquer le scroll tactile iOS derrière la modale (sans position:fixed)
