@@ -3766,256 +3766,262 @@ header,
     margin-bottom: 20px;
 }
 
-/* Grille Cisco : 4 cartes sur 1 rangée */
-.certif-grid--cisco {
+/* Grille des certifications — bento grid asymétrique par niveau d'importance.
+   La variation de taille vient uniquement du grid-column (largeur) et du contenu réel
+   de chaque carte (pas de grid-row fixe, pas de stretch) : chaque carte garde sa hauteur naturelle. */
+.certif-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    margin-bottom: 0;
+    grid-auto-rows: auto;
+    grid-auto-flow: dense;
+    align-items: start;
+    row-gap: 12px;
+    column-gap: 20px;
 }
 
-/* Grille autres : 3 cartes */
-.certif-grid--others {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-/* Carte de base */
+/* Carte de base — même langage visuel que le reste du site (card-bg / border-light) */
 .certif-card {
     position: relative;
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    background: #111;
-    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-                box-shadow 0.4s ease;
-    color: #fff;
     display: flex;
     flex-direction: column;
-    min-height: 280px;
+    align-items: flex-start;
+    align-self: start;
+    height: auto;
+    gap: 4px;
+    background: var(--card-bg);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+    color: var(--text-main);
     text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .certif-card:hover {
-    transform: translateY(-7px);
-    box-shadow: 0 24px 48px rgba(0,0,0,0.35);
+    transform: translateY(-5px);
+    box-shadow: 0 14px 32px rgba(0,0,0,0.1);
+    border-color: var(--primary);
 }
 
-/* Cartes Cisco légèrement moins hautes */
-.certif-card--cisco {
-    min-height: 260px;
-}
-
-/* Carte en vedette (Network Technician) */
-.certif-card--featured {
-    border: 2px solid rgba(22,163,74,0.5);
-}
-
-.certif-card--featured:hover {
-    border-color: #16a34a;
-    box-shadow: 0 24px 48px rgba(22,163,74,0.2);
-}
-
-/* Photo de fond */
-.certif-bg-img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-    transition: transform 0.6s ease;
-    filter: brightness(0.85) saturate(1.1);
-}
-
-.certif-card:hover .certif-bg-img {
-    transform: scale(1.07);
-}
-
-/* Dégradé overlay */
-.certif-overlay {
-    position: absolute;
-    inset: 0;
-    /* Dégradé plus fort → meilleure lisibilité du texte en bas */
-    background: linear-gradient(
-        to bottom,
-        rgba(0,0,0,0.08) 0%,
-        rgba(0,0,0,0.35) 40%,
-        rgba(0,0,0,0.90) 100%
-    );
-    z-index: 1;
-}
-
-/* Zone badge Cisco — en haut à gauche, taille fixe, ne déborde jamais sur le texte */
-.certif-cisco-badge-zone {
-    position: absolute;
-    top: 14px;
-    right: 14px;
-    z-index: 3;
-    width: 58px;
-    height: 58px;
-    background: rgba(255,255,255,0.92);
-    border-radius: 50%;
+/* Logo de l'organisme émetteur — affiché seul, sans cercle. Taille par défaut = niveau moyen */
+.certif-logo {
+    width: 72px;
+    height: 72px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
-    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
-                box-shadow 0.3s ease;
-    padding: 2px;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
 }
 
-.certif-card:hover .certif-cisco-badge-zone {
-    transform: scale(1.1) rotate(-5deg);
-    box-shadow: 0 8px 22px rgba(0,0,0,0.35);
+.certif-card:hover .certif-logo {
+    transform: scale(1.06);
 }
 
-/* Badge image dans la zone */
-.certif-cisco-badge {
+.certif-logo img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    border-radius: 50%;
     display: block;
 }
 
-/* Zone icône FontAwesome (non-Credly) */
-.certif-cisco-badge-zone--icon {
-    background: rgba(59,130,246,0.15);
-    border: 1px solid rgba(59,130,246,0.3);
-}
-
-.certif-cisco-badge-zone--icon i {
-    font-size: 1.5rem;
-    color: #fff;
-}
-
-/* Icône corner (cartes non-Cisco) */
-.certif-icon-corner {
-    position: absolute;
-    top: 18px;
-    right: 18px;
-    font-size: 1.3rem;
-    color: rgba(255,255,255,0.7);
-    z-index: 2;
-}
-
-/* Contenu textuel — toujours en bas de carte */
-.certif-content {
-    position: relative;
-    z-index: 2;
-    margin-top: auto;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-/* Année / tag */
+/* Année / score */
 .certif-year {
     display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    padding: 3px 11px;
+    background: var(--box-bg);
+    color: var(--primary);
+    padding: 4px 12px;
     border-radius: 20px;
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     font-weight: 700;
-    align-self: flex-start;
 }
 
-.certif-year--orange { background: var(--accent); }
-.certif-year--green  { background: #16a34a; }
+.certif-year--orange { color: var(--accent); }
+.certif-year--green  { color: #16a34a; }
 
-/* Titre */
+/* Titre — taille standard, seul le niveau 1 la fait varier */
 .certif-card h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 700;
     line-height: 1.3;
-    color: #fff;
-    text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+    color: var(--text-main);
+    margin: 8px 0 0;
+}
+
+/* Corps de texte — taille uniforme (text-sm) sur toutes les cartes */
+.certif-issuer,
+.certif-meta {
+    font-size: 0.9rem;
+    color: var(--text-dim);
     margin: 0;
 }
 
-/* Description */
-.certif-card p {
-    font-size: 0.78rem;
-    color: rgba(255,255,255,0.8);
-    line-height: 1.5;
-    margin: 0;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+/* Tags de compétences (chips) */
+.certif-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+}
+
+.certif-tag {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-dim);
+    background: var(--box-bg);
+    border: 1px solid var(--border-light);
+    padding: 4px 11px;
+    border-radius: 20px;
+    white-space: nowrap;
 }
 
 /* Lien Credly */
-.certif-credly-hint {
+.certif-link {
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    font-size: 0.68rem;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: rgba(255,255,255,0.55);
-    letter-spacing: 0.02em;
-    margin-top: 4px;
+    color: var(--primary);
+    margin-top: 10px;
     transition: color 0.3s ease;
 }
 
-.certif-card:hover .certif-credly-hint {
-    color: rgba(255,255,255,0.9);
+.certif-card:hover .certif-link {
+    color: var(--accent);
+}
+
+/* ---------- Niveau 1 — Certification phare : grand logo, tags, bouton ancré en bas ---------- */
+.certif-card--tier1 {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 28px;
+    padding: 32px;
+}
+
+.certif-card--tier1 .certif-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 0;
+}
+
+.certif-card--tier1 .certif-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    flex: 1;
+    align-self: stretch;
+}
+
+.certif-card--tier1 h3 {
+    font-size: 1.6rem;
+    margin-top: 8px;
+}
+
+.certif-card--tier1 .certif-desc {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+    line-height: 1.55;
+    margin: 10px 0 0;
+}
+
+.certif-card--tier1 .certif-link {
+    margin-top: 14px;
+}
+
+/* ---------- Niveau 2 — Certifications notables : logo moyen, tags, lien ---------- */
+.certif-card--tier2 {
+    grid-column: span 1;
+}
+
+.certif-card--tier2 .certif-logo {
+    width: 108px;
+    height: 108px;
+}
+
+.certif-card--tier2 h3 {
+    font-size: 1.15rem;
+}
+
+/* ---------- Niveau 3 — Certifications complémentaires : icône + ligne unique ---------- */
+.certif-card--tier3 {
+    grid-column: span 1;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    padding: 26px 28px;
+}
+
+.certif-card--tier3 .certif-logo {
+    width: 84px;
+    height: 84px;
+    margin-bottom: 0;
+}
+
+.certif-card--tier3 .certif-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.certif-card--tier3 h3 {
+    font-size: 1rem;
+    margin: 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+}
+
+.certif-card--tier3 .certif-meta {
+    font-size: 0.85rem;
 }
 
 /* =========================================
    Responsive certifications
    ========================================= */
 @media (max-width: 1024px) {
-    .certif-grid--cisco {
+    .certif-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-}
-
-@media (max-width: 900px) {
-    .certif-grid--cisco {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
+    .certif-card--tier1 {
+        grid-column: span 2;
     }
-    .certif-grid--others {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+    .certif-card--tier2 {
+        grid-column: span 1;
     }
-    .certif-card--cisco {
-        min-height: 230px;
+    .certif-card--tier3 {
+        grid-column: span 1;
     }
 }
 
-@media (max-width: 600px) {
-    .certif-grid--cisco,
-    .certif-grid--others {
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-    }
-    .certif-card {
-        min-height: 200px;
-    }
-    .certif-card--cisco {
-        min-height: 190px;
-    }
-    .certif-content {
-        padding: 14px;
-    }
-    .certif-card h3 {
-        font-size: 0.85rem;
-    }
-    .certif-cisco-badge-zone {
-        width: 46px;
-        height: 46px;
-        top: 10px;
-        right: 10px;
-    }
-}
-
-@media (max-width: 420px) {
-    .certif-grid--cisco,
-    .certif-grid--others {
+@media (max-width: 640px) {
+    .certif-grid {
         grid-template-columns: 1fr;
+    }
+    .certif-card--tier1,
+    .certif-card--tier2,
+    .certif-card--tier3 {
+        grid-column: span 1;
+    }
+    .certif-card--tier1 {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 24px;
+        gap: 0;
+    }
+    .certif-card--tier1 .certif-logo {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 12px;
+    }
+    .certif-card--tier1 .certif-link {
+        margin-top: 14px;
+        padding-top: 0;
     }
 }
 
@@ -4230,7 +4236,7 @@ header,
     }
 
     /* Certifications */
-    .certif-grid--cisco {
+    .certif-grid {
         gap: 24px;
     }
 
