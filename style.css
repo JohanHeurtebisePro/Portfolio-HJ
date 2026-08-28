@@ -559,31 +559,58 @@ header.scrolled {
     display: flex; 
     align-items: center; 
     justify-content: center; 
+    gap: 200px; 
     width: 100%; 
+}
+
+.hero-visual { 
+    flex: 0 0 auto; 
+    position: relative; 
+    z-index: 1; 
+    gap: 20px;
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 901px) {
+    .hero-visual {
+        margin-top: -40px;
+        margin-left: -60px;
+    }
+}
+
+
+
+/* Cadre sobre autour de la photo — bordure fine, pas de forme décorative colorée */
+.hero-avatar-wrapper {
+    position: relative;
+    z-index: 2;
+    border-radius: var(--radius);
+    background: transparent;
+    border: 1px solid var(--border-light);
+    transition: var(--transition);
+}
+
+.hero-avatar {
+    width: 350px;
+    height: 450px;
+    border-radius: var(--radius);
+    object-fit: cover;
+    object-position: center top;
+    transition: var(--transition);
+    background-color: var(--card-bg);
+    position: relative;
+    z-index: 1;
+    display: block;
+    border: none;
 }
 
 .hero-content {
     flex: 1;
     max-width: 600px;
-}
-
-/* Variante centrée : utilisée depuis la suppression de la photo de la section hero */
-.hero-content--centered {
-    max-width: 780px;
-    text-align: center;
-}
-
-.hero-content--centered .hero-description {
-    text-align: center;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-content--centered .stats-row,
-.hero-content--centered .hero-cta-row,
-.hero-content--centered .social-row {
-    justify-content: center;
 }
 
 .welcome-badge {
@@ -2610,6 +2637,26 @@ footer {
         padding: 0 20px;
     }
     
+    .hero-visual { 
+        width: 260px; 
+        height: 320px;
+        margin: 0 auto;
+    }
+    
+    .hero-avatar { 
+        width: 230px; 
+        height: 290px;
+        border-radius: 25px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 28px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 25px;
+    }
+    
     .hero-content {
         max-width: 100%;
     }
@@ -3004,6 +3051,25 @@ footer {
 @media (max-width: 600px) {
     .hero-title {
         font-size: 1.9rem;
+    }
+
+    .hero-visual {
+        width: 220px;
+        height: 270px;
+    }
+
+    .hero-avatar {
+        width: 195px;
+        height: 245px;
+        border-radius: 22px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 25px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 22px;
     }
 
     .stat-number {
@@ -3490,6 +3556,25 @@ footer {
 
     .hero-title {
         font-size: 1.7rem;
+    }
+
+    .hero-visual {
+        width: 190px;
+        height: 240px;
+    }
+
+    .hero-avatar {
+        width: 170px;
+        height: 215px;
+        border-radius: 20px;
+    }
+
+    .hero-avatar-wrapper {
+        border-radius: 23px;
+    }
+
+    .hero-avatar-wrapper::before {
+        border-radius: 20px;
     }
 
     .nav-container {
@@ -4053,12 +4138,23 @@ header,
         font-size: 1.05rem;
     }
 
-    .hero-content {
-        max-width: 680px;
+    /* Hero : photo et texte davantage écartés + agrandis */
+    .hero-container {
+        gap: 280px;
     }
 
-    .hero-content--centered {
-        max-width: 860px;
+    .hero-visual {
+        width: 440px;
+        height: 550px;
+    }
+
+    .hero-avatar {
+        width: 390px;
+        height: 500px;
+    }
+
+    .hero-content {
+        max-width: 680px;
     }
 
     .hero-title {
@@ -4170,8 +4266,18 @@ header,
         max-width: 1760px;
     }
 
-    .hero-content--centered {
-        max-width: 960px;
+    .hero-container {
+        gap: 340px;
+    }
+
+    .hero-visual {
+        width: 480px;
+        height: 600px;
+    }
+
+    .hero-avatar {
+        width: 420px;
+        height: 540px;
     }
 
     .hero-title {
