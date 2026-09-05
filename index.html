@@ -983,6 +983,7 @@
                             </div>
                             <div class="image-column">
                                 <img src="image/cyber1.png" class="slide-img shadow-effect" alt="Schéma Attaque" loading="lazy">
+                                <p style="font-size:0.8rem; color:#888; text-align:center; margin-top:5px;">Cycle d'une attaque par ingénierie sociale</p>
                             </div>
                         </div>
                     </div>
@@ -1048,6 +1049,7 @@
                             <div class="image-column">
                                 <figure>
                                     <img src="image/sae1.jpg" class="slide-img" alt="Affiche de prévention" loading="lazy">
+                                    <figcaption>Exemple d'affiche réalisée pour la campagne</figcaption>
                                 </figure>
                             </div>
                             <div class="text-content">
@@ -1095,13 +1097,12 @@
                         </div>
                     </div>
 
-                    <!-- Slide 6 : Rétrospective + Prise de recul -->
-                    <!-- À PERSONNALISER : remplace le bloc "Prise de Recul" par tes vraies difficultés sur ce projet -->
+                    <!-- Slide 6 : Rétrospective -->
                     <div class="carousel-slide text-center-slide">
                         <div class="final-content">
                             <h4>Rétrospective du Projet</h4>
                             
-                            <div class="project-brief-grid" style="text-align: left; margin-bottom: 20px;">
+                            <div class="project-brief-grid" style="text-align: left; margin-bottom: 30px;">
                                 <div class="brief-details">
                                     <strong>Ce que j'ai appris (Hard Skills)</strong>
                                     <p>Fonctionnement technique des ransomwares, cryptographie asymétrique (PGP), normes de l'ANSSI.</p>
@@ -1112,20 +1113,10 @@
                                 </div>
                             </div>
 
-                            <div class="info-box info-box--warning" style="text-align:left;">
-                                <h5><i class="fas fa-triangle-exclamation"></i> Difficulté rencontrée</h5>
-                                <p>Le premier jet des affiches et supports était trop dense en texte technique : en le testant sur des camarades non-initiés, le message clé se perdait. J'ai dû accepter de sacrifier de la précision technique au profit de la clarté du message, ce qui n'était pas mon réflexe naturel.</p>
-                            </div>
-
-                            <div class="info-box info-box--accent" style="text-align:left;">
-                                <h5><i class="fas fa-rotate"></i> Ce que je referais différemment</h5>
-                                <p>Je testerais mes supports auprès d'un public non-technique dès la première version plutôt qu'à la fin, pour itérer plus tôt sur la vulgarisation au lieu de tout refaire en dernière minute.</p>
-                            </div>
-
-                            <p style="margin-bottom: 20px; margin-top:20px;">Vous pouvez télécharger le support complet de la présentation ci-dessous.</p>
+                            <p style="margin-bottom: 20px;">Vous pouvez télécharger le support complet de la présentation ci-dessous.</p>
                             <div class="download-section">
                                 <div class="btn-group">
-                                    <a href="fichier/SAE101-Présentation.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger la Présentation (PDF)</a>
+                                    <a href="fichier/SAE101-Présentation.pdf" class="btn btn-primary" download><i class="fas fa-file-pdf"></i> Télécharger la Présentation (PDF)</a>
                                 </div>
                             </div>
                         </div>
@@ -1137,14 +1128,7 @@
                 <button class="carousel-btn" onclick="moveSlide('track1', -1, 'dots1')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="carousel-dots" id="dots1" role="tablist" aria-label="Navigation slides">
-                    <span class="dot active" onclick="goToSlide('track1', 0, 'dots1')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-                    <span class="dot" onclick="goToSlide('track1', 1, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-                    <span class="dot" onclick="goToSlide('track1', 2, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
-                    <span class="dot" onclick="goToSlide('track1', 3, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
-                    <span class="dot" onclick="goToSlide('track1', 4, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 5"></span>
-                    <span class="dot" onclick="goToSlide('track1', 5, 'dots1')" role="tab" aria-selected="false" aria-label="Slide 6"></span>
-                </div>
+                <div class="carousel-dots carousel-progress" id="dots1" data-track="track1" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
                 <button class="carousel-btn" onclick="moveSlide('track1', 1, 'dots1')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -1162,7 +1146,7 @@
                 <span class="badge-category">CisCorporation Network</span>
             </div>
             <div class="header-controls">
-                <span class="page-counter" id="counter2" aria-live="polite">1 / 9</span>
+                <span class="page-counter" id="counter2" aria-live="polite">1 / 8</span>
                 <button class="close-btn" onclick="closeModal('modal2')" aria-label="Fermer la modale">&times;</button>
             </div>
         </div>
@@ -1552,25 +1536,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Slide 9 : Prise de recul -->
-                <!-- À PERSONNALISER : remplace ce contenu par tes vraies difficultés sur ce projet -->
-                <div class="carousel-slide">
-                    <div class="text-content" style="width:100%;">
-                        <h4>Prise de Recul</h4>
-                        <p style="margin-bottom:20px; color:var(--text-dim);">Ce projet reste noté 18/20, mais avec le recul certains choix auraient pu être affinés.</p>
-
-                        <div class="info-box info-box--warning">
-                            <h5><i class="fas fa-triangle-exclamation"></i> Difficulté rencontrée</h5>
-                            <p>Le premier découpage VLSM était trop rigide : en ajoutant les VLANs RH/SAV/Cadres en cours de projet, j'ai dû retoucher plusieurs plages d'adressage déjà configurées, ce qui a cassé temporairement le routage OSPF sur l'Area 10. J'avais sous-dimensionné la marge de croissance des sous-réseaux dès le départ.</p>
-                        </div>
-
-                        <div class="info-box info-box--accent">
-                            <h5><i class="fas fa-rotate"></i> Ce que je referais différemment</h5>
-                            <p>Je partirais d'un plan d'adressage avec plus de marge par VLAN dès la conception, et je documenterais le plan IP dans un tableau avant de toucher aux configurations, plutôt que d'ajuster au fur et à mesure. Je testerais aussi mes ACL étendues sur un flux légitime avant de les valider, après avoir bloqué par erreur du trafic DNS interne avec une ACL trop restrictive.</p>
-                        </div>
 
                         <div class="download-section">
                             <p>Ressources complètes du projet :</p>
@@ -1588,17 +1553,7 @@
             <button class="carousel-btn" onclick="moveSlide('track2', -1, 'dots2')" aria-label="Slide précédent">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <div class="carousel-dots" id="dots2">
-                <span class="dot active" onclick="goToSlide('track2', 0, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 1, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 2, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 3, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 4, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 5, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 6, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 7, 'dots2')"></span>
-                <span class="dot" onclick="goToSlide('track2', 8, 'dots2')"></span>
-            </div>
+            <div class="carousel-dots carousel-progress" id="dots2" data-track="track2" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="8" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
             <button class="carousel-btn" onclick="moveSlide('track2', 1, 'dots2')" aria-label="Slide suivant">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -1615,7 +1570,7 @@
                 <span class="badge-category">Télécommunications Hertziennes</span>
             </div>
             <div class="header-controls">
-                <span class="page-counter" id="counter3" aria-live="polite">1 / 7</span>
+                <span class="page-counter" id="counter3" aria-live="polite">1 / 6</span>
                 <button class="close-btn" onclick="closeModal('modal3')" aria-label="Fermer la modale">&times;</button>
             </div>
         </div>
@@ -1842,8 +1797,8 @@
                                 <rect x="14" y="20" width="12" height="14" rx="3" fill="#6366f1"/>
                                 <text x="20" y="14" text-anchor="middle" font-size="8" fill="#6366f1" font-weight="bold">TDF</text>
                                 <!-- Label émetteur -->
-                                <text x="2" y="116" text-anchor="start" font-size="7.5" fill="#94a3b8">Ge = 13,6 dBi</text>
-                                <text x="2" y="125" text-anchor="start" font-size="7.5" fill="#94a3b8">Pe = 10 W</text>
+                                <text x="20" y="116" text-anchor="middle" font-size="7.5" fill="#94a3b8">Ge = 13,6 dBi</text>
+                                <text x="20" y="125" text-anchor="middle" font-size="7.5" fill="#94a3b8">Pe = 10 W</text>
 
                                 <!-- Ondes radio stylisées -->
                                 <path d="M36,27 Q50,20 38,13" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="3,2" opacity="0.7"/>
@@ -1851,10 +1806,10 @@
                                 <path d="M40,28 Q63,12 46,0" stroke="#f97316" stroke-width="1.5" fill="none" stroke-dasharray="3,2" opacity="0.3"/>
 
                                 <!-- Flèche principale transmission -->
-                                <line x1="45" y1="55" x2="656" y2="55" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
+                                <line x1="45" y1="55" x2="620" y2="55" stroke="#6366f1" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arrow)"/>
 
                                 <!-- Zone espace libre au milieu -->
-                                <rect x="270" y="34" width="160" height="42" rx="8" fill="#fdf1f1" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3"/>
+                                <rect x="270" y="34" width="160" height="42" rx="8" fill="rgba(239,68,68,0.08)" stroke="#ef4444" stroke-width="1" stroke-dasharray="4,3"/>
                                 <text x="350" y="50" text-anchor="middle" font-size="8.5" fill="#ef4444" font-weight="bold">Atténuation FSPL</text>
                                 <text x="350" y="62" text-anchor="middle" font-size="8" fill="#ef4444">490 MHz → 100,22 dB</text>
                                 <text x="350" y="73" text-anchor="middle" font-size="8" fill="#ef4444">550 MHz → 101,22 dB</text>
@@ -1865,12 +1820,12 @@
                                 <line x1="515" y1="90" x2="625" y2="90" stroke="#64748b" stroke-width="0.8"/>
 
                                 <!-- Gain émetteur label -->
-                                <rect x="44" y="42" width="68" height="26" rx="5" fill="#eef0fd" stroke="#6366f1" stroke-width="1"/>
+                                <rect x="44" y="42" width="68" height="26" rx="5" fill="rgba(99,102,241,0.12)" stroke="#6366f1" stroke-width="1"/>
                                 <text x="78" y="53" text-anchor="middle" font-size="8" fill="#6366f1" font-weight="bold">+ Ge</text>
                                 <text x="78" y="63" text-anchor="middle" font-size="7.5" fill="#6366f1">13,6 dBi</text>
 
                                 <!-- Gain récepteur label -->
-                                <rect x="586" y="42" width="68" height="26" rx="5" fill="#eafaf0" stroke="#22c55e" stroke-width="1"/>
+                                <rect x="586" y="42" width="68" height="26" rx="5" fill="rgba(34,197,94,0.12)" stroke="#22c55e" stroke-width="1"/>
                                 <text x="620" y="53" text-anchor="middle" font-size="8" fill="#22c55e" font-weight="bold">+ Gr</text>
                                 <text x="620" y="63" text-anchor="middle" font-size="7.5" fill="#22c55e">8,55 dBi</text>
 
@@ -1966,26 +1921,6 @@
                             </ul>
                         </div>
 
-                    </div>
-                </div>
-
-                <!-- Slide 7 : Prise de recul -->
-                <!-- À PERSONNALISER : remplace ce contenu par tes vraies difficultés sur ce projet -->
-                <div class="carousel-slide">
-                    <div class="text-content" style="width:100%;">
-                        <h4>Prise de Recul</h4>
-                        <p style="margin-bottom:20px; color:var(--text-dim);">Un projet en équipe de 4, avec ses ajustements en cours de route.</p>
-
-                        <div class="info-box info-box--warning">
-                            <h5><i class="fas fa-triangle-exclamation"></i> Difficulté rencontrée</h5>
-                            <p>Nos premières mesures avec l'antenne Panneau en mauvaise direction donnaient un SNR incohérent avec la théorie : nous avions mal orienté l'analyseur RANGER HD+ lors du calibrage initial, ce qui a faussé une partie de la première série de relevés et nous a obligés à refaire une session de mesures sur le toit de l'IUT.</p>
-                        </div>
-
-                        <div class="info-box info-box--accent">
-                            <h5><i class="fas fa-rotate"></i> Ce que je referais différemment</h5>
-                            <p>Je vérifierais systématiquement un point de mesure de référence connu avant de lancer une campagne complète, plutôt que de découvrir l'erreur de calibrage après coup. Côté équipe, je répartirais aussi plus tôt les rôles entre mesures terrain, simulation MMANA-GAL et rédaction, pour éviter le goulot d'étranglement qu'on a eu en fin de rapport.</p>
-                        </div>
-
                         <div class="download-section">
                             <div class="btn-group">
                                 <a href="fichier/SAE3_01_-_RAPPORT__1_.pdf" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
@@ -2003,15 +1938,7 @@
             <button class="carousel-btn" onclick="moveSlide('track3', -1, 'dots3')" aria-label="Slide précédent">
                 <i class="fas fa-chevron-left"></i>
             </button>
-            <div class="carousel-dots" id="dots3">
-                <span class="dot active" onclick="goToSlide('track3', 0, 'dots3')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-                <span class="dot" onclick="goToSlide('track3', 1, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-                <span class="dot" onclick="goToSlide('track3', 2, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
-                <span class="dot" onclick="goToSlide('track3', 3, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
-                <span class="dot" onclick="goToSlide('track3', 4, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 5"></span>
-                <span class="dot" onclick="goToSlide('track3', 5, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 6"></span>
-                <span class="dot" onclick="goToSlide('track3', 6, 'dots3')" role="tab" aria-selected="false" aria-label="Slide 7"></span>
-            </div>
+            <div class="carousel-dots carousel-progress" id="dots3" data-track="track3" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
             <button class="carousel-btn" onclick="moveSlide('track3', 1, 'dots3')" aria-label="Slide suivant">
                 <i class="fas fa-chevron-right"></i>
             </button>
@@ -2028,413 +1955,577 @@
                     <span class="badge-category">Développement</span>
                 </div>
                 <div class="header-controls">
-                    <span class="page-counter" id="counter-salle" aria-live="polite">1 / 11</span>
+                    <span class="page-counter" id="counter-salle" aria-live="polite">1 / 4</span>
                     <button class="close-btn" onclick="closeModal('modal-salle-dispo')" aria-label="Fermer la modale">&times;</button>
                 </div>
             </div>
-            
+
+            <!-- Onglets de version : V1 (prototype) / V2 (base de données + admin) / V3 (multi-sites, actuelle) -->
+            <div class="version-tabs" role="tablist" aria-label="Versions du projet Salle Dispo">
+                <button class="version-tab-btn active" data-version="v1" role="tab" aria-selected="true" onclick="switchVersion('modal-salle-dispo', 'v1')">
+                    V1 <span class="version-tag-label">— Prototype</span>
+                </button>
+                <button class="version-tab-btn" data-version="v2" role="tab" aria-selected="false" onclick="switchVersion('modal-salle-dispo', 'v2')">
+                    V2 <span class="version-tag-label">— BDD & Admin</span>
+                </button>
+                <button class="version-tab-btn" data-version="v3" role="tab" aria-selected="false" onclick="switchVersion('modal-salle-dispo', 'v3')">
+                    V3 <span class="version-tag-label">— Multi-sites</span>
+                </button>
+            </div>
+
+            <!-- ============================= -->
+            <!-- PANNEAU V1 : Prototype initial -->
+            <!-- ============================= -->
+            <div class="version-panel active" data-version-panel="v1">
             <div class="carousel-container">
-                <div class="carousel-track" id="track-salle">
-                    <!-- Slide 1 : Genèse du projet (V1 - IUT) -->
+                <div class="carousel-track" id="track-salle-v1">
+                    <!-- V1 - Slide 1 : Contexte -->
                     <div class="carousel-slide">
                         <div class="text-content">
-                            <h4>Genèse du Projet</h4>
+                            <h4>Problématique & Solution</h4>
                             <p class="intro-text">
-                                À l'IUT, les étudiants perdent du temps à chercher une salle libre pour travailler en groupe. 
-                                J'ai développé une application Python qui <strong>centralise les emplois du temps</strong> (.ICS) 
+                                À l'IUT, les étudiants perdent du temps à chercher une salle libre pour travailler en groupe.
+                                J'ai développé une première version d'application Python qui <strong>centralise les emplois du temps</strong> (.ICS)
                                 et affiche en temps réel les salles disponibles.
                             </p>
-                            
+
                             <div class="project-brief-grid">
                                 <div class="info-box info-box--primary">
-                                    <h5>Stack Technique V1</h5>
+                                    <h5>Stack Technique</h5>
                                     <ul class="check-list custom-bullet">
-                                        <li><strong>Backend :</strong> Python 3.11 + Flask</li>
-                                        <li><strong>Parsing :</strong> Bibliothèque icalendar</li>
-                                        <li><strong>Frontend :</strong> HTML/CSS/JS (Responsive)</li>
+                                        <li><strong>Backend :</strong> Python 3.10+ / Flask</li>
+                                        <li><strong>Parsing :</strong> Bibliothèque <code>icalendar</code></li>
+                                        <li><strong>Fuseaux horaires :</strong> <code>pytz</code> (Europe/Paris)</li>
+                                        <li><strong>Frontend :</strong> HTML/CSS/Bootstrap 5.3</li>
                                     </ul>
                                 </div>
                                 <div class="brief-details">
                                     <div class="detail-row">
-                                        <strong>Durée V1</strong>
-                                        <span>2 semaines (temps perso)</span>
+                                        <strong>Stockage</strong>
+                                        <span>Fichiers JSON, sans base de données</span>
                                     </div>
                                     <div class="detail-row">
-                                        <strong>Statut actuel</strong>
-                                        <span>V1 archivée → refonte SaaS (V2) en développement</span>
+                                        <strong>Statut</strong>
+                                        <span>Version historique, remplacée par la V2</span>
                                     </div>
                                     <div class="detail-row">
                                         <strong>GitHub</strong>
-                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo V1</a></span>
+                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 2 : V1 - Architecture technique initiale -->
+                    <!-- V1 - Slide 2 : Fonctionnalités clés -->
                     <div class="carousel-slide">
                         <div class="text-content" style="width:100%;">
-                            <h4>V1 — Architecture Technique Initiale</h4>
+                            <h4>Fonctionnalités Clés</h4>
                             <p class="intro-text">
-                                Le cœur du système reposait sur un pipeline simple : lire le planning officiel de l'ENT (.ICS), 
-                                le transformer en statut de salle exploitable, puis le servir au front en temps réel.
+                                Un prototype volontairement simple, mais déjà pensé pour un usage quotidien réel à l'IUT.
+                            </p>
+
+                            <div class="cards-grid">
+                                <div class="mini-card">
+                                    <i class="fas fa-search"></i>
+                                    <strong>Disponibilité temps réel</strong>
+                                    <p>Détection des créneaux libres avec gestion précise des fuseaux horaires</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-filter"></i>
+                                    <strong>Filtres multi-critères</strong>
+                                    <p>Équipements, étage, aile du bâtiment, durée minimale disponible</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-tv"></i>
+                                    <strong>Mode Kiosque (TV)</strong>
+                                    <p>Accessible sans authentification, auto-scroll et rafraîchissement toutes les 2 min</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <strong>Signalement d'incidents</strong>
+                                    <p>Formulaire de signalement, historique stocké dans un fichier JSON</p>
+                                </div>
+                            </div>
+
+                            <div class="info-box info-box--primary">
+                                <h5>Calcul de progression</h5>
+                                <p>Une barre visuelle indique l'avancement du cours en cours dans la salle, pour savoir en un coup d'œil si elle se libère bientôt.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V1 - Slide 3 : Architecture & structure -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Architecture Simple, Sans Base de Données</h4>
+                            <p class="intro-text">
+                                Une architecture volontairement légère : pas de SGBD, tout repose sur la lecture directe des fichiers ICS et un stockage fichier pour les signalements.
                             </p>
 
                             <div class="flow-diagram">
                                 <div class="flow-step">
                                     <i class="fas fa-calendar-alt"></i>
-                                    <strong>Source ICS (ADE)</strong>
-                                    <span>Planning officiel de l'ENT, exposé en URL .ics par salle</span>
+                                    <strong>Fichiers .ICS</strong>
+                                    <span>Un fichier par salle, déposé dans <code>salleICS/</code></span>
                                 </div>
                                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                                 <div class="flow-step">
                                     <i class="fas fa-cogs"></i>
                                     <strong>Parsing Python</strong>
-                                    <span>Bibliothèque <code>icalendar</code> : extraction DTSTART / DTEND / LOCATION</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-database"></i>
-                                    <strong>Traitement & Cache</strong>
-                                    <span>Calcul du statut de salle + cache mémoire (TTL 60s)</span>
+                                    <span><code>icalendar</code> + <code>pytz</code></span>
                                 </div>
                                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                                 <div class="flow-step">
                                     <i class="fas fa-server"></i>
-                                    <strong>API Flask</strong>
-                                    <span>Routes REST qui exposent l'état des salles au front</span>
+                                    <strong>Flask</strong>
+                                    <span>Routes qui exposent l'état des salles</span>
                                 </div>
                                 <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
                                 <div class="flow-step">
                                     <i class="fas fa-desktop"></i>
-                                    <strong>Frontend</strong>
-                                    <span>Templates Jinja2 + Bootstrap, affichage en temps réel</span>
-                                </div>
-                            </div>
-
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Pourquoi Flask ?</h5>
-                                    <p>Un micro-framework volontairement léger : pas de couches inutiles, un contrôle total sur le routage et la logique métier, idéal pour une application interne à faible charge.</p>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Pourquoi icalendar ?</h5>
-                                    <p>La bibliothèque de référence pour parser le format iCalendar (.ics) en Python : lecture fiable des événements ADE sans réinventer le parseur.</p>
+                                    <strong>Templates Jinja2</strong>
+                                    <span>Bootstrap, design "glassmorphism"</span>
                                 </div>
                             </div>
 
                             <div class="info-box info-box--primary">
-                                <h5>Un choix d'architecture assumé (V1)</h5>
-                                <p>Le cache était volontairement gardé en mémoire (dict Python) plutôt que sur un système externe type Redis : plus simple à maintenir pour un seul serveur à faible trafic, au prix d'une contrainte — un seul worker Gunicorn pour éviter les incohérences de cache entre processus.</p>
+                                <h5>Structure du projet</h5>
+                                <p><code>app.py</code> (routes & logique métier) · <code>config.json</code> (salles, équipements) · <code>reports.json</code> (incidents) · <code>salleICS/*.ics</code> · <code>templates/</code> (index, detail, login, tv).</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 3 : Le Pivot - Pourquoi une architecture SaaS -->
-                    <!-- À PERSONNALISER : ajuste ces motivations avec tes vraies raisons -->
+                    <!-- V1 - Slide 4 : Limites -->
                     <div class="carousel-slide">
                         <div class="text-content" style="width:100%;">
-                            <h4>Le Pivot : Pourquoi une Architecture SaaS B2B</h4>
-                            <p class="intro-text">
-                                Une fois la V1 concrétisée, j'ai réalisé que le problème résolu pour l'IUT 
-                                existait aussi, sous une forme différente, dans n'importe quelle entreprise gérant des salles de réunion.
-                            </p>
-
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--warning">
-                                    <h5>La limite de la V1</h5>
-                                    <p>Un outil mono-établissement, pensé pour parser des fichiers .ICS publics de l'ENT — une architecture qui ne tenait pas la route pour plusieurs entreprises clientes : pas d'isolation des données, pas de facturation, pas de connexion aux outils qu'utilisent réellement les entreprises (Outlook, Teams).</p>
-                                </div>
-                                <div class="info-box info-box--accent">
-                                    <h5>L'ambition V2</h5>
-                                    <p>Transformer un outil interne en véritable produit SaaS B2B multi-tenant : chaque entreprise cliente avec ses données isolées, son abonnement, sa synchronisation Microsoft 365 et son authentification d'entreprise (SSO).</p>
-                                </div>
-                            </div>
-
-                            <div class="info-box info-box--primary">
-                                <h5>Pourquoi ce choix</h5>
-                                <p>Au-delà de l'aspect technique, c'est un projet que je voulais mener comme un vrai produit, de bout en bout — architecture, sécurité, facturation, intégrations entreprise — pour me confronter aux problématiques d'un SaaS professionnel, dans la continuité de mon projet d'école d'ingénieur en réseaux et cybersécurité.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4 : V2 - Nouvelle architecture SaaS -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>V2 — Nouvelle Architecture SaaS</h4>
-                            <p class="intro-text">
-                                Refonte complète pour supporter plusieurs entreprises clientes (tenants) de façon isolée, 
-                                sécurisée et déployable en conteneurs.
-                            </p>
-
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Multi-tenant PostgreSQL</h5>
-                                    <p>Un schéma PostgreSQL dédié par entreprise cliente (schema-per-tenant) : isolation forte des données entre clients, avec un routage par sous-domaine pour identifier le tenant à chaque requête.</p>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Conteneurisation Docker Compose</h5>
-                                    <p>Déploiement en plusieurs conteneurs : Flask/Gunicorn pour l'application, PostgreSQL pour les données, Nginx en reverse proxy, et un conteneur dédié aux sauvegardes automatisées.</p>
-                                </div>
-                            </div>
-
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Outillage d'industrialisation</h5>
-                                    <p>Scripts CLI dédiés (<code>onboard_tenant.py</code>, <code>seed_demo.py</code>) pour provisionner un nouveau client en quelques commandes, plus un assistant d'inscription (onboarding wizard) multi-étapes côté interface.</p>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Authentification & sessions</h5>
-                                    <p>Gestion des comptes et des sessions via Flask-Login, avec une isolation stricte des droits par tenant.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5 : V2 - Intégrations entreprise -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>V2 — Intégrations Entreprise</h4>
-                            <p class="intro-text">
-                                Le produit se connecte directement aux outils déjà utilisés par les entreprises clientes, 
-                                au lieu de leur imposer un nouveau silo.
-                            </p>
-
-                            <div class="info-box info-box--primary">
-                                <h5><i class="fas fa-credit-card"></i> Facturation Stripe</h5>
-                                <p>Gestion des abonnements par entreprise cliente, avec traitement des webhooks Stripe (paiement réussi, échec, annulation) pour synchroniser automatiquement l'accès au service avec l'état de l'abonnement.</p>
-                            </div>
-
-                            <div class="info-box info-box--primary">
-                                <h5><i class="fab fa-microsoft"></i> Microsoft 365 / Outlook / Teams</h5>
-                                <p>Synchronisation des réservations de salles avec les calendriers Outlook et Teams des entreprises clientes. Passage en cours d'un polling toutes les 15 minutes à des webhooks Microsoft Graph API, pour des mises à jour quasi temps réel.</p>
-                            </div>
-
-                            <div class="info-box info-box--primary">
-                                <h5><i class="fas fa-shield-halved"></i> SSO Azure AD (SAML 2.0)</h5>
-                                <p>Authentification unique par entreprise via Azure AD, en SAML 2.0, réservée aux clients du plan Entreprise. Les secrets de connexion Microsoft 365 sont chiffrés en base (Fernet) plutôt que stockés en clair.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6 : V2 - Aperçu de la nouvelle interface -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>V2 — Aperçu de la Nouvelle Interface</h4>
-                            <p style="margin-bottom:20px; color:var(--text-dim);">Captures de la version actuelle, en développement actif.</p>
-
-                            <!-- À PERSONNALISER : remplace ces 2 fichiers par tes vraies captures d'écran, placées dans le dossier image/ -->
-                            <div class="gusco-screenshots">
-                                <div class="gusco-screen-item">
-                                    <img src="image/salledispo-liste.png" class="slide-img" alt="Interface principale Salle Dispo V2 - liste des salles" loading="lazy">
-                                    <p class="screen-caption"><i class="fas fa-list"></i> Liste des salles disponibles</p>
-                                </div>
-                                <div class="gusco-screen-item">
-                                    <img src="image/salledispo-detail.png" class="slide-img" alt="Page détaillée d'une salle Salle Dispo V2" loading="lazy">
-                                    <p class="screen-caption"><i class="fas fa-door-open"></i> Détail d'une salle</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 7 : Fonctionnalités clés (V2 SaaS) -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Fonctionnalités Clés</h4>
-                            
-                            <div class="cards-grid">
-                                <div class="mini-card">
-                                    <i class="fas fa-building"></i>
-                                    <strong>Multi-Entreprise</strong>
-                                    <p>Chaque client dispose de son espace isolé, avec ses propres salles et utilisateurs</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fab fa-microsoft"></i>
-                                    <strong>Sync Outlook / Teams</strong>
-                                    <p>Réservations reflétées automatiquement dans les calendriers Microsoft 365</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-credit-card"></i>
-                                    <strong>Facturation en Self-Service</strong>
-                                    <p>Abonnement, changement de plan et paiement gérés via Stripe</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-shield-halved"></i>
-                                    <strong>SSO Entreprise</strong>
-                                    <p>Connexion via Azure AD (SAML 2.0) pour les comptes du plan Entreprise</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-tv"></i>
-                                    <strong>Mode Affichage</strong>
-                                    <p>Interface dédiée pour écrans TV à l'entrée des salles</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-rocket"></i>
-                                    <strong>Onboarding Automatisé</strong>
-                                    <p>Un nouveau client est provisionné en quelques minutes via l'assistant d'inscription</p>
-                                </div>
-                            </div>
-
-                            <div class="info-box info-box--primary">
-                                <h5>Détection de disponibilité</h5>
-                                <p>Le statut d'une salle combine désormais les réservations internes à l'application et les événements synchronisés depuis Outlook/Teams via Microsoft Graph, pour refléter la disponibilité réelle côté entreprise — et non plus uniquement un fichier .ICS externe comme en V1.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Slide 8 : Défis techniques rencontrés (V2 SaaS) -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Défis Techniques Rencontrés</h4>
-                            <p style="margin-bottom:24px; color:var(--text-dim);">Trois problèmes concrets posés par le passage à une architecture SaaS multi-tenant.</p>
+                            <h4>Limites de ce Prototype</h4>
+                            <p style="margin-bottom:24px; color:var(--text-dim);">Un premier jet fonctionnel, mais avec des limites qui ont motivé la réécriture en V2.</p>
 
                             <div class="info-box info-box--warning">
-                                <h5>Isolation des données entre entreprises</h5>
-                                <p>Avec un schéma PostgreSQL par tenant, il faut garantir qu'aucune requête ne puisse accidentellement traverser les frontières entre deux entreprises clientes. Chaque connexion à la base est explicitement liée au schéma du tenant identifié via le sous-domaine, avant toute exécution de requête.</p>
+                                <h5>Pas de vraie réservation</h5>
+                                <p>L'application se contente d'afficher l'état d'une salle (libre/occupé) à partir du planning officiel : impossible de réserver un créneau depuis l'app elle-même.</p>
                             </div>
 
                             <div class="info-box info-box--warning">
-                                <h5>Fiabilité de la synchronisation Microsoft 365</h5>
-                                <p>Les webhooks Microsoft Graph ont une durée de vie limitée et doivent être renouvelés régulièrement, sans quoi la synchronisation s'arrête silencieusement. L'application doit détecter un abonnement expiré et le renouveler automatiquement, avec un repli sur un polling ponctuel en cas d'échec.</p>
+                                <h5>Stockage fichier, mono-établissement</h5>
+                                <p>Tout est stocké en JSON, sans base de données relationnelle : pas de relations complexes, pas de gestion multi-sites, pas d'historique structuré des incidents.</p>
                             </div>
 
                             <div class="info-box info-box--success">
-                                <h5>Sécurité des paiements et des secrets</h5>
-                                <p>Chaque webhook Stripe est vérifié par signature pour éviter les appels falsifiés, et les secrets de connexion Microsoft 365 (tokens, identifiants d'application) sont chiffrés en base avec Fernet plutôt que stockés en clair — en plus du hashage bcrypt des mots de passe et du rate limiting anti-brute-force hérités de la V1.</p>
+                                <h5>Une base saine pour la suite</h5>
+                                <p>Le cœur du calcul de disponibilité (lecture ICS, fuseau horaire, statut libre/occupé) a été conservé et enrichi dans la V2.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v1', -1, 'dots-salle-v1')" aria-label="Slide précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots carousel-progress" id="dots-salle-v1" data-track="track-salle-v1" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v1', 1, 'dots-salle-v1')" aria-label="Slide suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            </div>
+            <!-- FIN PANNEAU V1 -->
+
+            <!-- ============================================= -->
+            <!-- PANNEAU V2 : Base de données, réservation, admin -->
+            <!-- ============================================= -->
+            <div class="version-panel" data-version-panel="v2">
+            <div class="carousel-container">
+                <div class="carousel-track" id="track-salle-v2">
+                    <!-- V2 - Slide 1 : Ce qui change -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Réécriture Complète : de la Consultation à la Réservation</h4>
+                            <p class="intro-text">
+                                La V2 va plus loin qu'un simple visualiseur : elle <strong>croise les cours planifiés</strong> (ICS)
+                                avec les <strong>réservations réelles</strong> faites par les utilisateurs, pour donner une vision
+                                fiable de la disponibilité de chaque salle — places restantes, jusqu'à quelle heure, pour combien de personnes.
+                            </p>
+
+                            <div class="project-brief-grid">
+                                <div class="info-box info-box--primary">
+                                    <h5>Principaux changements vs V1</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Stockage JSON → <strong>base SQLite</strong> (17 tables)</li>
+                                        <li>Accès libre → <strong>comptes utilisateurs</strong> (Flask-Login)</li>
+                                        <li>Consultation seule → <strong>réservation réelle</strong> de créneaux</li>
+                                        <li>Aucune interface → <strong>back-office</strong> complet</li>
+                                    </ul>
+                                </div>
+                                <div class="brief-details">
+                                    <div class="detail-row">
+                                        <strong>Stockage</strong>
+                                        <span>SQLite, 17 tables relationnelles</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>Statut</strong>
+                                        <span>Version intermédiaire, mono-établissement</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>GitHub</strong>
+                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Slide 9 : Compétences professionnelles -->
+                    <!-- V2 - Slide 2 : Architecture -->
                     <div class="carousel-slide">
                         <div class="text-content" style="width:100%;">
-                            <h4>Ce que ce projet dit de moi</h4>
-                            <p style="margin-bottom:24px; color:var(--text-dim);">Un projet né d'un vrai problème, poussé jusqu'à une refonte SaaS complète — hors cadre scolaire, sur temps personnel.</p>
+                            <h4>Architecture & Fonctionnement</h4>
+                            <p class="intro-text">
+                                Chaque salle est désormais évaluée en croisant trois sources : le planning ICS, les réservations
+                                enregistrées en base, et les blocages posés par l'administration.
+                            </p>
 
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--accent">
-                                    <h5>Vision Produit & Ambition</h5>
-                                    <p>Capacité à faire évoluer un outil interne en produit SaaS B2B complet : multi-tenant, facturation, intégrations entreprise — pas juste un exercice technique, une vraie démarche produit.</p>
+                            <div class="flow-diagram">
+                                <div class="flow-step">
+                                    <i class="fas fa-calendar-alt"></i>
+                                    <strong>Flux ICS</strong>
+                                    <span>Fichier local ou URL distante (chiffrée en base)</span>
                                 </div>
-                                <div class="info-box info-box--accent">
-                                    <h5>Initiative & Autonomie</h5>
-                                    <p>J'ai identifié seul un problème quotidien à l'IUT, défini le périmètre, choisi la stack et livré une solution fonctionnelle — sans cahier des charges, sans encadrement.</p>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-database"></i>
+                                    <strong>Réservations & blocages</strong>
+                                    <span>Stockés et vérifiés dans SQLite</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-calculator"></i>
+                                    <strong>Calcul du statut</strong>
+                                    <span>Libre / occupé / bientôt libre + places restantes</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-user-shield"></i>
+                                    <strong>Rôles</strong>
+                                    <span>Utilisateur / admin, selon les droits</span>
                                 </div>
                             </div>
 
-                            <div class="project-brief-grid" style="margin-top:16px;">
+                            <div class="info-box info-box--primary">
+                                <h5>Pourquoi SQLite ?</h5>
+                                <p>Suffisant pour un établissement unique, sans serveur de base de données à administrer séparément — un bon compromis robustesse/simplicité pour cette étape du projet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 3 : Fonctionnalités -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Fonctionnalités Clés</h4>
+
+                            <div class="cards-grid">
+                                <div class="mini-card">
+                                    <i class="fas fa-calendar-check"></i>
+                                    <strong>Réservation de créneaux</strong>
+                                    <p>Nombre de participants, détection automatique des conflits</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-users"></i>
+                                    <strong>Capacité restante</strong>
+                                    <p>Une salle partiellement occupée reste réservable pour le reste de sa capacité</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-tv"></i>
+                                    <strong>Mode Kiosque protégé</strong>
+                                    <p>Accès TV désormais derrière une connexion (<code>@login_required</code>)</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-tools"></i>
+                                    <strong>Suivi des signalements</strong>
+                                    <p>Historique horodaté + fil de commentaires avec l'administration</p>
+                                </div>
+                            </div>
+
+                            <div class="info-box info-box--primary">
+                                <h5>Compte utilisateur</h5>
+                                <p>Inscription, connexion sécurisée, changement de mot de passe avec jauge de robustesse, réinitialisation par e-mail en cas d'oubli.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 4 : Administration & sécurité -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Back-Office & Sécurité</h4>
+                            <p style="margin-bottom:24px; color:var(--text-dim);">Une vraie interface d'administration, absente de la V1, et un niveau de sécurité nettement renforcé.</p>
+
+                            <div class="info-box info-box--success">
+                                <h5>Interface d'administration</h5>
+                                <p>Gestion des salles (équipements, photos, statut, source ICS), des utilisateurs, traitement des signalements (statut, priorité, réponses), envoi d'annonces et export des réservations.</p>
+                            </div>
+
+                            <div class="info-box info-box--warning">
+                                <h5>Sécurisation de l'application</h5>
+                                <p>Mots de passe hachés (<code>scrypt</code>), protection CSRF (Flask-WTF), limitation du taux de tentatives sur <code>/login</code> (Flask-Limiter), en-têtes de sécurité (Flask-Talisman), et URLs ICS sensibles chiffrées en base (Fernet).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 5 : Modèle de données & stack -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Modèle de Données & Stack Technique</h4>
+
+                            <div class="project-brief-grid">
                                 <div class="info-box info-box--primary">
-                                    <h5>Développement Full-Stack & Cloud</h5>
-                                    <p>Backend Python/Flask, PostgreSQL multi-tenant, conteneurisation Docker, intégrations tierces (Stripe, Microsoft Graph, Azure AD) — maîtrise de bout en bout d'une architecture SaaS.</p>
+                                    <h5>17 tables, 4 grands domaines</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li><strong>Établissement :</strong> salles, photos, promotions, annonces</li>
+                                        <li><strong>Comptes :</strong> users, tokens, notifications</li>
+                                        <li><strong>Réservation :</strong> reservations, participants, blocages</li>
+                                        <li><strong>Signalements :</strong> reports, historique, commentaires</li>
+                                    </ul>
                                 </div>
                                 <div class="info-box info-box--primary">
-                                    <h5>Culture Open-Source</h5>
-                                    <p>Code V1 publié sur GitHub avec documentation — démarche de partage, de lisibilité et de versioning dès le début du projet.</p>
+                                    <h5>Stack technique</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Flask 3 + Flask-Login + Flask-WTF</li>
+                                        <li>Flask-Limiter + Flask-Talisman</li>
+                                        <li>SQLite, <code>icalendar</code>, <code>pytz</code>/<code>zoneinfo</code></li>
+                                        <li><code>cryptography</code> (Fernet), <code>smtplib</code></li>
+                                    </ul>
                                 </div>
                             </div>
 
                             <div class="info-box">
-                                <h5>Apprentissages Critiques BUT R&T mobilisés</h5>
-                                <p style="margin-bottom:10px; color:var(--text-dim);">Bien que réalisé hors cadre scolaire, ce projet personnel mobilise directement plusieurs compétences du référentiel BUT R&T.</p>
-                                <div class="project-brief-grid" style="margin-top:12px;">
-                                    <div class="info-box info-box--success">
-                                        <h5>COMPÉTENCE 3 — Programmer</h5>
-                                        <ul class="check-list custom-bullet">
-                                            <li><strong>AC13.01</strong> — Utiliser un environnement de développement (VS Code, Git, environnement virtuel Python)</li>
-                                            <li><strong>AC23.01</strong> — Développer des applications communicantes (API Flask, routes REST, Stripe, Microsoft Graph)</li>
-                                            <li><strong>AC23.02</strong> — Structurer les données et les bases de données (modélisation multi-tenant PostgreSQL)</li>
-                                        </ul>
-                                    </div>
-                                    <div class="info-box info-box--success">
-                                        <h5>COMPÉTENCE 1 — Administrer</h5>
-                                        <ul class="check-list custom-bullet">
-                                            <li><strong>AC21.03</strong> — Sécuriser une application (chiffrement Fernet, hashage bcrypt, SSO SAML, rate limiting)</li>
-                                            <li><strong>AC21.04</strong> — Déployer des services réseaux avancés (conteneurs Docker, reverse proxy Nginx)</li>
-                                        </ul>
-                                    </div>
-                                </div>
+                                <h5>Et ensuite ?</h5>
+                                <p style="color:var(--text-dim);">Cette version reste pensée pour un seul établissement. L'étape suivante — la V3 — fait évoluer l'application vers une gestion multi-sites et multi-administration.</p>
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
 
-                    <!-- Slide 10 : Code & Roadmap -->
-                    <div class="carousel-slide text-center-slide">
-                        <div class="final-content">
-                            <h4>Extrait de Code (Parsing ICS — V1)</h4>
-                            
-                            <div class="code-tabs">
-                                <div class="tab-header">
-                                    <button class="tab-btn active" onclick="openTab(event, 'code-python')">app.py</button>
-                                    <button class="tab-btn" onclick="openTab(event, 'code-algo')">Algorithme</button>
-                                </div>
+            <div class="carousel-nav">
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v2', -1, 'dots-salle-v2')" aria-label="Slide précédent">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <div class="carousel-dots carousel-progress" id="dots-salle-v2" data-track="track-salle-v2" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v2', 1, 'dots-salle-v2')" aria-label="Slide suivant">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+            </div>
+            <!-- FIN PANNEAU V2 -->
 
-                                <div id="code-python" class="tab-content active">
-<pre style="text-align: left; color: #d4d4d4; font-size: 0.85rem;">
-from icalendar import Calendar
-from datetime import datetime
-
-def get_available_rooms(ics_url):
-    cal = Calendar.from_ical(requests.get(ics_url).text)
-    now = datetime.now()
-    
-    busy_rooms = []
-    for event in cal.walk('vevent'):
-        if event['dtstart'].dt <= now <= event['dtend'].dt:
-            busy_rooms.append(event['location'])
-    
-    return [room for room in ALL_ROOMS if room not in busy_rooms]
-</pre>
-                                </div>
-
-                                <div id="code-algo" class="tab-content">
-<pre style="text-align: left; color: #d4d4d4; font-size: 0.85rem;">
-1. Récupération des fichiers .ICS (URL ADE)
-2. Parsing des événements (VEVENT)
-3. Extraction : DTSTART, DTEND, LOCATION
-4. Comparaison avec l'heure actuelle
-5. Filtrage : Salles libres = Toutes - Occupées
-6. Affichage avec tri par capacité
-</pre>
-                                </div>
-                            </div>
-
-                            <div class="project-brief-grid" style="text-align:left; margin-top:30px;">
-                                <div class="info-box info-box--primary">
-                                    <h5>Finaliser les webhooks Microsoft Graph</h5>
-                                    <p>Remplacer complètement le polling 15 minutes par des notifications temps réel pour la synchronisation Outlook/Teams.</p>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Finaliser le parcours d'abonnement Stripe</h5>
-                                    <p>Gestion complète des plans, essais gratuits et changements d'abonnement en self-service pour les entreprises clientes.</p>
-                                </div>
-                            </div>
-
-                            <div class="project-brief-grid" style="text-align:left; margin-top:16px;">
-                                <div class="info-box info-box--primary">
-                                    <h5>Premier client pilote</h5>
-                                    <p>Recruter une première entreprise pour tester le produit en conditions réelles et itérer sur les retours.</p>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Slide 11 : Prise de recul -->
-                    <!-- À PERSONNALISER : remplace ce contenu par tes vraies difficultés sur ce projet -->
+            <!-- ============================================= -->
+            <!-- PANNEAU V3 : Multi-sites (contenu existant, inchangé) -->
+            <!-- ============================================= -->
+            <div class="version-panel" data-version-panel="v3">
+            <div class="carousel-container">
+                <div class="carousel-track" id="track-salle-v3">
+                    <!-- V3 - Slide 1 : Vision & Pivot -->
                     <div class="carousel-slide">
                         <div class="text-content" style="width:100%;">
-                            <h4>Prise de Recul</h4>
-                            <p style="margin-bottom:20px; color:var(--text-dim);">Le pivot vers une architecture SaaS n'a pas été une simple évolution technique.</p>
+                            <h4>Pivot : d'un Outil Campus à une Offre SaaS B2B</h4>
+                            <p class="intro-text">
+                                Objectif de la V3 : transformer l'outil pensé pour un IUT en <strong>véritable produit SaaS</strong>
+                                destiné aux entreprises pour gérer leurs salles de réunion — avec abonnement, facturation,
+                                interface d'administration professionnelle et intégration à l'écosystème Microsoft 365.
+                            </p>
 
-                            <div class="info-box info-box--warning">
-                                <h5><i class="fas fa-triangle-exclamation"></i> Difficulté rencontrée</h5>
-                                <p>J'ai sous-estimé la complexité de migrer d'un modèle single-tenant vers un modèle multi-tenant : sur des tenants déjà provisionnés, l'ajout de nouvelles fonctionnalités provoquait des dérives de schéma (schema drift) entre bases, et j'ai dû gérer l'ordre des contraintes de clés étrangères pour éviter que les migrations échouent. J'ai aussi buté sur un nom de colonne (<code>promotion</code>) qui entrait en conflit avec un mot-clé réservé selon le contexte SQL, ce qui m'a obligé à renommer le concept en <code>entite</code> dans tout le code.</p>
+                            <div class="project-brief-grid">
+                                <div class="info-box info-box--primary">
+                                    <h5>Ce que ça change</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Mono-établissement → <strong>multi-clients (multi-tenant)</strong></li>
+                                        <li>Réservation informelle → <strong>abonnement payant</strong> par entreprise</li>
+                                        <li>Comptes locaux → <strong>connexion Azure AD</strong> (SSO entreprise)</li>
+                                        <li>Réservation manuelle → <strong>synchronisation Outlook / Teams</strong></li>
+                                    </ul>
+                                </div>
+                                <div class="brief-details">
+                                    <div class="detail-row">
+                                        <strong>Cible</strong>
+                                        <span>Entreprises, gestion de salles de réunion</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>Statut</strong>
+                                        <span>🚧 En cours de conception / développement</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <strong>GitHub</strong>
+                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V3 - Slide 2 : Modèle SaaS & Facturation -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Modèle SaaS : Abonnements & Facturation</h4>
+                            <p class="intro-text">
+                                Chaque entreprise cliente souscrit à un <strong>abonnement</strong> (plusieurs paliers tarifaires,
+                                avec des fonctionnalités différentes selon le plan), géré et modifiable directement depuis son
+                                interface d'administration.
+                            </p>
+
+                            <div class="flow-diagram">
+                                <div class="flow-step">
+                                    <i class="fab fa-stripe-s"></i>
+                                    <strong>Stripe</strong>
+                                    <span>Paiement, changement de plan, facturation récurrente</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-bolt"></i>
+                                    <strong>Webhooks Stripe</strong>
+                                    <span>Écoute des évènements (paiement, changement, résiliation)</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-database"></i>
+                                    <strong>PostgreSQL</strong>
+                                    <span>Enregistrement de l'état d'abonnement de chaque client</span>
+                                </div>
+                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
+                                <div class="flow-step">
+                                    <i class="fas fa-user-cog"></i>
+                                    <strong>Interface Admin</strong>
+                                    <span>Le client change lui-même de formule à tout moment</span>
+                                </div>
                             </div>
 
-                            <div class="info-box info-box--accent">
-                                <h5><i class="fas fa-rotate"></i> Ce que je referais différemment</h5>
-                                <p>Je mettrais en place un système de migrations de schéma versionnées dès le début de la V2, plutôt que d'appliquer des changements manuels tenant par tenant. Et je choisirais mes noms de colonnes/tables en anticipant les mots réservés SQL avant de coder, pas après avoir buté dessus.</p>
+                            <div class="info-box info-box--primary">
+                                <h5>Pourquoi PostgreSQL ?</h5>
+                                <p>Passage de SQLite à PostgreSQL pour supporter une charge multi-clients concurrente et des accès simultanés fiables, indispensable dès qu'on facture plusieurs entreprises sur la même infrastructure.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V3 - Slide 3 : Intégrations Microsoft 365 -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Intégration Microsoft 365</h4>
+                            <p class="intro-text">
+                                L'application se connecte directement à l'environnement Microsoft de l'entreprise cliente,
+                                pour s'intégrer aux habitudes déjà en place plutôt que d'en créer de nouvelles.
+                            </p>
+
+                            <div class="cards-grid">
+                                <div class="mini-card">
+                                    <i class="fas fa-id-badge"></i>
+                                    <strong>SSO Azure AD</strong>
+                                    <p>Les employés se connectent avec leur compte Microsoft d'entreprise</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-envelope-open-text"></i>
+                                    <strong>Sync Outlook</strong>
+                                    <p>Une invitation Outlook avec une salle en lieu déclenche la réservation automatique</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-users"></i>
+                                    <strong>Teams</strong>
+                                    <p>Liaison des comptes Teams pour retrouver la réservation depuis les réunions</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-sync-alt"></i>
+                                    <strong>Réservation bidirectionnelle</strong>
+                                    <p>Une réservation faite dans l'app se reflète dans le calendrier Outlook, et inversement</p>
+                                </div>
+                            </div>
+
+                            <div class="info-box info-box--warning">
+                                <h5>Défi technique à venir</h5>
+                                <p>Utiliser Microsoft Graph API pour lire/écrire les évènements Outlook et gérer les salles comme des ressources de calendrier, en gardant l'état de l'app et celui d'Outlook toujours synchronisés.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V3 - Slide 4 : Interface Admin Pro & Multi-tenant -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Interface Administrateur Professionnelle</h4>
+                            <p style="margin-bottom:24px; color:var(--text-dim);">Une interface repensée pour des clients entreprise, pas seulement pour un unique administrateur d'établissement.</p>
+
+                            <div class="info-box info-box--success">
+                                <h5>Gestion multi-clients (multi-tenant)</h5>
+                                <p>Chaque entreprise dispose de son propre espace isolé : salles, employés, abonnement et statistiques d'usage propres à son organisation.</p>
+                            </div>
+
+                            <div class="info-box info-box--primary">
+                                <h5>Design plus "produit"</h5>
+                                <p>Interface repensée dans une direction plus professionnelle (moins "projet étudiant"), pensée pour être présentée et vendue à des décideurs en entreprise.</p>
+                            </div>
+
+                            <div class="info-box info-box--primary">
+                                <h5>Gestion de l'abonnement en self-service</h5>
+                                <p>Le client peut changer de formule, consulter sa facturation et gérer ses employés directement depuis son espace admin, sans intervention manuelle.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V3 - Slide 5 : Mode Tablette -->
+                    <div class="carousel-slide">
+                        <div class="text-content" style="width:100%;">
+                            <h4>Affichage Tablette Devant les Salles</h4>
+                            <p class="intro-text">
+                                Une tablette fixée à l'entrée de chaque salle de réunion affiche son statut en direct et permet
+                                une réservation immédiate, sans ouvrir l'application complète.
+                            </p>
+
+                            <div class="cards-grid">
+                                <div class="mini-card">
+                                    <i class="fas fa-tablet-alt"></i>
+                                    <strong>Statut en direct</strong>
+                                    <p>Libre / occupée / prochaine réunion visible immédiatement</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-bolt"></i>
+                                    <strong>Réservation rapide</strong>
+                                    <p>Réserver un créneau libre en quelques secondes, sans compte à saisir</p>
+                                </div>
+                                <div class="mini-card">
+                                    <i class="fas fa-building"></i>
+                                    <strong>Identité de l'entreprise</strong>
+                                    <p>Logo et couleurs de l'entreprise cliente, cohérents avec son environnement</p>
+                                </div>
+                            </div>
+
+                            <div class="info-box info-box--primary">
+                                <h5>Un mode pensé pour l'usage réel</h5>
+                                <p>Prolongement naturel du mode Kiosque des versions précédentes, mais orienté ici sur une seule salle à la fois plutôt qu'un tableau d'ensemble.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V3 - Slide 6 : Roadmap & Statut -->
+                    <div class="carousel-slide text-center-slide">
+                        <div class="final-content">
+                            <h4>Roadmap & Statut du Projet</h4>
+                            <p class="intro-text" style="text-align:left;">
+                                La V3 est le chantier en cours : elle capitalise sur le socle technique de la V2
+                                (calcul de disponibilité, réservations, sécurité) pour construire une vraie offre commerciale.
+                            </p>
+
+                            <div class="project-brief-grid" style="text-align:left;">
+                                <div class="info-box info-box--primary">
+                                    <h5>Étapes clés à venir</h5>
+                                    <ul class="check-list custom-bullet">
+                                        <li>Migration SQLite → PostgreSQL</li>
+                                        <li>Intégration Stripe (abonnements + webhooks)</li>
+                                        <li>Connexion Azure AD (SSO entreprise)</li>
+                                        <li>Intégration Microsoft Graph (Outlook/Teams)</li>
+                                        <li>Interface tablette dédiée par salle</li>
+                                    </ul>
+                                </div>
+                                <div class="info-box info-box--primary">
+                                    <h5>Pourquoi ce pivot ?</h5>
+                                    <p>Passer d'un projet étudiant utile à quelques dizaines d'utilisateurs à un produit capable de générer un revenu récurrent, en s'appuyant sur des outils déjà utilisés massivement en entreprise (Microsoft 365, Stripe).</p>
+                                </div>
                             </div>
 
                             <div class="download-section" style="margin-top: 30px;">
@@ -2450,26 +2541,16 @@ def get_available_rooms(ics_url):
             </div>
 
             <div class="carousel-nav">
-                <button class="carousel-btn" onclick="moveSlide('track-salle', -1, 'dots-salle')" aria-label="Slide précédent">
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v3', -1, 'dots-salle-v3')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="carousel-dots" id="dots-salle">
-                    <span class="dot active" onclick="goToSlide('track-salle', 0, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 1, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 2, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 3, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 4, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 5, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 6, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 7, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 8, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 9, 'dots-salle')"></span>
-                    <span class="dot" onclick="goToSlide('track-salle', 10, 'dots-salle')"></span>
-                </div>
-                <button class="carousel-btn" onclick="moveSlide('track-salle', 1, 'dots-salle')" aria-label="Slide suivant">
+                <div class="carousel-dots carousel-progress" id="dots-salle-v3" data-track="track-salle-v3" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
+                <button class="carousel-btn" onclick="moveSlide('track-salle-v3', 1, 'dots-salle-v3')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
             </div>
+            </div>
+            <!-- FIN PANNEAU V3 -->
         </div>
     </div>
 
@@ -2484,7 +2565,7 @@ def get_available_rooms(ics_url):
                     <span class="badge-category">Projet Client Réel</span>
                 </div>
                 <div class="header-controls">
-                    <span class="page-counter" id="counter-marque" aria-live="polite">1 / 7</span>
+                    <span class="page-counter" id="counter-marque" aria-live="polite">1 / 6</span>
                     <button class="close-btn" onclick="closeModal('modal-marque-inde')" aria-label="Fermer la modale">&times;</button>
                 </div>
             </div>
@@ -2757,25 +2838,6 @@ def get_available_rooms(ics_url):
                         </div>
                     </div>
 
-                    <!-- Slide 7 : Prise de recul -->
-                    <!-- À PERSONNALISER : remplace ce contenu par tes vraies difficultés sur ce projet -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Prise de Recul</h4>
-                            <p style="margin-bottom:20px; color:var(--text-dim);">Une première mission client réelle, avec ses vrais ajustements.</p>
-
-                            <div class="info-box info-box--warning">
-                                <h5><i class="fas fa-triangle-exclamation"></i> Difficulté rencontrée</h5>
-                                <p>J'ai sous-estimé le délai de propagation DNS au moment du lancement : le site était en ligne côté serveur mais restait inaccessible pour une partie des visiteurs pendant plusieurs heures le jour du lancement, faute d'avoir anticipé et communiqué ce délai au client en amont.</p>
-                            </div>
-
-                            <div class="info-box info-box--accent">
-                                <h5><i class="fas fa-rotate"></i> Ce que je referais différemment</h5>
-                                <p>Je planifierais la bascule DNS plusieurs jours avant la date de lancement officielle plutôt que le jour même, et j'expliquerais ce délai de propagation au client dès le début du projet pour éviter toute incompréhension le jour J.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
 
@@ -2783,15 +2845,7 @@ def get_available_rooms(ics_url):
                 <button class="carousel-btn" onclick="moveSlide('track-marque', -1, 'dots-marque')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="carousel-dots" id="dots-marque">
-                    <span class="dot active" onclick="goToSlide('track-marque', 0, 'dots-marque')" role="tab" aria-selected="true" aria-label="Slide 1"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 1, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 2"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 2, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 3"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 3, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 4"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 4, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 5"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 5, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 6"></span>
-                    <span class="dot" onclick="goToSlide('track-marque', 6, 'dots-marque')" role="tab" aria-selected="false" aria-label="Slide 7"></span>
-                </div>
+                <div class="carousel-dots carousel-progress" id="dots-marque" data-track="track-marque" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
                 <button class="carousel-btn" onclick="moveSlide('track-marque', 1, 'dots-marque')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>

@@ -1772,8 +1772,9 @@ footer {
     background: var(--bg-color); 
     width: 90%; 
     max-width: 850px; 
-    /* height fixe (pas juste max-height) pour que flex-children puissent scroller */
-    height: 85dvh;
+    /* La hauteur s'adapte au contenu (via la hauteur du slide actif,
+       calculée en JS) et ne dépasse jamais 85dvh */
+    height: auto;
     max-height: 85dvh;
     border-radius: var(--radius); 
     overflow: hidden; 
@@ -1783,6 +1784,7 @@ footer {
     border: var(--glass-border);
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5); 
     animation: slideUp 0.4s ease-out;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal-content.modal-lg {
@@ -1873,21 +1875,27 @@ footer {
 
 /* Layout Carrousel */
 .carousel-container { 
-    flex: 1;
+    /* La hauteur est pilotée en JS (updateSlideHeight) pour coller au
+       slide actif ; flex:0 0 auto évite qu'elle soit étirée à la place
+       disponible comme avant (source du grand vide blanc) */
+    flex: 0 0 auto;
     min-height: 0; /* CRUCIAL : sans ça, flex-child ignore overflow et déborde */
     position: relative; 
     display: flex;
     flex-direction: column;
     overflow: hidden;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-track { 
     display: flex;
-    /* Pas de flex:1 ni height:100% ici — il prend la hauteur de ses enfants */
     transition: transform 0.5s ease-in-out;
-    /* Hauteur héritée du container via align-items stretch */
     align-self: stretch;
     height: 100%;
+    /* CRUCIAL : sans ça, tous les slides sont étirés à la hauteur du
+       plus grand (comportement flex par défaut), ce qui fausse la
+       mesure scrollHeight en JS et empêche la modale de rétrécir. */
+    align-items: flex-start;
 }
 
 .carousel-slide { 
@@ -1984,6 +1992,39 @@ footer {
     width: 28px;
     opacity: 1; 
     background: var(--primary);
+}
+
+/* Barre de progression fine (remplace les points dans le nav du carrousel) */
+.carousel-progress {
+    display: block;
+    flex: 1;
+    height: 4px;
+    background: var(--border-light);
+    border-radius: 999px;
+    position: relative;
+    cursor: pointer;
+    margin: 0 6px;
+}
+
+.carousel-progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background: var(--primary);
+    border-radius: 999px;
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Zone de clic plus généreuse que les 4px visibles, sans agrandir la barre */
+.carousel-progress::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    bottom: -8px;
+    left: 0;
+    right: 0;
 }
 
 /* Contenu Slide */
@@ -2280,6 +2321,70 @@ footer {
 .flip-card-back p { 
     font-size: 0.9rem; 
     line-height: 1.4; 
+}
+
+/* Version Tabs (V1 / V2 / V3) */
+.version-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 14px 24px 0;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.version-tab-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid var(--border-light);
+    border-bottom: none;
+    color: var(--text-dim);
+    padding: 8px 18px;
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transform: translateY(1px);
+    transition: 0.25s;
+}
+
+.version-tab-btn .version-tag-label {
+    font-weight: 400;
+    font-size: 0.78rem;
+    opacity: 0.8;
+}
+
+.version-tab-btn:hover {
+    color: var(--primary);
+    background: rgba(var(--primary-rgb), 0.06);
+}
+
+.version-tab-btn.active {
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.version-panel {
+    display: none;
+}
+
+.version-panel.active {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .version-tabs {
+        padding: 10px 14px 0;
+        gap: 6px;
+    }
+    .version-tab-btn {
+        padding: 7px 12px;
+        font-size: 0.82rem;
+    }
+    .version-tab-btn .version-tag-label {
+        display: none;
+    }
 }
 
 /* Code Tabs */

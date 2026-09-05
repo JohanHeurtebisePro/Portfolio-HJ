@@ -222,11 +222,136 @@ if (typewriterElement) {
 // Configuration : index actuel, nombre total de slides, ID du compteur
 const trackStates = {
     'track1': { index: 0, total: 6, counterId: 'counter1' },
-    'track2': { index: 0, total: 9, counterId: 'counter2' },
-    'track3': { index: 0, total: 7, counterId: 'counter3' },
-    'track-salle': { index: 0, total: 11, counterId: 'counter-salle' },
-    'track-marque': { index: 0, total: 7, counterId: 'counter-marque' }
+    'track2': { index: 0, total: 8, counterId: 'counter2' },
+    'track3': { index: 0, total: 6, counterId: 'counter3' },
+    'track-salle-v1': { index: 0, total: 4, counterId: 'counter-salle' },
+    'track-salle-v2': { index: 0, total: 5, counterId: 'counter-salle' },
+    'track-salle-v3': { index: 0, total: 6, counterId: 'counter-salle' },
+    'track-marque': { index: 0, total: 6, counterId: 'counter-marque' }
 };
+
+// Retrouve le carrousel actuellement visible dans une modale
+// (gère les modales "classiques" à un seul carrousel ET les modales
+// à onglets de version où plusieurs carrousels coexistent dans le DOM).
+function getVisibleTrack(modal) {
+    return modal.querySelector('.version-panel.active .carousel-track') ||
+           modal.querySelector('.carousel-track');
+}
+
+// Retrouve le conteneur de points (dots) associé à un carrousel donné,
+// en restant dans le même panneau de version s'il y en a un.
+function getDotsIdForTrack(track) {
+    const scope = track.closest('.version-panel') || track.closest('.modal-content') || document;
+    const dotsEl = scope.querySelector('.carousel-dots');
+    return dotsEl ? dotsEl.id : null;
+}
+
+// ------------------------------------------------
+// Hauteur adaptative du carrousel (fini le grand vide blanc)
+// ------------------------------------------------
+// Un seul ResizeObserver réutilisé, qui observe le slide actuellement
+// visible et recalcule la hauteur du conteneur si son contenu change
+// (ex : une image qui finit de charger).
+let _activeSlideObserver = null;
+
+function updateSlideHeight(track) {
+    if (!track) return;
+    const container = track.closest('.carousel-container');
+    if (!container) return;
+
+    // Sur mobile, la modale est un bottom sheet à hauteur fixe (95dvh) :
+    // on laisse le CSS gérer, pas de hauteur inline.
+    if (window.innerWidth <= 900) {
+        container.style.height = '';
+        Array.from(track.children).forEach(slide => { slide.style.maxHeight = ''; });
+        return;
+    }
+
+    const state = trackStates[track.id];
+    if (!state) return;
+
+    const activeSlide = track.children[state.index];
+    if (!activeSlide) return;
+
+    const modalContent = track.closest('.modal-content');
+    const header = modalContent ? modalContent.querySelector('.modal-header') : null;
+    // IMPORTANT : ne pas faire modalContent.querySelector('.carousel-nav') ici.
+    // Dans les modales à onglets de version (ex : Salle Dispo), il y a PLUSIEURS
+    // .carousel-nav dans le DOM (une par panneau V1/V2/V3), et querySelector
+    // renvoie toujours la première trouvée — même si son panneau est caché
+    // (display: none), auquel cas son offsetHeight vaut 0. Le calcul de hauteur
+    // sous-estime alors l'espace réellement pris par la vraie barre de nav
+    // visible, ce qui fait déborder la modale du 85dvh et cache la barre de
+    // progression en bas quand le contenu du slide est un peu long.
+    // On récupère donc la nav qui suit directement CE carrousel (son sibling),
+    // qui est forcément la bonne, qu'on soit dans une modale simple ou à onglets.
+    const nav = (container.nextElementSibling && container.nextElementSibling.classList.contains('carousel-nav'))
+        ? container.nextElementSibling
+        : (modalContent ? modalContent.querySelector('.carousel-nav') : null);
+    // Modales à onglets de version (ex : Salle Dispo) : la barre d'onglets
+    // prend de la place entre le header et le carrousel, il faut la déduire
+    // elle aussi, sinon le calcul déborde du 85dvh et cache la nav/barre de progression.
+    const versionTabs = modalContent ? modalContent.querySelector('.version-tabs') : null;
+
+    // Espace total dispo = 85dvh (comme le max-height du .modal-content),
+    // moins le header, les éventuels onglets de version et la nav qui restent fixes.
+    const maxTotalHeight = window.innerHeight * 0.85;
+    const chromeHeight = (header ? header.offsetHeight : 0) +
+                          (versionTabs ? versionTabs.offsetHeight : 0) +
+                          (nav ? nav.offsetHeight : 0);
+    const maxSlideHeight = Math.max(150, maxTotalHeight - chromeHeight);
+
+    // IMPORTANT : le slide n'est pas étiré par le container (align-items:
+    // flex-start sur .carousel-track), donc limiter seulement la hauteur du
+    // container ne suffit pas — le slide garde sa hauteur naturelle complète
+    // et déborde du container en étant simplement rogné (overflow: hidden),
+    // sans jamais devenir scrollable. Il faut plafonner le slide lui-même
+    // pour que son propre overflow-y: auto prenne le relais.
+    const desiredHeight = Math.min(activeSlide.scrollHeight, maxSlideHeight);
+    activeSlide.style.maxHeight = `${desiredHeight}px`;
+    container.style.height = `${desiredHeight}px`;
+}
+
+// Observe le slide actif pour réagir aux changements de contenu
+// (chargement d'image, police, etc.) et pas seulement au changement de slide.
+function observeActiveSlide(track) {
+    if (!track) return;
+    const state = trackStates[track.id];
+    if (!state) return;
+    const activeSlide = track.children[state.index];
+    if (!activeSlide) return;
+
+    if (_activeSlideObserver) _activeSlideObserver.disconnect();
+
+    if (typeof ResizeObserver === 'undefined') return;
+    _activeSlideObserver = new ResizeObserver(() => updateSlideHeight(track));
+    _activeSlideObserver.observe(activeSlide);
+}
+
+// Bascule entre les versions (V1 / V2 / V3) d'un projet dans une modale
+function switchVersion(modalId, version) {
+    const modal = document.getElementById(modalId);
+    if (!modal) return;
+
+    modal.querySelectorAll('.version-tab-btn').forEach(btn => {
+        const isActive = btn.dataset.version === version;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    });
+
+    modal.querySelectorAll('.version-panel').forEach(panel => {
+        panel.classList.toggle('active', panel.dataset.versionPanel === version);
+    });
+
+    const activePanel = modal.querySelector(`.version-panel[data-version-panel="${version}"]`);
+    if (!activePanel) return;
+
+    const track = activePanel.querySelector('.carousel-track');
+    if (track && trackStates[track.id]) {
+        trackStates[track.id].index = 0;
+        updateCarouselUI(track.id, getDotsIdForTrack(track));
+    }
+}
 
 // Bloquer le scroll tactile iOS derrière la modale (sans position:fixed)
 function _preventTouchMove(e) {
@@ -281,16 +406,16 @@ function openModal(id, event) {
     document.addEventListener('touchmove', _preventTouchMove, { passive: false });
     
     // Reset du carrousel
-    const track = modal.querySelector('.carousel-track');
-    if (track) {
-        const trackId = track.id;
-        if (trackStates[trackId]) {
-            trackStates[trackId].index = 0;
-            let dotsId;
-            if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
-            else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
-            else { dotsId = 'dots' + trackId.slice(-1); }
-            updateCarouselUI(trackId, dotsId);
+    const versionTabs = modal.querySelector('.version-tabs');
+    if (versionTabs) {
+        // Modale à onglets de version (V1/V2/V3) : on revient toujours sur le 1er onglet
+        const firstBtn = versionTabs.querySelector('.version-tab-btn');
+        if (firstBtn) switchVersion(id, firstBtn.dataset.version);
+    } else {
+        const track = modal.querySelector('.carousel-track');
+        if (track && trackStates[track.id]) {
+            trackStates[track.id].index = 0;
+            updateCarouselUI(track.id, getDotsIdForTrack(track));
         }
     }
 
@@ -313,6 +438,11 @@ function closeModal(id) {
         // Nettoyer les valeurs de touch mémorisées
         modal.querySelectorAll('.carousel-slide, .modal-body-skill, .modal-single-page')
             .forEach(el => delete el._lastTouchY);
+        // Arrêter d'observer le slide de cette modale
+        if (_activeSlideObserver) {
+            _activeSlideObserver.disconnect();
+            _activeSlideObserver = null;
+        }
     }, 300);
 }
 
@@ -321,6 +451,32 @@ window.addEventListener('click', (e) => {
     if (e.target.classList.contains('modal')) { 
         closeModal(e.target.id); 
     }
+});
+
+// Clic sur la barre de progression : saute directement au slide correspondant
+document.addEventListener('click', (e) => {
+    const bar = e.target.closest('.carousel-progress');
+    if (!bar) return;
+    const trackId = bar.dataset.track;
+    const state = trackStates[trackId];
+    if (!state) return;
+    const rect = bar.getBoundingClientRect();
+    const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+    const index = Math.round(ratio * (state.total - 1));
+    goToSlide(trackId, index, bar.id);
+});
+
+// Recalcule la hauteur du slide actif si la fenêtre est redimensionnée
+// (ex : rotation d'écran, ou 85dvh qui change avec la hauteur de viewport)
+let _resizeRaf = null;
+window.addEventListener('resize', () => {
+    if (_resizeRaf) cancelAnimationFrame(_resizeRaf);
+    _resizeRaf = requestAnimationFrame(() => {
+        const activeModal = document.querySelector('.modal.show');
+        if (!activeModal) return;
+        const track = getVisibleTrack(activeModal);
+        if (track) updateSlideHeight(track);
+    });
 });
 
 // Bloquer le scroll du fond pendant qu'une modale est ouverte (desktop + mobile)
@@ -403,16 +559,13 @@ function updateCarouselUI(trackId, dotsContainerId) {
         track.style.transform = `translateX(${amountToMove}%)`;
     }
 
-    // B. Mettre à jour les points actifs
+    // B. Mettre à jour la barre de progression
     if (dotsContainer) {
-        const dots = dotsContainer.children;
-        for (let i = 0; i < dots.length; i++) {
-            dots[i].classList.remove('active');
-            dots[i].setAttribute('aria-selected', 'false');
-        }
-        if (dots[state.index]) {
-            dots[state.index].classList.add('active');
-            dots[state.index].setAttribute('aria-selected', 'true');
+        const fill = dotsContainer.querySelector('.carousel-progress-fill');
+        if (fill) {
+            const percent = state.total > 1 ? (state.index / (state.total - 1)) * 100 : 100;
+            fill.style.width = `${percent}%`;
+            dotsContainer.setAttribute('aria-valuenow', state.index + 1);
         }
     }
 
@@ -420,6 +573,10 @@ function updateCarouselUI(trackId, dotsContainerId) {
     if (counter) {
         counter.innerText = `${state.index + 1} / ${state.total}`;
     }
+
+    // D. Adapter la hauteur de la modale au slide actif
+    updateSlideHeight(track);
+    observeActiveSlide(track);
 }
 
 // Navigation clavier dans les modales
@@ -427,14 +584,11 @@ document.addEventListener('keydown', (e) => {
     const activeModal = document.querySelector('.modal.show');
     if (!activeModal) return;
 
-    const track = activeModal.querySelector('.carousel-track');
+    const track = getVisibleTrack(activeModal);
     if (!track) return;
 
     const trackId = track.id;
-    let dotsId;
-    if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
-    else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
-    else { dotsId = 'dots' + trackId.slice(-1); }
+    const dotsId = getDotsIdForTrack(track);
 
     if (e.key === 'ArrowLeft') {
         moveSlide(trackId, -1, dotsId);
@@ -471,7 +625,7 @@ document.addEventListener('keydown', (e) => {
         const container = activeModal.querySelector('.carousel-container');
         if (!container) return;
 
-        const track = activeModal.querySelector('.carousel-track');
+        const track = getVisibleTrack(activeModal);
         if (!track) return;
 
         const deltaX = e.changedTouches[0].clientX - touchStartX;
@@ -483,10 +637,7 @@ document.addEventListener('keydown', (e) => {
         if (Math.abs(deltaX) < 50) return;
 
         const trackId = track.id;
-        let dotsId;
-        if (trackId === 'track-salle') { dotsId = 'dots-salle'; }
-        else if (trackId === 'track-marque') { dotsId = 'dots-marque'; }
-        else { dotsId = 'dots' + trackId.slice(-1); }
+        const dotsId = getDotsIdForTrack(track);
 
         if (deltaX < 0) {
             moveSlide(trackId, 1, dotsId);   // swipe gauche → slide suivant
@@ -511,6 +662,15 @@ function toggleAccordion(element) {
         content.classList.add('active');
         content.style.maxHeight = content.scrollHeight + "px";
         if (icon) icon.style.transform = "rotate(180deg)";
+    }
+
+    // Recalcule la hauteur de la modale : l'ouverture/fermeture d'un
+    // accordéon change la hauteur du slide actif, donc la modale doit suivre.
+    // Petit délai pour laisser le temps au max-height de se poser dans le DOM.
+    const modal = element.closest('.modal');
+    const track = modal ? getVisibleTrack(modal) : null;
+    if (track) {
+        setTimeout(() => updateSlideHeight(track), 10);
     }
 }
 
