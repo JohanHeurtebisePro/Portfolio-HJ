@@ -3561,6 +3561,236 @@ footer {
 }
 
 /* =========================================
+   26bis-2. MODALE PROJET — STYLE DOCUMENTATION (SalleDispo)
+   Contenu long-format organisé par question, sans icônes ni cards répétées
+   ========================================= */
+.doc-slide {
+    width: 100%;
+}
+
+.doc-slide h4 {
+    font-size: 1.3rem;
+    margin-bottom: 4px;
+}
+
+.doc-question {
+    margin: 26px 0;
+}
+
+.doc-question:first-of-type {
+    margin-top: 18px;
+}
+
+.doc-question h5 {
+    font-size: 1rem;
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.doc-question p {
+    color: var(--text-dim);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.doc-question p strong {
+    color: var(--text-main);
+}
+
+.doc-question p code,
+.spec-list code,
+.doc-meta code {
+    background: var(--box-bg);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 0.85em;
+    color: var(--text-main);
+}
+
+/* Emplacement de capture d'écran (placeholder en attendant les vraies images) */
+.capture-frame {
+    margin: 22px 0;
+}
+
+.capture-frame__placeholder {
+    background: var(--box-bg);
+    border: 1px dashed var(--border-light);
+    border-radius: var(--radius);
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+}
+
+.capture-frame img {
+    width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    display: block;
+}
+
+.capture-frame figcaption {
+    margin-top: 10px;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    text-align: center;
+}
+
+/* Fiche technique — remplace les mini-cards à icônes */
+.spec-list {
+    list-style: none;
+    margin: 16px 0 0;
+    border-top: 1px solid var(--border-light);
+}
+
+.spec-list li {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.9rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+}
+
+.spec-list li strong {
+    flex: 0 0 auto;
+    color: var(--text-main);
+}
+
+/* Métadonnées de slide (statut, cible, lien...) */
+.doc-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 28px;
+    margin: 22px 0 0;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-light);
+}
+
+.doc-meta div,
+.doc-meta > a {
+    min-width: 140px;
+}
+
+.doc-meta strong {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.doc-meta span,
+.doc-meta a {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+/* Étapes de flux (remplace flow-diagram à icônes) */
+.flow-steps {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    margin: 24px 0;
+    flex-wrap: wrap;
+}
+
+.flow-step-doc {
+    flex: 1 1 160px;
+    min-width: 140px;
+    padding: 0 20px 0 0;
+    margin-right: 20px;
+    position: relative;
+    border-right: 1px solid var(--border-light);
+}
+
+.flow-step-doc:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.flow-step-doc .flow-index {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.flow-step-doc strong {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-main);
+    margin-bottom: 4px;
+}
+
+.flow-step-doc span {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.5;
+}
+
+@media (max-width: 700px) {
+    .flow-step-doc {
+        flex: 1 1 100%;
+        padding: 0 0 16px 0;
+        margin-right: 0;
+        border-right: none;
+        border-bottom: 1px solid var(--border-light);
+        margin-bottom: 16px;
+    }
+    .flow-step-doc:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+}
+
+/* Tableau comparatif (V1 vs V2) */
+.compare-table-wrap {
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.compare-table {
+    width: 100%;
+    min-width: 560px;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.compare-table th {
+    text-align: left;
+    padding: 10px 12px;
+    color: var(--text-dim);
+    font-weight: 600;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.compare-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    vertical-align: top;
+    color: var(--text-main);
+}
+
+.compare-table td:first-child {
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.compare-table td.old-value {
+    color: var(--text-dim);
+    font-weight: 400;
+}
+
+/* =========================================
    26ter. STATS RESULTATS (Slides bilan projet)
    ========================================= */
 .result-stats-grid {

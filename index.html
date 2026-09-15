@@ -1955,7 +1955,7 @@
                     <span class="badge-category">Développement</span>
                 </div>
                 <div class="header-controls">
-                    <span class="page-counter" id="counter-salle" aria-live="polite">1 / 4</span>
+                    <span class="page-counter" id="counter-salle" aria-live="polite">1 / 6</span>
                     <button class="close-btn" onclick="closeModal('modal-salle-dispo')" aria-label="Fermer la modale">&times;</button>
                 </div>
             </div>
@@ -1979,142 +1979,182 @@
             <div class="version-panel active" data-version-panel="v1">
             <div class="carousel-container">
                 <div class="carousel-track" id="track-salle-v1">
-                    <!-- V1 - Slide 1 : Contexte -->
+                    <!-- V1 - Slide 1 : Contexte & Problématique -->
                     <div class="carousel-slide">
-                        <div class="text-content">
-                            <h4>Problématique & Solution</h4>
-                            <p class="intro-text">
-                                À l'IUT, les étudiants perdent du temps à chercher une salle libre pour travailler en groupe.
-                                J'ai développé une première version d'application Python qui <strong>centralise les emplois du temps</strong> (.ICS)
-                                et affiche en temps réel les salles disponibles.
-                            </p>
+                        <div class="doc-slide">
+                            <h4>Contexte & Problématique</h4>
 
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Stack Technique</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li><strong>Backend :</strong> Python 3.10+ / Flask</li>
-                                        <li><strong>Parsing :</strong> Bibliothèque <code>icalendar</code></li>
-                                        <li><strong>Fuseaux horaires :</strong> <code>pytz</code> (Europe/Paris)</li>
-                                        <li><strong>Frontend :</strong> HTML/CSS/Bootstrap 5.3</li>
-                                    </ul>
-                                </div>
-                                <div class="brief-details">
-                                    <div class="detail-row">
-                                        <strong>Stockage</strong>
-                                        <span>Fichiers JSON, sans base de données</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>Statut</strong>
-                                        <span>Version historique, remplacée par la V2</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>GitHub</strong>
-                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
-                                    </div>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Le problème</h5>
+                                <p>À l'IUT, les emplois du temps changent constamment et l'information sur l'ENT n'est pas toujours consultable rapidement. Trouver une salle libre pour travailler en groupe implique souvent de vérifier physiquement chaque salle dans les couloirs. J'ai développé une première version d'application Python qui <strong>centralise les emplois du temps</strong> (fichiers .ICS) et affiche en temps réel les salles disponibles.</p>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Ce que fait SalleDispo</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Lecture automatique</strong> des calendriers ICS des salles (compatible exports ADE/ENT)</li>
+                                    <li><strong>Calcul temps réel</strong> de l'occupation (Libre / Occupé / Bientôt occupée)</li>
+                                    <li><strong>Équipements & localisation</strong> affichés pour chaque salle (PC, projecteur, position)</li>
+                                    <li><strong>Signalement collaboratif</strong> des incidents matériels par les usagers</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Objectif</strong><span>Optimiser l'occupation des locaux, réduire le temps perdu</span></div>
+                                <div><strong>Statut</strong><span>Version historique, remplacée par la V2</span></div>
+                                <div><strong>GitHub</strong><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V1 - Slide 2 : Fonctionnalités clés -->
+                    <!-- V1 - Slide 2 : Recherche & Filtrage avancé -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Fonctionnalités Clés</h4>
-                            <p class="intro-text">
-                                Un prototype volontairement simple, mais déjà pensé pour un usage quotidien réel à l'IUT.
-                            </p>
+                        <div class="doc-slide">
+                            <h4>Recherche & Filtrage Avancé</h4>
 
-                            <div class="cards-grid">
-                                <div class="mini-card">
-                                    <i class="fas fa-search"></i>
-                                    <strong>Disponibilité temps réel</strong>
-                                    <p>Détection des créneaux libres avec gestion précise des fuseaux horaires</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-filter"></i>
-                                    <strong>Filtres multi-critères</strong>
-                                    <p>Équipements, étage, aile du bâtiment, durée minimale disponible</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-tv"></i>
-                                    <strong>Mode Kiosque (TV)</strong>
-                                    <p>Accessible sans authentification, auto-scroll et rafraîchissement toutes les 2 min</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                    <strong>Signalement d'incidents</strong>
-                                    <p>Formulaire de signalement, historique stocké dans un fichier JSON</p>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Le cœur de l'application : afficher en un coup d'œil quelles salles sont disponibles, et permettre de les affiner selon ses besoins.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
-                                <h5>Calcul de progression</h5>
-                                <p>Une barre visuelle indique l'avancement du cours en cours dans la salle, pour savoir en un coup d'œil si elle se libère bientôt.</p>
+                            <figure class="capture-frame">
+                                <img src="image/intv1.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. 2 — Liste des salles avec filtres et barre de progression</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce qui est calculé</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Disponibilité temps réel</strong> algorithme de détection des créneaux libres avec gestion précise des fuseaux horaires</li>
+                                    <li><strong>Filtres multi-critères</strong> équipements (PC, vidéoprojecteur), localisation (étage, aile gauche/droite), durée minimale disponible</li>
+                                    <li><strong>Tri automatique</strong> mise en avant prioritaire des salles libres dans la liste</li>
+                                    <li><strong>Calcul de progression</strong> barre visuelle indiquant l'avancement du cours en cours dans la salle</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Pourquoi c'est utile</h5>
+                                <p>Savoir qu'une salle est "occupée" ne suffit pas : la barre de progression permet de voir en un coup d'œil si elle se libère dans 5 minutes ou dans 1h30, sans avoir à consulter l'emploi du temps complet.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V1 - Slide 3 : Architecture & structure -->
+                    <!-- V1 - Slide 3 : Mode Kiosque TV -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Architecture Simple, Sans Base de Données</h4>
-                            <p class="intro-text">
-                                Une architecture volontairement légère : pas de SGBD, tout repose sur la lecture directe des fichiers ICS et un stockage fichier pour les signalements.
-                            </p>
+                        <div class="doc-slide">
+                            <h4>Mode Kiosque (Écrans TV)</h4>
 
-                            <div class="flow-diagram">
-                                <div class="flow-step">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <strong>Fichiers .ICS</strong>
-                                    <span>Un fichier par salle, déposé dans <code>salleICS/</code></span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-cogs"></i>
-                                    <strong>Parsing Python</strong>
-                                    <span><code>icalendar</code> + <code>pytz</code></span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-server"></i>
-                                    <strong>Flask</strong>
-                                    <span>Routes qui exposent l'état des salles</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-desktop"></i>
-                                    <strong>Templates Jinja2</strong>
-                                    <span>Bootstrap, design "glassmorphism"</span>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Une interface spécifique dédiée aux écrans TV présents dans les halls d'entrée ou les salles de projet, pensée pour fonctionner sans aucune interaction humaine.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
+                            <figure class="capture-frame">
+                                <img src="image/tvv1.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. 3 — Vue kiosque affichée en boucle sur les écrans TV</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Fonctionnement</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Accès libre</strong> accessible sans authentification via un bouton d'accès rapide</li>
+                                    <li><strong>Défilement automatique</strong> auto-scroll intelligent pour parcourir l'ensemble des salles</li>
+                                    <li><strong>Rafraîchissement automatique</strong> les données se mettent à jour toutes les 2 minutes</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Cas d'usage</strong><span>Hall d'entrée, salle de projet</span></div>
+                                <div><strong>Public visé</strong><span>Tous, sans compte requis</span></div>
+                                <div><strong>Évolution en V2</strong><span>Passera derrière une authentification</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V1 - Slide 4 : Signalement d'incidents -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Maintenance & Signalement</h4>
+
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Un système collaboratif simple permettant aux usagers de signaler un problème matériel directement depuis l'application, sans passer par un service technique externe.</p>
+                            </div>
+
+                            <figure class="capture-frame">
+                                <img src="image/signv1.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. 4 — Formulaire de signalement d'un incident</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce que ça couvre</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Formulaire de signalement</strong> panne PC, ménage nécessaire, matériel manquant — associé directement à une salle</li>
+                                    <li><strong>Alerte visuelle</strong> affichage sur le tableau de bord pour prévenir les autres usagers d'un problème en cours</li>
+                                    <li><strong>Historique persistant</strong> chaque signalement est stocké dans <code>reports.json</code>, sans perte au redémarrage du serveur</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Limite de cette V1</h5>
+                                <p>L'écriture se fait directement dans le fichier JSON, sans historique structuré : pas de suivi de statut, pas de fil de commentaires avec l'administration. Ce sera l'un des points clés retravaillés en V2.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V1 - Slide 5 : Architecture & structure -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Architecture & Stack Technique</h4>
+
+                            <div class="doc-question">
+                                <h5>Comment c'est construit</h5>
+                                <p>Une architecture volontairement légère : pas de SGBD, tout repose sur la lecture directe des fichiers ICS et un stockage fichier pour la configuration et les signalements.</p>
+                            </div>
+
+                            <div class="flow-steps">
+                                <div class="flow-step-doc"><span class="flow-index">1</span><strong>Fichiers .ICS</strong><span>Un fichier par salle, déposé dans <code>salleICS/</code></span></div>
+                                <div class="flow-step-doc"><span class="flow-index">2</span><strong>Parsing Python</strong><span><code>icalendar</code> + <code>pytz</code></span></div>
+                                <div class="flow-step-doc"><span class="flow-index">3</span><strong>Flask</strong><span>Routes qui exposent l'état des salles</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">4</span><strong>Templates Jinja2</strong><span>Bootstrap 5.3, design "glassmorphism"</span></div>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Stack technique</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Backend</strong> Python 3.10+ / Flask</li>
+                                    <li><strong>Parsing</strong> bibliothèque <code>icalendar</code></li>
+                                    <li><strong>Fuseaux horaires</strong> <code>pytz</code> (Europe/Paris)</li>
+                                    <li><strong>Frontend</strong> HTML5, CSS3, Bootstrap 5.3</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Structure du projet</h5>
                                 <p><code>app.py</code> (routes & logique métier) · <code>config.json</code> (salles, équipements) · <code>reports.json</code> (incidents) · <code>salleICS/*.ics</code> · <code>templates/</code> (index, detail, login, tv).</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V1 - Slide 4 : Limites -->
+                    <!-- V1 - Slide 6 : Limites & Transition -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Limites de ce Prototype</h4>
-                            <p style="margin-bottom:24px; color:var(--text-dim);">Un premier jet fonctionnel, mais avec des limites qui ont motivé la réécriture en V2.</p>
+                        <div class="doc-slide">
+                            <h4>Limites & Transition vers la V2</h4>
+                            <p style="margin-bottom:8px; color:var(--text-dim);">Un premier jet fonctionnel, mais avec des limites qui ont motivé la réécriture complète en V2.</p>
 
-                            <div class="info-box info-box--warning">
+                            <div class="doc-question">
                                 <h5>Pas de vraie réservation</h5>
                                 <p>L'application se contente d'afficher l'état d'une salle (libre/occupé) à partir du planning officiel : impossible de réserver un créneau depuis l'app elle-même.</p>
                             </div>
 
-                            <div class="info-box info-box--warning">
-                                <h5>Stockage fichier, mono-établissement</h5>
-                                <p>Tout est stocké en JSON, sans base de données relationnelle : pas de relations complexes, pas de gestion multi-sites, pas d'historique structuré des incidents.</p>
+                            <div class="doc-question">
+                                <h5>Stockage fichier, mono-établissement, accès libre</h5>
+                                <p>Tout est stocké en JSON, sans base de données relationnelle, sans compte utilisateur : pas de relations complexes, pas de gestion multi-sites, pas d'historique structuré des incidents.</p>
                             </div>
 
-                            <div class="info-box info-box--success">
+                            <div class="doc-question">
                                 <h5>Une base saine pour la suite</h5>
-                                <p>Le cœur du calcul de disponibilité (lecture ICS, fuseau horaire, statut libre/occupé) a été conservé et enrichi dans la V2.</p>
+                                <p>Le cœur du calcul de disponibilité (lecture ICS, fuseau horaire, statut libre/occupé) a été conservé et enrichi dans la V2, qui ajoute la base de données, les comptes utilisateurs et la réservation réelle.</p>
                             </div>
                         </div>
                     </div>
@@ -2125,7 +2165,7 @@
                 <button class="carousel-btn" onclick="moveSlide('track-salle-v1', -1, 'dots-salle-v1')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="carousel-dots carousel-progress" id="dots-salle-v1" data-track="track-salle-v1" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
+                <div class="carousel-dots carousel-progress" id="dots-salle-v1" data-track="track-salle-v1" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
                 <button class="carousel-btn" onclick="moveSlide('track-salle-v1', 1, 'dots-salle-v1')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -2139,168 +2179,271 @@
             <div class="version-panel" data-version-panel="v2">
             <div class="carousel-container">
                 <div class="carousel-track" id="track-salle-v2">
-                    <!-- V2 - Slide 1 : Ce qui change -->
+                    <!-- V2 - Slide 1 : Vision & Ce qui change -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Réécriture Complète : de la Consultation à la Réservation</h4>
-                            <p class="intro-text">
-                                La V2 va plus loin qu'un simple visualiseur : elle <strong>croise les cours planifiés</strong> (ICS)
-                                avec les <strong>réservations réelles</strong> faites par les utilisateurs, pour donner une vision
-                                fiable de la disponibilité de chaque salle — places restantes, jusqu'à quelle heure, pour combien de personnes.
-                            </p>
 
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Principaux changements vs V1</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Stockage JSON → <strong>base SQLite</strong> (17 tables)</li>
-                                        <li>Accès libre → <strong>comptes utilisateurs</strong> (Flask-Login)</li>
-                                        <li>Consultation seule → <strong>réservation réelle</strong> de créneaux</li>
-                                        <li>Aucune interface → <strong>back-office</strong> complet</li>
-                                    </ul>
-                                </div>
-                                <div class="brief-details">
-                                    <div class="detail-row">
-                                        <strong>Stockage</strong>
-                                        <span>SQLite, 17 tables relationnelles</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>Statut</strong>
-                                        <span>Version intermédiaire, mono-établissement</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>GitHub</strong>
-                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
-                                    </div>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Ce que la V2 change</h5>
+                                <p>La V2 va plus loin qu'un simple visualiseur : elle <strong>croise les cours planifiés</strong> (ICS) avec les <strong>réservations réelles</strong> faites par les utilisateurs, pour donner à tout moment une vision fiable et unique de la disponibilité de chaque salle — combien de places restent libres, jusqu'à quelle heure, et pour combien de personnes on peut encore réserver.</p>
+                                <ul class="spec-list">
+                                    <li><strong>Stockage</strong> fichiers JSON remplacés par une base <strong>SQLite</strong> relationnelle (17 tables)</li>
+                                    <li><strong>Comptes utilisateurs</strong> accès libre remplacé par des comptes avec rôles (Flask-Login)</li>
+                                    <li><strong>Réservation</strong> simple consultation remplacée par une réservation réelle de créneaux</li>
+                                    <li><strong>Multi-sites</strong> un seul établissement devient une gestion multi-sites, admin scindé par campus</li>
+                                    <li><strong>Back-office</strong> aucune interface auparavant, désormais un back-office complet</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Stockage</strong><span>SQLite, 17 tables relationnelles</span></div>
+                                <div><strong>Statut</strong><span>Version actuelle, multi-sites</span></div>
+                                <div><strong>GitHub</strong><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></div>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V2 - Slide 2 : Architecture -->
+                    <!-- V2 - Slide 2 : Tableau comparatif complet V1 vs V2 -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Architecture & Fonctionnement</h4>
-                            <p class="intro-text">
-                                Chaque salle est désormais évaluée en croisant trois sources : le planning ICS, les réservations
-                                enregistrées en base, et les blocages posés par l'administration.
-                            </p>
+                        <div class="doc-slide">
+                            <h4>Ce qui a Changé Depuis la V1</h4>
+                            <p style="margin-bottom:16px; color:var(--text-dim);">Le projet est parti d'un prototype simple pour devenir une application multi-utilisateurs avec base de données. Comparatif complet des deux versions :</p>
 
-                            <div class="flow-diagram">
-                                <div class="flow-step">
-                                    <i class="fas fa-calendar-alt"></i>
-                                    <strong>Flux ICS</strong>
-                                    <span>Fichier local ou URL distante (chiffrée en base)</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-database"></i>
-                                    <strong>Réservations & blocages</strong>
-                                    <span>Stockés et vérifiés dans SQLite</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-calculator"></i>
-                                    <strong>Calcul du statut</strong>
-                                    <span>Libre / occupé / bientôt libre + places restantes</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-user-shield"></i>
-                                    <strong>Rôles</strong>
-                                    <span>Utilisateur / admin, selon les droits</span>
-                                </div>
+                            <div class="compare-table-wrap">
+                                <table class="compare-table">
+                                    <thead>
+                                        <tr><th>Aspect</th><th>V1 (prototype)</th><th>V2 (actuelle)</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr><td>Stockage</td><td class="old-value">Fichiers JSON (<code>config.json</code>, <code>reports.json</code>)</td><td>Base <strong>SQLite</strong>, 17 tables</td></tr>
+                                        <tr><td>Comptes utilisateurs</td><td class="old-value">Aucun compte, accès libre</td><td>Comptes complets (Flask-Login), rôles user / admin de site / super-admin</td></tr>
+                                        <tr><td>Sites / campus</td><td class="old-value">Un seul établissement</td><td>Support <strong>multi-sites</strong>, admin scindé par site</td></tr>
+                                        <tr><td>Réservation</td><td class="old-value">Consultation seule (libre/occupé)</td><td><strong>Réservation réelle</strong>, participants, conflits, capacité restante</td></tr>
+                                        <tr><td>Signalements</td><td class="old-value">Écriture directe JSON, sans historique</td><td>Tables <code>reports</code> + <code>report_events</code> + <code>report_comments</code></td></tr>
+                                        <tr><td>Sources ICS</td><td class="old-value">Fichiers déposés manuellement</td><td>Fichier local ou URL distante, chiffrée en base (Fernet)</td></tr>
+                                        <tr><td>Mode TV</td><td class="old-value">Accessible sans authentification</td><td>Protégé (<code>@login_required</code>), variante par site</td></tr>
+                                        <tr><td>Mot de passe oublié</td><td class="old-value">Non géré</td><td>Réinitialisation par e-mail, token à usage unique</td></tr>
+                                        <tr><td>Notifications</td><td class="old-value">Aucune</td><td>Notifications utilisateur + annonces établissement</td></tr>
+                                        <tr><td>Sécurité</td><td class="old-value">Aucune protection spécifique</td><td>CSRF, rate limiting, en-têtes sécurisés, mots de passe hachés</td></tr>
+                                        <tr><td>Administration</td><td class="old-value">Aucune interface dédiée</td><td>Back-office complet (salles, users, sites, promotions, signalements, annonces)</td></tr>
+                                    </tbody>
+                                </table>
                             </div>
 
-                            <div class="info-box info-box--primary">
+                            <div class="doc-question">
+                                <p>Le cœur du calcul de disponibilité (lecture ICS, calcul libre/occupé, fuseau horaire) reste dans la même logique que la V1, mais a été étendu pour tenir compte des réservations et des capacités restantes.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 3 : Recherche & disponibilité enrichies -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Recherche & Disponibilité Enrichies</h4>
+
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Le calcul de disponibilité de la V1 est repris et étendu : il ne se limite plus au planning officiel, il tient compte des réservations réelles pour donner une vision précise, jusqu'au nombre de places restantes.</p>
+                            </div>
+
+                            <figure class="capture-frame">
+                                <img src="image/resa_salle.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. 6 — Recherche de salle avec places restantes</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce qui est calculé</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Places restantes</strong> une salle "occupée" par un petit groupe reste réservable pour sa capacité restante, calculée sur le nombre réel de participants inscrits</li>
+                                    <li><strong>Barre de progression</strong> du cours ou de la réservation en cours, pour savoir en un coup d'œil si la salle se libère bientôt</li>
+                                    <li><strong>Filtres étendus</strong> équipements, étage, aile du bâtiment, et désormais capacité minimale</li>
+                                    <li><strong>Choix du site/campus</strong> sélection du campus en session, pour filtrer automatiquement les salles pertinentes</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Heatmap horaire</h5>
+                                <p>Une vue d'ensemble de l'occupation par jour de la semaine et tranche horaire permet de repérer d'un coup d'œil les créneaux les plus demandés sur une semaine type.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 4 : Réservation -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Réservation de Créneaux</h4>
+
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>La fonctionnalité phare de cette V2 : ne plus se contenter de consulter la disponibilité, mais pouvoir réserver directement un créneau depuis l'application.</p>
+                            </div>
+
+                            <figure class="capture-frame">
+                                <img src="image/resa_creneau.png" alt="Formulaire de réservation d'un créneau" loading="lazy">
+                                <figcaption>Fig. 7 — Formulaire de réservation d'un créneau</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce que couvre la réservation</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Participants</strong> sélection du nombre de participants et ajout de participants nommés</li>
+                                    <li><strong>Vérification des conflits</strong> cours planifié, blocage administratif, autre réservation, capacité dépassée</li>
+                                    <li><strong>Mes réservations</strong> vue des réservations à venir (annulation possible) et passées</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Conflits vérifiés</strong><span>Cours, blocage, autre résa, capacité</span></div>
+                                <div><strong>Blocages admin</strong><span>Maintenance, événement — invisibles comme créneaux libres</span></div>
+                                <div><strong>Annulation</strong><span>Depuis « Mes réservations »</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 5 : Compte utilisateur & signalements enrichis -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Compte Utilisateur & Suivi des Signalements</h4>
+
+                            <div class="doc-question">
+                                <h5>Ce que ça couvre</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Compte utilisateur</strong> inscription, connexion sécurisée, gestion du profil, changement de mot de passe avec jauge de robustesse en direct</li>
+                                    <li><strong>Mot de passe oublié</strong> réinitialisation par e-mail avec token à usage unique</li>
+                                    <li><strong>Signalements suivis</strong> historique horodaté (<code>report_events</code>) + fil de commentaires avec l'administration (<code>report_comments</code>)</li>
+                                    <li><strong>Notifications & annonces</strong> notifications utilisateur générées par les actions clés, annonces diffusées par l'établissement</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Mode Kiosque protégé</h5>
+                                <p>L'accès TV, libre en V1, passe désormais derrière une connexion (<code>@login_required</code>), avec une variante filtrée par campus (<code>/tv/&lt;site_id&gt;</code>).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 6 : Architecture & fonctionnement interne -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Architecture & Fonctionnement Interne</h4>
+
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Chaque salle est désormais évaluée en croisant trois sources : le planning ICS, les réservations enregistrées en base, et les blocages posés par l'administration.</p>
+                            </div>
+
+                            <div class="flow-steps">
+                                <div class="flow-step-doc"><span class="flow-index">1</span><strong>Flux ICS</strong><span>Fichier local ou URL distante (chiffrée en base)</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">2</span><strong>Réservations & blocages</strong><span>Stockés et vérifiés dans SQLite</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">3</span><strong>Calcul du statut</strong><span>Libre / occupé / bientôt libre + places restantes</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">4</span><strong>Rôles</strong><span>user / admin de site / super-admin</span></div>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Deux niveaux d'administration</h5>
+                                <p><strong>Super-admin :</strong> vue et gestion sur tous les sites. <strong>Admin de site :</strong> limité à son propre campus. Chaque rôle détermine les salles, utilisateurs et signalements visibles et modifiables.</p>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Pourquoi SQLite ?</h5>
-                                <p>Suffisant pour un établissement unique, sans serveur de base de données à administrer séparément — un bon compromis robustesse/simplicité pour cette étape du projet.</p>
+                                <p>Un bon compromis robustesse/simplicité pour cette étape : suffisant pour héberger plusieurs sites sans avoir à administrer un serveur de base de données séparé.</p>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V2 - Slide 3 : Fonctionnalités -->
+                    <!-- V2 - Slide 7 : Back-office, sécurité & stack -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Fonctionnalités Clés</h4>
+                        <div class="doc-slide">
+                            <h4>Back-Office, Sécurité & Stack Technique</h4>
 
-                            <div class="cards-grid">
-                                <div class="mini-card">
-                                    <i class="fas fa-calendar-check"></i>
-                                    <strong>Réservation de créneaux</strong>
-                                    <p>Nombre de participants, détection automatique des conflits</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-users"></i>
-                                    <strong>Capacité restante</strong>
-                                    <p>Une salle partiellement occupée reste réservable pour le reste de sa capacité</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-tv"></i>
-                                    <strong>Mode Kiosque protégé</strong>
-                                    <p>Accès TV désormais derrière une connexion (<code>@login_required</code>)</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-tools"></i>
-                                    <strong>Suivi des signalements</strong>
-                                    <p>Historique horodaté + fil de commentaires avec l'administration</p>
-                                </div>
-                            </div>
-
-                            <div class="info-box info-box--primary">
-                                <h5>Compte utilisateur</h5>
-                                <p>Inscription, connexion sécurisée, changement de mot de passe avec jauge de robustesse, réinitialisation par e-mail en cas d'oubli.</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- V2 - Slide 4 : Administration & sécurité -->
-                    <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Back-Office & Sécurité</h4>
-                            <p style="margin-bottom:24px; color:var(--text-dim);">Une vraie interface d'administration, absente de la V1, et un niveau de sécurité nettement renforcé.</p>
-
-                            <div class="info-box info-box--success">
+                            <div class="doc-question">
                                 <h5>Interface d'administration</h5>
-                                <p>Gestion des salles (équipements, photos, statut, source ICS), des utilisateurs, traitement des signalements (statut, priorité, réponses), envoi d'annonces et export des réservations.</p>
+                                <p>Gestion des salles (création, photos, équipements, statut, source ICS), des utilisateurs (y compris comptes admin), des sites/campus (horaires, jours d'ouverture, couleur, logo) et des promotions. Traitement des signalements, envoi d'annonces, export des réservations, purge et création manuelle de créneaux.</p>
                             </div>
 
-                            <div class="info-box info-box--warning">
+                            <div class="doc-question">
                                 <h5>Sécurisation de l'application</h5>
-                                <p>Mots de passe hachés (<code>scrypt</code>), protection CSRF (Flask-WTF), limitation du taux de tentatives sur <code>/login</code> (Flask-Limiter), en-têtes de sécurité (Flask-Talisman), et URLs ICS sensibles chiffrées en base (Fernet).</p>
+                                <p>Mots de passe hachés (<code>scrypt</code>), protection CSRF (Flask-WTF), limitation à 5 tentatives / 5 min sur <code>/login</code> (Flask-Limiter), en-têtes de sécurité (Flask-Talisman), URLs ICS chiffrées en base (Fernet), redirections post-login validées contre les open redirects.</p>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Stack technique complète</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Backend</strong> Flask 3 (routing, logique métier) + Flask-Login (sessions)</li>
+                                    <li><strong>Sécurité applicative</strong> Flask-WTF (CSRF) + Flask-Limiter (anti-abus) + Flask-Talisman (en-têtes HTTP)</li>
+                                    <li><strong>Persistance</strong> SQLite (<code>sqlite3</code>) pour la persistance des données métier</li>
+                                    <li><strong>ICS & fuseaux</strong> <code>icalendar</code> (lecture ICS) + <code>pytz</code>/<code>zoneinfo</code> (fuseaux horaires)</li>
+                                    <li><strong>Chiffrement & e-mails</strong> <code>cryptography</code> (Fernet) + <code>smtplib</code> (envoi d'e-mails)</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
 
-                    <!-- V2 - Slide 5 : Modèle de données & stack -->
+                    <!-- V2 - Slide 8 : Interface Admin -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
-                            <h4>Modèle de Données & Stack Technique</h4>
+                        <div class="doc-slide">
+                            <h4>L'Interface d'Administration</h4>
 
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>17 tables, 4 grands domaines</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li><strong>Établissement :</strong> salles, photos, promotions, annonces</li>
-                                        <li><strong>Comptes :</strong> users, tokens, notifications</li>
-                                        <li><strong>Réservation :</strong> reservations, participants, blocages</li>
-                                        <li><strong>Signalements :</strong> reports, historique, commentaires</li>
-                                    </ul>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Stack technique</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Flask 3 + Flask-Login + Flask-WTF</li>
-                                        <li>Flask-Limiter + Flask-Talisman</li>
-                                        <li>SQLite, <code>icalendar</code>, <code>pytz</code>/<code>zoneinfo</code></li>
-                                        <li><code>cryptography</code> (Fernet), <code>smtplib</code></li>
-                                    </ul>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Ce qu'on y trouve</h5>
+                                <p>Le back-office regroupe en un seul endroit toute la gestion de l'établissement : accessible aux rôles admin de site et super-admin, il remplace l'absence totale d'interface d'administration de la V1.</p>
                             </div>
 
-                            <div class="info-box">
+                            <figure class="capture-frame">
+                                <img src="image/admin.png" alt="Formulaire de réservation d'un créneau" loading="lazy">
+                                <figcaption>Fig. 8 — Vue d'ensemble du back-office d'administration</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Fonctions couvertes</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Salles</strong> création, photos, équipements, statut, source ICS (fichier ou URL distante)</li>
+                                    <li><strong>Utilisateurs</strong> création et gestion des comptes, y compris comptes admin</li>
+                                    <li><strong>Sites / campus</strong> horaires, jours d'ouverture, couleur, logo</li>
+                                    <li><strong>Promotions</strong> gestion des groupes rattachés à un site</li>
+                                    <li><strong>Signalements</strong> traitement, suivi de statut, fil de commentaires avec l'utilisateur</li>
+                                    <li><strong>Annonces</strong> rédaction et diffusion aux utilisateurs d'un site</li>
+                                    <li><strong>Créneaux</strong> export des réservations, purge et création manuelle</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Accès</strong><span>Rôles admin de site / super-admin uniquement</span></div>
+                                <div><strong>Portée</strong><span>Super-admin : tous les sites — Admin de site : son campus</span></div>
+                                <div><strong>Statut</strong><span>Capture d'écran à venir</span></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- V2 - Slide 9 : Modèle de données, structure & statut -->
+                    <div class="carousel-slide">
+                        <div class="doc-slide">
+                            <h4>Modèle de Données & Structure du Projet</h4>
+
+                            <div class="doc-question">
+                                <h5>17 tables, 4 grands domaines</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Établissement</strong> <code>sites</code>, <code>salles</code>, <code>salle_photos</code>, <code>promotions</code>, <code>settings</code>, <code>annonces</code></li>
+                                    <li><strong>Comptes</strong> <code>users</code>, <code>password_reset_tokens</code>, <code>pwd_requests</code>, <code>notifications</code></li>
+                                    <li><strong>Réservation</strong> <code>reservations</code>, <code>reservation_participants</code>, <code>blocages</code></li>
+                                    <li><strong>Signalements</strong> <code>reports</code>, <code>report_events</code>, <code>report_comments</code></li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Structure du projet</h5>
+                                <p><code>app.py</code> (routes) · <code>database.py</code> (accès SQLite) · <code>email_service.py</code> (e-mails) · <code>ics_crypto.py</code> (chiffrement Fernet) · <code>templates/</code> (index, detail, reserver, tv, admin...)</p>
+                            </div>
+
+                            <div class="doc-question">
+                                <h5>Statut du projet</h5>
+                                <p>Ce projet reste un <strong>projet étudiant / démonstration</strong> : il n'a pas fait l'objet d'un audit de sécurité formel et ne doit pas être considéré comme prêt pour un usage en production sans revue.</p>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Et ensuite ?</h5>
-                                <p style="color:var(--text-dim);">Cette version reste pensée pour un seul établissement. L'étape suivante — la V3 — fait évoluer l'application vers une gestion multi-sites et multi-administration.</p>
+                                <p>La V3 fait évoluer l'application vers un véritable produit SaaS B2B : abonnements Stripe, connexion Azure AD, synchronisation Outlook/Teams et interface multi-tenant pour plusieurs entreprises clientes.</p>
                             </div>
                         </div>
                     </div>
@@ -2311,7 +2454,7 @@
                 <button class="carousel-btn" onclick="moveSlide('track-salle-v2', -1, 'dots-salle-v2')" aria-label="Slide précédent">
                     <i class="fas fa-chevron-left"></i>
                 </button>
-                <div class="carousel-dots carousel-progress" id="dots-salle-v2" data-track="track-salle-v2" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="5" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
+                <div class="carousel-dots carousel-progress" id="dots-salle-v2" data-track="track-salle-v2" role="progressbar" aria-label="Progression des slides" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1"><div class="carousel-progress-fill"></div></div>
                 <button class="carousel-btn" onclick="moveSlide('track-salle-v2', 1, 'dots-salle-v2')" aria-label="Slide suivant">
                     <i class="fas fa-chevron-right"></i>
                 </button>
@@ -2327,79 +2470,46 @@
                 <div class="carousel-track" id="track-salle-v3">
                     <!-- V3 - Slide 1 : Vision & Pivot -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Pivot : d'un Outil Campus à une Offre SaaS B2B</h4>
-                            <p class="intro-text">
-                                Objectif de la V3 : transformer l'outil pensé pour un IUT en <strong>véritable produit SaaS</strong>
-                                destiné aux entreprises pour gérer leurs salles de réunion — avec abonnement, facturation,
-                                interface d'administration professionnelle et intégration à l'écosystème Microsoft 365.
-                            </p>
 
-                            <div class="project-brief-grid">
-                                <div class="info-box info-box--primary">
-                                    <h5>Ce que ça change</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Mono-établissement → <strong>multi-clients (multi-tenant)</strong></li>
-                                        <li>Réservation informelle → <strong>abonnement payant</strong> par entreprise</li>
-                                        <li>Comptes locaux → <strong>connexion Azure AD</strong> (SSO entreprise)</li>
-                                        <li>Réservation manuelle → <strong>synchronisation Outlook / Teams</strong></li>
-                                    </ul>
-                                </div>
-                                <div class="brief-details">
-                                    <div class="detail-row">
-                                        <strong>Cible</strong>
-                                        <span>Entreprises, gestion de salles de réunion</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>Statut</strong>
-                                        <span>🚧 En cours de conception / développement</span>
-                                    </div>
-                                    <div class="detail-row">
-                                        <strong>GitHub</strong>
-                                        <span><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></span>
-                                    </div>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Ce que ça change</h5>
+                                <p>Objectif de la V3 : transformer l'outil pensé pour un IUT en <strong>véritable produit SaaS</strong> destiné aux entreprises pour gérer leurs salles de réunion — avec abonnement, facturation, interface d'administration professionnelle et intégration à l'écosystème Microsoft 365.</p>
+                                <ul class="spec-list">
+                                    <li><strong>Multi-tenant</strong> mono-établissement devient multi-clients (multi-tenant)</li>
+                                    <li><strong>Abonnement</strong> réservation informelle remplacée par un abonnement payant par entreprise</li>
+                                    <li><strong>SSO entreprise</strong> comptes locaux remplacés par une connexion Azure AD</li>
+                                    <li><strong>Synchronisation</strong> réservation manuelle remplacée par une synchronisation Outlook / Teams</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-meta">
+                                <div><strong>Cible</strong><span>Entreprises, gestion de salles de réunion</span></div>
+                                <div><strong>Statut</strong><span>En cours de conception / développement</span></div>
+                                <div><strong>GitHub</strong><a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer">Voir le repo</a></div>
                             </div>
                         </div>
                     </div>
 
                     <!-- V3 - Slide 2 : Modèle SaaS & Facturation -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Modèle SaaS : Abonnements & Facturation</h4>
-                            <p class="intro-text">
-                                Chaque entreprise cliente souscrit à un <strong>abonnement</strong> (plusieurs paliers tarifaires,
-                                avec des fonctionnalités différentes selon le plan), géré et modifiable directement depuis son
-                                interface d'administration.
-                            </p>
 
-                            <div class="flow-diagram">
-                                <div class="flow-step">
-                                    <i class="fab fa-stripe-s"></i>
-                                    <strong>Stripe</strong>
-                                    <span>Paiement, changement de plan, facturation récurrente</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-bolt"></i>
-                                    <strong>Webhooks Stripe</strong>
-                                    <span>Écoute des évènements (paiement, changement, résiliation)</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-database"></i>
-                                    <strong>PostgreSQL</strong>
-                                    <span>Enregistrement de l'état d'abonnement de chaque client</span>
-                                </div>
-                                <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-                                <div class="flow-step">
-                                    <i class="fas fa-user-cog"></i>
-                                    <strong>Interface Admin</strong>
-                                    <span>Le client change lui-même de formule à tout moment</span>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Chaque entreprise cliente souscrit à un <strong>abonnement</strong> (plusieurs paliers tarifaires, avec des fonctionnalités différentes selon le plan), géré et modifiable directement depuis son interface d'administration.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
+                            <div class="flow-steps">
+                                <div class="flow-step-doc"><span class="flow-index">1</span><strong>Stripe</strong><span>Paiement, changement de plan, facturation récurrente</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">2</span><strong>Webhooks Stripe</strong><span>Écoute des évènements (paiement, changement, résiliation)</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">3</span><strong>PostgreSQL</strong><span>Enregistrement de l'état d'abonnement de chaque client</span></div>
+                                <div class="flow-step-doc"><span class="flow-index">4</span><strong>Interface admin</strong><span>Le client change lui-même de formule à tout moment</span></div>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Pourquoi PostgreSQL ?</h5>
                                 <p>Passage de SQLite à PostgreSQL pour supporter une charge multi-clients concurrente et des accès simultanés fiables, indispensable dès qu'on facture plusieurs entreprises sur la même infrastructure.</p>
                             </div>
@@ -2408,37 +2518,30 @@
 
                     <!-- V3 - Slide 3 : Intégrations Microsoft 365 -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Intégration Microsoft 365</h4>
-                            <p class="intro-text">
-                                L'application se connecte directement à l'environnement Microsoft de l'entreprise cliente,
-                                pour s'intégrer aux habitudes déjà en place plutôt que d'en créer de nouvelles.
-                            </p>
 
-                            <div class="cards-grid">
-                                <div class="mini-card">
-                                    <i class="fas fa-id-badge"></i>
-                                    <strong>SSO Azure AD</strong>
-                                    <p>Les employés se connectent avec leur compte Microsoft d'entreprise</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-envelope-open-text"></i>
-                                    <strong>Sync Outlook</strong>
-                                    <p>Une invitation Outlook avec une salle en lieu déclenche la réservation automatique</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-users"></i>
-                                    <strong>Teams</strong>
-                                    <p>Liaison des comptes Teams pour retrouver la réservation depuis les réunions</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-sync-alt"></i>
-                                    <strong>Réservation bidirectionnelle</strong>
-                                    <p>Une réservation faite dans l'app se reflète dans le calendrier Outlook, et inversement</p>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>L'application se connecte directement à l'environnement Microsoft de l'entreprise cliente, pour s'intégrer aux habitudes déjà en place plutôt que d'en créer de nouvelles.</p>
                             </div>
 
-                            <div class="info-box info-box--warning">
+                            <figure class="capture-frame">
+                                    <img src="image/outlook.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. — Aperçu de la synchronisation Outlook</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce que ça couvre</h5>
+                                <ul class="spec-list">
+                                    <li><strong>SSO Azure AD</strong> les employés se connectent avec leur compte Microsoft d'entreprise</li>
+                                    <li><strong>Sync Outlook</strong> une invitation Outlook avec une salle en lieu déclenche la réservation automatique</li>
+                                    <li><strong>Teams</strong> liaison des comptes Teams pour retrouver la réservation depuis les réunions</li>
+                                    <li><strong>Réservation bidirectionnelle</strong> une réservation faite dans l'app se reflète dans le calendrier Outlook, et inversement</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Défi technique à venir</h5>
                                 <p>Utiliser Microsoft Graph API pour lire/écrire les évènements Outlook et gérer les salles comme des ressources de calendrier, en gardant l'état de l'app et celui d'Outlook toujours synchronisés.</p>
                             </div>
@@ -2447,21 +2550,21 @@
 
                     <!-- V3 - Slide 4 : Interface Admin Pro & Multi-tenant -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Interface Administrateur Professionnelle</h4>
-                            <p style="margin-bottom:24px; color:var(--text-dim);">Une interface repensée pour des clients entreprise, pas seulement pour un unique administrateur d'établissement.</p>
+                            <p style="margin-bottom:8px; color:var(--text-dim);">Une interface repensée pour des clients entreprise, pas seulement pour un unique administrateur d'établissement.</p>
 
-                            <div class="info-box info-box--success">
+                            <div class="doc-question">
                                 <h5>Gestion multi-clients (multi-tenant)</h5>
                                 <p>Chaque entreprise dispose de son propre espace isolé : salles, employés, abonnement et statistiques d'usage propres à son organisation.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
-                                <h5>Design plus "produit"</h5>
+                            <div class="doc-question">
+                                <h5>Design plus « produit »</h5>
                                 <p>Interface repensée dans une direction plus professionnelle (moins "projet étudiant"), pensée pour être présentée et vendue à des décideurs en entreprise.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
+                            <div class="doc-question">
                                 <h5>Gestion de l'abonnement en self-service</h5>
                                 <p>Le client peut changer de formule, consulter sa facturation et gérer ses employés directement depuis son espace admin, sans intervention manuelle.</p>
                             </div>
@@ -2470,32 +2573,29 @@
 
                     <!-- V3 - Slide 5 : Mode Tablette -->
                     <div class="carousel-slide">
-                        <div class="text-content" style="width:100%;">
+                        <div class="doc-slide">
                             <h4>Affichage Tablette Devant les Salles</h4>
-                            <p class="intro-text">
-                                Une tablette fixée à l'entrée de chaque salle de réunion affiche son statut en direct et permet
-                                une réservation immédiate, sans ouvrir l'application complète.
-                            </p>
 
-                            <div class="cards-grid">
-                                <div class="mini-card">
-                                    <i class="fas fa-tablet-alt"></i>
-                                    <strong>Statut en direct</strong>
-                                    <p>Libre / occupée / prochaine réunion visible immédiatement</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-bolt"></i>
-                                    <strong>Réservation rapide</strong>
-                                    <p>Réserver un créneau libre en quelques secondes, sans compte à saisir</p>
-                                </div>
-                                <div class="mini-card">
-                                    <i class="fas fa-building"></i>
-                                    <strong>Identité de l'entreprise</strong>
-                                    <p>Logo et couleurs de l'entreprise cliente, cohérents avec son environnement</p>
-                                </div>
+                            <div class="doc-question">
+                                <h5>Comment ça fonctionne</h5>
+                                <p>Une tablette fixée à l'entrée de chaque salle de réunion affiche son statut en direct et permet une réservation immédiate, sans ouvrir l'application complète.</p>
                             </div>
 
-                            <div class="info-box info-box--primary">
+                            <figure class="capture-frame">
+                                    <img src="image/tablette.png" alt="Liste des salles avec filtres et barre de progression" loading="lazy">
+                                <figcaption>Fig. — Écran tablette devant une salle de réunion</figcaption>
+                            </figure>
+
+                            <div class="doc-question">
+                                <h5>Ce que ça couvre</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Statut en direct</strong> libre / occupée / prochaine réunion visible immédiatement</li>
+                                    <li><strong>Réservation rapide</strong> réserver un créneau libre en quelques secondes, sans compte à saisir</li>
+                                    <li><strong>Identité de l'entreprise</strong> logo et couleurs de l'entreprise cliente, cohérents avec son environnement</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question">
                                 <h5>Un mode pensé pour l'usage réel</h5>
                                 <p>Prolongement naturel du mode Kiosque des versions précédentes, mais orienté ici sur une seule salle à la fois plutôt qu'un tableau d'ensemble.</p>
                             </div>
@@ -2511,28 +2611,25 @@
                                 (calcul de disponibilité, réservations, sécurité) pour construire une vraie offre commerciale.
                             </p>
 
-                            <div class="project-brief-grid" style="text-align:left;">
-                                <div class="info-box info-box--primary">
-                                    <h5>Étapes clés à venir</h5>
-                                    <ul class="check-list custom-bullet">
-                                        <li>Migration SQLite → PostgreSQL</li>
-                                        <li>Intégration Stripe (abonnements + webhooks)</li>
-                                        <li>Connexion Azure AD (SSO entreprise)</li>
-                                        <li>Intégration Microsoft Graph (Outlook/Teams)</li>
-                                        <li>Interface tablette dédiée par salle</li>
-                                    </ul>
-                                </div>
-                                <div class="info-box info-box--primary">
-                                    <h5>Pourquoi ce pivot ?</h5>
-                                    <p>Passer d'un projet étudiant utile à quelques dizaines d'utilisateurs à un produit capable de générer un revenu récurrent, en s'appuyant sur des outils déjà utilisés massivement en entreprise (Microsoft 365, Stripe).</p>
-                                </div>
+                            <div class="doc-question" style="text-align:left;">
+                                <h5>Étapes clés à venir</h5>
+                                <ul class="spec-list">
+                                    <li><strong>Migration</strong> SQLite → PostgreSQL</li>
+                                    <li><strong>Stripe</strong> intégration des abonnements et des webhooks</li>
+                                    <li><strong>Azure AD</strong> connexion SSO entreprise</li>
+                                    <li><strong>Microsoft Graph</strong> intégration Outlook/Teams</li>
+                                    <li><strong>Tablette</strong> interface dédiée par salle</li>
+                                </ul>
+                            </div>
+
+                            <div class="doc-question" style="text-align:left;">
+                                <h5>Pourquoi ce pivot ?</h5>
+                                <p>Passer d'un projet étudiant utile à quelques dizaines d'utilisateurs à un produit capable de générer un revenu récurrent, en s'appuyant sur des outils déjà utilisés massivement en entreprise (Microsoft 365, Stripe).</p>
                             </div>
 
                             <div class="download-section" style="margin-top: 30px;">
                                 <div class="btn-group">
-                                    <a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
-                                        <i class="fab fa-github"></i> Voir sur GitHub
-                                    </a>
+                                    <a href="https://github.com/JohanHeurtebisePro/SalleDispo" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Voir sur GitHub</a>
                                 </div>
                             </div>
                         </div>

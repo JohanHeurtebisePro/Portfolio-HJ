@@ -224,8 +224,8 @@ const trackStates = {
     'track1': { index: 0, total: 6, counterId: 'counter1' },
     'track2': { index: 0, total: 8, counterId: 'counter2' },
     'track3': { index: 0, total: 6, counterId: 'counter3' },
-    'track-salle-v1': { index: 0, total: 4, counterId: 'counter-salle' },
-    'track-salle-v2': { index: 0, total: 5, counterId: 'counter-salle' },
+    'track-salle-v1': { index: 0, total: 6, counterId: 'counter-salle' },
+    'track-salle-v2': { index: 0, total: 8, counterId: 'counter-salle' },
     'track-salle-v3': { index: 0, total: 6, counterId: 'counter-salle' },
     'track-marque': { index: 0, total: 6, counterId: 'counter-marque' }
 };
